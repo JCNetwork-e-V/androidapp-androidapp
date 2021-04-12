@@ -1,0 +1,270 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.drawerlayout.widget.DrawerLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/drawer_layout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true"
+    tools:openDrawer="start">
+
+    <androidx.coordinatorlayout.widget.CoordinatorLayout
+        android:id="@+id/coordinator"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fitsSystemWindows="true">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:background="@color/black"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:navigationIcon="@drawable/ic_baseline_menu_24"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"/>
+
+        <ImageView
+            android:id="@+id/arrow_img"
+            android:layout_width="match_parent"
+            android:layout_height="300dp"
+            android:background="@drawable/color_gradient"
+            android:contentDescription="@string/arrow_image"
+            android:scaleType="centerCrop"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/toolbar" />
+
+        <TextView
+            android:id="@+id/welcome_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="50dp"
+            android:text="@string/hallo"
+            android:textColor="@color/white"
+            android:textSize="25sp"
+            app:layout_constraintBottom_toTopOf="@id/name_tv"
+            app:layout_constraintRight_toRightOf="parent" />
+
+        <TextView
+            android:id="@+id/name_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="50dp"
+            android:layout_marginBottom="30dp"
+            android:text=""
+            android:textColor="@color/white"
+            android:textSize="30sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="@id/arrow_img"
+            app:layout_constraintRight_toRightOf="parent" />
+
+        <ImageView
+            android:id="@+id/logo_img"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="50dp"
+            android:layout_marginTop="50dp"
+            android:layout_marginEnd="50dp"
+            android:contentDescription="@string/logo_image"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/ic_logo_jcnetwork_standard_white" />
+
+        <!--    Check In-->
+        <ImageButton
+            android:id="@+id/check_in_button"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_marginStart="30dp"
+            android:layout_marginTop="30dp"
+            android:background="@drawable/hexagon_button"
+            android:contentDescription="@string/check_in_button"
+            android:elevation="16dp"
+            android:foreground="@drawable/ic_baseline_check_24"
+            android:foregroundGravity="center"
+            android:scaleType="centerCrop"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/arrow_img" />
+
+        <TextView
+            android:id="@+id/check_in_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:gravity="center_horizontal"
+            android:text="@string/check_in"
+            app:layout_constraintEnd_toEndOf="@id/check_in_button"
+            app:layout_constraintStart_toStartOf="@id/check_in_button"
+            app:layout_constraintTop_toBottomOf="@id/check_in_button" />
+
+        <!--    Schedule-->
+        <ImageButton
+            android:id="@+id/schedule_button"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_marginTop="30dp"
+            android:background="@drawable/hexagon_button"
+            android:contentDescription="@string/schedule_button"
+            android:elevation="16dp"
+            android:foreground="@drawable/ic_baseline_menu_24"
+            android:foregroundGravity="center"
+            android:scaleType="centerCrop"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/arrow_img" />
+
+        <TextView
+            android:id="@+id/schedule_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="@string/ablaufplan"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/schedule_button" />
+
+        <!--    Points-->
+        <ImageButton
+            android:id="@+id/certification_points_button"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_marginTop="30dp"
+            android:layout_marginEnd="30dp"
+            android:background="@drawable/hexagon_button"
+            android:contentDescription="@string/points_button"
+            android:elevation="16dp"
+            android:foreground="@drawable/ic_baseline_network_check_24"
+            android:foregroundGravity="center"
+            android:scaleType="centerCrop"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/arrow_img" />
+
+        <TextView
+            android:id="@+id/certification_points_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:gravity="center_horizontal"
+            android:text="@string/punkte"
+            app:layout_constraintEnd_toEndOf="@id/certification_points_button"
+            app:layout_constraintStart_toStartOf="@id/certification_points_button"
+            app:layout_constraintTop_toBottomOf="@id/certification_points_button" />
+
+        <!--    City-->
+        <ImageButton
+            android:id="@+id/city_button"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_marginStart="30dp"
+            android:layout_marginTop="30dp"
+            android:background="@drawable/hexagon_button"
+            android:contentDescription="@string/city_button"
+            android:elevation="16dp"
+            android:foreground="@drawable/ic_baseline_local_hotel_24"
+            android:foregroundGravity="center"
+            android:scaleType="centerCrop"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/check_in_tv" />
+
+        <TextView
+            android:id="@+id/city_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:gravity="center_horizontal"
+            android:text="@string/stadt"
+            app:layout_constraintEnd_toEndOf="@id/city_button"
+            app:layout_constraintStart_toStartOf="@id/city_button"
+            app:layout_constraintTop_toBottomOf="@id/city_button" />
+
+        <!--    Profile-->
+        <ImageButton
+            android:id="@+id/profile_button"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_marginTop="30dp"
+            android:background="@drawable/hexagon_button"
+            android:contentDescription="@string/profile_button"
+            android:elevation="16dp"
+            android:foreground="@drawable/ic_baseline_person_24"
+            android:foregroundGravity="center"
+            android:scaleType="centerCrop"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/schedule_tv" />
+
+        <TextView
+            android:id="@+id/profile_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="@string/profil"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/profile_button" />
+
+        <!--    Club-->
+        <ImageButton
+            android:id="@+id/club_button"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_marginTop="30dp"
+            android:layout_marginEnd="30dp"
+            android:background="@drawable/hexagon_button"
+            android:contentDescription="@string/club_button"
+            android:elevation="16dp"
+            android:foreground="@drawable/ic_baseline_work_24"
+            android:foregroundGravity="center"
+            android:scaleType="centerCrop"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/certification_points_tv" />
+
+        <TextView
+            android:id="@+id/club_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:gravity="center_horizontal"
+            android:text="@string/jobwall"
+            app:layout_constraintEnd_toEndOf="@id/club_button"
+            app:layout_constraintStart_toStartOf="@id/club_button"
+            app:layout_constraintTop_toBottomOf="@id/club_button" />
+
+        <!--    End Credits-->
+        <TextView
+            android:id="@+id/credits_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingTop="50dp"
+            android:paddingBottom="30dp"
+            android:text="© Layla Rohkohl"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/club_tv" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
+
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
+
+        <com.google.android.material.navigation.NavigationView
+            android:id="@+id/navigation_drawer"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_gravity="start"
+            app:headerLayout="@layout/navigation_header"
+            app:menu="@menu/main_menu"/>
+
+    </androidx.drawerlayout.widget.DrawerLayout>
+
+

@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView android:id="@+id/card_layout"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_margin="8dp"
+    app:cardCornerRadius="16dp"
+    android:elevation="8dp"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+    <Button
+        android:id="@+id/back_button"
+        android:foreground="@drawable/ic_baseline_arrow_back_24"
+        android:background="#00000000"
+        android:layout_width="24dp"
+        android:layout_height="24dp"
+        android:layout_margin="8dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"/>
+
+    <ScrollView
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:background="@color/white"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:id="@+id/color_bar"
+                android:transitionName="bar"
+                android:src="@mipmap/ws_lz_small_2"
+                android:layout_width="match_parent"
+                android:scaleType="centerCrop"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                android:layout_height="300dp" />
+
+            <View
+                android:id="@+id/dividing_line"
+                android:layout_marginBottom="8dp"
+                android:layout_width="0dp"
+                android:layout_height="1dp"
+                android:background="@color/colorPrimary"
+                android:outlineAmbientShadowColor="@color/colorPrimaryDark"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/color_bar"/>
+
+            <!-- Title of event -->
+            <TextView
+                android:transitionName="title"
+                android:paddingTop="8dp"
+                android:paddingBottom="8dp"
+                android:layout_marginStart="8dp"
+                android:id="@+id/title"
+                android:text="Dummy title"
+                android:textStyle="bold"
+                android:textColor="@color/black"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toBottomOf="@id/dividing_line"
+                app:layout_constraintStart_toStartOf="parent" />
+
+            <!-- Place of event -->
+            <ImageView
+                android:id="@+id/place_icon"
+                android:layout_marginStart="8dp"
+                app:layout_constraintTop_toBottomOf="@id/title"
+                app:layout_constraintStart_toStartOf="parent"
+                android:src="@drawable/ic_baseline_place_24"
+                android:layout_width="24dp"
+                android:layout_height="24dp"/>
+
+            <TextView
+                android:transitionName="place"
+                android:id="@+id/place"
+                android:text="Dummy Place"
+                android:paddingStart="8dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toTopOf="@id/place_icon"
+                app:layout_constraintLeft_toRightOf="@id/place_icon"
+                app:layout_constraintBottom_toBottomOf="@id/place_icon"/>
+
+            <!-- Time of event -->
+            <ImageView
+                android:id="@+id/time_icon"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="4dp"
+                app:layout_constraintTop_toBottomOf="@id/place"
+                app:layout_constraintStart_toStartOf="parent"
+                android:src="@drawable/ic_baseline_access_time_24"
+                android:layout_width="24dp"
+                android:layout_height="24dp"/>
+
+            <TextView
+                android:transitionName="time"
+                android:id="@+id/time"
+                android:text="Dummy Time"
+                android:paddingStart="8dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toTopOf="@id/time_icon"
+                app:layout_constraintLeft_toRightOf="@id/time_icon"
+                app:layout_constraintBottom_toBottomOf="@id/time_icon"/>
+
+            <!-- Empty view to add some spacing between time and outline -->
+            <View
+                android:id="@+id/extra_spacer"
+                android:layout_width="match_parent"
+                android:background="@color/colorPrimary"
+                android:layout_marginTop="8dp"
+                android:layout_height="1dp"
+                app:layout_constraintTop_toBottomOf="@id/time"/>
+
+            <!-- Quick go button to event -->
+            <ImageView
+                android:transitionName="map"
+                android:id="@+id/go_arrow"
+                android:src="@drawable/ic_baseline_map_24"
+                android:layout_marginEnd="8dp"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                app:layout_constraintTop_toTopOf="@id/title"
+                app:layout_constraintBottom_toBottomOf="@id/extra_spacer"
+                app:layout_constraintEnd_toEndOf="parent"/>
+
+            <!-- Description of the event -->
+            <TextView
+                android:id="@+id/description"
+                android:text="Dummy description of the event"
+                android:layout_margin="8dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toBottomOf="@id/extra_spacer"/>
+
+            <!-- Extra space in around the same height + margin of the feedback button
+            this view is only there if the feedback is also there -->
+            <View
+                android:id="@+id/feedback_button_above_space"
+                android:layout_width="match_parent"
+                android:layout_height="72dp"
+                android:visibility="gone"
+                app:layout_constraintTop_toBottomOf="@id/description"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"/>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
+
+        <!-- Feedback button only visible if event is a workshop -->
+        <ImageButton
+            android:id="@+id/workshop_feedback_button"
+            android:background="@drawable/ic_hexagon_blue_up_48"
+            android:foreground="@drawable/ic_baseline_create_24_white"
+            android:visibility="gone"
+            android:layout_marginBottom="8dp"
+            android:layout_marginEnd="8dp"
+            android:foregroundGravity="center"
+            android:layout_width="56dp"
+            android:layout_height="56dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.cardview.widget.CardView>

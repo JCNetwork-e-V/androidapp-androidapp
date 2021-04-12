@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    android:id="@+id/points_scrollview"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    tools:context=".ui.PointsActivity">
+
+<LinearLayout
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+<!--    Schulungen und Workshops-->
+    <TextView
+        style="@style/PointLabelTheme"
+        android:text="Schulungen und Workshops:" />
+
+    <ProgressBar
+        android:id="@+id/gesamt_points_progress_bar"
+        style="@style/PointProgressBarTheme" />
+
+    <TextView
+        android:id="@+id/gesamt_points_tv"
+        style="@style/PointTextTheme"/>
+
+    <FrameLayout
+        style="@style/PointDividerTheme"/>
+
+<!--    Case Studies-->
+    <TextView
+        android:text="Case Studies:"
+        style="@style/PointLabelTheme"/>
+
+    <ProgressBar
+        android:id="@+id/case_points_progress_bar"
+        style="@style/PointProgressBarTheme" />
+
+    <TextView
+        android:id="@+id/case_points_tv"
+        style="@style/PointTextTheme"/>
+
+    <FrameLayout
+        style="@style/PointDividerTheme"/>
+
+<!--    Praxiserfahrung-->
+    <TextView
+        android:text="Praxiserfahrung:"
+        style="@style/PointLabelTheme"/>
+
+    <ProgressBar
+        android:id="@+id/experience_points_progress_bar"
+        style="@style/PointProgressBarTheme"/>
+
+    <TextView
+        android:id="@+id/experience_points_tv"
+        style="@style/PointTextTheme"/>
+
+</LinearLayout>
+
+</ScrollView>

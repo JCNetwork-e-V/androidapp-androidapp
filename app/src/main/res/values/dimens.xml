@@ -1,0 +1,18 @@
+<resources>
+    <!-- Default screen margins, per the Android Design guidelines. -->
+    <dimen name="activity_horizontal_margin">16dp</dimen>
+    <dimen name="activity_vertical_margin">16dp</dimen>
+
+    <!--
+Refer to App Widget Documentation for margin information
+http://developer.android.com/guide/topics/appwidgets/index.html#CreatingLayout
+    -->
+    <dimen name="widget_margin">8dp</dimen>
+
+    <!-- Font Size Dimen -->
+    <dimen name="tiny_note_text_size">10sp</dimen>
+    <dimen name="small_text_size">16sp</dimen>
+    <dimen name="medium_body_text_size">20sp</dimen>
+    <dimen name="large_heading_text_size">24sp</dimen>
+
+</resources>

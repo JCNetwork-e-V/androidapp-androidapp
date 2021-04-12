@@ -1,0 +1,14 @@
+<resources>
+    <!-- Design Preference -->
+    <!-- Visible to user -->
+    <string-array name="design_options_entries">
+        <item>Tag</item>
+        <item>Nacht</item>
+    </string-array>
+
+    <!-- Not -->
+    <string-array name="design_options_values">
+        <item>day</item>
+        <item>night</item>
+    </string-array>
+</resources>

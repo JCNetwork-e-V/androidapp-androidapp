@@ -1,0 +1,51 @@
+<PreferenceScreen xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <PreferenceCategory app:title="@string/design">
+
+<!--        <EditTextPreference-->
+<!--            app:key="signature"-->
+<!--            app:title="@string/signature_title"-->
+<!--            app:useSimpleSummaryProvider="true" />-->
+
+        <ListPreference
+            app:defaultValue="Tag"
+            app:entries="@array/design_options_entries"
+            app:entryValues="@array/design_options_values"
+            app:key="mode"
+            app:title="@string/modus"
+            app:useSimpleSummaryProvider="true" />
+
+    </PreferenceCategory>
+
+    <PreferenceCategory app:title="@string/notifications">
+
+<!--        <SwitchPreferenceCompat-->
+<!--            app:key="sync"-->
+<!--            app:title="@string/workshop_title" />-->
+
+<!--        <SwitchPreferenceCompat-->
+<!--            app:dependency="sync"-->
+<!--            app:key="attachment"-->
+<!--            app:summaryOff="@string/attachment_summary_off"-->
+<!--            app:summaryOn="@string/attachment_summary_on"-->
+<!--            app:title="@string/attachment_title" />-->
+
+        <SwitchPreferenceCompat
+            app:key="workshop_notification"
+            app:switchTextOn="On"
+            app:switchTextOff="Off"
+            app:summaryOff="@string/workshop_summary_off"
+            app:summaryOn="@string/workshop_summary_on"
+            app:title="@string/workshop_title" />
+
+        <SwitchPreferenceCompat
+            app:key="day_register_notification"
+            app:switchTextOn="On"
+            app:switchTextOff="Off"
+            app:summaryOff="@string/days_summary_off"
+            app:summaryOn="@string/days_summary_on"
+            app:title="@string/days_title" />
+
+    </PreferenceCategory>
+
+</PreferenceScreen>

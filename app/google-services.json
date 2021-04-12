@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "1043347747655",
+    "firebase_url": "https://jcnetwork-app.firebaseio.com",
+    "project_id": "jcnetwork-app",
+    "storage_bucket": "jcnetwork-app.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1043347747655:android:923968f84499f2d1a51262",
+        "android_client_info": {
+          "package_name": "com.jcnetwork.android.jctestapp1"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1043347747655-talekvs38shjhu8kn8cvg5e093hma1n6.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBxXJf6amIkYcQifQIJFZHOKqLD7RygLAU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1043347747655-talekvs38shjhu8kn8cvg5e093hma1n6.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

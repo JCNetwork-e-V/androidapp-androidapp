@@ -1,0 +1,123 @@
+package com.jcnetwork.android.jctestapp1.ui;
+
+import android.content.Intent;
+import android.net.Uri;
+import android.os.Bundle;
+import android.view.View;
+import android.widget.ImageButton;
+
+import androidx.annotation.Nullable;
+import androidx.appcompat.app.ActionBar;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.content.ContextCompat;
+
+import com.jcnetwork.android.jctestapp1.R;
+
+public class RegistrationActivity extends AppCompatActivity {
+
+    // For loggin
+    private final String LOG_TAG = this.getClass().getSimpleName();
+
+    // Views
+//    ViewPager2 mViewPager2;
+//    TabLayout mTabLayout;
+//    RegistrationAdapter mViewAdapter;
+    private ImageButton daysBtn;
+    private ImageButton executivedaysBtn;
+    private ImageButton develoopmentdaysBtn;
+
+    @Override
+    protected void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_registraion);
+
+        // Set up support bar
+        ActionBar actionBar = getSupportActionBar();
+        if (actionBar != null) {
+            actionBar.setDisplayHomeAsUpEnabled(true);
+            actionBar.setBackgroundDrawable(ContextCompat.getDrawable(this, R.drawable.color_gradient));
+        }
+
+        // Find views
+        daysBtn = (ImageButton) findViewById(R.id.normal_days_image);
+        executivedaysBtn = (ImageButton) findViewById(R.id.executive_days_image);
+        develoopmentdaysBtn = (ImageButton) findViewById(R.id.development_days_image);
+
+        // Register on click listener
+        daysBtn.setOnClickListener(myWebViewListener);
+        executivedaysBtn.setOnClickListener(myWebViewListener);
+        develoopmentdaysBtn.setOnClickListener(myWebViewListener);
+
+//        mViewPager2 = (ViewPager2) findViewById(R.id.view_pager);
+//        mTabLayout = (TabLayout) findViewById(R.id.tab_layout);
+//
+//        // Set up viewpager
+//        mViewAdapter = new RegistrationAdapter(this);
+//        mViewPager2.setAdapter(mViewAdapter);
+//
+//        // Set up tab layout
+//        new TabLayoutMediator(mTabLayout, mViewPager2,
+//                new TabLayoutMediator.TabConfigurationStrategy() {
+//                    @Override
+//                    public void onConfigureTab(@NonNull TabLayout.Tab tab, int position) {
+//                        // Set default day
+//                        String typeOfDays = "";
+//                        // Get type of day based on position
+//                        switch (position) {
+//                            case 0:
+//                                // The normal JCNetwork Days
+//                                typeOfDays = "JCNetwork";
+//                                break;
+//                            case 1:
+//                                // The JCNetwork Development Days
+//                                typeOfDays = "Development";
+//                                break;
+//                            case 3:
+//                                // The JCNetwork Executive Days
+//                                typeOfDays = "Executive";
+//                                break;
+//                            default:
+//                                // Set a default
+//                                typeOfDays = "JCNetwork";
+//                                break;
+//                        }
+//                        tab.setText(typeOfDays);
+//                    }
+//                }).attach();
+    }
+
+    /**
+     * Creates an onClickListener which checks the id of the view and points user to correct webaddress in browser
+     */
+    private View.OnClickListener myWebViewListener = new View.OnClickListener() {
+        @Override
+        public void onClick(View view) {
+            // React differently according to id
+            switch (view.getId()) {
+                case R.id.normal_days_image:
+                    // Open link in browser to register
+                    openLinkInBrower("https://days.jcnetwork.de/days-application/");
+                    break;
+                case R.id.executive_days_image:
+                    // Open link in browser to register
+                    openLinkInBrower("https://executivedays.jcevents.jcnetwork.de/days-application/");
+                    break;
+                case R.id.development_days_image:
+                    // Open link in browser to register
+                    openLinkInBrower("https://developmentdays.jcevents.jcnetwork.de/days-application/");
+                    break;
+                default:
+                    break;
+            }
+        }
+    };
+
+    /**
+     * Method to open given link in browser via intnet
+     */
+    private void openLinkInBrower(String url) {
+        Intent i = new Intent(Intent.ACTION_VIEW);
+        i.setData(Uri.parse(url));
+        startActivity(i);
+    }
+}

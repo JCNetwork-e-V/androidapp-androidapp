@@ -1,0 +1,182 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.jcnetwork.android.jctestapp1">
+    <!-- Adding internet permissions to perform network operations -->
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" /> <!-- Persission to use coarse location for guiding to next event via google maps -->
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+
+    <application
+        android:allowBackup="true"
+        android:hardwareAccelerated="false"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:largeHeap="true"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+
+        <!-- Widget to display the current program point -->
+        <receiver android:name="com.jcnetwork.android.jctestapp1.widget.CurrentProgramPointWidget">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
+                <action android:name="android.appwidget.action.ACTION_NEW_EVENT" />
+            </intent-filter>
+
+            <meta-data
+                android:name="android.appwidget.provider"
+                android:resource="@xml/current_program_point_widget_info" />
+        </receiver> <!-- Updating widget service -->
+        <service
+            android:name="com.jcnetwork.android.jctestapp1.widget.WidgetService"
+            android:permission="android:permission.BIND_REMOTEVIEWS" /> <!-- To fix an issue 'NoClassFedFoundError:failed resolution -->
+        <uses-library
+            android:name="org.apache.http.legacy"
+            android:required="false" />
+
+        <!-- Main Activity -->
+        <activity android:name="com.jcnetwork.android.jctestapp1.ui.MainActivity"
+            android:theme="@style/MainTheme">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <!-- Login Activity -->
+        <activity
+            android:name="com.jcnetwork.android.jctestapp1.hiddenactivities.LoginActivity"
+            android:label="Login"
+            android:parentActivityName="com.jcnetwork.android.jctestapp1.ui.MainActivity"
+            android:theme="@style/Login">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.jcnetwork.android.jctestapp1.ui.MainActivity" />
+        </activity>
+
+        <!-- Registration Activity -->
+        <activity
+            android:name="com.jcnetwork.android.jctestapp1.ui.RegistrationActivity"
+            android:label="Anmeldung"
+            android:parentActivityName="com.jcnetwork.android.jctestapp1.ui.MainActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.jcnetwork.android.jctestapp1.ui.MainActivity" />
+        </activity>
+
+        <!-- Settings Activity -->
+        <activity
+            android:name="com.jcnetwork.android.jctestapp1.hiddenactivities.SettingsActivity"
+            android:label="@string/title_activity_settings"
+            android:theme="@style/SettingsTheme"
+            android:parentActivityName="com.jcnetwork.android.jctestapp1.ui.MainActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.jcnetwork.android.jctestapp1.ui.MainActivity" />
+        </activity>
+
+        <!-- FAQ Activity -->
+        <activity
+            android:name="com.jcnetwork.android.jctestapp1.hiddenactivities.FAQsActivity"
+            android:label="FAQs"
+            android:theme="@style/SettingsTheme"
+            android:parentActivityName="com.jcnetwork.android.jctestapp1.ui.MainActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.jcnetwork.android.jctestapp1.ui.MainActivity" />
+        </activity>
+
+        <!-- Impressum Activity -->
+        <activity
+            android:name="com.jcnetwork.android.jctestapp1.hiddenactivities.ImpressumActivity"
+            android:label="Impressum"
+            android:theme="@style/SettingsTheme"
+            android:parentActivityName="com.jcnetwork.android.jctestapp1.ui.MainActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.jcnetwork.android.jctestapp1.ui.MainActivity" />
+        </activity>
+
+        <!-- Jobwall Activity -->
+        <activity
+            android:name="com.jcnetwork.android.jctestapp1.hiddenactivities.JobwallActivity"
+            android:label="Jobwall"
+            android:parentActivityName="com.jcnetwork.android.jctestapp1.ui.MainActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.jcnetwork.android.jctestapp1.ui.MainActivity" />
+        </activity>
+
+        <!-- City Intro Activity -->
+        <activity
+            android:name="com.jcnetwork.android.jctestapp1.ui.CityActivity"
+            android:label="City"
+            android:parentActivityName="com.jcnetwork.android.jctestapp1.ui.MainActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.jcnetwork.android.jctestapp1.ui.MainActivity" />
+        </activity> <!-- Club Intro Activity -->
+        <activity
+            android:name="com.jcnetwork.android.jctestapp1.ui.ClubActivity"
+            android:label="Club"
+            android:parentActivityName="com.jcnetwork.android.jctestapp1.ui.MainActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.jcnetwork.android.jctestapp1.ui.MainActivity" />
+        </activity> <!-- Point Activity -->
+        <activity
+            android:name="com.jcnetwork.android.jctestapp1.ui.PointsActivity"
+            android:label="Points"
+            android:parentActivityName="com.jcnetwork.android.jctestapp1.ui.MainActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.jcnetwork.android.jctestapp1.ui.MainActivity" />
+        </activity> <!-- CV Activity -->
+        <activity
+            android:name="com.jcnetwork.android.jctestapp1.ui.CVActivity"
+            android:label="CV"
+            android:parentActivityName="com.jcnetwork.android.jctestapp1.ui.MainActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.jcnetwork.android.jctestapp1.ui.MainActivity" />
+        </activity> <!-- QR Code or Checkin Activity -->
+        <activity
+            android:name="com.jcnetwork.android.jctestapp1.ui.CheckInActivity"
+            android:label="QR"
+            android:parentActivityName="com.jcnetwork.android.jctestapp1.ui.MainActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.jcnetwork.android.jctestapp1.ui.MainActivity" />
+        </activity> <!-- Schedule Activity -->
+        <activity
+            android:name="com.jcnetwork.android.jctestapp1.ui.PlanActivity"
+            android:label="Schedule"
+            android:parentActivityName="com.jcnetwork.android.jctestapp1.ui.MainActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+
+                <data android:scheme="geo" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.jcnetwork.android.jctestapp1.ui.MainActivity" />
+        </activity> <!-- Detail Activity with NO Action Bar set in theme -->
+        <activity
+            android:name="com.jcnetwork.android.jctestapp1.ui.DetailActivity"
+            android:label="Detail"
+            android:parentActivityName="com.jcnetwork.android.jctestapp1.ui.PlanActivity"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.jcnetwork.android.jctestapp1.ui.PlanActivity" />
+        </activity>
+
+        <meta-data
+            android:name="preloaded_fonts"
+            android:resource="@array/preloaded_fonts" />
+    </application>
+
+</manifest>

@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <!-- NAVIGATION goals to hidden activitites-->
+
+    <item android:title="Navigation">
+
+        <menu>
+            <group android:checkableBehavior="single">
+
+            <item android:id="@+id/home"
+                android:orderInCategory="1"
+                android:title="Start"
+                android:icon="@drawable/ic_baseline_home_24"/>
+
+            <!-- Go to Settings e.g. to turn off notifications -->
+            <item android:id="@+id/settings"
+                android:orderInCategory="2"
+                android:title="Einstellungen"
+                android:icon="@drawable/ic_baseline_settings_24"/>
+
+            <!-- Go to FAQ Section where you can contact support -->
+            <item android:id="@+id/faq"
+                android:orderInCategory="3"
+                android:title="FAQ"
+                android:icon="@drawable/ic_baseline_question_answer_24"/>
+
+            <!-- Go to Impressum Section for legal reasons: max. 2 clicks away, needs to be always available -->
+            <item android:id="@+id/impressum"
+                android:orderInCategory="4"
+                android:title="Impressum"
+                android:icon="@drawable/ic_baseline_info_24"/>
+
+            </group>
+
+        </menu>
+    </item>
+
+    <!-- ACTIONS -->
+
+    <item android:title="Aktion">
+
+        <menu>
+            <group android:checkableBehavior="single">
+
+                <!-- TODO Implement share app over SM -->
+                <item
+                    android:id="@+id/share"
+                    android:title="Teilen"
+                    android:icon="@drawable/ic_baseline_share_24"/>
+
+                <item
+                    android:id="@+id/support"
+                    android:title="Support"
+                    android:icon="@drawable/ic_baseline_contact_support_24"/>
+
+                <!--  Logout -->
+                <item android:id="@+id/logout"
+                    android:title="Logout"
+                    android:icon="@drawable/ic_baseline_exit_to_app_24"/>
+
+            </group>
+
+        </menu>
+    </item>
+
+</menu>

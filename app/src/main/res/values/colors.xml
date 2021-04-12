@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#336699</color>
+    <color name="colorPrimaryDark">#374049</color>
+    <color name="colorAccent">#EB8C00</color>
+    <color name="lightGray">#7F7F7F</color>
+    <color name="white">#ffffff</color>
+    <color name="black">#090a0b</color>
+<!--        Official colors taken from CI Handbook and converted to Hex values-->
+<!--    Blau: RGB: 51-102-153-->
+<!--    Hellgrau: 127-127-127-->
+<!--    Dunkelgrau: 92-93-100-->
+<!--    Akzentorange: 235-140-0-->
+
+    <!-- New shades -->
+    <color name="darkerBlue">#2D5181</color>
+    <color name="lighterBlue">#3F6495</color>
+    <color name="partyGrey">#5D5D5D</color>
+    <color name="lightGrey">#BFBFBF</color>
+
+    <!-- From website
+    Darker Gray is rgb 55, 64, 73; or #374049 -->
+
+    <!-- Transparent White for login on button pressed used in Login;
+     the first 2 characters are for the opacity BF = 75%; see below the hex opacity values
+        100% — FF
+        95% — F2
+        90% — E6
+        85% — D9
+        80% — CC
+        75% — BF
+        70% — B3
+        65% — A6
+        60% — 99
+        55% — 8C
+        50% — 80
+        45% — 73
+        40% — 66
+        35% — 59
+        30% — 4D
+        25% — 40
+        20% — 33
+        15% — 26
+        10% — 1A
+        5% — 0D
+        0% — 00
+     -->
+    <color name="white_transparent">#BFffffff</color>
+    <color name="light_gray_transparent">#BFBFBFBF</color>
+    <color name="transparent">@android:color/transparent</color>
+
+    <!-- HAHA! Shades of new colors from iOS
+    jcblau ->red: 51/255, green: 102/255, blue: 153/255
+    partygrey -> red: 93/255, green: 93/255, blue: 93/255
+    grey -> red: 191/255, green: 191/255, blue: 191/255
+    blau -> red: 31/255, green: 82/255, blue: 133/255 -->
+
+</resources>

@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Ripple effect white on pressed button state -->
+<ripple xmlns:android="http://schemas.android.com/apk/res/android"
+    android:color="@color/white">
+    <!-- Default button look -->
+    <item android:drawable="@drawable/ic_hexagon_blue_up_48" />
+</ripple>

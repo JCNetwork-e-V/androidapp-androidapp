@@ -1,0 +1,76 @@
+<resources>
+    <string name="app_name">JCNetwork Days</string>
+
+    <!-- Strings related to login -->
+    <string name="prompt_email">Email</string>
+    <string name="prompt_password">Password</string>
+    <string name="action_sign_in">Sign in or register</string>
+    <string name="action_sign_in_short">Sign in</string>
+    <string name="welcome">"Welcome !"</string>
+    <string name="invalid_username">Not a valid username</string>
+    <string name="invalid_password">Password must be >5 characters</string>
+    <string name="login_failed">"Login failed"</string>
+
+
+    <!-- Hardcoded Strings for city and club-->
+    <string name="city_description">"Die historische Universitätsstadt Würzburg liegt im schönen Bayern. Mit ihren 130.000 Einwohner, davon 35.000 Studenten, zählt Würzburg zwar als Großstadt, ist jedoch im Kern sehr übersichtlich. \nDie Julius-Maximilian-Universität Würzburg wurde 1402 gegründet und ist damit die älteste Universität Bayerns. Heute hat sie zehn Fakultäten im Bereich der Geisteswissenschaften, Recht und Wirtschaft, Lebenswissenschaften, Naturwissenschaften und Technik. Neben Wilhelm Conrad Röntgen hat die Universität Würzburg sieben weitere Nobelpreisträger hervorgebracht.\nZum fantastischen Stadtbild tragen zahlreiche Sehenswürdigkeiten, wie die Würzburger Residenz (UNESCO-Weltkulturerbe), die Festung Marienberg oder die alte Mainbrücke bei. Mehrmals im Jahr finden, vor allem bei Studenten höchst beliebt, Weinfeste in der Würzburger Innenstadt statt. Ob im Residenzgarten, der alten Mainbrücke oder auf dem Marktplatz. Da Würzburg über eine riesige Fläche an Weinbergen verfügt und zahlreiche namenhafte Weingüter anliegend sind, spielt das Genussmittel hier eine große Rolle. Auch sportlich ist Würzburg recht gut aufgestellt. Neben Dirk Nowitzki haben wir auch noch viele andere individuelle Leistungssportler auch höchsten Niveau. Im Mannschaftsport gibt es die FC Würzburger Kickers (3. Fußball Bundesliga), die s.Oliver Würzburg (1. Basketball Bundesliga), die Rimparer Wölfe (2. Handball Bundesliga) und die SV Würzburg 05 Wasserball (1. Bundesliga Wasserball). Leider hat die Geschichte Würzburgs auch eine dunkle Schattenseite. Im zweiten Weltkrieg wurde die Stadt am 16. März 1945 von der british Royal Air Force bombardiert, wobei 90% der Altstadt zerstört wurden und ca. 5000 Menschen ihr Leben verloren. In dieser Nacht fielen ca. 980 Tonnen Bomben auf Würzburg nieder und die Stadt wurde in Floge als „Grab am Main“ bezeichnet. Zum Gedenken läuten jedes Jahr am 16. März um 21:20 Uhr alle Kirchglocken der Stadt für 20 Minuten."</string>
+    <string name="club_description">"Contact \u0026 Cooperation Würzburg e.V. ist seit über 25 Jahren als studentische Unternehmensberatung an der Universität Würzburg tätig.\nDer Großteil unserer ca. 80 aktiven Mitglieder setzt sich aus Studenten der Wirtschaftswissenschaft zusammen, jedoch sind auch zahlreiche Studenten anderen Fakultäten vertreten. Durch unsere weitreichende Kompetenz sind wir jederzeit bereit, verschiedenste interne und externe Projekte anzugehen. Mindestens einmal im Semester veranstalten wir die C\u0026C Academy, bei der wir erfahrene Beratungsunternehmen nach Würzburg einladen, um unsere Junior Consultants optimal auf die Beratungsbranche und Projektarbeit vorzubereiten.\nNach der Ausrichtung der JCNetwork Executive Days im Sommer 2016, freuen wir uns sehr, die High Potentials des JCNetwork zu uns nach Würzburg einzuladen und gemeinsam ein unvergessliches Wochenende zu erleben!\n#vorwärtskommen"</string>
+
+    <!-- Default strings-->
+    <string name="dein_lebenslauf">Dein Lebenslauf</string>
+    <string name="defaultqrcodeimg">DefaultQRCodeImg</string>
+    <string name="hallo">Hallo</string>
+    <string name="dein_name">Dein Name</string>
+    <string name="zu_den">Zu den</string>
+    <string name="check_in">Check In</string>
+    <string name="ablaufplan">Ablaufplan</string>
+    <string name="punkte">Punkte</string>
+    <string name="stadt">Stadt</string>
+    <string name="profile_button">profile button</string>
+    <string name="city_button">city button</string>
+    <string name="points_button">points button</string>
+    <string name="schedule_button">schedule button</string>
+    <string name="check_in_button">check in button</string>
+    <string name="profil">Profil</string>
+    <string name="club_button">club button</string>
+    <string name="club">Club</string>
+    <string name="logo_image">logo image</string>
+    <string name="arrow_image">arrow image</string>
+    <string name="copyrights_text">Copyrights Text</string>
+
+    <!-- Constant Strings to keep -->
+    <string name="ablaufplan_caution_text">Der hier angezeigte Ablaufplan ist vorläufig und unterliegt Änderungen. Sobald der finale Ablaufplan feststeht, kannst du ihn hier einsehen.</string>
+
+    <!-- Companion Widget Strings -->
+    <string name="appwidget_text">EVENT</string>
+    <string name="add_widget">Add widget</string>
+    <string name="title_activity_settings">SettingsActivity</string>
+
+    <!-- Setting Activity Strings -->
+        <!-- Preference Titles -->
+        <string name="design">Design</string>
+        <string name="notifications">Benachrichtigungen</string>
+
+        <!-- Design Preferences -->
+        <string name="modus">Modus</string>
+
+        <!-- Notification Preferences -->
+        <string name="workshop_title">Workshop Anmeldung</string>
+        <string name="workshop_summary_on">Empfange Benachrichtigung wenn Anmeldung für Workshops öffnet </string>
+        <string name="workshop_summary_off">Keine Benachrichtungen für Workshops empfangen</string>
+        <string name="days_title">Event Anmeldung</string>
+        <string name="days_summary_on">Empfange Benachrichtigung wenn Anmeldung für die Events e.g. JCNetwork Days öffnet </string>
+        <string name="days_summary_off">Keine Benachrichtungen für die Events empfangen</string>
+    <string name="channel_description">Notification Channel for JCNetwork e.V. App</string>
+    <string name="channel_name">Notification Channel</string>
+    <string name="content_description_closed_drawer">closed Drawer</string>
+    <string name="content_description_opened_drawer">opened Drawer</string>
+    <string name="jobwall">Jobwall</string>
+    <string name="junior_consultant_network_jcnetwork_e_v">Junior Consultant Network (JCNetwork) e.V.</string>
+    <string name="waldhornstr_27_n_76131_karlsruhe">Waldhornstr. 27 \n 76131 Karlsruhe</string>
+    <string name="telephone_number">Tel.: 03677 87492 10</string>
+    <string name="contact_email">E-Mail: kontakt@JCNetwork.de</string>
+    <string name="ust_id">USt-ID: DE310219240</string>
+    <string name="handelsregistereintragung">Registereintragung: Amtsgericht Arnstadt, Zweigstelle Ilmenau, VR 120620</string>
+
+</resources>

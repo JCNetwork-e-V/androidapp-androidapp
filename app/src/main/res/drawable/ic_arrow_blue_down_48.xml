@@ -1,0 +1,24 @@
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:aapt="http://schemas.android.com/aapt"
+    android:width="48dp"
+    android:height="48dp"
+    android:viewportWidth="12.7"
+    android:viewportHeight="12.7">
+  <path
+      android:pathData="M0.0028,0 L0,4.6301 6.3465,9.3688 12.6971,4.6417 12.7,0Z"
+      android:fillColor="@color/lightGray">
+    <!-- Adding a gradient here -->
+<!--    <aapt:attr name="android:fillColor"-->
+<!--          android:endColor="@color/colorPrimaryDark"-->
+<!--          android:endX="50"-->
+<!--          android:endY="99"-->
+<!--          android:startColor="@color/colorPrimary"-->
+<!--          android:startX="50"-->
+<!--          android:startY="1"-->
+<!--          android:type="linear" />-->
+<!--    </aapt:attr>-->
+  </path>
+  <!-- fillColor original value 336699
+         android:strokeWidth="0.2"
+      android:strokeColor="@color/colorAccent"-->
+</vector>
