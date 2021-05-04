@@ -8,6 +8,7 @@ import android.widget.ImageButton;
 
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.SearchView;
 import androidx.core.content.ContextCompat;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -25,6 +26,8 @@ public class FAQsActivity extends AppCompatActivity {
     private ImageButton mSupportBtn; // button to write email to jcnetwork support
     private RecyclerView mList;
     private List<QandA> qandAList = new ArrayList<>();
+    private androidx.appcompat.widget.SearchView mSearchBar;
+    private FAQExpandableCardViewAdapter adapter;
 
 
     @Override
@@ -45,6 +48,7 @@ public class FAQsActivity extends AppCompatActivity {
         //mList.setHasFixedSize(true);
         RecyclerView.LayoutManager manager = new LinearLayoutManager(getApplicationContext());
         mList.setLayoutManager(manager);
+        mSearchBar = (androidx.appcompat.widget.SearchView) findViewById(R.id.search_bar);
 
 
         // General
@@ -95,14 +99,13 @@ public class FAQsActivity extends AppCompatActivity {
 
 
         // Set up adapter
-        FAQExpandableCardViewAdapter adapter = new FAQExpandableCardViewAdapter(qandAList);
+        adapter = new FAQExpandableCardViewAdapter(qandAList);
 
         // Set to list
         mList.setAdapter(adapter);
 
         // Set on click listener to image button to contact support
-        String[] recipients = {"support@jcnetwork.de"}; // Alternative: IM971@jcnetwork.de von teams
-        //TODO Replace with general mail to ask questions
+        String[] recipients = {"support@jcnetwork.de"};
 
         mSupportBtn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -117,6 +120,41 @@ public class FAQsActivity extends AppCompatActivity {
                 }
             }
         });
+
+        mSearchBar.setOnQueryTextListener(new androidx.appcompat.widget.SearchView.OnQueryTextListener() {
+            @Override
+            public boolean onQueryTextSubmit(String query) {
+                adapter.filter(query);
+                return false;
+            }
+
+            @Override
+            public boolean onQueryTextChange(String newText) {
+                adapter.filter(newText);
+                // Refresh with old data if empty text
+                if (newText.isEmpty()) {
+                    // Set up adapter
+                    adapter = new FAQExpandableCardViewAdapter(qandAList);
+
+                    // Set to list
+                    mList.setAdapter(adapter);
+                }
+                return false;
+            }
+        });
+        mSearchBar.setOnCloseListener(new SearchView.OnCloseListener() {
+            @Override
+            public boolean onClose() {
+                // Restore original data
+                // Set up adapter
+                adapter = new FAQExpandableCardViewAdapter(qandAList);
+
+                // Set to list
+                mList.setAdapter(adapter);
+                return false;
+            }
+        });
+
     }
 
 }

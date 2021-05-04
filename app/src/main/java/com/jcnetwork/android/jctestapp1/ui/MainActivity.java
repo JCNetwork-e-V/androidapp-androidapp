@@ -37,7 +37,7 @@ import com.google.firebase.messaging.FirebaseMessaging;
 import com.jcnetwork.android.jctestapp1.BuildConfig;
 import com.jcnetwork.android.jctestapp1.R;
 import com.jcnetwork.android.jctestapp1.hiddenactivities.FAQsActivity;
-import com.jcnetwork.android.jctestapp1.hiddenactivities.ImpressumActivity;
+//import com.jcnetwork.android.jctestapp1.hiddenactivities.ImpressumActivity;
 import com.jcnetwork.android.jctestapp1.hiddenactivities.JobwallActivity;
 import com.jcnetwork.android.jctestapp1.hiddenactivities.LoginActivity;
 import com.jcnetwork.android.jctestapp1.hiddenactivities.SettingsActivity;
@@ -308,11 +308,11 @@ public class MainActivity extends AppCompatActivity {
                         Intent openFAQ = new Intent(MainActivity.this, FAQsActivity.class);
                         startActivity(openFAQ);
                         break;
-                    case R.id.impressum:
-                        // Open faq
-                        Intent openImpressum = new Intent(MainActivity.this, ImpressumActivity.class);
-                        startActivity(openImpressum);
-                        break;
+//                    case R.id.impressum:
+//                        // Open faq
+//                        Intent openImpressum = new Intent(MainActivity.this, ImpressumActivity.class);
+//                        startActivity(openImpressum);
+//                        break;
                     case R.id.logout:
                         // Log user out
                         SharedPreferences userSharedPreferences = getSharedPreferences(Constants.SHARED_PREFERENCE_FILE_NAME,

@@ -9,15 +9,19 @@ import android.view.ViewGroup;
 import android.view.animation.LinearInterpolator;
 import android.widget.ImageButton;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.jcnetwork.android.jctestapp1.R;
+import com.jcnetwork.android.jctestapp1.hiddenactivities.FAQsActivity;
 import com.jcnetwork.android.jctestapp1.models.QandA;
 
+import java.util.ArrayList;
 import java.util.List;
+import java.util.Locale;
 
 public class FAQExpandableCardViewAdapter extends RecyclerView.Adapter<FAQExpandableCardViewAdapter.ViewHolder> {
 
@@ -87,6 +91,35 @@ public class FAQExpandableCardViewAdapter extends RecyclerView.Adapter<FAQExpand
     @Override
     public int getItemCount() {
         return qandAdata.size();
+    }
+
+    /**
+     * Filter method for searching within the questions for a match
+     * @param text of the user query
+     */
+    public void filter(String text) {
+        // Convert query text to lower case
+        text = text.toLowerCase(Locale.getDefault());
+
+        // Create a new empty list
+        List<QandA> filteredQs = new ArrayList<>();
+
+        // If no query has been entered yet, display all questions
+        if (text.length() == 0) {
+            filteredQs.addAll(qandAdata);
+        } else {
+            // If the query text has a word that is contained by one+ of the questions, display them
+            for (QandA matchingQs : qandAdata) {
+                // Checking for each questions if the question text contains the query text
+                if (matchingQs.getQuestion().toLowerCase(Locale.getDefault()).contains(text)) {
+                    filteredQs.add(matchingQs);
+                }
+            }
+        }
+
+        // Set this created filteredQs as new data and notify of the change
+        qandAdata = filteredQs;
+        notifyDataSetChanged();
     }
 
     /** Viewholder class **/
