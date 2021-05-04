@@ -170,7 +170,7 @@
             android:background="@drawable/hexagon_button"
             android:contentDescription="@string/city_button"
             android:elevation="16dp"
-            android:foreground="@drawable/ic_baseline_local_hotel_24"
+            android:foreground="@drawable/ic_baseline_how_to_reg_24"
             android:foregroundGravity="center"
             android:scaleType="centerCrop"
             app:layout_constraintLeft_toLeftOf="parent"
@@ -182,7 +182,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
             android:gravity="center_horizontal"
-            android:text="@string/stadt"
+            android:text="@string/anmelden"
             app:layout_constraintEnd_toEndOf="@id/city_button"
             app:layout_constraintStart_toStartOf="@id/city_button"
             app:layout_constraintTop_toBottomOf="@id/city_button" />

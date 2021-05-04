@@ -115,7 +115,9 @@
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.jcnetwork.android.jctestapp1.ui.MainActivity" />
-        </activity> <!-- Club Intro Activity -->
+        </activity>
+
+        <!-- Club Intro Activity -->
         <activity
             android:name="com.jcnetwork.android.jctestapp1.ui.ClubActivity"
             android:label="Club"
@@ -123,7 +125,9 @@
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.jcnetwork.android.jctestapp1.ui.MainActivity" />
-        </activity> <!-- Point Activity -->
+        </activity>
+
+        <!-- Point Activity -->
         <activity
             android:name="com.jcnetwork.android.jctestapp1.ui.PointsActivity"
             android:label="Points"
@@ -131,7 +135,9 @@
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.jcnetwork.android.jctestapp1.ui.MainActivity" />
-        </activity> <!-- CV Activity -->
+        </activity>
+
+        <!-- CV Activity -->
         <activity
             android:name="com.jcnetwork.android.jctestapp1.ui.CVActivity"
             android:label="CV"
@@ -139,7 +145,9 @@
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.jcnetwork.android.jctestapp1.ui.MainActivity" />
-        </activity> <!-- QR Code or Checkin Activity -->
+        </activity>
+
+        <!-- QR Code or Checkin Activity -->
         <activity
             android:name="com.jcnetwork.android.jctestapp1.ui.CheckInActivity"
             android:label="QR"
@@ -147,10 +155,12 @@
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.jcnetwork.android.jctestapp1.ui.MainActivity" />
-        </activity> <!-- Schedule Activity -->
+        </activity>
+
+        <!-- Schedule Activity -->
         <activity
             android:name="com.jcnetwork.android.jctestapp1.ui.PlanActivity"
-            android:label="Schedule"
+            android:label="@string/ablaufsplan"
             android:parentActivityName="com.jcnetwork.android.jctestapp1.ui.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.VIEW" />
