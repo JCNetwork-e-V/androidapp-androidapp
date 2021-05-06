@@ -1,8 +1,10 @@
 package com.jcnetwork.android.jctestapp1.ui;
 
+import android.app.usage.UsageEvents;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
+import android.provider.CalendarContract;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
@@ -26,9 +28,10 @@ public class DetailActivity extends AppCompatActivity {
     private TextView timeTV;
     private TextView descriptionTV;
     private ImageView imgV;
+    // Add to calendar
+    private ImageButton addToCalendarBtn;
     // Feedback functionality
     private ImageButton giveWorkShopFeedBackBtn;
-    private View feedbackEndSpaceV;
     // Back navigation
     private Button backBtn;
     // Map intent
@@ -61,7 +64,7 @@ public class DetailActivity extends AppCompatActivity {
         descriptionTV = (TextView) findViewById(R.id.description);
         imgV = (ImageView) findViewById(R.id.color_bar); // same id as color bar from schedule to enable transition to this
         giveWorkShopFeedBackBtn = (ImageButton) findViewById(R.id.workshop_feedback_button); // only visible if event is a workshop and links to the feedback form
-        feedbackEndSpaceV = (View) findViewById(R.id.feedback_button_above_space);
+        addToCalendarBtn = (ImageButton) findViewById(R.id.add_to_calendar_button);
         backBtn = (Button) findViewById(R.id.back_button);
         goArrowImg = (ImageView) findViewById(R.id.go_arrow);
 
@@ -78,22 +81,20 @@ public class DetailActivity extends AppCompatActivity {
         // Check if this currentProgram is a Workshop by checking if "undertitle" is "Workshopslot"
         if (currentEvent.getPlace().contains("Workshopslot")){
             giveWorkShopFeedBackBtn.setVisibility(View.VISIBLE);
-            feedbackEndSpaceV.setVisibility(View.VISIBLE);
         }
 
-        // TODO Set image based on JSON
+        // Set image based on event
         setImage(currentEvent.getImage());
 
         backBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                // TODO Smooth back/up navigation
                 finish();
             }
         });
 
         // Add on click listener to give workshop feedback button
-        // TODO Check link (might change?)
+        // TODO Always update to current workshop feedback link! (Changes)
         giveWorkShopFeedBackBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -101,6 +102,25 @@ public class DetailActivity extends AppCompatActivity {
                 Intent openFeedbackForm = new Intent(Intent.ACTION_VIEW);
                 openFeedbackForm.setData(Uri.parse("https://forms.office.com/Pages/ResponsePage.aspx?id=jEv0Heij8U2Bx4qPQXqlGauGSdS-orlEjHgp-bphYONUNkpCQlo5T0JOV0VVVDVXTDNNRFFUWjZDWS4u"));
                 startActivity(openFeedbackForm);
+            }
+        });
+
+        // Add on click listener to addToCalendarBtn
+        addToCalendarBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                // Create new calendar intent
+                Intent calendarIntent = new Intent(Intent.ACTION_INSERT)
+                        .setData(CalendarContract.Events.CONTENT_URI)
+                        .putExtra(CalendarContract.Events.TITLE, currentEvent.getTitle())
+                        .putExtra(CalendarContract.Events.EVENT_LOCATION, currentEvent.getAddress())
+                        .putExtra(CalendarContract.Events.DESCRIPTION, currentEvent.getDescription())
+                        .putExtra(CalendarContract.EXTRA_EVENT_BEGIN_TIME, currentEvent.getBegin())
+                        .putExtra(CalendarContract.EXTRA_EVENT_END_TIME, currentEvent.getEnd());
+                // Check if the intent can be resolved before acting on it
+                if (calendarIntent.resolveActivity(getPackageManager()) != null) {
+                    startActivity(calendarIntent);
+                }
             }
         });
 
