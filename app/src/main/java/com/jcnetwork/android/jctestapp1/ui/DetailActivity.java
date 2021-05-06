@@ -11,7 +11,9 @@ import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.content.ContextCompat;
 
 import com.jcnetwork.android.jctestapp1.R;
 import com.jcnetwork.android.jctestapp1.conversion.ProgramPointAnalysis;
@@ -33,7 +35,7 @@ public class DetailActivity extends AppCompatActivity {
     // Feedback functionality
     private ImageButton giveWorkShopFeedBackBtn;
     // Back navigation
-    private Button backBtn;
+//    private Button backBtn;
     // Map intent
     private ImageView goArrowImg;
 
@@ -47,9 +49,13 @@ public class DetailActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_detail);
-//        setTitle("Details");
-//        getSupportActionBar().setDisplayHomeAsUpEnabled(false);
 
+        // Set up support bar
+        ActionBar actionBar = getSupportActionBar();
+        if (actionBar != null) {
+            actionBar.setDisplayHomeAsUpEnabled(true);
+            actionBar.setBackgroundDrawable(ContextCompat.getDrawable(this, R.drawable.color_gradient));
+        }
 
         // Get data from the intent that was used to open this activity
         Bundle dataBundle = getIntent().getExtras();
@@ -65,7 +71,7 @@ public class DetailActivity extends AppCompatActivity {
         imgV = (ImageView) findViewById(R.id.color_bar); // same id as color bar from schedule to enable transition to this
         giveWorkShopFeedBackBtn = (ImageButton) findViewById(R.id.workshop_feedback_button); // only visible if event is a workshop and links to the feedback form
         addToCalendarBtn = (ImageButton) findViewById(R.id.add_to_calendar_button);
-        backBtn = (Button) findViewById(R.id.back_button);
+//        backBtn = (Button) findViewById(R.id.back_button);
         goArrowImg = (ImageView) findViewById(R.id.go_arrow);
 
         // Set data to views
@@ -86,12 +92,12 @@ public class DetailActivity extends AppCompatActivity {
         // Set image based on event
         setImage(currentEvent.getImage());
 
-        backBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                finish();
-            }
-        });
+//        backBtn.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                finish();
+//            }
+//        });
 
         // Add on click listener to give workshop feedback button
         // TODO Always update to current workshop feedback link! (Changes)

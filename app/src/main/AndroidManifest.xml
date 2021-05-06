@@ -173,12 +173,11 @@
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.jcnetwork.android.jctestapp1.ui.MainActivity" />
-        </activity> <!-- Detail Activity with NO Action Bar set in theme -->
+        </activity> <!-- Detail Activity -->
         <activity
             android:name="com.jcnetwork.android.jctestapp1.ui.DetailActivity"
-            android:label="Detail"
-            android:parentActivityName="com.jcnetwork.android.jctestapp1.ui.PlanActivity"
-            android:theme="@style/Theme.AppCompat.Light.NoActionBar">
+            android:label="Details"
+            android:parentActivityName="com.jcnetwork.android.jctestapp1.ui.PlanActivity" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.jcnetwork.android.jctestapp1.ui.PlanActivity" />
