@@ -1,25 +1,16 @@
 package com.jcnetwork.android.jctestapp1.ui;
 
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.ActionBarDrawerToggle;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.Toolbar;
-import androidx.coordinatorlayout.widget.CoordinatorLayout;
-import androidx.core.content.ContextCompat;
-import androidx.core.view.GravityCompat;
-import androidx.drawerlayout.widget.DrawerLayout;
-import androidx.work.OneTimeWorkRequest;
-import androidx.work.WorkManager;
-
+import android.app.NotificationChannel;
+import android.app.NotificationManager;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.graphics.PorterDuff;
 import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
-import android.os.Parcelable;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -30,36 +21,43 @@ import android.widget.ImageButton;
 import android.widget.ScrollView;
 import android.widget.TextView;
 
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.ActionBarDrawerToggle;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
+import androidx.coordinatorlayout.widget.CoordinatorLayout;
+import androidx.core.view.GravityCompat;
+import androidx.drawerlayout.widget.DrawerLayout;
+import androidx.work.OneTimeWorkRequest;
+import androidx.work.WorkManager;
+
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.android.material.navigation.NavigationView;
 import com.google.firebase.messaging.FirebaseMessaging;
 import com.jcnetwork.android.jctestapp1.BuildConfig;
 import com.jcnetwork.android.jctestapp1.R;
+import com.jcnetwork.android.jctestapp1.conversion.ProgramPointAnalysis;
 import com.jcnetwork.android.jctestapp1.hiddenactivities.FAQsActivity;
-//import com.jcnetwork.android.jctestapp1.hiddenactivities.ImpressumActivity;
 import com.jcnetwork.android.jctestapp1.hiddenactivities.ImpressumActivity;
 import com.jcnetwork.android.jctestapp1.hiddenactivities.JobwallActivity;
 import com.jcnetwork.android.jctestapp1.hiddenactivities.LoginActivity;
 import com.jcnetwork.android.jctestapp1.hiddenactivities.SettingsActivity;
-import com.jcnetwork.android.jctestapp1.conversion.ProgramPointAnalysis;
-import com.jcnetwork.android.jctestapp1.notifications.NotificationWorker;
-import com.jcnetwork.android.jctestapp1.roomdb.ProgramViewModel;
-import com.jcnetwork.android.jctestapp1.utils.Constants;
 import com.jcnetwork.android.jctestapp1.models.ProgramPoint;
 import com.jcnetwork.android.jctestapp1.network.CheckNetwork;
 import com.jcnetwork.android.jctestapp1.network.RetrofitMethods;
+import com.jcnetwork.android.jctestapp1.notifications.NotificationWorker;
 import com.jcnetwork.android.jctestapp1.notifications.Notifications;
-import com.jcnetwork.android.jctestapp1.widget.CurrentProgramPointWidget;
-import com.google.gson.Gson;
-import com.google.gson.reflect.TypeToken;
+import com.jcnetwork.android.jctestapp1.roomdb.ProgramViewModel;
+import com.jcnetwork.android.jctestapp1.utils.Constants;
 
 import java.text.ParseException;
-import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
+
+//import com.jcnetwork.android.jctestapp1.hiddenactivities.ImpressumActivity;
 
 
 public class MainActivity extends AppCompatActivity {
@@ -367,6 +365,19 @@ public class MainActivity extends AppCompatActivity {
      * TODO Put in notifications class to clean up main activity
      */
     private void setUpNotifications() {
+
+        // Firebase Cloud Messaging Notification setup
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+            // Create channel to show notifications.
+            String channelId  = getString(R.string.default_notification_channel_id);
+            String channelName = getString(R.string.default_notification_channel_name);
+            NotificationManager notificationManager =
+                    getSystemService(NotificationManager.class);
+            notificationManager.createNotificationChannel(new NotificationChannel(channelId,
+                    channelName, NotificationManager.IMPORTANCE_LOW));
+        }
+
+
         Notifications mNotifications = new Notifications(this);
         mNotifications.createNotificationChannel();
         // Get current time as Date

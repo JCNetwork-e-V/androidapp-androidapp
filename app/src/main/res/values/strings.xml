@@ -74,5 +74,8 @@
     <string name="handelsregistereintragung">Registereintragung: Amtsgericht Arnstadt, Zweigstelle Ilmenau, VR 120620</string>
     <string name="anmelden">Anmelden</string>
     <string name="ablaufsplan">Ablaufsplan</string>
+    <string name="default_notification_channel_id">GENERAL_FIREBASE_NOTIFICATION_ID</string>
+    <string name="default_notification_channel_name">FCM Notification Channel</string>
+    <string name="fcm_message">Hallo Junior Consultant!</string>
 
 </resources>
