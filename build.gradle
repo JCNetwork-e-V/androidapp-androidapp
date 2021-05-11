@@ -6,7 +6,7 @@ buildscript {
     }
     dependencies {
         classpath "com.android.tools.build:gradle:4.0.2"
-        classpath 'com.google.gms:google-services:4.3.4' // for Firebase addition
+        classpath 'com.google.gms:google-services:4.3.4' // for Firebase addition // TODO Updating this causes a method not found exception
         classpath 'com.google.firebase:perf-plugin:1.3.4' // for firebase performance monitoring
         classpath 'com.google.firebase:firebase-crashlytics-gradle:2.4.1' // for firebase crash analytics
 
