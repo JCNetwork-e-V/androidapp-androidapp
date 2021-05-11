@@ -31,10 +31,8 @@ public class LoginActivity extends AppCompatActivity {
     // Views
     private ImageView mLogoImg;
     private Button loginBtn;
+    private Button registerBtn;
     private WebView mWebView;
-
-    // Variable
-    private boolean ForgetMe = false;
 
     // For Logging
     private final String LOG_TAG = this.getClass().getSimpleName();
@@ -48,6 +46,7 @@ public class LoginActivity extends AppCompatActivity {
         // Find view
         mLogoImg = (ImageView) findViewById(R.id.logo);
         loginBtn = (Button) findViewById(R.id.login_btn);
+        registerBtn = (Button) findViewById(R.id.register_btn);
         mWebView = (WebView) findViewById(R.id.webview);
 
         // Get data
@@ -75,8 +74,9 @@ public class LoginActivity extends AppCompatActivity {
         // Show and hide views
         mLogoImg.setVisibility(View.VISIBLE);
         loginBtn.setVisibility(View.VISIBLE);
+        registerBtn.setVisibility(View.VISIBLE);
         mWebView.setVisibility(View.GONE);
-        // Set on click listener
+        // Set on click listener for login
         loginBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -85,11 +85,47 @@ public class LoginActivity extends AppCompatActivity {
                 // Show webview and hide others
                 mLogoImg.setVisibility(View.GONE);
                 loginBtn.setVisibility(View.GONE);
+                registerBtn.setVisibility(View.GONE);
                 mWebView.setVisibility(View.VISIBLE);
                 // Set up login
                 setUpLogin();
             }
         });
+
+        // Set on click listener for register
+        registerBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // Change text color to white of button
+                registerBtn.setTextColor(getColor(R.color.white));
+                // Show webview and hide others
+                mLogoImg.setVisibility(View.GONE);
+                loginBtn.setVisibility(View.GONE);
+                registerBtn.setVisibility(View.GONE);
+                mWebView.setVisibility(View.VISIBLE);
+                // Set up register
+                setUpRegister();
+            }
+        });
+    }
+
+    /**
+     * Method to set up Register for first time users of the JCNetwork
+     */
+    private void setUpRegister() {
+        // Adjust settings
+//        WebSettings webSettings = mWebView.getSettings();
+//        webSettings.setJavaScriptEnabled(true);
+//
+//        // Create client
+//        MyWebViewClient webViewClient = new MyWebViewClient(LoginActivity.this, Constants.LOGIN);
+//        mWebView.setWebViewClient(webViewClient);
+
+        // Set content view to webview
+        //setContentView(mWebView);
+
+        // Load page to login
+        mWebView.loadUrl("https://intern.jcnetwork.de/register/");
     }
 
     /**
@@ -100,7 +136,7 @@ public class LoginActivity extends AppCompatActivity {
         WebSettings webSettings = mWebView.getSettings();
         webSettings.setJavaScriptEnabled(true);
 
-        // Create client // TODO Decide on one
+        // Create client
         MyWebViewClient webViewClient = new MyWebViewClient(LoginActivity.this, Constants.LOGIN);
         mWebView.setWebViewClient(webViewClient);
         mWebView.setWebChromeClient(new MyWebCromeClient());
@@ -139,7 +175,7 @@ public class LoginActivity extends AppCompatActivity {
 
 
     /**
-     * To make the webview show the view instead of the browser being opnened (by default)
+     * To make the webview show the view instead of the browser being opened (by default)
      */
     private class MyWebViewClient extends WebViewClient {
 
@@ -266,20 +302,15 @@ public class LoginActivity extends AppCompatActivity {
             if (consoleMessage.message().contains("inti done")) {
                 // Return to main activity
                 // Set isLogged in to true after login (*successful)
-                // TODO Check if user wants to be remembered
-                if  (ForgetMe) {
-                    Log.i(LOG_TAG, "user wants to be forgotten");
-                    // Don't same it
-                } else {
-                    Log.i(LOG_TAG, "user wants to be remembered");
-                    // Save user data
-                    SharedPreferences sharedPreferences = getSharedPreferences(Constants.LOGGED_IN_KEY,
-                            Context.MODE_PRIVATE);
-                    SharedPreferences.Editor editor = sharedPreferences.edit();
-                    editor.putBoolean(Constants.LOGGED_IN_KEY,
-                            true);
-                    editor.apply();
-                }
+
+                // Save user data
+                SharedPreferences sharedPreferences = getSharedPreferences(Constants.LOGGED_IN_KEY,
+                        Context.MODE_PRIVATE);
+                SharedPreferences.Editor editor = sharedPreferences.edit();
+                editor.putBoolean(Constants.LOGGED_IN_KEY,
+                        true);
+                editor.apply();
+
 
                 // Start Main Activity
                 Intent returnToMain = new Intent(LoginActivity.this, MainActivity.class);
