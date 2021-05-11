@@ -91,38 +91,38 @@ public class RetrofitMethods {
                     list.addAll(jsonResult.getmProgram());
 
                     //TODO Delete later this is just for testing widget
-                    //Loop through list and add certain number of days
-                    for (int i = 0; i < list.size(); i++) {
-                        // Get Strings
-                        String beginString = list.get(i).getBegin();
-                        String endString = list.get(i).getEnd();
-
-                        // Convert to Date
-                        String beginNew, endNew;
-                        try {
-                             Date beginDate = ProgramPointAnalysis.getDateFromString(beginString);
-                             Date endDate = ProgramPointAnalysis.getDateFromString(endString);
-
-                            // Add days in difference
-                            Calendar beginCal = Calendar.getInstance();
-                            beginCal.setTime(beginDate);
-                            beginCal.add(Calendar.DAY_OF_MONTH, 337);
-
-                            Calendar endCal = Calendar.getInstance();
-                            endCal.setTime(endDate);
-                            endCal.add(Calendar.DAY_OF_MONTH, 337);
-
-                            // Convert back to Strings
-                            beginNew = getStringFromDate(beginCal.getTime());
-                            endNew = getStringFromDate(endCal.getTime());
-
-                            // Set to new time
-                            list.get(i).setBegin(beginNew);
-                            list.get(i).setEnd(endNew);
-                        } catch (ParseException e) {
-                            e.printStackTrace();
-                        }
-                    }
+//                    //Loop through list and add certain number of days
+//                    for (int i = 0; i < list.size(); i++) {
+//                        // Get Strings
+//                        String beginString = list.get(i).getBegin();
+//                        String endString = list.get(i).getEnd();
+//
+//                        // Convert to Date
+//                        String beginNew, endNew;
+//                        try {
+//                             Date beginDate = ProgramPointAnalysis.getDateFromString(beginString);
+//                             Date endDate = ProgramPointAnalysis.getDateFromString(endString);
+//
+//                            // Add days in difference
+//                            Calendar beginCal = Calendar.getInstance();
+//                            beginCal.setTime(beginDate);
+//                            beginCal.add(Calendar.DAY_OF_MONTH, 337);
+//
+//                            Calendar endCal = Calendar.getInstance();
+//                            endCal.setTime(endDate);
+//                            endCal.add(Calendar.DAY_OF_MONTH, 337);
+//
+//                            // Convert back to Strings
+//                            beginNew = getStringFromDate(beginCal.getTime());
+//                            endNew = getStringFromDate(endCal.getTime());
+//
+//                            // Set to new time
+//                            list.get(i).setBegin(beginNew);
+//                            list.get(i).setEnd(endNew);
+//                        } catch (ParseException e) {
+//                            e.printStackTrace();
+//                        }
+//                    }
 
 
                     // Logs
