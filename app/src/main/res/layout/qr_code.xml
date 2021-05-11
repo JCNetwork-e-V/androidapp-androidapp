@@ -8,30 +8,31 @@
 
 <androidx.constraintlayout.widget.ConstraintLayout
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
-
-    <ImageView
-        android:id="@+id/qr_code_img"
-        android:src="@mipmap/city_w_2"
-        android:layout_width="300dp"
-        android:layout_height="300dp"
-        android:contentDescription="@string/defaultqrcodeimg"
-        android:layout_marginTop="16dp"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+    android:layout_height="wrap_content">
 
     <TextView
+        android:id="@+id/instruction_tv"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Bitte zeige diesen QR-Code beim Check-In der JCNetwork Days vor."
-        android:textSize="20sp"
-        app:layout_constraintTop_toBottomOf="@id/qr_code_img"
+        android:text="@string/qr_instructions"
+        app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         android:layout_marginLeft="8dp"
         android:layout_marginRight="8dp"
         android:layout_marginTop="32dp"/>
+
+    <ImageView
+        android:id="@+id/qr_code_img"
+        android:layout_width="300dp"
+        android:layout_height="300dp"
+        android:contentDescription="@string/defaultqrcodeimg"
+        android:layout_marginTop="32dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/instruction_tv" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>

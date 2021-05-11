@@ -77,5 +77,7 @@
     <string name="default_notification_channel_id">GENERAL_FIREBASE_NOTIFICATION_ID</string>
     <string name="default_notification_channel_name">FCM Notification Channel</string>
     <string name="fcm_message">Hallo Junior Consultant!</string>
+    <string name="qr_instructions">Bitte zeigen diesen QR-Code beim Check-In vor.</string>
+    <string name="portale">Portale</string>
 
 </resources>

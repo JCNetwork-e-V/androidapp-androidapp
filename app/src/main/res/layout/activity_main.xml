@@ -223,7 +223,7 @@
             android:background="@drawable/hexagon_button"
             android:contentDescription="@string/club_button"
             android:elevation="16dp"
-            android:foreground="@drawable/ic_baseline_work_24"
+            android:foreground="@drawable/ic_baseline_connect"
             android:foregroundGravity="center"
             android:scaleType="centerCrop"
             app:layout_constraintRight_toRightOf="parent"
@@ -235,7 +235,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
             android:gravity="center_horizontal"
-            android:text="@string/jobwall"
+            android:text="@string/portale"
             app:layout_constraintEnd_toEndOf="@id/club_button"
             app:layout_constraintStart_toStartOf="@id/club_button"
             app:layout_constraintTop_toBottomOf="@id/club_button" />
