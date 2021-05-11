@@ -96,6 +96,8 @@ public class FAQsActivity extends AppCompatActivity {
         qandAList.add(qand17);
         QandA qand18 = new QandA("Bekomme ich meine Teilnahmegebühr erstattet, wenn ich mich aus privaten Gründen abmelden muss?", "Normalerweise nicht. Besondere Umstände können mit Finanzen und Recht besprochen werden.");
         qandAList.add(qand18);
+        QandA fr_4 = new QandA("Ich habe die Mitteilung bekommen, dass ich eine Mahngebühr zahlen muss, da ich zu spät überwiesen habe. Ich habe jedoch meinen Beitrag innerhalb der Frist beglichen. Warum bzw. was mache ich jetzt?", "Relevant für die Feststellung des Zahlungseingangs ist das Valutadatum auf dem Konto des JCNetwork. Eine verspätete Zahlung liegt demnach auch dann vor, wenn der Teilnahmebeitrag fristgerecht in Auftrag gegeben wurde, jedoch erst nach dem Stichtag auf dem Konto des JCNetwork verbucht wurde. In solchen Fällen wird gibt es jedoch eine Kulanzregelung. Weis mittels Screenshots oder Buchungsbestätigung der Bank nach, dass der Betrag fristgemäß in Auftrag gegeben wurde. Andernfalls bist du verpflichtet, einen Verspätungszuschlag zu entrichten. Der Überweisungszweck (ID.Vorname.Nachname) ist dabei einzuhalten und um den Baustein \"Verspätungszuschlag\" zu ergänzen (ID.Vorname.Nachname.Verspaetungszuschlag). Die ID findest du in der Anmeldebestätigung. Sofern keine Zahlung des Verspätungszuschlages vor Beginn der Veranstaltung erfolgt, kann dir die Teilnahme verwehrt werden.");
+        qandAList.add(fr_4);
 
 
         // Set up adapter

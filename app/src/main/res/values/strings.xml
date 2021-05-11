@@ -79,5 +79,6 @@
     <string name="fcm_message">Hallo Junior Consultant!</string>
     <string name="qr_instructions">Bitte zeigen diesen QR-Code beim Check-In vor.</string>
     <string name="portale">Portale</string>
+    <string name="credits">© Layla Rohkohl</string>
 
 </resources>
