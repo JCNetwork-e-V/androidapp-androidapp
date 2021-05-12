@@ -116,13 +116,18 @@ public class DetailActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 // Create new calendar intent
-                Intent calendarIntent = new Intent(Intent.ACTION_INSERT)
-                        .setData(CalendarContract.Events.CONTENT_URI)
-                        .putExtra(CalendarContract.Events.TITLE, currentEvent.getTitle())
-                        .putExtra(CalendarContract.Events.EVENT_LOCATION, currentEvent.getAddress())
-                        .putExtra(CalendarContract.Events.DESCRIPTION, currentEvent.getDescription())
-                        .putExtra(CalendarContract.EXTRA_EVENT_BEGIN_TIME, currentEvent.getBegin())
-                        .putExtra(CalendarContract.EXTRA_EVENT_END_TIME, currentEvent.getEnd());
+                Intent calendarIntent = null;
+                try {
+                    calendarIntent = new Intent(Intent.ACTION_INSERT)
+                            .setData(CalendarContract.Events.CONTENT_URI)
+                            .putExtra(CalendarContract.Events.TITLE, currentEvent.getTitle())
+                            .putExtra(CalendarContract.Events.EVENT_LOCATION, currentEvent.getAddress())
+                            .putExtra(CalendarContract.Events.DESCRIPTION, currentEvent.getDescription())
+                            .putExtra(CalendarContract.EXTRA_EVENT_BEGIN_TIME, ProgramPointAnalysis.getDateFromString(currentEvent.getBegin()).getTime()  )
+                            .putExtra(CalendarContract.EXTRA_EVENT_END_TIME, ProgramPointAnalysis.getDateFromString(currentEvent.getEnd()).getTime());
+                } catch (ParseException e) {
+                    e.printStackTrace();
+                }
                 // Check if the intent can be resolved before acting on it
                 if (calendarIntent.resolveActivity(getPackageManager()) != null) {
                     startActivity(calendarIntent);
