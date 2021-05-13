@@ -22,10 +22,12 @@ import android.widget.ScrollView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.coordinatorlayout.widget.CoordinatorLayout;
+import androidx.core.content.ContextCompat;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.work.OneTimeWorkRequest;
@@ -76,7 +78,7 @@ public class MainActivity extends AppCompatActivity {
     // Set up views
     ScrollView mScrollV;
     CoordinatorLayout mCoordinator;
-    ImageButton checkInButton, scheduleButton, pointButton, cityButton, profileButton, clubButton;
+    ImageButton checkInButton, scheduleButton, pointButton, cityButton, profileButton, clubButton, brainButton, engageButton, firmButton;
     TextView nameTV;
     NavigationView navDrawer;
     DrawerLayout drawerLayout;
@@ -94,6 +96,11 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        // Set up support bar
+        ActionBar actionBar = getSupportActionBar();
+        if (actionBar != null) {
+            actionBar.setBackgroundDrawable(ContextCompat.getDrawable(this, R.drawable.black_to_dark_gradient));
+        }
 
         // Get Firebasetoken to enable instant messaging for testing purposes to this device
         // TODO Delete later or rather: to implement cloud messaging properly e.g. subscription to topics, more code is needed
@@ -190,6 +197,10 @@ public class MainActivity extends AppCompatActivity {
         cityButton = (ImageButton) findViewById(R.id.city_button);
         profileButton = (ImageButton) findViewById(R.id.profile_button);
         clubButton = (ImageButton) findViewById(R.id.club_button);
+        brainButton = (ImageButton) findViewById(R.id.brain_button);
+        engageButton = (ImageButton) findViewById(R.id.engage_button);
+        firmButton = (ImageButton) findViewById(R.id.firm_button);
+
         navDrawer = (NavigationView) findViewById(R.id.navigation_drawer);
         drawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
         View headerView = navDrawer.getHeaderView(0);
@@ -251,6 +262,9 @@ public class MainActivity extends AppCompatActivity {
         cityButton.setOnClickListener(myCardClickListener);
         profileButton.setOnClickListener(myCardClickListener);
         clubButton.setOnClickListener(myCardClickListener);
+        brainButton.setOnClickListener(myCardClickListener);
+        engageButton.setOnClickListener(myCardClickListener);
+        firmButton.setOnClickListener(myCardClickListener);
 
     }
 
@@ -482,12 +496,17 @@ public class MainActivity extends AppCompatActivity {
 
     /**
      * Creates an onClickListener which checks the id of the view and reacts accorodingly
-     */
+     */ //TODO Set up engage + firm activity
     private View.OnClickListener myCardClickListener = new View.OnClickListener() {
         @Override
         public void onClick(View view) {
             // React differently according to id
             switch (view.getId()) {
+                case R.id.brain_button:
+                    // Create intent to open new activity to go through brain teasers
+                    Intent openBT = new Intent(MainActivity.this, BrainteaserActivity.class);
+                    MainActivity.this.startActivity(openBT);
+                    break;
                 case R.id.club_button:
                     // Create intent to open new activity to introduce club //TODO Temporary redirect to Jobwall
                     Intent openClubIntro = new Intent(MainActivity.this, JobwallActivity.class);

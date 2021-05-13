@@ -186,7 +186,9 @@
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.jcnetwork.android.jctestapp1.ui.MainActivity" />
-        </activity> <!-- Detail Activity -->
+        </activity>
+
+        <!-- Detail Activity -->
         <activity
             android:name="com.jcnetwork.android.jctestapp1.ui.DetailActivity"
             android:label="Details"
@@ -194,6 +196,16 @@
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.jcnetwork.android.jctestapp1.ui.PlanActivity" />
+        </activity>
+
+        <!-- Brainteaser Activity -->
+        <activity
+            android:name="com.jcnetwork.android.jctestapp1.ui.BrainteaserActivity"
+            android:label="Brainteasers"
+            android:parentActivityName="com.jcnetwork.android.jctestapp1.ui.MainActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.jcnetwork.android.jctestapp1.ui.MainActivity" />
         </activity>
 
         <meta-data

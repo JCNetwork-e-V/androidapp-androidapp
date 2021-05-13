@@ -89,7 +89,6 @@
             android:layout_marginTop="30dp"
             android:background="@drawable/hexagon_button"
             android:contentDescription="@string/check_in_button"
-            android:elevation="16dp"
             android:foreground="@drawable/ic_baseline_check_24"
             android:foregroundGravity="center"
             android:scaleType="centerCrop"
@@ -115,7 +114,6 @@
             android:layout_marginTop="30dp"
             android:background="@drawable/hexagon_button"
             android:contentDescription="@string/schedule_button"
-            android:elevation="16dp"
             android:foreground="@drawable/ic_baseline_menu_24"
             android:foregroundGravity="center"
             android:scaleType="centerCrop"
@@ -142,7 +140,6 @@
             android:layout_marginEnd="30dp"
             android:background="@drawable/hexagon_button"
             android:contentDescription="@string/points_button"
-            android:elevation="16dp"
             android:foreground="@drawable/ic_baseline_network_check_24"
             android:foregroundGravity="center"
             android:scaleType="centerCrop"
@@ -169,7 +166,6 @@
             android:layout_marginTop="30dp"
             android:background="@drawable/hexagon_button"
             android:contentDescription="@string/city_button"
-            android:elevation="16dp"
             android:foreground="@drawable/ic_baseline_how_to_reg_24"
             android:foregroundGravity="center"
             android:scaleType="centerCrop"
@@ -195,7 +191,6 @@
             android:layout_marginTop="30dp"
             android:background="@drawable/hexagon_button"
             android:contentDescription="@string/profile_button"
-            android:elevation="16dp"
             android:foreground="@drawable/ic_baseline_person_24"
             android:foregroundGravity="center"
             android:scaleType="centerCrop"
@@ -222,7 +217,6 @@
             android:layout_marginEnd="30dp"
             android:background="@drawable/hexagon_button"
             android:contentDescription="@string/club_button"
-            android:elevation="16dp"
             android:foreground="@drawable/ic_baseline_connect"
             android:foregroundGravity="center"
             android:scaleType="centerCrop"
@@ -240,6 +234,83 @@
             app:layout_constraintStart_toStartOf="@id/club_button"
             app:layout_constraintTop_toBottomOf="@id/club_button" />
 
+        <!--    Brainteaser-->
+        <ImageButton
+            android:id="@+id/brain_button"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_marginTop="30dp"
+            android:layout_marginStart="30dp"
+            android:background="@drawable/hexagon_button"
+            android:contentDescription="@string/club_button"
+            android:foreground="@drawable/ic_baseline_bright"
+            android:foregroundGravity="center"
+            android:scaleType="centerCrop"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/city_tv" />
+
+        <TextView
+            android:id="@+id/brain_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:gravity="center_horizontal"
+            android:text="@string/brainteaser"
+            app:layout_constraintEnd_toEndOf="@id/brain_button"
+            app:layout_constraintStart_toStartOf="@id/brain_button"
+            app:layout_constraintTop_toBottomOf="@id/brain_button" />
+
+        <!-- Engage als Fellow -->
+        <ImageButton
+            android:id="@+id/engage_button"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_marginTop="30dp"
+            android:background="@drawable/hexagon_button"
+            android:contentDescription="@string/profile_button"
+            android:foreground="@drawable/ic_baseline_group_24"
+            android:foregroundGravity="center"
+            android:scaleType="centerCrop"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/profile_tv" />
+
+        <TextView
+            android:id="@+id/engage_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="@string/mitmachen"
+            app:layout_constraintEnd_toEndOf="@id/engage_button"
+            app:layout_constraintStart_toStartOf="@id/engage_button"
+            app:layout_constraintTop_toBottomOf="@id/engage_button" />
+
+        <!--    Firmen -->
+        <ImageButton
+            android:id="@+id/firm_button"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_marginTop="30dp"
+            android:layout_marginEnd="30dp"
+            android:background="@drawable/hexagon_button"
+            android:contentDescription="@string/club_button"
+            android:foreground="@drawable/ic_baseline_work_24"
+            android:foregroundGravity="center"
+            android:scaleType="centerCrop"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/club_tv" />
+
+        <TextView
+            android:id="@+id/firm_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:gravity="center_horizontal"
+            android:text="@string/unternehmen"
+            app:layout_constraintEnd_toEndOf="@id/firm_button"
+            app:layout_constraintStart_toStartOf="@id/firm_button"
+            app:layout_constraintTop_toBottomOf="@id/firm_button" />
+
         <!--    End Credits-->
         <TextView
             android:id="@+id/credits_tv"
@@ -250,7 +321,7 @@
             android:text="@string/credits"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/club_tv" />
+            app:layout_constraintTop_toBottomOf="@id/firm_tv" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
     </ScrollView>

@@ -82,5 +82,9 @@
     <string name="credits">© Layla Rohkohl</string>
     <string name="login">Login</string>
     <string name="registrieren">Registrieren</string>
+    <string name="request_to_add_own_brainteaser">Request to add own brainteaser</string>
+    <string name="brainteaser">Brainteaser</string>
+    <string name="unternehmen">Unternehmen</string>
+    <string name="mitmachen">Mitmachen</string>
 
 </resources>
