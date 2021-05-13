@@ -86,5 +86,9 @@
     <string name="brainteaser">Brainteaser</string>
     <string name="unternehmen">Unternehmen</string>
     <string name="mitmachen">Mitmachen</string>
+    <string name="antwort_anzeigen">Antwort anzeigen</string>
+    <string name="sample_brainteaser_question">Sample brainteaser question</string>
+    <string name="just_decoration_for_brainteaser_question">Just decoration for brainteaser question</string>
+    <string name="frage">Frage</string>
 
 </resources>

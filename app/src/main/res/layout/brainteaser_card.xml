@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <com.google.android.material.card.MaterialCardView
-    android:background="@drawable/color_gradient"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:layout_margin="16dp"
@@ -12,37 +11,55 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="#03A9F4">
+        android:layout_height="match_parent" >
+
+        <ImageButton
+            android:id="@+id/brain_button"
+            android:layout_width="120dp"
+            android:layout_height="120dp"
+            android:layout_marginTop="30dp"
+            android:background="@drawable/hexagon_button"
+            android:foreground="@drawable/ic_baseline_bright"
+            android:foregroundGravity="center"
+            android:scaleType="fitCenter"
+            android:adjustViewBounds="true"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:contentDescription="@string/just_decoration_for_brainteaser_question" />
 
         <TextView
-            android:id="@+id/brainteaser_question_tv"
+            android:id="@+id/titel"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
-            android:padding="8dp"
-            android:text="Sample brainteaser question"
+            android:textSize="24sp"
+            android:textStyle="bold"
             android:textAlignment="center"
-            android:textColor="@color/black"
-            android:textSize="20sp"
-            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_margin="16dp"
+            android:text="@string/frage"
+            app:layout_constraintTop_toBottomOf="@id/brain_button"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintEnd_toEndOf="parent"/>
 
-        <Button
-            android:id="@+id/login_btn"
-            android:layout_width="250dp"
-            android:layout_height="60dp"
-            android:layout_marginTop="50dp"
-            android:background="@drawable/login_button"
-            android:elevation="8dp"
-            android:text="Antwort anzeigen"
-            android:textAllCaps="false"
-            android:textColor="@color/colorPrimaryDark"
-            android:textSize="20sp"
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/brainteaser_question_tv" />
+            app:layout_constraintTop_toBottomOf="@+id/titel">
+
+            <TextView
+                android:id="@+id/brainteaser_question_tv"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="8dp"
+                android:text="@string/sample_brainteaser_question"
+                android:textAlignment="center"
+                android:textColor="@color/colorPrimaryDark"
+                android:textSize="20sp" />
+
+        </ScrollView>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

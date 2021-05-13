@@ -12,7 +12,8 @@
         android:layout_height="match_parent"
         style="@style/Theme.MaterialComponents.DayNight.DarkActionBar"
         android:background="@drawable/color_gradient"
-        android:paddingBottom="30dp"
+        android:paddingBottom="16dp"
+        android:paddingTop="16dp"
         android:paddingEnd="@dimen/card_padding"
         android:paddingLeft="@dimen/card_padding"
         android:paddingRight="@dimen/card_padding"
@@ -24,11 +25,19 @@
         android:layout_width="56dp"
         android:layout_height="56dp"
         android:background="@drawable/ic_hexagon_blue_up_48"
+        android:backgroundTint="@color/colorAccent"
         android:foreground="@drawable/ic_baseline_add_24"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
         android:foregroundGravity="center"
         android:layout_margin="30dp"
         android:contentDescription="@string/request_to_add_own_brainteaser" />
+
+
+    <WebView
+        android:id="@+id/webview"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="gone"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
