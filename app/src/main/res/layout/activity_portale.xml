@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <ImageView
+        android:id="@+id/left_banner"
+        android:layout_width="60dp"
+        android:layout_height="match_parent"
+        android:background="@drawable/color_gradient"
+        android:contentDescription="@string/arrow_image"
+        android:scaleType="centerCrop"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <!-- Jobwall -->
+            <ImageButton
+                android:id="@+id/jobwall"
+                android:foreground="@drawable/ic_baseline_work_24"
+                style="@style/PortaleImageButtonTheme"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toTopOf="parent"/>
+
+            <TextView
+                android:id="@+id/jobwall_title"
+                style="@style/PortaleTitleTheme"
+                android:text="Jobwall"
+                app:layout_constraintStart_toEndOf="@id/jobwall"
+                app:layout_constraintTop_toTopOf="@id/jobwall"
+                app:layout_constraintBottom_toBottomOf="@id/jobwall"/>
+
+            <TextView
+                android:id="@+id/jobwall_description"
+                style="@style/PortaleDescriptionTheme"
+                android:text="Finde die aktuellen Stellenausschreibungen unserer Partnerunternehmen auf einem Blick."
+                app:layout_constraintTop_toBottomOf="@id/jobwall_title"
+                app:layout_constraintStart_toEndOf="@id/jobwall"
+                app:layout_constraintEnd_toEndOf="parent"/>
+
+            <!-- Trainer Academy -->
+            <ImageButton
+                android:id="@+id/trainer_academy"
+                android:foreground="@drawable/weiterbildung"
+                style="@style/PortaleImageButtonTheme"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/jobwall_description"/>
+
+            <TextView
+                android:id="@+id/trainer_academy_title"
+                style="@style/PortaleTitleTheme"
+                android:text="Trainer Academy"
+                app:layout_constraintStart_toEndOf="@id/trainer_academy"
+                app:layout_constraintTop_toTopOf="@id/trainer_academy"
+                app:layout_constraintBottom_toBottomOf="@id/trainer_academy"/>
+
+            <TextView
+                android:id="@+id/trainer_academy_description"
+                style="@style/PortaleDescriptionTheme"
+                android:text="Lasse dich zu einem JCNetwork Trainer ausbilden in diesem Semester!"
+                app:layout_constraintTop_toBottomOf="@id/trainer_academy_title"
+                app:layout_constraintStart_toEndOf="@id/trainer_academy"
+                app:layout_constraintEnd_toEndOf="parent"/>
+
+            <!-- Alumni -->
+            <ImageButton
+                android:id="@+id/alumni"
+                android:foreground="@drawable/ic_baseline_person_24"
+                style="@style/PortaleImageButtonTheme"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/trainer_academy_description"/>
+
+            <TextView
+                android:id="@+id/alumni_title"
+                style="@style/PortaleTitleTheme"
+                android:text="Alumni"
+                app:layout_constraintStart_toEndOf="@id/alumni"
+                app:layout_constraintTop_toTopOf="@id/alumni"
+                app:layout_constraintBottom_toBottomOf="@id/alumni"/>
+
+            <TextView
+                android:id="@+id/alumni_description"
+                style="@style/PortaleDescriptionTheme"
+                android:text="Fertig mit Studium? Bleibe als Alumni Teil des JCNetworks."
+                app:layout_constraintTop_toBottomOf="@id/alumni_title"
+                app:layout_constraintStart_toEndOf="@id/alumni"
+                app:layout_constraintEnd_toEndOf="parent"/>
+
+            <!-- Certification -->
+            <ImageButton
+                android:id="@+id/certification"
+                android:foreground="@drawable/ic_baseline_map_24"
+                android:foregroundTint="@color/white"
+                style="@style/PortaleImageButtonTheme"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/alumni_description"/>
+
+            <TextView
+                android:id="@+id/certification_title"
+                style="@style/PortaleTitleTheme"
+                android:text="Zertifizierungsportal"
+                app:layout_constraintStart_toEndOf="@id/certification"
+                app:layout_constraintTop_toTopOf="@id/certification"
+                app:layout_constraintBottom_toBottomOf="@id/certification"/>
+
+            <TextView
+                android:id="@+id/certification_description"
+                style="@style/PortaleDescriptionTheme"
+                android:text="Fahrplan zur JCNetwork Junior Zertifizierung vergessen? Kein Problem. Hier kannst du nachlesen."
+                app:layout_constraintTop_toBottomOf="@id/certification_title"
+                app:layout_constraintStart_toEndOf="@id/certification"
+                app:layout_constraintEnd_toEndOf="parent"/>
+
+            <!-- Insights -->
+            <ImageButton
+                android:id="@+id/insights"
+                android:foreground="@drawable/ic_baseline_bright"
+                style="@style/PortaleImageButtonTheme"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/certification_description"/>
+
+            <TextView
+                android:id="@+id/insights_title"
+                style="@style/PortaleTitleTheme"
+                android:text="Insights"
+                app:layout_constraintStart_toEndOf="@id/insights"
+                app:layout_constraintTop_toTopOf="@id/insights"
+                app:layout_constraintBottom_toBottomOf="@id/insights"/>
+
+            <TextView
+                android:id="@+id/insights_description"
+                style="@style/PortaleDescriptionTheme"
+                android:text="Das gebündelte Wissen der JCNetwork Junior Consultants auf einem Platz."
+                app:layout_constraintTop_toBottomOf="@id/insights_title"
+                app:layout_constraintStart_toEndOf="@id/insights"
+                app:layout_constraintEnd_toEndOf="parent"/>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </ScrollView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

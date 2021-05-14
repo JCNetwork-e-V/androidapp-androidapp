@@ -115,5 +115,30 @@
 
     </style>
 
+    <!-- Portale Styles -->
+    <style name="PortaleImageButtonTheme">
+        <item name="android:layout_width">60dp</item>
+        <item name="android:layout_height">60dp</item>
+        <item name="android:contentDescription">@string/portalverlinkungsknopf</item>
+        <item name="android:layout_marginStart">30dp</item>
+        <item name="android:layout_marginTop">30dp</item>
+        <item name="android:background">@drawable/hexagon_button</item>
+        <item name="android:foregroundGravity">center</item>
+        <item name="android:scaleType">centerCrop</item>
+    </style>
+    <style name="PortaleTitleTheme">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textAlignment">viewStart</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:layout_marginStart">8dp</item>
+    </style>
+    <style name="PortaleDescriptionTheme">
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textAlignment">viewStart</item>
+        <item name="android:layout_marginTop">16dp</item>
+        <item name="android:layout_marginStart">8dp</item>
+    </style>
 
 </resources>
