@@ -502,6 +502,11 @@ public class MainActivity extends AppCompatActivity {
         public void onClick(View view) {
             // React differently according to id
             switch (view.getId()) {
+                case R.id.engage_button:
+                    // Create intent to open new activity to go view engagement possibilities as fellow
+                    Intent showFellowActivity = new Intent(MainActivity.this, EngageActivity.class);
+                    MainActivity.this.startActivity(showFellowActivity);
+                    break;
                 case R.id.brain_button:
                     // Create intent to open new activity to go through brain teasers
                     Intent openBT = new Intent(MainActivity.this, BrainteaserActivity.class);

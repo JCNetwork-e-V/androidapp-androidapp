@@ -208,6 +208,16 @@
                 android:value="com.jcnetwork.android.jctestapp1.ui.MainActivity" />
         </activity>
 
+        <!-- Engage Activity -->
+        <activity
+            android:name="com.jcnetwork.android.jctestapp1.ui.EngageActivity"
+            android:label="Mitmachen"
+            android:parentActivityName="com.jcnetwork.android.jctestapp1.ui.MainActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.jcnetwork.android.jctestapp1.ui.MainActivity" />
+        </activity>
+
         <meta-data
             android:name="preloaded_fonts"
             android:resource="@array/preloaded_fonts" />
