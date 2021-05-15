@@ -112,7 +112,7 @@
 
         <!-- Jobwall Activity -->
         <activity
-            android:name="com.jcnetwork.android.jctestapp1.hiddenactivities.JobwallActivity"
+            android:name="com.jcnetwork.android.jctestapp1.ui.PortaleActivity"
             android:label="Portale"
             android:parentActivityName="com.jcnetwork.android.jctestapp1.ui.MainActivity">
             <meta-data

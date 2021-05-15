@@ -42,7 +42,6 @@ import com.jcnetwork.android.jctestapp1.R;
 import com.jcnetwork.android.jctestapp1.conversion.ProgramPointAnalysis;
 import com.jcnetwork.android.jctestapp1.hiddenactivities.FAQsActivity;
 import com.jcnetwork.android.jctestapp1.hiddenactivities.ImpressumActivity;
-import com.jcnetwork.android.jctestapp1.hiddenactivities.JobwallActivity;
 import com.jcnetwork.android.jctestapp1.hiddenactivities.LoginActivity;
 import com.jcnetwork.android.jctestapp1.hiddenactivities.SettingsActivity;
 import com.jcnetwork.android.jctestapp1.models.ProgramPoint;
@@ -514,7 +513,7 @@ public class MainActivity extends AppCompatActivity {
                     break;
                 case R.id.club_button:
                     // Create intent to open new activity to introduce club //TODO Temporary redirect to Jobwall
-                    Intent openClubIntro = new Intent(MainActivity.this, JobwallActivity.class);
+                    Intent openClubIntro = new Intent(MainActivity.this, PortaleActivity.class);
                     MainActivity.this.startActivity(openClubIntro);
                     // This adds a transition //TODO
 //                    overridePendingTransition(R.anim.slide_down, R.anim.slide_up);
