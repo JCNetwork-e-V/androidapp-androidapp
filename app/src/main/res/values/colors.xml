@@ -6,6 +6,12 @@
     <color name="lightGray">#7F7F7F</color>
     <color name="white">#ffffff</color>
     <color name="black">#090a0b</color>
+
+    <color name="platinum">#e5e4e2</color>
+    <color name="gold">#ffd700</color>
+    <color name="silver">#c0c0c0</color>
+    <color name="bronze">#CD7F32</color>
+
 <!--        Official colors taken from CI Handbook and converted to Hex values-->
 <!--    Blau: RGB: 51-102-153-->
 <!--    Hellgrau: 127-127-127-->

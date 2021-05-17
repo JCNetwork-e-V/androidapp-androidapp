@@ -6,88 +6,113 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="wrap_content">
+
+        <ImageButton
+            android:id="@+id/like_button"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginTop="16dp"
+            android:background="@drawable/hexagon_button"
+            android:contentDescription="@string/club_button"
+            android:foreground="@drawable/marketing"
+            android:foregroundGravity="center"
+            android:foregroundTint="@color/white"
+            android:scaleType="centerCrop"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
         <ImageView
             android:id="@+id/logo_img"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_height="300dp"
             android:layout_marginTop="56dp"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="1.0"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:srcCompat="@drawable/normal_days_logo" />
 
-        <TextView
-            android:id="@+id/firm_description_text"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
-            android:layout_marginTop="16dp"
-            android:layout_marginEnd="8dp"
-            android:text="Dummy description of a company"
-            app:layout_constraintEnd_toEndOf="parent"
+        <FrameLayout
+            android:id="@+id/background_banner"
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="8dp"
+            android:background="@color/colorPrimaryDark"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/logo_img" />
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/logo_img"
+            />
 
         <ImageButton
             android:id="@+id/home_button"
             android:layout_width="60dp"
             android:layout_height="60dp"
-            android:layout_marginTop="30dp"
+            android:background="@drawable/hexagon_button"
+            android:contentDescription="@string/club_button"
+            android:foreground="@drawable/ic_baseline_home_24"
+            android:foregroundGravity="center"
+            android:foregroundTint="@color/white"
+            android:scaleType="centerCrop"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@id/background_banner"
+            app:layout_constraintBottom_toBottomOf="@id/background_banner"/>
+
+        <ImageButton
+            android:id="@+id/linkedin_button"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
             android:layout_marginStart="30dp"
             android:background="@drawable/hexagon_button"
             android:contentDescription="@string/club_button"
-            android:foreground="@drawable/ic_baseline_connect"
+            android:foreground="@drawable/linkedin_logo"
             android:foregroundGravity="center"
             android:scaleType="centerCrop"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/firm_description_text" />
+            app:layout_constraintStart_toEndOf="@id/home_button"
+            app:layout_constraintTop_toTopOf="@id/background_banner"
+            app:layout_constraintBottom_toBottomOf="@id/background_banner"/>
 
         <ImageButton
-            android:id="@+id/fb_button"
+            android:id="@+id/xing_button"
             android:layout_width="60dp"
             android:layout_height="60dp"
-            android:layout_marginTop="30dp"
-            android:layout_marginStart="30dp"
-            android:background="@drawable/hexagon_button"
-            android:contentDescription="@string/club_button"
-            android:foreground="@drawable/ic_baseline_connect"
-            android:foregroundGravity="center"
-            android:scaleType="centerCrop"
-            app:layout_constraintLeft_toRightOf="@id/home_button"
-            app:layout_constraintTop_toBottomOf="@id/firm_description_text" />
-
-        <ImageButton
-            android:id="@+id/insta_button"
-            android:layout_width="60dp"
-            android:layout_height="60dp"
-            android:layout_marginTop="30dp"
             android:layout_marginEnd="30dp"
             android:background="@drawable/hexagon_button"
             android:contentDescription="@string/club_button"
-            android:foreground="@drawable/ic_baseline_connect"
+            android:foreground="@drawable/xing_logo"
             android:foregroundGravity="center"
             android:scaleType="centerCrop"
-            app:layout_constraintRight_toLeftOf="@id/in_button"
-            app:layout_constraintTop_toBottomOf="@id/firm_description_text" />
-
-        <ImageButton
-            android:id="@+id/in_button"
-            android:layout_width="60dp"
-            android:layout_height="60dp"
-            android:layout_marginTop="30dp"
-            android:layout_marginEnd="30dp"
-            android:background="@drawable/hexagon_button"
-            android:contentDescription="@string/club_button"
-            android:foreground="@drawable/ic_baseline_connect"
-            android:foregroundGravity="center"
-            android:scaleType="centerCrop"
-            app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/firm_description_text" />
+            app:layout_constraintEnd_toStartOf="@id/home_button"
+            app:layout_constraintTop_toTopOf="@id/background_banner"
+            app:layout_constraintBottom_toBottomOf="@id/background_banner"/>
     </androidx.constraintlayout.widget.ConstraintLayout>
 
+
+    <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/firm_description_text"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="32dp"
+                android:layout_marginBottom="32dp"
+                android:layout_marginEnd="8dp"
+                android:paddingEnd="8dp"
+                android:paddingStart="8dp"
+                android:paddingBottom="48dp"
+                android:text="Dummy description of a company" />
+
+        </ScrollView>
+    </LinearLayout>
 </com.google.android.material.card.MaterialCardView>

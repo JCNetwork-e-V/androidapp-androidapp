@@ -52,7 +52,7 @@ public class PortaleActivity extends AppCompatActivity {
     /**
      * Helper method to open link in browser via intent
      */
-    private void openUrl(String url) {
+    public void openUrl(String url) {
         Intent i = new Intent(Intent.ACTION_VIEW);
         i.setData(Uri.parse(url));
         startActivity(i);

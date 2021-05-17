@@ -501,6 +501,11 @@ public class MainActivity extends AppCompatActivity {
         public void onClick(View view) {
             // React differently according to id
             switch (view.getId()) {
+                case R.id.firm_button:
+                    // Create intent to open new activity to go view partner firms
+                    Intent viewFirms = new Intent(MainActivity.this, FirmActivity.class);
+                    MainActivity.this.startActivity(viewFirms);
+                    break;
                 case R.id.engage_button:
                     // Create intent to open new activity to go view engagement possibilities as fellow
                     Intent showFellowActivity = new Intent(MainActivity.this, EngageActivity.class);

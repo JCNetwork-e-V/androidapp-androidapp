@@ -1,0 +1,107 @@
+package com.jcnetwork.android.jctestapp1.fragments;
+
+import android.content.Context;
+import android.content.Intent;
+import android.net.Uri;
+import android.os.Bundle;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.ImageButton;
+import android.widget.ImageView;
+import android.widget.TextView;
+import android.widget.Toast;
+
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.core.content.ContextCompat;
+import androidx.fragment.app.Fragment;
+
+import com.bumptech.glide.Glide;
+import com.jcnetwork.android.jctestapp1.R;
+import com.jcnetwork.android.jctestapp1.models.Brainteaser;
+import com.jcnetwork.android.jctestapp1.models.Firm;
+import com.jcnetwork.android.jctestapp1.ui.PortaleActivity;
+
+import java.util.Objects;
+
+import static java.lang.Boolean.FALSE;
+import static java.lang.Boolean.TRUE;
+
+public class FirmFragment extends Fragment {
+
+    // Variables
+    private Firm currentFirm;
+    private Context mContext;
+    // Views
+    private TextView descriptionTV;
+    private ImageView logoImg;
+    private ImageButton homeBtn, linkedinBtn, xingBtn;
+
+
+    public FirmFragment() {
+        // Required empty constructor
+    }
+
+    public FirmFragment(Firm currentFirm, Context context) {
+        this.currentFirm = currentFirm;
+        mContext = context;
+    }
+
+    @Override
+    public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container,
+                             @Nullable Bundle savedInstanceState) {
+        View view = inflater.inflate(R.layout.firm_card, container, false);
+
+        // Find view
+        this.descriptionTV = view.findViewById(R.id.firm_description_text);
+        this.logoImg = view.findViewById(R.id.logo_img);
+        this.homeBtn = view.findViewById(R.id.home_button);
+        this.linkedinBtn = view.findViewById(R.id.linkedin_button);
+        this.xingBtn = view.findViewById(R.id.xing_button);
+
+        return view;
+    }
+
+    @Override
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+        this.descriptionTV.setText(currentFirm.getDescription());
+
+
+//        Glide.with(mContext
+//                .load("https://www.jcnetwork.de/media/jcnetwork/m_5d42bc476cd22a_ums-links-535x200.png")
+//                .into(this.logoImg));
+        // Open browser link with home, xing, and linkedin
+        this.homeBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                // Open link in browser
+                openUrl(currentFirm.getHomePageLink());
+            }
+        });
+        this.linkedinBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                // Open link in browser
+                openUrl(currentFirm.getLinkedInLink());
+            }
+        });
+        this.xingBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                // Open link in browser
+                openUrl(currentFirm.getXingLink());
+            }
+        });
+    }
+
+    /**
+     * Helper method to open link in browser via intent
+     */
+    public void openUrl(String url) {
+        Intent i = new Intent(Intent.ACTION_VIEW);
+        i.setData(Uri.parse(url));
+        startActivity(i);
+    }
+}
