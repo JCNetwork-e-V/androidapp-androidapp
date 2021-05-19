@@ -33,6 +33,7 @@ public class PortaleActivity extends AppCompatActivity {
         ImageButton alumni = findViewById(R.id.alumni);
         ImageButton certification = findViewById(R.id.certification);
         ImageButton insights = findViewById(R.id.insights);
+        ImageButton projekte = findViewById(R.id.projekt_mgt);
 
         // Set on click listeners
         jobwall.setOnClickListener(myPortaleClickListener);
@@ -40,6 +41,7 @@ public class PortaleActivity extends AppCompatActivity {
         alumni.setOnClickListener(myPortaleClickListener);
         certification.setOnClickListener(myPortaleClickListener);
         insights.setOnClickListener(myPortaleClickListener);
+        projekte.setOnClickListener(myPortaleClickListener);
 
         // Set up support bar
         ActionBar actionBar = getSupportActionBar();
@@ -68,6 +70,9 @@ public class PortaleActivity extends AppCompatActivity {
             switch (view.getId()) {
                 case R.id.jobwall:
                     openUrl("https://days.jcnetwork.de/jobwall/");
+                    break;
+                case R.id.projekt_mgt:
+                    openUrl("https://jcnetwork-projektmanagement.de/");
                     break;
                 case R.id.trainer_academy:
                     openUrl("https://www.jcnetwork.de/jcnetwork-trainer-academy/");
