@@ -44,7 +44,7 @@ public class FirmActivity extends AppCompatActivity {
                         "\n" +
                         "Durch die Zusammenarbeit mit UMS lernen Ihre Mitarbeiterinnen und Mitarbeiter - ganz im Sinne unseres Claims \"Enabling Success\" -, Veränderungsprozesse selbstständig zu gestalten und zu managen.",
                 "https://ums-gmbh.com/en/",
-                ContextCompat.getDrawable(getApplicationContext(), R.drawable.ums_logo),
+                "https://www.jcnetwork.de/media/jcnetwork/m_5d42bc476cd22a_ums-links-535x200.png",
                 "",
                 "https://www.linkedin.com/company/ums-consulting-training-gmbh/"));
         firmAdapter.addFirm(new Firm("CORE",
@@ -56,8 +56,8 @@ public class FirmActivity extends AppCompatActivity {
                         "\n" +
                         "Wichtig sind uns Menschen hinter dem Studium. Bei CORE haben wir die unterschiedlichen Hintergünde und Bandbreiten: Von Psychologie über Mathematik, Informatik, Physik, BWL/VWL, Recht oder Philosophie. Ein gutes Verständnis für anspruchsvolle Problemstellungen und eine strukturierte Herangehensweise, logisches Denkvermögen gepaart mit Neugier und einer ausgeprägten Auffassungsgabe sind uns wichtig.",
                 "https://core.se/",
-                ContextCompat.getDrawable(getApplicationContext(), R.drawable.core_logo),
-                "https://www.xing.com/pages/core-se",
+                "https://www.jcnetwork.de/media/jcnetwork/m_5d9b4dfd0f1c9c_core-links-535x200.png",
+                      "https://www.xing.com/pages/core-se",
                 "https://www.linkedin.com/company/core.se/"));
         firmAdapter.addFirm(new Firm("Assure Consulting",
                 "Assure Consulting ist eine der führenden Unternehmensberatungen für Projektmanagement-Dienstleistungen in Deutschland. Wir unterstützen internationale Konzerne dabei, komplexe Großprojekte erfolgreich zu realisieren. Zu den Dienstleistungen zählen der Setup und Betrieb von PMOs und Project Offices (PO), die Leitung von Projekten und Teilprojekten sowie die Op-timierung von Projektmanagement-Methodik.\n" +
@@ -66,7 +66,7 @@ public class FirmActivity extends AppCompatActivity {
                         "\n" +
                         "Unsere Firmenphilosophie: Stay and Grow statt Up or Out!",
                 "https://www.assure.de/de",
-                ContextCompat.getDrawable(getApplicationContext(), R.drawable.assure_logo),
+                "https://www.jcnetwork.de/media/jcnetwork/m_5d42bc3e6cd215_assureconsulting-links-535x200.png",
                 "https://www.xing.com/pages/assureconsultinggmbh",
                 "https://www.linkedin.com/company/assure-consulting-gmbh/"));
         firmAdapter.addFirm(new Firm("Bearing Point",
@@ -76,7 +76,7 @@ public class FirmActivity extends AppCompatActivity {
                         "\n" +
                         "Bei uns erwarten Dich außergewöhnliche Chancen, vielfältige Gestaltungsräume, ein Klima der Wertschätzung und Kollegen, die oft zu Freunden werden.",
                 "https://www.bearingpoint.com/de-de/",
-                ContextCompat.getDrawable(getApplicationContext(), R.drawable.bearing_point_logo),
+                "https://www.jcnetwork.de/media/jcnetwork/m_5d42bc3f18c57c_bearingpoint-links-535x200.png",
                 "https://www.xing.com/pages/bearingpoint",
                 "https://www.linkedin.com/company/bearingpoint/"));
         firmAdapter.addFirm(new Firm("MHP",
@@ -88,7 +88,7 @@ public class FirmActivity extends AppCompatActivity {
                         "\n" +
                         "Mit unserem Beratungsansatz – Symbiose aus Management- und IT-Beratung – und als Branchenexperte bieten wir über 300 namhaften Kunden, neben umfassender IT-Kompetenz, auch tiefgehendes Prozess-Know-How und sind somit DER Prozesslieferant. Dabei fokussieren wir uns auf die Automobilbranche und Fertigungswirtschaft und übertragen strategische Innovationen auch auf andere Branchen.",
                 "https://www.mhp.com/de/home",
-                ContextCompat.getDrawable(this, R.drawable.mhp_logo),
+                "https://www.jcnetwork.de/media/jcnetwork/m_5d42bc4346fdf6_mhp-links-535x200.png",
                 "https://www.xing.com/pages/mieschkehofmannundpartner",
                 "https://www.linkedin.com/company/mhp-a-porsche-company/"));
         firmAdapter.addFirm(new Firm("MLP",
@@ -107,7 +107,7 @@ public class FirmActivity extends AppCompatActivity {
                         "\n" +
                         "Bereits seit 2010 unterstützen wir das studentisches Engagement bei JCNetwork in besonderer Weise auf lokaler und bundesweiter Ebene. Als Goldpartner möchten wir im Rahmen unserer Partnerschaft einen spürbaren Mehrwert bieten, die einzelnen Mitglieder in ihrem Engagement und ihrer persönlichen Entwicklung fördern und uns selbst als attraktives Unternehmen für eine berufliche Karriere ins Spiel bringen. Unsere Kooperation bietet zudem eine gute Möglichkeit, sich gegenseitig kennenzulernen und begeistern zu lassen.\u200B",
                 "https://mlp-financify.de/",
-                ContextCompat.getDrawable(this, R.drawable.mlp_logo),
+                "https://www.jcnetwork.de/media/jcnetwork/m_5d42bc4466fdd3_mlp-links-535x200.png",
                 "https://www.xing.com/pages/mlpfinanzberatungse",
                 "https://www.linkedin.com/company/mlp/?originalSubdomain=de"));
         firmAdapter.addFirm(new Firm("PwC",
@@ -117,7 +117,7 @@ public class FirmActivity extends AppCompatActivity {
                         "\n" +
                         "PwC. 10.400 engagierte Menschen an 21 Standorten. 1,9 Mrd. Euro Gesamtleistung. Führende Wirtschaftsprüfungs- und Beratungsgesellschaft in Deutschland.",
                 "https://www.pwc.de/",
-                ContextCompat.getDrawable(this, R.drawable.pwc_logo),
+                "https://www.jcnetwork.de/media/jcnetwork/m_5d42bc4666fdda_pwc-links-535x200.png",
                 "https://www.xing.com/pages/pwcdeutschland",
                 "https://www.linkedin.com/company/pwc/"));
         firmAdapter.addFirm(new Firm("zeb",
@@ -125,14 +125,14 @@ public class FirmActivity extends AppCompatActivity {
                         "\n" +
                         "Egal ob in Münster, Mailand oder Moskau – wir von zeb sprechen überall auf der Welt die gleiche Sprache: Klartext. Ein ehrliches Arbeitsumfeld, verbindliche Aussagen und offene Kommunikation sind dabei Teil unserer Unternehmenskultur und Grundlage für den langfristigen Erfolg von uns und unseren Kunden.",
                 "https://zeb-consulting.com/de-DE",
-                ContextCompat.getDrawable(this, R.drawable.zeb_logo),
+                "https://www.jcnetwork.de/media/jcnetwork/m_5e08ee0d6c5d55_zeb-neu-links-535x200.png",
                 "https://www.xing.com/pages/zeb",
                 "https://www.linkedin.com/company/zebconsulting/"));
         // Silver partners from here
         firmAdapter.addFirm(new Firm("BwConsulting",
                 "Die BwConsulting ist ein Beratungsunternehmen mit einem sehr speziellen Fokus. Als Inhouse-Gesellschaft beraten wir die strategischen Projekte des Bundesministeriums der Verteidigung (BMVg) und der Bundeswehr. Im Auftrag der ministeriellen Leitung sind wir damit treibende Kraft für die kontinuierliche Weiterentwicklung des gesamten Ressorts. Unsere Beraterinnen und Berater bringen ihre methodische und fachliche Expertise dabei unmittelbar in Projekte mit besonderer gesellschafts- und sicherheitspolitischer Relevanz ein. Unser Fokus liegt hierbei auf den drei Beratungsfeldern Strategie & Steuerung, Prozesse & Organisation und Projektmanagementberatung.\u200B\u200B",
                 "https://www.bwconsulting.de/",
-                ContextCompat.getDrawable(this, R.drawable.bw_consulting_logo),
+                "https://www.jcnetwork.de/media/jcnetwork/m_5d42bc3f6cd21c_bwconsulting-links-535x200.png",
                 "https://www.xing.com/pages/bwconsulting-dieinhouse-beratungderbundeswehr",
                 "https://www.linkedin.com/company/bwconsulting-the-inhouse-consultancy-of-bundeswehr/"));
         firmAdapter.addFirm(new Firm("mm1",
@@ -140,7 +140,7 @@ public class FirmActivity extends AppCompatActivity {
                         "\n" +
                         "Wir bieten aufstrebenden Beraterinnen und Beratern die ideale Umgebung für fachliches und persönliches Wachstum mit steiler Lernkurve. Großartige Projekte, eine offene und unkomplizierte Unternehmenskultur, ein umfangreiches Weiterbildungsprogramm, unternehmerischer Startup-Spirit und eine moderne Arbeitswelt mit freier Wohnortwahl sprechen für deinen Karrierestart bei mm1.",
                 "https://mm1.com/en/",
-                ContextCompat.getDrawable(this, R.drawable.mm1_logo),
+                "https://www.jcnetwork.de/media/jcnetwork/m_5d42bc4418c591_mm1-links-535x200.png",
                 "https://www.xing.com/pages/mm1consulting-managementpartg",
                 "https://www.linkedin.com/company/mm1/"));
         firmAdapter.addFirm(new Firm("MGRP",
@@ -148,7 +148,7 @@ public class FirmActivity extends AppCompatActivity {
                         "\n" +
                         "Als Topmanagementberatung mit Start-up-Charakter sind wir anpassungsfähig, setzen Qualität vor Quantität und machen weiter, wo andere aufgegeben haben. Warum? Weil bei uns aufgeschlossene Menschen arbeiten, die wissen, wie man Veränderung erfolgreich und nachhaltig gestaltet. Dabei legen wir Wert auf flache Hierarchien, individuelle Freiräume und ein wertschätzendes Miteinander und gemeinsames Wachsen. Jeder ist bei MGRP willkommen, der wie wir auf Offenheit und Initiative setzt. Vom Werkstudenten bis zum Senior Professional – ob Qualitätsfanatiker, Charakterkopf, Zahlenmensch oder Überzeugungstäter.",
                 "https://mg-rp.com/de/",
-                ContextCompat.getDrawable(this, R.drawable.mgrp_logo),
+                "https://www.jcnetwork.de/media/jcnetwork/m_60561590326405_mgrp-535x200.png",
                 "https://www.xing.com/pages/mgrp",
                 "https://www.linkedin.com/company/mg-rp/"));
         firmAdapter.addFirm(new Firm("Detecon Consulting",
@@ -162,7 +162,7 @@ public class FirmActivity extends AppCompatActivity {
                         "\n" +
                         "Ob Detecon-Band oder Detecon-Baskets: After-Works, Studenten-Lunch oder unsere Summer Night Party mit über 300 Alumni: unsere Interkationenen geht weit über die fachliche Zusammenarbeit hinaus.\u200B",
                 "https://www.detecon.com/de",
-                ContextCompat.getDrawable(this, R.drawable.detecon_logo),
+                "https://www.jcnetwork.de/media/jcnetwork/m_5d42bc4146fdef_detecon-links-535x200.png",
                 "https://www.xing.com/pages/detecon",
                 "https://www.linkedin.com/company/detecon/?originalSubdomain=de"));
         // Bronze from here
@@ -173,7 +173,7 @@ public class FirmActivity extends AppCompatActivity {
                         "\n" +
                         "Ein Einstieg bei DB MC bietet die Möglichkeit, in nächster Nähe zum Konzernvorstand zu arbeiten, den DB-Konzern in seiner Vielfalt, Komplexität und Dynamik aus der Innenperspektive kennenzulernen und die Zukunft der Mobilität und Logistik mitzugestalten. Regelmäßiges Feedback und ein hochwertiges Trainings- und Weiterbildungsangebot legen bei uns den Grundstein für die optimale fachliche und persönliche Entwicklung jedes Einzelnen.",
                 "https://management-consulting.deutschebahn.com/dbmc",
-                ContextCompat.getDrawable(this, R.drawable.deutsche_bahn_logo),
+                "https://www.jcnetwork.de/media/jcnetwork/m_5d42bc4218c58a_dbconsulting-links-535x200.png",
                 "https://www.xing.com/pages/deutschebahn",
                 "https://www.linkedin.com/company/deutsche-bahn-management-consulting/"));
         firmAdapter.addFirm(new Firm("Campus Consult",
@@ -183,7 +183,7 @@ public class FirmActivity extends AppCompatActivity {
                         "\n" +
                         "Seit mehr als 20 Jahren betreuen wir nun erfolgreich Studenten und Absolventen auf ihrem Karriereweg. Diese Erfahrung nutzen wir, um auch in Zukunft das bestmögliche Angebot zur Förderung eurer Karriere anbieten zu können.",
                 "https://campus-consult.de/",
-                ContextCompat.getDrawable(this, R.drawable.campus_consult_logo),
+                "https://www.jcnetwork.de/media/jcnetwork/m_5d42bc4018c583_campusconsult-links-535x200.png",
                 "https://www.xing.com/pages/campusconsultprojektmanagementgmbh",
                 "https://www.linkedin.com/company/campus-consult-projektmanagement-gmbh/"));
         firmAdapter.addFirm(new Firm("Moysies & Partner",
@@ -193,7 +193,7 @@ public class FirmActivity extends AppCompatActivity {
                         "\n" +
                         "Dazu braucht es mutige und lösungsorientierte Unternehmer/innen. Wirtschaft kann doch jeder! Wir suchen die besten Unternehmer/innen, um Digitalisierungs- und Transformationsprozesse im Public Sector voranzubringen.",
                 "https://moysies.de/",
-                ContextCompat.getDrawable(this, R.drawable.moysies_logo),
+                "https://www.jcnetwork.de/media/jcnetwork/m_5e5660d808e335_moysies535x200-links.png",
                 "https://www.xing.com/pages/moysies-partnerit-undmanagementberatung",
                 "https://www.linkedin.com/company/moysies-partner-it-und-managementberatung/"));
         firmAdapter.addFirm(new Firm("NTT DATA",
@@ -205,7 +205,7 @@ public class FirmActivity extends AppCompatActivity {
                         "\n" +
                         "\u200BNTT DATA ist Teil der NTT-Unternehmensgruppe mit über 300.000 Mitarbeitern in über 88 Ländern und einem Umsatz von über 107 Milliarden US Dollar. Zur NTT Group in Deutschland, Österreich und Schweiz gehören neben NTT DATA die Unternehmen itelligence, NTT DATA Services, NTT Ltd. (hello.global.ntt). Die NTT Ltd. führt die Marken Dimension Data, NTT Communications und NTT Security zusammen.\u200B",
                 "https://de.nttdata.com/",
-                ContextCompat.getDrawable(this, R.drawable.ntt_data_logo),
+                "https://www.jcnetwork.de/media/jcnetwork/m_5d4d6f6d5750ca_nttdata-links-535x200.png",
                 "https://www.xing.com/pages/nttdatadeutschland",
                 "https://www.linkedin.com/company/ntt-data-deutschland-gmbh/"));
 

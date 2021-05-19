@@ -7,7 +7,7 @@ public class Firm {
     // Variables with some empty string defaults
     private String name;
     private String description;
-    private Drawable logoImg;
+    private String logoImg;
     // Homepage
     private String homePageLink = "";
     // Professional profiles
@@ -26,19 +26,20 @@ public class Firm {
         this.description = description;
     }
 
-    public Firm(String name, String description, String homePageLink, Drawable logoImg) {
+    public Firm(String name, String description, String homePageLink, String logoImg) {
         this.name = name;
         this.description = description;
         this.homePageLink = homePageLink;
         this.logoImg = logoImg;
     }
 
-    public Firm(String name, String description, String homePageLink, Drawable logoImg, String xingLink, String linkedInLink) {
+    public Firm(String name, String description, String homePageLink, String logoImg, String xingLink, String linkedInLink) {
         this.name = name;
         this.description = description;
         this.homePageLink = homePageLink;
         this.xingLink = xingLink;
         this.linkedInLink = linkedInLink;
+        this.logoImg = logoImg;
     }
 
     // Getter Methods
@@ -54,7 +55,7 @@ public class Firm {
     public String getXingLink() { return xingLink; }
     public String getLinkedInLink() { return linkedInLink; }
     public Boolean getIsFavorite() { return isFavorite; }
-    public Drawable getImage() { return logoImg; }
+    public String getImageLink() { return logoImg; }
 
 
     // Setter Methods
@@ -70,6 +71,7 @@ public class Firm {
     public void setHomePageLink(String homePageLink) {
         this.homePageLink = homePageLink;
     }
+    public void setImageLink(String imageLink) { this.logoImg = imageLink; }
 
 
 }

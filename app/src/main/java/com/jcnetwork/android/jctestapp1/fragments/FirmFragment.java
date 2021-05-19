@@ -60,6 +60,12 @@ public class FirmFragment extends Fragment {
         this.linkedinBtn = view.findViewById(R.id.linkedin_button);
         this.xingBtn = view.findViewById(R.id.xing_button);
 
+        // Load image from internet
+        Glide
+                .with(mContext)
+                .load(currentFirm.getImageLink())
+                .into(this.logoImg);
+
         return view;
     }
 
@@ -68,10 +74,6 @@ public class FirmFragment extends Fragment {
         super.onViewCreated(view, savedInstanceState);
         this.descriptionTV.setText(currentFirm.getDescription());
 
-
-//        Glide.with(mContext
-//                .load("https://www.jcnetwork.de/media/jcnetwork/m_5d42bc476cd22a_ums-links-535x200.png")
-//                .into(this.logoImg));
         // Open browser link with home, xing, and linkedin
         this.homeBtn.setOnClickListener(new View.OnClickListener() {
             @Override
