@@ -23,15 +23,6 @@ public class BrainteaserAdapter extends FragmentStateAdapter {
     public BrainteaserAdapter(@NonNull FragmentActivity fragmentActivity) {
         super(fragmentActivity);
         bt = new ArrayList<>();
-
-        // add data
-        Brainteaser brain1 = new Brainteaser("X", "Y");
-        Brainteaser brain2 = new Brainteaser("A", "B");
-        Brainteaser brain3 = new Brainteaser("3", "rd");
-        bt.add(brain1);
-        bt.add(brain2);
-        bt.add(brain3);
-
     }
 
     // Method to add a new brainteaser

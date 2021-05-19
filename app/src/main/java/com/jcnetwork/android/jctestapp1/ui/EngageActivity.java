@@ -1,6 +1,7 @@
 package com.jcnetwork.android.jctestapp1.ui;
 
 import android.content.Intent;
+import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
@@ -12,6 +13,7 @@ import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.ContextCompat;
 
+import com.bumptech.glide.Glide;
 import com.google.android.material.card.MaterialCardView;
 import com.jcnetwork.android.jctestapp1.R;
 
@@ -120,6 +122,21 @@ public class EngageActivity extends AppCompatActivity {
     }
 
     /**
+     * Method to load in logo image from website into the respective imageview
+     */
+    private void loadImage(String imageLink, int defaultImg) {
+        // Find image view
+        iconImg = findViewById(R.id.image_view);
+
+        // Load in image with glide
+        Glide
+                .with(this)
+                .load(imageLink)
+                .placeholder(defaultImg)
+                .into(iconImg);
+    }
+
+    /**
      * Override on back/up pressed when large card is viewed
      */
     @Override
@@ -149,11 +166,15 @@ public class EngageActivity extends AppCompatActivity {
                             "Für die Geselligen:",
                             "Werde zur direkten Verbindung zu unseren Vereinen. Oder unterstütze bei dem Controlling der Verbandsstrategie. Oder akquiriere Pro Bono Beratungsprojekte.",
                             R.drawable.vorstandsvorsitz);
+                    loadImage("https://www.jcnetwork.de/media/jcnetwork/s_573b34f7695453_icon-network.png",
+                            R.drawable.vorstandsvorsitz);
                     break;
                 case R.id.customer_relations:
                     fillLargeCard("Customer Relations",
                             "Für Verkaufsprofis:",
                             "Akquiriere und betreue die Partner und Sponsoren des JCNetwork für die Veranstaltungsformate, wie die JCNetwork Days. Und entwickle neue Produktfelder.",
+                            R.drawable.customer_relations);
+                    loadImage("https://www.jcnetwork.de/media/jcnetwork/s_573b34f769544d_icon-handshake.png",
                             R.drawable.customer_relations);
                     break;
                 case R.id.finanzen_und_recht:
@@ -161,11 +182,15 @@ public class EngageActivity extends AppCompatActivity {
                             "Für die Sorgfältigen:",
                             "Unterstütze den Vorstand bei Finanz- und Jahresabschlüssen, achte auf die Einhaltung des Datenschutzes oder hilf bei rechtlichen Fragen.",
                             R.drawable.finanzen_recht);
+                    loadImage("https://www.jcnetwork.de/media/jcnetwork/s_573b34f4695441_icon-banknotes.png",
+                            R.drawable.finanzen_recht);
                     break;
                 case R.id.informationsmanagement:
                     fillLargeCard("Informationsmanagement",
                             "Für IT-Fans:",
                             "Verwalte die Office 365 Infrastruktur, Insights oder das Certification Portal. Oder definiere neue Prozesse und Dokumentationsrichtlinien.",
+                            R.drawable.informationsmanagement);
+                    loadImage("https://www.jcnetwork.de/media/jcnetwork/s_573b393b695447_icon-workstation.png",
                             R.drawable.informationsmanagement);
                     break;
                 case R.id.marketing:
@@ -173,11 +198,15 @@ public class EngageActivity extends AppCompatActivity {
                             "Für Kreative:",
                             "Entwickle interne und externe Marketing-Maßnahmen für unsere Produkte, stärke das Branding des JCNetwork und gestalte unseren Auftritt im Social Media.",
                             R.drawable.marketing);
+                    loadImage("https://www.jcnetwork.de/media/jcnetwork/s_573b34f8695459_icon-like.png",
+                            R.drawable.marketing);
                     break;
                 case R.id.eventmanagement:
                     fillLargeCard("Eventmanagement",
                             "Für Organisationstalente:",
                             "Unterstütze bei der Organisation der JCNetwork Days, JCNetwork Executive Days und den JCNetwork Development Days. Digitalisiere Prozesse und controlle die Finanzen.",
+                            R.drawable.event_management);
+                    loadImage("https://www.jcnetwork.de/media/jcnetwork/s_573b34f5695447_icon-calendar.png",
                             R.drawable.event_management);
                     break;
                 case R.id.human_resources:
@@ -185,11 +214,15 @@ public class EngageActivity extends AppCompatActivity {
                             "Für Menschenkenner:",
                             "Betreue und entwickle das JCNetwork Fellowship Progam. Gestalte Recruitingkampagnen für neuer Fellows und Vorstände. Und lass die Alumniarbeit aufleben.",
                             R.drawable.human_resources);
+                    loadImage("https://www.jcnetwork.de/media/jcnetwork/s_573b34f5695447_icon-conference.png",
+                            R.drawable.human_resources);
                     break;
                 case R.id.weiterbildung:
                     fillLargeCard("Weiterbildung",
                             "Für Wissensdurstige:",
                             "Entwickle und betreue exzellente Weiterbildungsmöglichkeiten wie die JCNetwork Trainer Academy für jeden einzelnen Junior Consultant.",
+                            R.drawable.weiterbildung);
+                    loadImage("https://www.jcnetwork.de/media/jcnetwork/s_5d0973a91a45b2_jcnetwork-thought.png",
                             R.drawable.weiterbildung);
                     break;
                 default:
