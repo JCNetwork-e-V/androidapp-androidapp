@@ -112,6 +112,7 @@ public class LoginActivity extends AppCompatActivity {
     /**
      * Method to set up Register for first time users of the JCNetwork
      */
+    // TODO Fully set up functionality
     private void setUpRegister() {
         // Adjust settings
 //        WebSettings webSettings = mWebView.getSettings();

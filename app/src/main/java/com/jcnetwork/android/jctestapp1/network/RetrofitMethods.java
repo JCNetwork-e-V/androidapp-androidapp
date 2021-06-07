@@ -146,10 +146,6 @@ public class RetrofitMethods {
                     editor.putString(Constants.ABLAUFSPLAN_JSON_RESULT_KEY, program_json);
                     // Apply
                     editor.apply();
-
-
-                    // TODO Get hotel (empty for me)
-
                 }
             }
 
@@ -171,6 +167,4 @@ public class RetrofitMethods {
         Log.i("LOG_TAG", string);
         return string;
     }
-
-
 }

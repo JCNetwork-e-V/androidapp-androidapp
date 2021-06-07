@@ -45,10 +45,34 @@ public class BrainteaserActivity extends AppCompatActivity {
         }
 
         // Set up adapter
+        // Fill with data (here for example)
+//        btAdapter.addBT(new Brainteaser("Titel",
+//                "Aufgabe?",
+//                "Antwort."));
         btAdapter = new BrainteaserAdapter(this);
         btAdapter.addBT(new Brainteaser("Kaffee vs. Tee", "Laut einer Umfrage trinken 80% der Junior Consultants Kaffee und 70% Tee. Was ist die obere und undere Grenze derer, die beides trinken?", "Bei Unabhängigkeit liegt die untere Grenze bei 50%. Bei maximaler Abhängigkeit liegt die obere Grenze bei 70%."));
         btAdapter.addBT(new Brainteaser("Skiurlaub", "Skiurlaub nach Corona: wenn vier Junior Consultants die Gondel eines Skilifts unten am Berg besteigen und den ganzen Weg nach oben fahren, an wie vielen Gondeln kommen sie vorbei?", "An allen."));
         btAdapter.addBT(new Brainteaser("Zertifikate pro Jahr", "1,5 Junior Consultants bekommen 1,5 Zertifikate in 1,5 Jahren. Wie viele Zertifikate bekommt ein Junior Consultant in einem Jahr?", "2/3."));
+        btAdapter.addBT(new Brainteaser("So Alt!", "Junior steht am Neujahrsmorgen auf und grummelt: 'Am ersten Advent war ich 91 und es ist schon drei Wochen her seit meinem Geburtstag...wie alt werde ich im nächsten Jahr'?", "94."));
+        btAdapter.addBT(new Brainteaser("Namensgebung",
+        "Laras Vater hat fünf Töchter: 1. Nana, 2. Nene, 3. Nini, 4. Nono. Wie heißt die fünfte Tochter?",
+        "Lara."));
+        btAdapter.addBT(new Brainteaser("Wochentag",
+        "Wenn vorgestern ein Tag nach Montag war, welcher Tag ist morgen?",
+        "Freitag."));
+        btAdapter.addBT(new Brainteaser("Würfelzahl",
+                "Vor dir liegt ein Würfel, der die Zahl 5 anzeigt. Wenn du diesen Würfel zweimal nach vorne kippst, welche Zahl wird dann angezeigt?",
+                "Zwei."));
+        btAdapter.addBT(new Brainteaser("Segelspaß",
+                "Junior will einen 420 breiten See überqueren mit einem Segelboot. Jeden Tag versucht er es erneut und legt die doppelte Strecke vom Vortag zurück. Nach 32 Tagen hat er endlich den See überquert. An welchem Tag hat Junior die Hälfte des Sees überquert?",
+                "Am 31. Tag (Vortag)."));
+        btAdapter.addBT(new Brainteaser("Mysteriöses Mascottchen",
+                "Ein mysteriöses Mascottchen wurden von drei Junior Consultants gesichtet. Nico meint, dass es nicht schwarz wäre. Eric sagt, dass es entweder braun oder blau war. Anthony dagegen behauptet, dass es braun war. Du weißt, dass mindestens einer die Wahrheit sagt und mindestens einer lügt. Welche Farbe hat das Mascottchen?",
+                "Blau."));
+        btAdapter.addBT(new Brainteaser("Fünf",
+                "Wie lässt sich die Zahl 56 nur mir Fünfen und üblichen Rechenoperationen ausdrücken?",
+                "55 + 5/5."));
+
 
         // Add cube out page transformer to view pager
         btViewPager.setPageTransformer(new CubeOutTransformer());

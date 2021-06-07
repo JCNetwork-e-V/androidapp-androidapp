@@ -44,54 +44,6 @@ public class ScheduleAdapter extends FragmentStateAdapter {
     @NonNull
     @Override
     public Fragment createFragment(int position) {
-
-//        // TODO New attempt
-//        return ScheduleFragment.newInstance(position);
-
-//        ScheduleFragment scheduleFragment = new ScheduleFragment();
-//        // Pass in data
-//        Bundle bundle = new Bundle();
-//        bundle.putInt("POSITION", position);
-//        // Depending on the position get the specific schedule to pass along
-//        switch (position) {
-//            case 0: // Put Day One Schedule
-//                Log.i(LOG_TAG, "position 0");
-//                // TODO Fix function
-//                try {
-//                    List<ProgramPoint> dayOneSchedule = ProgramPointAnalysis.getProgramForDayX(mProgram, 0, "2019-11-21");
-//                    bundle.putParcelableArrayList("SCHEDULE_KEY", (ArrayList<? extends Parcelable>) dayOneSchedule);
-//                } catch (ParseException e) {
-//                    e.printStackTrace();
-//                }
-//            case 1: // Put Day Two Schedule
-//                Log.i(LOG_TAG, "position 1");
-//
-//                try {
-//                    List<ProgramPoint> dayTwoSchedule = ProgramPointAnalysis.getProgramForDayX(mProgram, 1, "2019-11-22");
-//                    bundle.putParcelableArrayList("SCHEDULE_KEY", (ArrayList<? extends Parcelable>) dayTwoSchedule);
-//                } catch (ParseException e) {
-//                    e.printStackTrace();
-//                }
-//            case 2: // Put Day Three Schedule
-//                try {
-//                    List<ProgramPoint> dayThreeSchedule = ProgramPointAnalysis.getProgramForDayX(mProgram, 2, "2019-11-23");
-//                    bundle.putParcelableArrayList("SCHEDULE_KEY", (ArrayList<? extends Parcelable>) dayThreeSchedule);
-//                } catch (ParseException e) {
-//                    e.printStackTrace();
-//                }
-//            case 3: // Put Day Four Schedule
-//                try {
-//                    List<ProgramPoint> dayFourSchedule = ProgramPointAnalysis.getProgramForDayX(mProgram, 3, "2019-11-24");
-//                    bundle.putParcelableArrayList("SCHEDULE_KEY", (ArrayList<? extends Parcelable>) dayFourSchedule);
-//                } catch (ParseException e) {
-//                    e.printStackTrace();
-//                }
-//            default:
-//                // Put everything
-//                bundle.putParcelableArrayList("SCHEDULE_KEY", (ArrayList<? extends Parcelable>) mProgram);
-//        }
-//        // Set data to fragment to send to each fragment
-//        scheduleFragment.setArguments(bundle);
         // Return new fragment
         return ScheduleFragment.newInstance(position, mProgram);
     }

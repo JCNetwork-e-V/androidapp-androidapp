@@ -72,17 +72,4 @@ public class CheckInActivity extends AppCompatActivity {
             e.printStackTrace();
         }
     }
-
-
-
-    // Color
-    //         case "jcblau":
-    //            return Color(red: 51/255, green: 102/255, blue: 153/255)
-    //        case "partygrey":
-    //            return Color(red: 93/255, green: 93/255, blue: 93/255)
-    //        case "grey":
-    //            return Color(red: 191/255, green: 191/255, blue: 191/255)
-    //        case "blau":
-    //            return Color(red: 31/255, green: 82/255, blue: 133/255)
-
 }

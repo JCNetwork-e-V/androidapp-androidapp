@@ -80,7 +80,6 @@ public class PointsActivity extends AppCompatActivity{
         experienceTV = (TextView)findViewById(R.id.experience_points_tv);
 
         // Check if there is a saved Bundle i.e. the device was rotated
-        // TODO Better Idea: check if there are stored values and set to them; then check connection; then if different; animate to new
         if (savedInstanceState != null) {
             // If it was don't send a network request or animate the views, just set the views
             setProgressBars();

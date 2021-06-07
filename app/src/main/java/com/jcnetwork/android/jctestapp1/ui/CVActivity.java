@@ -42,9 +42,8 @@ public class CVActivity extends AppCompatActivity {
             // Initialize Shared Preferences
             SharedPreferences sharedPreferences = getSharedPreferences(Constants.SHARED_PREFERENCE_FILE_NAME, Context.MODE_PRIVATE);
 
-            // Retrieve lebenslaufId and userId from shared preferences
+            // Retrieve lebenslaufId from shared preferences
             String lebenslaufId = sharedPreferences.getString(Constants.LEBENSLAUF_ID_KEY, Constants.EMPTY_STRING_DEFAULT);
-//            String userId = sharedPreferences.getString(Constants.USER_ID_KEY, Constants.EMPTY_STRING_DEFAULT);
             Log.i("CVActivity", "LebenslaufId is " + lebenslaufId);
 
             // Check that both are not empty before proceeding

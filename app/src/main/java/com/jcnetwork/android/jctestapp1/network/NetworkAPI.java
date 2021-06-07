@@ -8,12 +8,7 @@ import retrofit2.http.Query;
 
 public interface NetworkAPI {
 
-    // Return movies from movie database API with relative URL in get (base will be passed in at other point)
+    // Return program points from with relative URL in get (base will be passed in at other point)
     @GET("results")
     Call<JSONResult> getJSONResults(@Query("id") String Id);
-
-
-//    @GET("top_rated")
-//    Call<Movies> getTopRatedMovies(@Query("page") int page, @Query("api_key") String apiKey);
-
 }

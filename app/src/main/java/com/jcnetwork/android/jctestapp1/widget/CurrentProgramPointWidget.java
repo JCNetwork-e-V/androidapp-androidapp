@@ -30,7 +30,7 @@ import static com.jcnetwork.android.jctestapp1.R.layout.current_program_point_wi
  */
 public class CurrentProgramPointWidget extends AppWidgetProvider {
 
-    // TODO Reference: https://developer.android.com/guide/topics/appwidgets#CreatingLayout
+    //  Reference: https://developer.android.com/guide/topics/appwidgets#CreatingLayout
     
     // For logging
     private final String LOG_TAG = this.getClass().getSimpleName();

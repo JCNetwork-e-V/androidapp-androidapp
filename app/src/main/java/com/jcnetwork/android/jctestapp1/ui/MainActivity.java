@@ -102,7 +102,6 @@ public class MainActivity extends AppCompatActivity {
         }
 
         // Get Firebasetoken to enable instant messaging for testing purposes to this device
-        // TODO Delete later or rather: to implement cloud messaging properly e.g. subscription to topics, more code is needed
         FirebaseMessaging.getInstance().getToken()
                 .addOnCompleteListener(new OnCompleteListener<String>() {
                     @Override
@@ -120,19 +119,6 @@ public class MainActivity extends AppCompatActivity {
                         Log.d(LOG_TAG, msg);
                     }
                 });
-
-        //getSupportActionBar().hide();
-//        getSupportActionBar().setTitle("");
-//        getSupportActionBar().setElevation(0);
-//        //getSupportActionBar().setBackgroundDrawable(new ColorDrawable(Color.parseColor("#374049")));
-//        getSupportActionBar().setBackgroundDrawable(ContextCompat.getDrawable(this, R.drawable.black_to_dark_gradient));
-
-        // Set up view model // TODO
-        //mProgramViewModel = new ViewModelProvider(this).get(ProgramViewModel.class);
-
-
-
-
 
         // Check shared preferences
         SharedPreferences sharedPreferences = this.getSharedPreferences(
@@ -159,9 +145,7 @@ public class MainActivity extends AppCompatActivity {
         SharedPreferences userSharedPreferences = getSharedPreferences(Constants.SHARED_PREFERENCE_FILE_NAME, Context.MODE_PRIVATE);
 
 
-        // Set up Notifications //TODO Check: notifications need only be set up when
-        //TODO a) the user is logged in (otherwise we can't fetch data)
-        //TODO b) we got the data i.e. this should also check if data exists
+        // Set up Notifications
         setUpNotifications();
 
         // TODO Test internet connection
@@ -173,13 +157,6 @@ public class MainActivity extends AppCompatActivity {
             // Make call to get ablauf plan data and user name (will be stored in shared preferences)
             mProgram =  retrofitMethods.getProgram();
 
-            // Add each to viewmodel
-//            for (int i = 0; i < mProgram.size(); i++ ) {
-//                mProgramViewModel.insert(mProgram.get(i));
-//                // Log
-//                Log.i(LOG_TAG, "adding Programpoint" + String.valueOf(i));
-//            }
-
 
         } else {
             Log.i(LOG_TAG, "no internet");
@@ -188,7 +165,6 @@ public class MainActivity extends AppCompatActivity {
 
 
         // Find views
-        //mScrollV = (ScrollView)findViewById(R.id.scrollView);
         mCoordinator = (CoordinatorLayout) findViewById(R.id.coordinator);
         checkInButton = (ImageButton) findViewById(R.id.check_in_button);
         scheduleButton = (ImageButton) findViewById(R.id.schedule_button);
@@ -199,7 +175,6 @@ public class MainActivity extends AppCompatActivity {
         brainButton = (ImageButton) findViewById(R.id.brain_button);
         engageButton = (ImageButton) findViewById(R.id.engage_button);
         firmButton = (ImageButton) findViewById(R.id.firm_button);
-
         navDrawer = (NavigationView) findViewById(R.id.navigation_drawer);
         drawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
         View headerView = navDrawer.getHeaderView(0);
@@ -207,16 +182,11 @@ public class MainActivity extends AppCompatActivity {
         navEmailTV = (TextView) headerView.findViewById(R.id.nav_email_tv);
         toolbar = (Toolbar) findViewById(R.id.toolbar);
 
-        // Set toolbar as actionbar
-        //setSupportActionBar(toolbar); // if we activate this line; the menu on the right as well as the title could be shown
-
-
         // Set text for
         navEmailTV.setText(userSharedPreferences.getString(Constants.USER_EMAIL, Constants.EMPTY_STRING_DEFAULT));
         navNameTV.setText(userSharedPreferences.getString(Constants.USER_NAME_KEY, Constants.EMPTY_STRING_DEFAULT));
 
-
-        //TODO Make toolbar and find it in view and set it as the support actionbar
+        // Set up action bar toggle
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(this, drawerLayout, toolbar,
                 R.string.content_description_closed_drawer, R.string.content_description_opened_drawer);
         drawerLayout.addDrawerListener(toggle);
@@ -231,8 +201,6 @@ public class MainActivity extends AppCompatActivity {
 
         // Show user name and update once shared preferences has been updated with name from retrofit method
         nameTV = (TextView) findViewById(R.id.name_tv);
-
-        // TODO Make fade instead of spell animation
         final Animation in = new AlphaAnimation(0.0f, 1.0f);
         in.setDuration(3000);
         nameTV.setText(userSharedPreferences.getString(Constants.USER_NAME_KEY, Constants.EMPTY_STRING_DEFAULT));
@@ -271,17 +239,9 @@ public class MainActivity extends AppCompatActivity {
      * Method to set up navigation drawer
      */
     private void setUpNavigationDrawer() {
-        // Find views
-        //navNameTV = (TextView) findViewById(R.id.nav_name_tv);
-        //navEmailTV = (TextView) findViewById(R.id.nav_email_tv);
 
         // Set default checked item to home
         navDrawer.setCheckedItem(R.id.home);
-
-
-
-        // Get menu
-        //navNameTV.setText("A"); //TODO Fix null object reference
 
         // Setup listener to item selection
         navDrawer.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
@@ -373,9 +333,6 @@ public class MainActivity extends AppCompatActivity {
 
     /**
      * Method to set up notifications for 1. Workshop registration and 2. Event registration
-     * TODO Potentially divide into internal and external workshop registration
-     * TODO Potentially add notification for next event (Programpoint)...might be a pain in the...u know...
-     * TODO Put in notifications class to clean up main activity
      */
     private void setUpNotifications() {
 
@@ -495,7 +452,7 @@ public class MainActivity extends AppCompatActivity {
 
     /**
      * Creates an onClickListener which checks the id of the view and reacts accorodingly
-     */ //TODO Set up engage + firm activity
+     */
     private View.OnClickListener myCardClickListener = new View.OnClickListener() {
         @Override
         public void onClick(View view) {
@@ -520,8 +477,6 @@ public class MainActivity extends AppCompatActivity {
                     // Create intent to open new activity to introduce club //TODO Temporary redirect to Jobwall
                     Intent openClubIntro = new Intent(MainActivity.this, PortaleActivity.class);
                     MainActivity.this.startActivity(openClubIntro);
-                    // This adds a transition //TODO
-//                    overridePendingTransition(R.anim.slide_down, R.anim.slide_up);
                     break;
                 case R.id.city_button:
                     // Create intent to open new activity to introduce city //TODO Temporary redirect to Registraion
@@ -546,12 +501,6 @@ public class MainActivity extends AppCompatActivity {
                 case R.id.schedule_button:
                     // Create intent to open new activity to show certification points
                     Intent openScheduleActivity = new Intent(MainActivity.this, PlanActivity.class);
-                    // Add data i.e. plan to this intent to pass along to the plan activity
-//                    Bundle dataBundle = new Bundle();
-//                    dataBundle.putParcelableArrayList("SCHEDULE_KEY", (ArrayList<? extends Parcelable>) mProgram);
-//                    openScheduleActivity.putExtras(dataBundle);
-
-
                     // Open new activity
                     MainActivity.this.startActivity(openScheduleActivity);
                     break;
@@ -591,15 +540,13 @@ public class MainActivity extends AppCompatActivity {
 //            Snackbar.make(mCoordinator, // View you attach the snackbar to; usually coordinator layout
 //                    "Logging off...", // text to display
 //                    BaseTransientBottomBar.LENGTH_LONG).show(); // length to display it for
-//            // Set Logged in boolean to false and save this to Shared Preferences
-//            isLoggedIn = false;
+
             // Clear preferences
             SharedPreferences userSharedPreferences = getSharedPreferences(Constants.SHARED_PREFERENCE_FILE_NAME,
                     Context.MODE_PRIVATE);
             SharedPreferences.Editor userEditor = userSharedPreferences.edit();
             userEditor.clear();
             userEditor.apply();
-            // TODO Clear Room (when/if) implemented or firebase database
             // Update sharedpreferences to logged in false
             SharedPreferences loggedInSharedPreferences = getSharedPreferences(Constants.LOGGED_IN_KEY,
                     Context.MODE_PRIVATE);

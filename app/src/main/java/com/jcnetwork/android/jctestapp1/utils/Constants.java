@@ -24,7 +24,6 @@ public class Constants {
     public final static String EXPERIENCE_POINTS_KEY = "ExperiencePointsKey";
 
     // Storing keys for accessing user data
-    public final static String USER_ID_KEY = "UserIdKey";
     // Storing program json
     public final static String ABLAUFSPLAN_JSON_RESULT_KEY = "AblaufsplanJSONKey";
 

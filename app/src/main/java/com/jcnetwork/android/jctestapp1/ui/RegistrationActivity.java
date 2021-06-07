@@ -19,9 +19,6 @@ public class RegistrationActivity extends AppCompatActivity {
     private final String LOG_TAG = this.getClass().getSimpleName();
 
     // Views
-//    ViewPager2 mViewPager2;
-//    TabLayout mTabLayout;
-//    RegistrationAdapter mViewAdapter;
     private ImageButton daysBtn;
     private ImageButton executivedaysBtn;
     private ImageButton develoopmentdaysBtn;
@@ -47,43 +44,6 @@ public class RegistrationActivity extends AppCompatActivity {
         daysBtn.setOnClickListener(myWebViewListener);
         executivedaysBtn.setOnClickListener(myWebViewListener);
         develoopmentdaysBtn.setOnClickListener(myWebViewListener);
-
-//        mViewPager2 = (ViewPager2) findViewById(R.id.view_pager);
-//        mTabLayout = (TabLayout) findViewById(R.id.tab_layout);
-//
-//        // Set up viewpager
-//        mViewAdapter = new RegistrationAdapter(this);
-//        mViewPager2.setAdapter(mViewAdapter);
-//
-//        // Set up tab layout
-//        new TabLayoutMediator(mTabLayout, mViewPager2,
-//                new TabLayoutMediator.TabConfigurationStrategy() {
-//                    @Override
-//                    public void onConfigureTab(@NonNull TabLayout.Tab tab, int position) {
-//                        // Set default day
-//                        String typeOfDays = "";
-//                        // Get type of day based on position
-//                        switch (position) {
-//                            case 0:
-//                                // The normal JCNetwork Days
-//                                typeOfDays = "JCNetwork";
-//                                break;
-//                            case 1:
-//                                // The JCNetwork Development Days
-//                                typeOfDays = "Development";
-//                                break;
-//                            case 3:
-//                                // The JCNetwork Executive Days
-//                                typeOfDays = "Executive";
-//                                break;
-//                            default:
-//                                // Set a default
-//                                typeOfDays = "JCNetwork";
-//                                break;
-//                        }
-//                        tab.setText(typeOfDays);
-//                    }
-//                }).attach();
     }
 
     /**

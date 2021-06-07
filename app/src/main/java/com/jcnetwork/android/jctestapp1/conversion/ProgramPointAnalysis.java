@@ -68,34 +68,6 @@ public class ProgramPointAnalysis {
         return daysBetweenV1;
     }
 
-//    /**
-//     * Get Program for a specific day i.e. dateX which is dayX e.g. "2020-09-11" is day 1 of the Days
-//     */
-//    public static List<ProgramPoint> getProgramForDayX(List<ProgramPoint> fullList, int dayX, String dateX) throws ParseException {
-//        // Initialize list as default full list
-//        List<ProgramPoint> dayProgramPoints = new ArrayList<>();
-//
-//        //Get total number of days
-////        int totalDays = (int) getNumberOfDays(fullList) + 1;
-////        Log.i(LOG_TAG, "getProgramForDayX" + String.valueOf(totalDays));
-//        Log.i(LOG_TAG, "getProgramForDayX" + dateX);
-//
-//
-////        // Check if days is within the limits
-////        if (dayX > -1 && dayX < totalDays + 1) {
-//            // Proceed by looping through each program and checking if date matches the day; if it does append to list
-//            for (int i = 0; i < fullList.size(); i++) {
-//                // Get program at position i
-//                if (fullList.get(i).getmBegin().contains(dateX)) {
-//                    // add Program to list
-//                    dayProgramPoints.add(fullList.get(i));
-//                }
-//            }
-////        }
-//        // Return list of program points
-//        return dayProgramPoints;
-//    }
-
     /**
      * Method to return list of events for a specific day based on the position
      * @param fullList full list of events
