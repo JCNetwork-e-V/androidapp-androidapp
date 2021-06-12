@@ -72,7 +72,36 @@ public class BrainteaserActivity extends AppCompatActivity {
         btAdapter.addBT(new Brainteaser("Fünf",
                 "Wie lässt sich die Zahl 56 nur mir Fünfen und üblichen Rechenoperationen ausdrücken?",
                 "55 + 5/5."));
-
+        btAdapter.addBT(new Brainteaser("Hundeliebhaber",
+                "Du kommst an Dog Ville vorbei und siehst ein paar Menschen und überraschend viele Hunde. Bei der Durchfahrt zählst du insgesamt 40 Augen und 64 Beine. Wie viele Hunde hast du bei der Durchfahrt gesehen?",
+                "12."));
+        btAdapter.addBT(new Brainteaser("Tödliches Manöver",
+                "Du bist in ein Spiel verwickelt in dem du zwei Mal den Revolver betätigen musst, in dem sich nur eine Patrone befindet. Du drückst einmal ab und überlebst. Jetzt hast du die Wahl: willst du direkt erneut abdrücken oder die Kammer ein Mal drehen bevor du am Auslöser ziehst?",
+                "Drehen um die Wahrscheinlichkeit, dass du die Kammer mit der Patrone erwischst von 1/5 auf 1/6 zu senken."));
+        btAdapter.addBT(new Brainteaser("Socken Mix",
+                "Stromausfall um 5 Uhr morgens. Es ist stockdunkel und du versuchst, ein gleichfarbiges Paar Socken zu finden. Leider liegen alle lose herum. Insgesamt hast du 62 schwarze und 43 weiße Socken. Wie viele Socken nimmst du mit, wenn du sicher sein willst, dass du ein Paar gleichfarbige Socken dabeihast?",
+                "Drei da es nur zwei Farbausprägungen gibt."));
+        btAdapter.addBT(new Brainteaser("Diät",
+                "Junior muss abnehmen und darf pro Tag nicht mehr als 1.500 Kilokalorien zu sich nehmen. Frühstück und Mittagessen waren zusammen 700, Mittag und Abendessen zusammen 900 und Frühstück und Abendessen 1.000 Kilokalorien. Darf Junior heute noch etwas essen oder ist er bereits am bzw. über dem Limit?",
+                "Insgesamt hat er 1.300 Kilokalorien zu sich genommen und darf daher noch einen leichten Snack zu sich nehmen. Hinweis: hierbei kann man die Werte zusammenzählen und durch zwei teilen, um auf das Ergebnis zu kommen."));
+        btAdapter.addBT(new Brainteaser("Abstand",
+                "A und B laufen jeweils 8 m in entgegengesetzte Richtung und dann jeweils 6 m nach rechts. Wie weit sind sie voneinander entfernt?",
+                "20 m. Hinweis: Pythagoras reicht um das Rätsel zu lösen."));
+        btAdapter.addBT(new Brainteaser("Zahlenfolge",
+                "Z-A-Y-B-X-C- was kommt dann?",
+                "W."));
+        btAdapter.addBT(new Brainteaser("Riches to Rags",
+                "Junior erreicht ein Hotel und verliert sein gesamtes Vermögen. Warum?",
+                "Mögliche Antwort: er hat Monopoly gespielt."));
+        btAdapter.addBT(new Brainteaser("IT Katastrophe",
+                "Einer der IM Fellows hat eine IT Katastrophe ausgelöst und der IM Vorstand will den Schuldigen nun finden. Drei Kandidaten stehen zur Auswahl. Eric meint, dass es Leander war. Leander meint, dass es Luca war. Luca meint, dass Leander lügt. Der IM Vorstand weiß, dass nur der Schuldige lügen würde und die anderen Aussagen stimmen. Wer ist Schuld an der IT Katastrophe?",
+                "Leander. (Hinweis: das war nur ein fiktives Beispiel, also nicht sauer sein, lieber Leander :))"));
+        btAdapter.addBT(new Brainteaser("Tunnelfahrt",
+                "Junior fährt mit einem 1 km langen Zug mit 60 km/h durch einen 1 km langen Tunnel. Wie lange ist der Zug im Tunnel?",
+                "2 min."));
+        btAdapter.addBT(new Brainteaser("Analoge Zeit",
+                "Wie groß ist der Winkel zwischen Stunden- und Minutenzeiger auf einer analogen Uhr um 15:15 Uhr?",
+                "7,5 Grad."));
 
         // Add cube out page transformer to view pager
         btViewPager.setPageTransformer(new CubeOutTransformer());
