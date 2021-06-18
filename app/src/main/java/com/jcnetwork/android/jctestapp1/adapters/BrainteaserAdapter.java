@@ -25,9 +25,17 @@ public class BrainteaserAdapter extends FragmentStateAdapter {
         bt = new ArrayList<>();
     }
 
-    // Method to add a new brainteaser
-    public void addBT(Brainteaser teaser) {
-        bt.add(teaser);
+    // Method to add a list of brainteasers
+    public void addBTList(List<Brainteaser> brainteasers) {
+        bt.addAll(brainteasers);
+    }
+
+    // Method to update adapter with new data
+    public void updateBTList(List<Brainteaser> newbrainteasers) {
+        // Clear of cached data
+        bt.clear();
+        // Add new data
+        bt.addAll(newbrainteasers);
     }
 
     @NonNull

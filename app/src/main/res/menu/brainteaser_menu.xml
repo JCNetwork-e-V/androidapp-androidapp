@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools" tools:context=".ui.BrainteaserActivity">
+
+    <item
+        android:id="@+id/add" android:icon="@android:drawable/ic_menu_add" app:showAsAction="ifRoom"   android:title="@string/neu"/>
+    <item
+        android:id="@+id/shuffle" android:icon="@drawable/ic_baseline_shuffle_24" app:showAsAction="ifRoom" android:title="@string/mischen"/>
+
+</menu>
