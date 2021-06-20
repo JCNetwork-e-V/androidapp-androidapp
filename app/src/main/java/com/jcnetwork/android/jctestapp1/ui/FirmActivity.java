@@ -44,7 +44,7 @@ public class FirmActivity extends AppCompatActivity {
                         "\n" +
                         "Durch die Zusammenarbeit mit UMS lernen Ihre Mitarbeiterinnen und Mitarbeiter - ganz im Sinne unseres Claims \"Enabling Success\" -, Veränderungsprozesse selbstständig zu gestalten und zu managen.",
                 "https://ums-gmbh.com/en/",
-                "https://www.jcnetwork.de/media/jcnetwork/m_5d42bc476cd22a_ums-links-535x200.png",
+                "https://cdn.jcnetwork.de/images/external_company_logo/ums_logo_535x200px_zentriert.png",
                 "",
                 "https://www.linkedin.com/company/ums-consulting-training-gmbh/"));
         firmAdapter.addFirm(new Firm("CORE",
@@ -56,7 +56,7 @@ public class FirmActivity extends AppCompatActivity {
                         "\n" +
                         "Wichtig sind uns Menschen hinter dem Studium. Bei CORE haben wir die unterschiedlichen Hintergünde und Bandbreiten: Von Psychologie über Mathematik, Informatik, Physik, BWL/VWL, Recht oder Philosophie. Ein gutes Verständnis für anspruchsvolle Problemstellungen und eine strukturierte Herangehensweise, logisches Denkvermögen gepaart mit Neugier und einer ausgeprägten Auffassungsgabe sind uns wichtig.",
                 "https://core.se/",
-                "https://www.jcnetwork.de/media/jcnetwork/m_5d9b4dfd0f1c9c_core-links-535x200.png",
+                      "https://cdn.jcnetwork.de/images/external_company_logo/core_logo_535x200px_zentriert.png",
                       "https://www.xing.com/pages/core-se",
                 "https://www.linkedin.com/company/core.se/"));
         firmAdapter.addFirm(new Firm("Assure Consulting",
@@ -117,7 +117,7 @@ public class FirmActivity extends AppCompatActivity {
                         "\n" +
                         "PwC. 10.400 engagierte Menschen an 21 Standorten. 1,9 Mrd. Euro Gesamtleistung. Führende Wirtschaftsprüfungs- und Beratungsgesellschaft in Deutschland.",
                 "https://www.pwc.de/",
-                "https://www.jcnetwork.de/media/jcnetwork/m_5d42bc4666fdda_pwc-links-535x200.png",
+                "https://cdn.jcnetwork.de/images/external_company_logo/pwc_logo_535x200px_zentriert.png",
                 "https://www.xing.com/pages/pwcdeutschland",
                 "https://www.linkedin.com/company/pwc/"));
         firmAdapter.addFirm(new Firm("zeb",
@@ -173,7 +173,7 @@ public class FirmActivity extends AppCompatActivity {
                         "\n" +
                         "Ein Einstieg bei DB MC bietet die Möglichkeit, in nächster Nähe zum Konzernvorstand zu arbeiten, den DB-Konzern in seiner Vielfalt, Komplexität und Dynamik aus der Innenperspektive kennenzulernen und die Zukunft der Mobilität und Logistik mitzugestalten. Regelmäßiges Feedback und ein hochwertiges Trainings- und Weiterbildungsangebot legen bei uns den Grundstein für die optimale fachliche und persönliche Entwicklung jedes Einzelnen.",
                 "https://management-consulting.deutschebahn.com/dbmc",
-                "https://www.jcnetwork.de/media/jcnetwork/m_5d42bc4218c58a_dbconsulting-links-535x200.png",
+                "https://cdn.jcnetwork.de/images/external_company_logo/db_logo_535x200px_zentriert.png",
                 "https://www.xing.com/pages/deutschebahn",
                 "https://www.linkedin.com/company/deutsche-bahn-management-consulting/"));
         firmAdapter.addFirm(new Firm("Campus Consult",
@@ -193,7 +193,7 @@ public class FirmActivity extends AppCompatActivity {
                         "\n" +
                         "Dazu braucht es mutige und lösungsorientierte Unternehmer/innen. Wirtschaft kann doch jeder! Wir suchen die besten Unternehmer/innen, um Digitalisierungs- und Transformationsprozesse im Public Sector voranzubringen.",
                 "https://moysies.de/",
-                "https://www.jcnetwork.de/media/jcnetwork/m_5e5660d808e335_moysies535x200-links.png",
+                "https://cdn.jcnetwork.de/images/external_company_logo/Moysies&Partner_logo_535x200px_zentriert.png",
                 "https://www.xing.com/pages/moysies-partnerit-undmanagementberatung",
                 "https://www.linkedin.com/company/moysies-partner-it-und-managementberatung/"));
         firmAdapter.addFirm(new Firm("NTT DATA",
