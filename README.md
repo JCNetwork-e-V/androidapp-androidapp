@@ -4,7 +4,7 @@ Die Android Event App für den JCNetwork e.V. Hauptsächlich ausgerichtet für J
 
 ## Prototyp
 
-Einen Blick in die Vergangenheit: Ein erster [Prototyp](https://xd.adobe.com/view/41ffcdd5-9e12-4ba4-9043-644d0efd4669-14ac/) wurde von Requirement Management erstellt.
+Einen Blick in die Vergangenheit: Ein erster [Prototyp](https://xd.adobe.com/view/b5bb5e3b-3ced-48f8-bce1-e7cb5a8128f9-e0e8/?fullscreen&hints=off) wurde von Requirement Management erstellt.
 
 Seitdem hat sich die App weiterentwickelt bis zu ihrem jetzigen Stand, der hier auf GitHub ruht.
 
