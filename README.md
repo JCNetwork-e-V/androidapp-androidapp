@@ -36,4 +36,10 @@ Wie sieht das finale Produkt aus und welche Funktionen wurden alles abgedeckt? F
 
 ## Upkeeping
 
-> COMING SOON!
+Für IM Fellows wurden kleinere Tutorialvideos auf Sharepoint abgelegt, auf die ihr zugreifen könnt über euren Teamsaccount. Die folgenden wichtigen Themen werden behandelt:
+
+- [Projekt von GitHub in Android Studio öffnen](https://jcnetwork.sharepoint.com/sites/IM721/Freigegebene%20Dokumente/General/215%20Android%20App/Helper_Videos/Open%20Project%20in%20Android%20Studio.mp4)
+- [Gradle Dependencies ein Update verpassen](https://jcnetwork.sharepoint.com/sites/IM721/Freigegebene%20Dokumente/General/215%20Android%20App/Helper_Videos/Updating%20Gradle%20Dependencies.mp4)
+
+
+> Nur für IM Fellows zugängig!
