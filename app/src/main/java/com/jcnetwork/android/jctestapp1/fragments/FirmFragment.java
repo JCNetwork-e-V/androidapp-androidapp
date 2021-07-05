@@ -10,23 +10,14 @@ import android.view.ViewGroup;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
 
 import com.bumptech.glide.Glide;
 import com.jcnetwork.android.jctestapp1.R;
-import com.jcnetwork.android.jctestapp1.models.Brainteaser;
 import com.jcnetwork.android.jctestapp1.models.Firm;
-import com.jcnetwork.android.jctestapp1.ui.PortaleActivity;
-
-import java.util.Objects;
-
-import static java.lang.Boolean.FALSE;
-import static java.lang.Boolean.TRUE;
 
 public class FirmFragment extends Fragment {
 

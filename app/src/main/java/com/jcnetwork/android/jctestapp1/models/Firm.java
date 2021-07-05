@@ -1,7 +1,5 @@
 package com.jcnetwork.android.jctestapp1.models;
 
-import android.graphics.drawable.Drawable;
-
 public class Firm {
 
     // Variables with some empty string defaults

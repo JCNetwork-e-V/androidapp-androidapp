@@ -1,12 +1,10 @@
 package com.jcnetwork.android.jctestapp1.ui;
 
-import android.app.usage.UsageEvents;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.CalendarContract;
 import android.view.View;
-import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;

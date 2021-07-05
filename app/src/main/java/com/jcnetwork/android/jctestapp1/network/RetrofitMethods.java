@@ -3,9 +3,7 @@ package com.jcnetwork.android.jctestapp1.network;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.util.Log;
-import android.widget.ProgressBar;
 
-import com.jcnetwork.android.jctestapp1.conversion.ProgramPointAnalysis;
 import com.jcnetwork.android.jctestapp1.models.JSONResult;
 import com.jcnetwork.android.jctestapp1.models.ProgramPoint;
 import com.jcnetwork.android.jctestapp1.utils.Constants;
@@ -14,7 +12,6 @@ import com.google.gson.Gson;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 

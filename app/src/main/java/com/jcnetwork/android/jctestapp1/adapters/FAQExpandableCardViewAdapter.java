@@ -9,14 +9,12 @@ import android.view.ViewGroup;
 import android.view.animation.LinearInterpolator;
 import android.widget.ImageButton;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.jcnetwork.android.jctestapp1.R;
-import com.jcnetwork.android.jctestapp1.hiddenactivities.FAQsActivity;
 import com.jcnetwork.android.jctestapp1.models.QandA;
 
 import java.util.ArrayList;

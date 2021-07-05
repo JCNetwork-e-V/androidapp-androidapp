@@ -29,8 +29,6 @@ android {
         targetCompatibility JavaVersion.VERSION_1_8
     }
 }
-// For Firebase
-//apply plugin: 'com.google.gms.google-services'
 
 dependencies {
     implementation fileTree(dir: "libs", include: ["*.jar"])
@@ -43,6 +41,7 @@ dependencies {
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'androidx.test.ext:junit:1.1.2'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'
+
     // Add cardview
     implementation 'androidx.cardview:cardview:1.0.0'
     implementation 'com.google.android.material:material:1.3.0'
@@ -50,7 +49,7 @@ dependencies {
     // Recycleview
     implementation 'androidx.recyclerview:recyclerview:1.2.1'
 
-    // Add Volley for JSON parsing //TODO Delete later as we use Retrofit instead
+    // Add Volley for JSON parsing
     implementation 'com.mcxiaoke.volley:library:1.0.19'
 
     // Retrofit
@@ -90,9 +89,12 @@ dependencies {
     annotationProcessor 'com.github.bumptech.glide:compiler:4.7.1'
 
     // For firebase
-    implementation platform('com.google.firebase:firebase-bom:26.0.0') // Import the Firebase BoM -> means you don't need to specify versions for firebase products
-    implementation 'com.google.firebase:firebase-analytics' // Add the dependency for the Firebase SDK for Google Analytics
-    implementation 'com.google.firebase:firebase-perf' // Add for getting performance monitoring dashboard
+    implementation platform('com.google.firebase:firebase-bom:26.0.0')
+    // Import the Firebase BoM -> means you don't need to specify versions for firebase products
+    implementation 'com.google.firebase:firebase-analytics'
+    // Add the dependency for the Firebase SDK for Google Analytics
+    implementation 'com.google.firebase:firebase-perf'
+    // Add for getting performance monitoring dashboard
     implementation 'com.google.firebase:firebase-messaging' // Add for cloud messaging services
 
 }

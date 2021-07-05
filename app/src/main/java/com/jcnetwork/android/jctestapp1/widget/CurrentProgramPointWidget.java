@@ -20,9 +20,6 @@ import com.google.gson.reflect.TypeToken;
 import java.text.ParseException;
 import java.util.List;
 
-import static com.jcnetwork.android.jctestapp1.R.id.place;
-import static com.jcnetwork.android.jctestapp1.R.id.time;
-import static com.jcnetwork.android.jctestapp1.R.id.title;
 import static com.jcnetwork.android.jctestapp1.R.layout.current_program_point_widget;
 
 /**

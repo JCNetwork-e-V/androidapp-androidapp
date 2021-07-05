@@ -1,7 +1,6 @@
 package com.jcnetwork.android.jctestapp1.ui;
 
 import android.content.Intent;
-import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
