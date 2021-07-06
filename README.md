@@ -40,10 +40,11 @@ Für IM Fellows wurden kleinere Tutorialvideos auf Sharepoint abgelegt, auf die 
 
 - [Projekt von GitHub in Android Studio öffnen](https://jcnetwork.sharepoint.com/sites/IM721/Freigegebene%20Dokumente/General/215%20Android%20App/Helper_Videos/Open%20Project%20in%20Android%20Studio.mp4)
 - [Gradle Dependencies ein Update verpassen](https://jcnetwork.sharepoint.com/sites/IM721/Freigegebene%20Dokumente/General/215%20Android%20App/Helper_Videos/Updating%20Gradle%20Dependencies.mp4)
-- [Veränderungen auf GitHub Pushen] (https://jcnetwork.sharepoint.com/sites/IM721/Freigegebene%20Dokumente/General/215%20Android%20App/Helper_Videos/Push%20Changes%20to%20GitHub.mp4)
-- [Neue FAQ hinzufügen] (https://jcnetwork.sharepoint.com/sites/IM721/Freigegebene%20Dokumente/General/215%20Android%20App/Helper_Videos/Add%20a%20FAQ.mp4)
-- [Brainteaser hinzufügen] (https://jcnetwork.sharepoint.com/sites/IM721/Freigegebene%20Dokumente/General/215%20Android%20App/Helper_Videos/Add%20Brainteaser%20from%20Form.mp4)
-- [Kooperationspartner hinzufügen] (https://jcnetwork.sharepoint.com/sites/IM721/Freigegebene%20Dokumente/General/215%20Android%20App/Helper_Videos/Add%20new%20Firm%20.mp4)
-- [Workshop Feedback Link erneuern] (https://jcnetwork.sharepoint.com/sites/IM721/Freigegebene%20Dokumente/General/215%20Android%20App/Helper_Videos/Update%20Workshop%20Link.mp4)
+- [Veränderungen auf GitHub Pushen](https://jcnetwork.sharepoint.com/sites/IM721/Freigegebene%20Dokumente/General/215%20Android%20App/Helper_Videos/Push%20Changes%20to%20GitHub.mp4)
+- [Workshop Feedback Link erneuern](https://jcnetwork.sharepoint.com/sites/IM721/Freigegebene%20Dokumente/General/215%20Android%20App/Helper_Videos/Update%20Workshop%20Link.mp4)
+- [Neue FAQ hinzufügen](https://jcnetwork.sharepoint.com/sites/IM721/Freigegebene%20Dokumente/General/215%20Android%20App/Helper_Videos/Add%20a%20FAQ.mp4)
+- [Brainteaser hinzufügen](https://jcnetwork.sharepoint.com/sites/IM721/Freigegebene%20Dokumente/General/215%20Android%20App/Helper_Videos/Add%20Brainteaser%20from%20Form.mp4)
+- [Kooperationspartner hinzufügen](https://jcnetwork.sharepoint.com/sites/IM721/Freigegebene%20Dokumente/General/215%20Android%20App/Helper_Videos/Add%20new%20Firm%20.mp4)
+
 
 > Nur für IM Fellows zugängig!
