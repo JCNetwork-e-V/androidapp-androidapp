@@ -24,10 +24,8 @@ import com.google.zxing.qrcode.QRCodeWriter;
 
 public class CheckInActivity extends AppCompatActivity {
 
-
     // Set up variables
     ImageView qrCodeImg;
-    Bitmap qrCodeBitMap;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -52,7 +50,7 @@ public class CheckInActivity extends AppCompatActivity {
         String ablaufID = sharedPreferences.getString(Constants.ABLAUF_ID, Constants.EMPTY_STRING_DEFAULT);
 
         // Url to encode in QR code
-        String url = "https://intern.jcnetwork.de/days/check.php?id=" + ablaufID; //TODO Check which one you want, as ablauf_id gives you green screen with paid and no hotel info
+        String url = "https://intern.jcnetwork.de/days/check.php?id=" + ablaufID;
 
         // Create QR code from url and set to image
         QRCodeWriter writer = new QRCodeWriter();

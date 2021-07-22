@@ -1,5 +1,6 @@
 package com.jcnetwork.android.jctestapp1.ui;
 
+import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.Intent;
 import android.net.Uri;
@@ -121,7 +122,7 @@ public class BrainteaserActivity extends AppCompatActivity {
      */
     public class MyWebViewClient extends WebViewClient {
 
-        private Activity activity = null;
+        private Activity activity;
 
         public MyWebViewClient(Activity activity) {
             this.activity = activity;
@@ -150,6 +151,7 @@ public class BrainteaserActivity extends AppCompatActivity {
     }
 
     // Functionality added to each menu action button to react to user touch
+    @SuppressLint("SetJavaScriptEnabled")
     @Override
     public boolean onOptionsItemSelected(MenuItem item) { switch(item.getItemId()) {
         case R.id.add:

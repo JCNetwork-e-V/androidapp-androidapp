@@ -119,26 +119,6 @@
                 android:value="com.jcnetwork.android.jctestapp1.ui.MainActivity" />
         </activity>
 
-        <!-- City Intro Activity -->
-        <activity
-            android:name="com.jcnetwork.android.jctestapp1.ui.CityActivity"
-            android:label="City"
-            android:parentActivityName="com.jcnetwork.android.jctestapp1.ui.MainActivity">
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.jcnetwork.android.jctestapp1.ui.MainActivity" />
-        </activity>
-
-        <!-- Club Intro Activity -->
-        <activity
-            android:name="com.jcnetwork.android.jctestapp1.ui.ClubActivity"
-            android:label="Club"
-            android:parentActivityName="com.jcnetwork.android.jctestapp1.ui.MainActivity">
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.jcnetwork.android.jctestapp1.ui.MainActivity" />
-        </activity>
-
         <!-- Point Activity -->
         <activity
             android:name="com.jcnetwork.android.jctestapp1.ui.PointsActivity"

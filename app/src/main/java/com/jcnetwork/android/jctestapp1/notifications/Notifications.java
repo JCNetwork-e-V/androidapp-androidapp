@@ -15,8 +15,7 @@ import androidx.preference.PreferenceManager;
 import androidx.work.Data;
 
 import com.jcnetwork.android.jctestapp1.R;
-import com.jcnetwork.android.jctestapp1.ui.CityActivity;
-import com.jcnetwork.android.jctestapp1.ui.ClubActivity;
+import com.jcnetwork.android.jctestapp1.ui.MainActivity;
 
 import java.text.ParseException;
 
@@ -106,9 +105,7 @@ public class Notifications {
         switch (kindOfNotification) {
             case 1:
                 // create an intent to this workshop register class
-                // TODO Make this point somewhere more sensible
-                // TODO Even with stackbuilder, app still crashes...why...
-                Intent workshopIntent = new Intent(mContext, CityActivity.class);
+                Intent workshopIntent = new Intent(mContext, MainActivity.class);
                 // Create a stackbuilder that makes up navigation possible (otherwise app crashes)
                 TaskStackBuilder workshopStackBuilder = TaskStackBuilder.create(mContext);
                 workshopStackBuilder.addNextIntentWithParentStack(workshopIntent);
@@ -120,8 +117,7 @@ public class Notifications {
                 break;
             case 2:
                 // Create an explicit intent to event register class
-                // TODO Make this point somewhere more sensible
-                Intent eventIntent = new Intent(mContext, ClubActivity.class);
+                Intent eventIntent = new Intent(mContext, MainActivity.class);
                 // Create a stackbuilder that makes up navigation possible (otherwise app crashes)
                 TaskStackBuilder stackBuilder = TaskStackBuilder.create(mContext);
                 stackBuilder.addNextIntentWithParentStack(eventIntent);
@@ -140,7 +136,7 @@ public class Notifications {
 
                 // Task 3: Convert to date
                 // TODO Delete later
-//                Intent someIntent = new Intent(mContext, ClubActivity.class);
+//                Intent someIntent = new Intent(mContext, MainActivity.class);
 //                TaskStackBuilder expStackBuilder = TaskStackBuilder.create(mContext);
 //                expStackBuilder.addNextIntentWithParentStack(someIntent);
 //                pendingIntent = expStackBuilder.getPendingIntent(0, PendingIntent.FLAG_UPDATE_CURRENT);
@@ -188,7 +184,7 @@ public class Notifications {
                 // Set up title, text and pending intent
                 title = "Workshop";
                 text = "Anmeldungen fuer Workshops sind offen";
-                Intent workshopIntent = new Intent(mContext, CityActivity.class);
+                Intent workshopIntent = new Intent(mContext, MainActivity.class);
                 // Create a stackbuilder that makes up navigation possible (otherwise app crashes)
                 TaskStackBuilder workshopStackBuilder = TaskStackBuilder.create(mContext);
                 workshopStackBuilder.addNextIntentWithParentStack(workshopIntent);
@@ -199,7 +195,7 @@ public class Notifications {
                 // Set up title, text and pending intent
                 title = "Event";
                 text = "Anmeldungen fuer Events sind offen";
-                Intent eventIntent = new Intent(mContext, ClubActivity.class);
+                Intent eventIntent = new Intent(mContext, MainActivity.class);
                 // Create a stackbuilder that makes up navigation possible (otherwise app crashes)
                 TaskStackBuilder eventStackBuilder = TaskStackBuilder.create(mContext);
                 eventStackBuilder.addNextIntentWithParentStack(eventIntent);
