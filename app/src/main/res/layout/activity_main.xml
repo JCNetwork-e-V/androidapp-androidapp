@@ -159,7 +159,7 @@
 
         <!--    City-->
         <ImageButton
-            android:id="@+id/city_button"
+            android:id="@+id/register_button"
             android:layout_width="60dp"
             android:layout_height="60dp"
             android:layout_marginStart="30dp"
@@ -179,9 +179,9 @@
             android:layout_marginTop="8dp"
             android:gravity="center_horizontal"
             android:text="@string/anmelden"
-            app:layout_constraintEnd_toEndOf="@id/city_button"
-            app:layout_constraintStart_toStartOf="@id/city_button"
-            app:layout_constraintTop_toBottomOf="@id/city_button" />
+            app:layout_constraintEnd_toEndOf="@id/register_button"
+            app:layout_constraintStart_toStartOf="@id/register_button"
+            app:layout_constraintTop_toBottomOf="@id/register_button" />
 
         <!--    Profile-->
         <ImageButton
@@ -210,7 +210,7 @@
 
         <!--    Club-->
         <ImageButton
-            android:id="@+id/club_button"
+            android:id="@+id/portale_button"
             android:layout_width="60dp"
             android:layout_height="60dp"
             android:layout_marginTop="30dp"
@@ -230,9 +230,9 @@
             android:layout_marginTop="8dp"
             android:gravity="center_horizontal"
             android:text="@string/portale"
-            app:layout_constraintEnd_toEndOf="@id/club_button"
-            app:layout_constraintStart_toStartOf="@id/club_button"
-            app:layout_constraintTop_toBottomOf="@id/club_button" />
+            app:layout_constraintEnd_toEndOf="@id/portale_button"
+            app:layout_constraintStart_toStartOf="@id/portale_button"
+            app:layout_constraintTop_toBottomOf="@id/portale_button" />
 
         <!--    Brainteaser-->
         <ImageButton

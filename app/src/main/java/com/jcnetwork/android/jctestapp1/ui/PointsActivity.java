@@ -89,8 +89,6 @@ public class PointsActivity extends AppCompatActivity{
                 // Send request and get data
                 sendRequestResponse();
                 Log.i(LOG_TAG, "sendRequestResponse called");
-                // Call method to animate progress bars and put text
-                //animateProgressBars();
             } else {
                 // Call method to animate progress bars and put text which will display data if stored in SharedPreferences otherwise zero
                 animateProgressBars();
@@ -105,12 +103,7 @@ public class PointsActivity extends AppCompatActivity{
     protected boolean isOnline() {
         ConnectivityManager connectivityManager = (ConnectivityManager)getSystemService(Context.CONNECTIVITY_SERVICE);
         NetworkInfo networkInfo = connectivityManager.getActiveNetworkInfo();
-        if (networkInfo == null) {
-            // There is no active network
-            return false;
-        } else
-            // There is an active network
-            return true;
+        return networkInfo != null;
     }
 
 
@@ -134,9 +127,9 @@ public class PointsActivity extends AppCompatActivity{
         experienceProgressBar.setProgress(experienceInt);
 
         // Set text in textviews
-        gesamtTV.setText(String.valueOf(gesamtInt) + " von 60 Punkten");
-        caseTV.setText(String.valueOf(caseInt) + " von 12 Punkten");
-        experienceTV.setText(String.valueOf(experienceInt) + " von 60 Punkten");
+        gesamtTV.setText(gesamtInt + " von 60 Punkten");
+        caseTV.setText(caseInt + " von 12 Punkten");
+        experienceTV.setText(experienceInt + " von 60 Punkten");
     }
 
 
@@ -172,9 +165,9 @@ public class PointsActivity extends AppCompatActivity{
         experienceProgressBar.startAnimation(experienceAnim);
 
         // Set text in textviews
-        gesamtTV.setText(String.valueOf(gesamtInt) + " von 60 Punkten");
-        caseTV.setText(String.valueOf(caseInt) + " von 12 Punkten");
-        experienceTV.setText(String.valueOf(experienceInt) + " von 60 Punkten");
+        gesamtTV.setText(gesamtInt + " von 60 Punkten");
+        caseTV.setText(caseInt + " von 12 Punkten");
+        experienceTV.setText(experienceInt + " von 60 Punkten");
     }
 
     /**
@@ -228,7 +221,6 @@ public class PointsActivity extends AppCompatActivity{
                 Log.e(LOG_TAG, "VolleyError occurred");
             }
         });
-
 
         // Add the request to the RequestQueue.
         queue.add(stringRequest);

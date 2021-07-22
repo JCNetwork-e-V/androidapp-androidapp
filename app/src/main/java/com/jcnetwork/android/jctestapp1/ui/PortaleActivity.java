@@ -56,32 +56,29 @@ public class PortaleActivity extends AppCompatActivity {
     /**
      * Private Click Listener
      */
-    private View.OnClickListener myPortaleClickListener = new View.OnClickListener() {
-        @Override
-        public void onClick(View view) {
-            // React differently according to id
-            switch (view.getId()) {
-                case R.id.jobwall:
-                    openUrl("https://days.jcnetwork.de/jobwall/");
-                    break;
-                case R.id.projekt_mgt:
-                    openUrl("https://jcnetwork-projektmanagement.de/");
-                    break;
-                case R.id.trainer_academy:
-                    openUrl("https://www.jcnetwork.de/jcnetwork-trainer-academy/");
-                    break;
-                case R.id.alumni:
-                    openUrl("https://jcnetwork-alumni.de/");
-                    break;
-                case R.id.certification:
-                    openUrl("https://certification.jcnetwork.de/");
-                    break;
-                case R.id.insights:
-                    openUrl("https://jcnetwork.sharepoint.com/sites/insight/SitePages/Home.aspx");
-                    break;
-                default:
-                    break;
-            }
+    private View.OnClickListener myPortaleClickListener = view -> {
+        // React differently according to id
+        switch (view.getId()) {
+            case R.id.jobwall:
+                openUrl("https://days.jcnetwork.de/jobwall/");
+                break;
+            case R.id.projekt_mgt:
+                openUrl("https://jcnetwork-projektmanagement.de/");
+                break;
+            case R.id.trainer_academy:
+                openUrl("https://www.jcnetwork.de/jcnetwork-trainer-academy/");
+                break;
+            case R.id.alumni:
+                openUrl("https://jcnetwork-alumni.de/");
+                break;
+            case R.id.certification:
+                openUrl("https://certification.jcnetwork.de/");
+                break;
+            case R.id.insights:
+                openUrl("https://jcnetwork.sharepoint.com/sites/insight/SitePages/Home.aspx");
+                break;
+            default:
+                break;
         }
     };
 

@@ -88,26 +88,20 @@ public class EngageActivity extends AppCompatActivity {
         iconImg = findViewById(R.id.image_view);
 
         // Set up on click listener to close full card view
-        close_btn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                // Return to full screen
-                setupGridScreen();
-            }
+        close_btn.setOnClickListener(view -> {
+            // Return to full screen
+            setupGridScreen();
         });
 
         // Set up on click listener to participate or ask questions to HR ​.
-        emailBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent emailIntent = new Intent(Intent.ACTION_SENDTO); // Only email apps should handle this intent (otherwise SEND ok)
-                emailIntent.setData(Uri.parse("mailto:")); // Only email apps no social media stuff
-                String[] recipients = {"mitmachen@JCNetwork.de"};
-                emailIntent.putExtra(Intent.EXTRA_EMAIL, recipients); // string array
-                emailIntent.putExtra(Intent.EXTRA_SUBJECT, "Mitmachen beim JCNetwork"); // subject -> easy search later
-                if (emailIntent.resolveActivity(getPackageManager()) != null) {
-                    startActivity(emailIntent);
-                }
+        emailBtn.setOnClickListener(view -> {
+            Intent emailIntent = new Intent(Intent.ACTION_SENDTO); // Only email apps should handle this intent (otherwise SEND ok)
+            emailIntent.setData(Uri.parse("mailto:")); // Only email apps no social media stuff
+            String[] recipients = {"mitmachen@JCNetwork.de"};
+            emailIntent.putExtra(Intent.EXTRA_EMAIL, recipients); // string array
+            emailIntent.putExtra(Intent.EXTRA_SUBJECT, "Mitmachen beim JCNetwork"); // subject -> easy search later
+            if (emailIntent.resolveActivity(getPackageManager()) != null) {
+                startActivity(emailIntent);
             }
         });
 
@@ -152,81 +146,78 @@ public class EngageActivity extends AppCompatActivity {
     /**
      * Private Click Listener
      */
-    private View.OnClickListener myCardClickListener = new View.OnClickListener() {
-        @Override
-        public void onClick(View view) {
-            // Set boolean to true
-            isLargeView = TRUE;
+    private View.OnClickListener myCardClickListener = view -> {
+        // Set boolean to true
+        isLargeView = TRUE;
 
-            // React differently according to id
-            switch (view.getId()) {
-                case R.id.vorstandsvorsitz:
-                    fillLargeCard("Vorstandsvorsitz",
-                            "Für die Geselligen:",
-                            "Werde zur direkten Verbindung zu unseren Vereinen. Oder unterstütze bei dem Controlling der Verbandsstrategie. Oder akquiriere Pro Bono Beratungsprojekte.",
-                            R.drawable.vorstandsvorsitz);
-                    loadImage("https://www.jcnetwork.de/media/jcnetwork/s_573b34f7695453_icon-network.png",
-                            R.drawable.vorstandsvorsitz);
-                    break;
-                case R.id.customer_relations:
-                    fillLargeCard("Customer Relations",
-                            "Für Verkaufsprofis:",
-                            "Akquiriere und betreue die Partner und Sponsoren des JCNetwork für die Veranstaltungsformate, wie die JCNetwork Days. Und entwickle neue Produktfelder.",
-                            R.drawable.customer_relations);
-                    loadImage("https://www.jcnetwork.de/media/jcnetwork/s_573b34f769544d_icon-handshake.png",
-                            R.drawable.customer_relations);
-                    break;
-                case R.id.finanzen_und_recht:
-                    fillLargeCard("Finanzen & Recht",
-                            "Für die Sorgfältigen:",
-                            "Unterstütze den Vorstand bei Finanz- und Jahresabschlüssen, achte auf die Einhaltung des Datenschutzes oder hilf bei rechtlichen Fragen.",
-                            R.drawable.finanzen_recht);
-                    loadImage("https://www.jcnetwork.de/media/jcnetwork/s_573b34f4695441_icon-banknotes.png",
-                            R.drawable.finanzen_recht);
-                    break;
-                case R.id.informationsmanagement:
-                    fillLargeCard("Informationsmanagement",
-                            "Für IT-Fans:",
-                            "Verwalte die Office 365 Infrastruktur, Insights oder das Certification Portal. Oder definiere neue Prozesse und Dokumentationsrichtlinien.",
-                            R.drawable.informationsmanagement);
-                    loadImage("https://www.jcnetwork.de/media/jcnetwork/s_573b393b695447_icon-workstation.png",
-                            R.drawable.informationsmanagement);
-                    break;
-                case R.id.marketing:
-                    fillLargeCard("Marketing",
-                            "Für Kreative:",
-                            "Entwickle interne und externe Marketing-Maßnahmen für unsere Produkte, stärke das Branding des JCNetwork und gestalte unseren Auftritt im Social Media.",
-                            R.drawable.marketing);
-                    loadImage("https://www.jcnetwork.de/media/jcnetwork/s_573b34f8695459_icon-like.png",
-                            R.drawable.marketing);
-                    break;
-                case R.id.eventmanagement:
-                    fillLargeCard("Eventmanagement",
-                            "Für Organisationstalente:",
-                            "Unterstütze bei der Organisation der JCNetwork Days, JCNetwork Executive Days und den JCNetwork Development Days. Digitalisiere Prozesse und controlle die Finanzen.",
-                            R.drawable.event_management);
-                    loadImage("https://www.jcnetwork.de/media/jcnetwork/s_573b34f5695447_icon-calendar.png",
-                            R.drawable.event_management);
-                    break;
-                case R.id.human_resources:
-                    fillLargeCard("Human Resources",
-                            "Für Menschenkenner:",
-                            "Betreue und entwickle das JCNetwork Fellowship Progam. Gestalte Recruitingkampagnen für neuer Fellows und Vorstände. Und lass die Alumniarbeit aufleben.",
-                            R.drawable.human_resources);
-                    loadImage("https://www.jcnetwork.de/media/jcnetwork/s_573b34f5695447_icon-conference.png",
-                            R.drawable.human_resources);
-                    break;
-                case R.id.weiterbildung:
-                    fillLargeCard("Weiterbildung",
-                            "Für Wissensdurstige:",
-                            "Entwickle und betreue exzellente Weiterbildungsmöglichkeiten wie die JCNetwork Trainer Academy für jeden einzelnen Junior Consultant.",
-                            R.drawable.weiterbildung);
-                    loadImage("https://www.jcnetwork.de/media/jcnetwork/s_5d0973a91a45b2_jcnetwork-thought.png",
-                            R.drawable.weiterbildung);
-                    break;
-                default:
-                    break;
-            }
+        // React differently according to id
+        switch (view.getId()) {
+            case R.id.vorstandsvorsitz:
+                fillLargeCard("Vorstandsvorsitz",
+                        "Für die Geselligen:",
+                        "Werde zur direkten Verbindung zu unseren Vereinen. Oder unterstütze bei dem Controlling der Verbandsstrategie. Oder akquiriere Pro Bono Beratungsprojekte.",
+                        R.drawable.vorstandsvorsitz);
+                loadImage("https://www.jcnetwork.de/media/jcnetwork/s_573b34f7695453_icon-network.png",
+                        R.drawable.vorstandsvorsitz);
+                break;
+            case R.id.customer_relations:
+                fillLargeCard("Customer Relations",
+                        "Für Verkaufsprofis:",
+                        "Akquiriere und betreue die Partner und Sponsoren des JCNetwork für die Veranstaltungsformate, wie die JCNetwork Days. Und entwickle neue Produktfelder.",
+                        R.drawable.customer_relations);
+                loadImage("https://www.jcnetwork.de/media/jcnetwork/s_573b34f769544d_icon-handshake.png",
+                        R.drawable.customer_relations);
+                break;
+            case R.id.finanzen_und_recht:
+                fillLargeCard("Finanzen & Recht",
+                        "Für die Sorgfältigen:",
+                        "Unterstütze den Vorstand bei Finanz- und Jahresabschlüssen, achte auf die Einhaltung des Datenschutzes oder hilf bei rechtlichen Fragen.",
+                        R.drawable.finanzen_recht);
+                loadImage("https://www.jcnetwork.de/media/jcnetwork/s_573b34f4695441_icon-banknotes.png",
+                        R.drawable.finanzen_recht);
+                break;
+            case R.id.informationsmanagement:
+                fillLargeCard("Informationsmanagement",
+                        "Für IT-Fans:",
+                        "Verwalte die Office 365 Infrastruktur, Insights oder das Certification Portal. Oder definiere neue Prozesse und Dokumentationsrichtlinien.",
+                        R.drawable.informationsmanagement);
+                loadImage("https://www.jcnetwork.de/media/jcnetwork/s_573b393b695447_icon-workstation.png",
+                        R.drawable.informationsmanagement);
+                break;
+            case R.id.marketing:
+                fillLargeCard("Marketing",
+                        "Für Kreative:",
+                        "Entwickle interne und externe Marketing-Maßnahmen für unsere Produkte, stärke das Branding des JCNetwork und gestalte unseren Auftritt im Social Media.",
+                        R.drawable.marketing);
+                loadImage("https://www.jcnetwork.de/media/jcnetwork/s_573b34f8695459_icon-like.png",
+                        R.drawable.marketing);
+                break;
+            case R.id.eventmanagement:
+                fillLargeCard("Eventmanagement",
+                        "Für Organisationstalente:",
+                        "Unterstütze bei der Organisation der JCNetwork Days, JCNetwork Executive Days und den JCNetwork Development Days. Digitalisiere Prozesse und controlle die Finanzen.",
+                        R.drawable.event_management);
+                loadImage("https://www.jcnetwork.de/media/jcnetwork/s_573b34f5695447_icon-calendar.png",
+                        R.drawable.event_management);
+                break;
+            case R.id.human_resources:
+                fillLargeCard("Human Resources",
+                        "Für Menschenkenner:",
+                        "Betreue und entwickle das JCNetwork Fellowship Progam. Gestalte Recruitingkampagnen für neuer Fellows und Vorstände. Und lass die Alumniarbeit aufleben.",
+                        R.drawable.human_resources);
+                loadImage("https://www.jcnetwork.de/media/jcnetwork/s_573b34f5695447_icon-conference.png",
+                        R.drawable.human_resources);
+                break;
+            case R.id.weiterbildung:
+                fillLargeCard("Weiterbildung",
+                        "Für Wissensdurstige:",
+                        "Entwickle und betreue exzellente Weiterbildungsmöglichkeiten wie die JCNetwork Trainer Academy für jeden einzelnen Junior Consultant.",
+                        R.drawable.weiterbildung);
+                loadImage("https://www.jcnetwork.de/media/jcnetwork/s_5d0973a91a45b2_jcnetwork-thought.png",
+                        R.drawable.weiterbildung);
+                break;
+            default:
+                break;
         }
     };
 

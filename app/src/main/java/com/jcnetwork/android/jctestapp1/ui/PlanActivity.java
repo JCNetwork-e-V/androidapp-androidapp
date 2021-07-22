@@ -67,7 +67,7 @@ public class PlanActivity extends AppCompatActivity {
             } catch (ParseException e) {
                 e.printStackTrace();
             }
-            Log.i(LOG_TAG, "Number of days" + String.valueOf(DurationInDays));
+            Log.i(LOG_TAG, "Number of days" + DurationInDays);
         }
 
             // Find views
@@ -80,19 +80,16 @@ public class PlanActivity extends AppCompatActivity {
 
             // Set up tablayout
             new TabLayoutMediator(mTabLayout, mViewPager2,
-                    new TabLayoutMediator.TabConfigurationStrategy() {
-                        @Override
-                        public void onConfigureTab(@NonNull TabLayout.Tab tab, int position) {
-                            // Set default day
-                            String dayOfWeek = "Some day";
-                            try {
-                                // Get day of the week based on position e.g. 0 -> Day 1 -> Thursday
-                                dayOfWeek = ProgramPointAnalysis.getDayOfWeek(mProgram, position);
-                            } catch (ParseException e) {
-                                e.printStackTrace();
-                            }
-                            tab.setText(dayOfWeek);
+                    (tab, position) -> {
+                        // Set default day
+                        String dayOfWeek = "Some day";
+                        try {
+                            // Get day of the week based on position e.g. 0 -> Day 1 -> Thursday
+                            dayOfWeek = ProgramPointAnalysis.getDayOfWeek(mProgram, position);
+                        } catch (ParseException e) {
+                            e.printStackTrace();
                         }
+                        tab.setText(dayOfWeek);
                     }).attach();
 
 

@@ -6,7 +6,6 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
-import android.view.View;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
 import android.widget.Button;
@@ -19,6 +18,8 @@ import androidx.core.content.ContextCompat;
 import com.jcnetwork.android.jctestapp1.R;
 import com.jcnetwork.android.jctestapp1.network.CheckNetwork;
 import com.jcnetwork.android.jctestapp1.utils.Constants;
+
+import java.util.Objects;
 
 public class CVActivity extends AppCompatActivity {
 
@@ -47,7 +48,7 @@ public class CVActivity extends AppCompatActivity {
             Log.i("CVActivity", "LebenslaufId is " + lebenslaufId);
 
             // Check that both are not empty before proceeding
-            if (!lebenslaufId.isEmpty()) {
+            if (!Objects.requireNonNull(lebenslaufId).isEmpty()) {
                 // Proceed to make and load the webview
                 WebView myWebView = new WebView(this);
                 // Hide parts of the page
@@ -57,7 +58,6 @@ public class CVActivity extends AppCompatActivity {
                     public void onPageFinished(WebView view, String url) {
                         super.onPageFinished(view, url);
 
-                        //TODO Check why this doesn't work
                         // Inject a javascript function to hide some elements of the webpage
                         myWebView.loadUrl("javascript:(function() { " +
                                 "document.getElementById('StayFocusd-infobar').style.display='none'; " +
@@ -100,13 +100,10 @@ public class CVActivity extends AppCompatActivity {
             Button retryBtn = (Button) findViewById(R.id.retry_button);
 
             // Set on click listener on that button
-            retryBtn.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    // On click, relaunch this activity
-                    Intent refresh = new Intent(CVActivity.this, CVActivity.class);
-                    startActivity(refresh);
-                }
+            retryBtn.setOnClickListener(v -> {
+                // On click, relaunch this activity
+                Intent refresh = new Intent(CVActivity.this, CVActivity.class);
+                startActivity(refresh);
             });
         }
     }

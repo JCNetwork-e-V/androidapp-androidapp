@@ -18,7 +18,6 @@ import android.view.View;
 import android.view.animation.AlphaAnimation;
 import android.view.animation.Animation;
 import android.widget.ImageButton;
-import android.widget.ScrollView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -49,7 +48,6 @@ import com.jcnetwork.android.jctestapp1.network.CheckNetwork;
 import com.jcnetwork.android.jctestapp1.network.RetrofitMethods;
 import com.jcnetwork.android.jctestapp1.notifications.NotificationWorker;
 import com.jcnetwork.android.jctestapp1.notifications.Notifications;
-import com.jcnetwork.android.jctestapp1.roomdb.ProgramViewModel;
 import com.jcnetwork.android.jctestapp1.utils.Constants;
 
 import java.text.ParseException;
@@ -58,24 +56,15 @@ import java.util.Date;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
 
-//import com.jcnetwork.android.jctestapp1.hiddenactivities.ImpressumActivity;
-
-
 public class MainActivity extends AppCompatActivity {
 
     // Log in boolean check
     public Boolean isLoggedIn;
 
-    // Set up user variables
-    private String userName;
-    private String hotelName;
-    private String hotelAddress;
-
     // For Logging
     private final String LOG_TAG = this.getClass().getSimpleName();
 
     // Set up views
-    ScrollView mScrollV;
     CoordinatorLayout mCoordinator;
     ImageButton checkInButton, scheduleButton, pointButton, cityButton, profileButton, clubButton, brainButton, engageButton, firmButton;
     TextView nameTV;
@@ -86,9 +75,6 @@ public class MainActivity extends AppCompatActivity {
 
     // Data
     List<ProgramPoint> mProgram;
-
-    // TODO Check // ViewModel
-    private ProgramViewModel mProgramViewModel;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -103,30 +89,23 @@ public class MainActivity extends AppCompatActivity {
 
         // Get Firebasetoken to enable instant messaging for testing purposes to this device
         FirebaseMessaging.getInstance().getToken()
-                .addOnCompleteListener(new OnCompleteListener<String>() {
-                    @Override
-                    public void onComplete(@NonNull Task<String> task) {
-                        if (!task.isSuccessful()) {
-                            Log.w(LOG_TAG, "Fetching FCM registration token failed", task.getException());
-                            return;
-                        }
-
-                        // Get new FCM registration token
-                        String token = task.getResult();
-
-                        // Log and toast
-                        String msg = "R.string.msg_token_fmt" + token;
-                        Log.d(LOG_TAG, msg);
+                .addOnCompleteListener(task -> {
+                    if (!task.isSuccessful()) {
+                        Log.w(LOG_TAG, "Fetching FCM registration token failed", task.getException());
+                        return;
                     }
+
+                    // Get new FCM registration token
+                    String token = task.getResult();
+
+                    // Log and toast
+                    String msg = "R.string.msg_token_fmt" + token;
+                    Log.d(LOG_TAG, msg);
                 });
 
         // Check shared preferences
         SharedPreferences sharedPreferences = this.getSharedPreferences(
                 Constants.LOGGED_IN_KEY, Context.MODE_PRIVATE);
-        Log.i(LOG_TAG, "Logged in: " + String.valueOf(
-                sharedPreferences.getBoolean(
-                        Constants.LOGGED_IN_KEY,
-                false)));
         // Get logged in boolean (default false)
         isLoggedIn = sharedPreferences.getBoolean(Constants.LOGGED_IN_KEY,
                 false);
@@ -144,11 +123,10 @@ public class MainActivity extends AppCompatActivity {
         // Set up other shared preferences to write user data to
         SharedPreferences userSharedPreferences = getSharedPreferences(Constants.SHARED_PREFERENCE_FILE_NAME, Context.MODE_PRIVATE);
 
-
         // Set up Notifications
         setUpNotifications();
 
-        // TODO Test internet connection
+        // Test internet connection
         if (CheckNetwork.checkConnection(this)) {
             Log.i(LOG_TAG, "internet available");
             // Initialize Retrofit
@@ -162,16 +140,14 @@ public class MainActivity extends AppCompatActivity {
             Log.i(LOG_TAG, "no internet");
         }
 
-
-
         // Find views
         mCoordinator = (CoordinatorLayout) findViewById(R.id.coordinator);
         checkInButton = (ImageButton) findViewById(R.id.check_in_button);
         scheduleButton = (ImageButton) findViewById(R.id.schedule_button);
         pointButton = (ImageButton) findViewById(R.id.certification_points_button);
-        cityButton = (ImageButton) findViewById(R.id.city_button);
+        cityButton = (ImageButton) findViewById(R.id.register_button);
         profileButton = (ImageButton) findViewById(R.id.profile_button);
-        clubButton = (ImageButton) findViewById(R.id.club_button);
+        clubButton = (ImageButton) findViewById(R.id.portale_button);
         brainButton = (ImageButton) findViewById(R.id.brain_button);
         engageButton = (ImageButton) findViewById(R.id.engage_button);
         firmButton = (ImageButton) findViewById(R.id.firm_button);
@@ -194,10 +170,8 @@ public class MainActivity extends AppCompatActivity {
         // Change color (default makes it black even though icon is original white) to white
         toggle.getDrawerArrowDrawable().setColorFilter(Color.parseColor("#FFFFFF"), PorterDuff.Mode.SRC_ATOP);
 
-
         //Setup Navigation drawer
         setUpNavigationDrawer();
-
 
         // Show user name and update once shared preferences has been updated with name from retrofit method
         nameTV = (TextView) findViewById(R.id.name_tv);
@@ -205,22 +179,13 @@ public class MainActivity extends AppCompatActivity {
         in.setDuration(3000);
         nameTV.setText(userSharedPreferences.getString(Constants.USER_NAME_KEY, Constants.EMPTY_STRING_DEFAULT));
         nameTV.startAnimation(in);
-        //setCharacterDelay(150);
-        //animateText(userSharedPreferences.getString(Constants.USER_NAME_KEY, Constants.EMPTY_STRING_DEFAULT));
-        userSharedPreferences.registerOnSharedPreferenceChangeListener(new SharedPreferences.OnSharedPreferenceChangeListener() {
-            @Override
-            public void onSharedPreferenceChanged(SharedPreferences sharedPreferences, String key) {
-                // Set to data
-                navNameTV.setText(userSharedPreferences.getString(Constants.USER_NAME_KEY, Constants.EMPTY_STRING_DEFAULT));
-
-                //
-                nameTV.setText(userSharedPreferences.getString(Constants.USER_NAME_KEY, Constants.EMPTY_STRING_DEFAULT));
-                nameTV.startAnimation(in);
-                //animateText(userSharedPreferences.getString(Constants.USER_NAME_KEY, Constants.EMPTY_STRING_DEFAULT));
-                Log.i(LOG_TAG, "onSharedPreferenceChanged called");
-            }
+        userSharedPreferences.registerOnSharedPreferenceChangeListener((sharedPreferences1, key) -> {
+            // Set to data
+            navNameTV.setText(userSharedPreferences.getString(Constants.USER_NAME_KEY, Constants.EMPTY_STRING_DEFAULT));
+            nameTV.setText(userSharedPreferences.getString(Constants.USER_NAME_KEY, Constants.EMPTY_STRING_DEFAULT));
+            nameTV.startAnimation(in);
+            Log.i(LOG_TAG, "onSharedPreferenceChanged called");
         });
-
 
         // Set onClickListeners to views
         checkInButton.setOnClickListener(myCardClickListener);
@@ -244,76 +209,73 @@ public class MainActivity extends AppCompatActivity {
         navDrawer.setCheckedItem(R.id.home);
 
         // Setup listener to item selection
-        navDrawer.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
-            @Override
-            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-                // Switch statements to navigate to appropriate destination based on id
-                switch (item.getItemId()) {
-                    case R.id.settings:
-                        // Open settings
-                        Intent openSettings = new Intent(MainActivity.this, SettingsActivity.class);
-                        startActivity(openSettings);
-                        break;
-                    case R.id.support:
-                        // Open mail to send a help request
-                        String[] recipients = {"support@jcnetwork.de"}; // Alternative: IM971@jcnetwork.de von teams
-                        Intent emailIntent = new Intent(Intent.ACTION_SENDTO); // Only email apps should handle this intent (otherwise SEND ok)
-                        emailIntent.setData(Uri.parse("mailto:")); // Only email apps no social media stuff
-                        emailIntent.putExtra(Intent.EXTRA_EMAIL, recipients); // string array
-                        emailIntent.putExtra(Intent.EXTRA_SUBJECT, "Supportanfrage Android App"); // subject -> easy search later
-                        emailIntent.putExtra(Intent.EXTRA_TEXT, "Was können wir für dich tun?\n Feedback? \n Fehler? \n Wünsche? \n Nur her damit!"); // text
-                        if (emailIntent.resolveActivity(getPackageManager()) != null) {
-                            startActivity(emailIntent);
-                        }
-                        break;
-                    case R.id.share:
-                        // TODO Check
-                        Intent shareIntent = new Intent();
-                        shareIntent.setAction(Intent.ACTION_SEND);
-                        shareIntent.putExtra(Intent.EXTRA_TEXT,
-                                "Hey, check out die neue JCNetwork App auf Google Play Store: https://play.google.com/store/apps/details?id=" + BuildConfig.APPLICATION_ID);
-                        shareIntent.setType("text/plain");
-                        startActivity(shareIntent);
-                        break;
-                    case R.id.faq:
-                        // Open faq
-                        Intent openFAQ = new Intent(MainActivity.this, FAQsActivity.class);
-                        startActivity(openFAQ);
-                        break;
-                    case R.id.impressum:
-                        // Open faq
-                        Intent openImpressum = new Intent(MainActivity.this, ImpressumActivity.class);
-                        startActivity(openImpressum);
-                        break;
-                    case R.id.logout:
-                        // Log user out
-                        SharedPreferences userSharedPreferences = getSharedPreferences(Constants.SHARED_PREFERENCE_FILE_NAME,
-                                Context.MODE_PRIVATE);
-                        SharedPreferences.Editor userEditor = userSharedPreferences.edit();
-                        userEditor.clear();
-                        userEditor.apply();
-                        // Update sharedpreferences to logged in false
-                        SharedPreferences loggedInSharedPreferences = getSharedPreferences(Constants.LOGGED_IN_KEY,
-                                Context.MODE_PRIVATE);
-                        SharedPreferences.Editor editor = loggedInSharedPreferences.edit();
-                        editor.putBoolean(Constants.LOGGED_IN_KEY,
-                                false);
-                        editor.apply();
-                        // Launch LogIn Activity to logout and login again
-                        Intent openLogin = new Intent(MainActivity.this, LoginActivity.class);
-                        // To do so, pass in data
-                        openLogin.putExtra(Constants.OPEN_LOGIN_INTENTION, Constants.LOGOUT);
-                        // Start login activity
-                        startActivity(openLogin);
-                        break;
-                    default:
-                        break;
-                }
-
-                // On click close all open drawer views
-                drawerLayout.closeDrawers();
-                return true;
+        navDrawer.setNavigationItemSelectedListener(item -> {
+            // Switch statements to navigate to appropriate destination based on id
+            switch (item.getItemId()) {
+                case R.id.settings:
+                    // Open settings
+                    Intent openSettings = new Intent(MainActivity.this, SettingsActivity.class);
+                    startActivity(openSettings);
+                    break;
+                case R.id.support:
+                    // Open mail to send a help request
+                    String[] recipients = {"support@jcnetwork.de"}; // Alternative: IM971@jcnetwork.de von teams
+                    Intent emailIntent = new Intent(Intent.ACTION_SENDTO); // Only email apps should handle this intent (otherwise SEND ok)
+                    emailIntent.setData(Uri.parse("mailto:")); // Only email apps no social media stuff
+                    emailIntent.putExtra(Intent.EXTRA_EMAIL, recipients); // string array
+                    emailIntent.putExtra(Intent.EXTRA_SUBJECT, "Supportanfrage Android App"); // subject -> easy search later
+                    emailIntent.putExtra(Intent.EXTRA_TEXT, "Was können wir für dich tun?\n Feedback? \n Fehler? \n Wünsche? \n Nur her damit!"); // text
+                    if (emailIntent.resolveActivity(getPackageManager()) != null) {
+                        startActivity(emailIntent);
+                    }
+                    break;
+                case R.id.share:
+                    // TODO Add link after publishing app on Google Play Store
+                    Intent shareIntent = new Intent();
+                    shareIntent.setAction(Intent.ACTION_SEND);
+                    shareIntent.putExtra(Intent.EXTRA_TEXT,
+                            "Hey, check out die neue JCNetwork App auf Google Play Store: https://play.google.com/store/apps/details?id=" + BuildConfig.APPLICATION_ID);
+                    shareIntent.setType("text/plain");
+                    startActivity(shareIntent);
+                    break;
+                case R.id.faq:
+                    // Open faq
+                    Intent openFAQ = new Intent(MainActivity.this, FAQsActivity.class);
+                    startActivity(openFAQ);
+                    break;
+                case R.id.impressum:
+                    // Open faq
+                    Intent openImpressum = new Intent(MainActivity.this, ImpressumActivity.class);
+                    startActivity(openImpressum);
+                    break;
+                case R.id.logout:
+                    // Log user out
+                    SharedPreferences userSharedPreferences = getSharedPreferences(Constants.SHARED_PREFERENCE_FILE_NAME,
+                            Context.MODE_PRIVATE);
+                    SharedPreferences.Editor userEditor = userSharedPreferences.edit();
+                    userEditor.clear();
+                    userEditor.apply();
+                    // Update sharedpreferences to logged in false
+                    SharedPreferences loggedInSharedPreferences = getSharedPreferences(Constants.LOGGED_IN_KEY,
+                            Context.MODE_PRIVATE);
+                    SharedPreferences.Editor editor = loggedInSharedPreferences.edit();
+                    editor.putBoolean(Constants.LOGGED_IN_KEY,
+                            false);
+                    editor.apply();
+                    // Launch LogIn Activity to logout and login again
+                    Intent openLogin = new Intent(MainActivity.this, LoginActivity.class);
+                    // To do so, pass in data
+                    openLogin.putExtra(Constants.OPEN_LOGIN_INTENTION, Constants.LOGOUT);
+                    // Start login activity
+                    startActivity(openLogin);
+                    break;
+                default:
+                    break;
             }
+
+            // On click close all open drawer views
+            drawerLayout.closeDrawers();
+            return true;
         });
     }
 
@@ -372,7 +334,6 @@ public class MainActivity extends AppCompatActivity {
         long differenceInMillisecondsForEvents = eventTime.getTime() - currentTime.getTime();
         Log.i("Notifications", String.valueOf(differenceInMillisecondsForWorkshops));
 
-        /** WORKSHOP REGISTRATION **/
         // Check if user wants the notifications before putting in work to send them
         if (differenceInMillisecondsForWorkshops < 0) {
             // If event happened in past, don't send a notification and cancel any existing work
@@ -396,7 +357,6 @@ public class MainActivity extends AppCompatActivity {
             }
         }
 
-        /** EVENT REGISTRATION **/
         if (differenceInMillisecondsForEvents < 0) {
             // Event happened in past, so don't send a notification
             WorkManager workManager = WorkManager.getInstance(this);
@@ -424,89 +384,73 @@ public class MainActivity extends AppCompatActivity {
      * Whole Segment below to animate textview for user name and let it appear one character at a time
      */
     private Handler mHandler = new Handler();
-    private long mDelay = 150;
-    private CharSequence mText;
     private int mIndex;
+    private CharSequence mText;
     private Runnable characterAdder = new Runnable() {
         @Override
         public void run() {
             nameTV.setText(mText.subSequence(0, mIndex++));
             if(mIndex <= mText.length()) {
+                long mDelay = 150;
                 mHandler.postDelayed(characterAdder, mDelay);
             }
         }
     };
 
-    public void animateText(CharSequence text) {
-        mText = text;
-        mIndex = 0;
-        nameTV.setText("");
-        mHandler.removeCallbacks(characterAdder);
-        mHandler.postDelayed(characterAdder, mDelay);
-
-    }
-
-    public void setCharacterDelay(long millis) {
-        mDelay = millis;
-    }
-
     /**
      * Creates an onClickListener which checks the id of the view and reacts accorodingly
      */
-    private View.OnClickListener myCardClickListener = new View.OnClickListener() {
-        @Override
-        public void onClick(View view) {
-            // React differently according to id
-            switch (view.getId()) {
-                case R.id.firm_button:
-                    // Create intent to open new activity to go view partner firms
-                    Intent viewFirms = new Intent(MainActivity.this, FirmActivity.class);
-                    MainActivity.this.startActivity(viewFirms);
-                    break;
-                case R.id.engage_button:
-                    // Create intent to open new activity to go view engagement possibilities as fellow
-                    Intent showFellowActivity = new Intent(MainActivity.this, EngageActivity.class);
-                    MainActivity.this.startActivity(showFellowActivity);
-                    break;
-                case R.id.brain_button:
-                    // Create intent to open new activity to go through brain teasers
-                    Intent openBT = new Intent(MainActivity.this, BrainteaserActivity.class);
-                    MainActivity.this.startActivity(openBT);
-                    break;
-                case R.id.club_button:
-                    // Create intent to open new activity to introduce club //TODO Temporary redirect to Jobwall
-                    Intent openClubIntro = new Intent(MainActivity.this, PortaleActivity.class);
-                    MainActivity.this.startActivity(openClubIntro);
-                    break;
-                case R.id.city_button:
-                    // Create intent to open new activity to introduce city //TODO Temporary redirect to Registraion
-                    Intent openCityIntro = new Intent(MainActivity.this, RegistrationActivity.class);
-                    MainActivity.this.startActivity(openCityIntro);
-                    break;
-                case R.id.profile_button:
-                    // Create intent to open new activity to show lebenslauf/cv with webview
-                    Intent openCV = new Intent(MainActivity.this, CVActivity.class);
-                    MainActivity.this.startActivity(openCV);
-                    break;
-                case R.id.check_in_button:
-                    // Create intent to open new activity to show qr code for check in
-                    Intent openQRActivity = new Intent(MainActivity.this, CheckInActivity.class);
-                    MainActivity.this.startActivity(openQRActivity);
-                    break;
-                case R.id.certification_points_button:
-                    // Create intent to open new activity to show certification points
-                    Intent openPointActivity = new Intent(MainActivity.this, PointsActivity.class);
-                    MainActivity.this.startActivity(openPointActivity);
-                    break;
-                case R.id.schedule_button:
-                    // Create intent to open new activity to show certification points
-                    Intent openScheduleActivity = new Intent(MainActivity.this, PlanActivity.class);
-                    // Open new activity
-                    MainActivity.this.startActivity(openScheduleActivity);
-                    break;
-                default:
-                    break;
-            }
+    private View.OnClickListener myCardClickListener = view -> {
+        // React differently according to id
+        switch (view.getId()) {
+            case R.id.firm_button:
+                // Create intent to open new activity to go view partner firms
+                Intent viewFirms = new Intent(MainActivity.this, FirmActivity.class);
+                MainActivity.this.startActivity(viewFirms);
+                break;
+            case R.id.engage_button:
+                // Create intent to open new activity to go view engagement possibilities as fellow
+                Intent showFellowActivity = new Intent(MainActivity.this, EngageActivity.class);
+                MainActivity.this.startActivity(showFellowActivity);
+                break;
+            case R.id.brain_button:
+                // Create intent to open new activity to go through brain teasers
+                Intent openBT = new Intent(MainActivity.this, BrainteaserActivity.class);
+                MainActivity.this.startActivity(openBT);
+                break;
+            case R.id.portale_button:
+                // Create intent to open new activity to introduce club
+                Intent openClubIntro = new Intent(MainActivity.this, PortaleActivity.class);
+                MainActivity.this.startActivity(openClubIntro);
+                break;
+            case R.id.register_button:
+                // Create intent to open new activity to introduce city
+                Intent openCityIntro = new Intent(MainActivity.this, RegistrationActivity.class);
+                MainActivity.this.startActivity(openCityIntro);
+                break;
+            case R.id.profile_button:
+                // Create intent to open new activity to show lebenslauf/cv with webview
+                Intent openCV = new Intent(MainActivity.this, CVActivity.class);
+                MainActivity.this.startActivity(openCV);
+                break;
+            case R.id.check_in_button:
+                // Create intent to open new activity to show qr code for check in
+                Intent openQRActivity = new Intent(MainActivity.this, CheckInActivity.class);
+                MainActivity.this.startActivity(openQRActivity);
+                break;
+            case R.id.certification_points_button:
+                // Create intent to open new activity to show certification points
+                Intent openPointActivity = new Intent(MainActivity.this, PointsActivity.class);
+                MainActivity.this.startActivity(openPointActivity);
+                break;
+            case R.id.schedule_button:
+                // Create intent to open new activity to show certification points
+                Intent openScheduleActivity = new Intent(MainActivity.this, PlanActivity.class);
+                // Open new activity
+                MainActivity.this.startActivity(openScheduleActivity);
+                break;
+            default:
+                break;
         }
     };
 
@@ -536,10 +480,6 @@ public class MainActivity extends AppCompatActivity {
         }
         // Logout user and clear all data
         if (itemThatWasClickedId == R.id.logout) {
-//            // Make Snackbar to let the user know the process is going on
-//            Snackbar.make(mCoordinator, // View you attach the snackbar to; usually coordinator layout
-//                    "Logging off...", // text to display
-//                    BaseTransientBottomBar.LENGTH_LONG).show(); // length to display it for
 
             // Clear preferences
             SharedPreferences userSharedPreferences = getSharedPreferences(Constants.SHARED_PREFERENCE_FILE_NAME,
@@ -564,8 +504,5 @@ public class MainActivity extends AppCompatActivity {
         }
         return super.onOptionsItemSelected(item);
     }
-
-
-
 
 }

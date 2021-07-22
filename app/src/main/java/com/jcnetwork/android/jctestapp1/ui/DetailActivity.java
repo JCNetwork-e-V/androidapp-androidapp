@@ -18,30 +18,15 @@ import com.jcnetwork.android.jctestapp1.conversion.ProgramPointAnalysis;
 import com.jcnetwork.android.jctestapp1.models.ProgramPoint;
 
 import java.text.ParseException;
+import java.util.Objects;
 
 public class DetailActivity extends AppCompatActivity {
 
-    /** Variables **/
-    // Set up views
-    private TextView titleTV;
-    private TextView placeTV;
-    private TextView timeTV;
-    private TextView descriptionTV;
+    // BG Image
     private ImageView imgV;
-    // Add to calendar
-    private ImageButton addToCalendarBtn;
-    // Feedback functionality
-    private ImageButton giveWorkShopFeedBackBtn;
-    // Back navigation
-//    private Button backBtn;
-    // Map intent
-    private ImageView goArrowImg;
 
     // Data
     private ProgramPoint currentEvent;
-
-
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -61,16 +46,18 @@ public class DetailActivity extends AppCompatActivity {
             currentEvent = dataBundle.getParcelable("EVENT_KEY");
         }
 
-        // Find views in layout
-        titleTV = (TextView) findViewById(R.id.title);
-        placeTV = (TextView) findViewById(R.id.place);
-        timeTV = (TextView) findViewById(R.id.time);
-        descriptionTV = (TextView) findViewById(R.id.description);
+        // Set up views
+        TextView titleTV = (TextView) findViewById(R.id.title);
+        TextView placeTV = (TextView) findViewById(R.id.place);
+        TextView timeTV = (TextView) findViewById(R.id.time);
+        TextView descriptionTV = (TextView) findViewById(R.id.description);
         imgV = (ImageView) findViewById(R.id.color_bar); // same id as color bar from schedule to enable transition to this
-        giveWorkShopFeedBackBtn = (ImageButton) findViewById(R.id.workshop_feedback_button); // only visible if event is a workshop and links to the feedback form
-        addToCalendarBtn = (ImageButton) findViewById(R.id.add_to_calendar_button);
-//        backBtn = (Button) findViewById(R.id.back_button);
-        goArrowImg = (ImageView) findViewById(R.id.go_arrow);
+        // Feedback functionality
+        ImageButton giveWorkShopFeedBackBtn = (ImageButton) findViewById(R.id.workshop_feedback_button); // only visible if event is a workshop and links to the feedback form
+        // Add to calendar
+        ImageButton addToCalendarBtn = (ImageButton) findViewById(R.id.add_to_calendar_button);
+        // Map intent
+        ImageView goArrowImg = (ImageView) findViewById(R.id.go_arrow);
 
         // Set data to views
         titleTV.setText(currentEvent.getTitle());
@@ -81,7 +68,6 @@ public class DetailActivity extends AppCompatActivity {
             e.printStackTrace();
         }
         descriptionTV.setText(currentEvent.getDescription());
-        // TODOfeedback button stuff
         // Check if this currentProgram is a Workshop by checking if "undertitle" is "Workshopslot"
         if (currentEvent.getPlace().contains("Workshopslot")){
             giveWorkShopFeedBackBtn.setVisibility(View.VISIBLE);
@@ -90,67 +76,51 @@ public class DetailActivity extends AppCompatActivity {
         // Set image based on event
         setImage(currentEvent.getImage());
 
-//        backBtn.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                finish();
-//            }
-//        });
-
         // Add on click listener to give workshop feedback button
         // TODO Always update to current workshop feedback link! (Changes)
-        giveWorkShopFeedBackBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                // Open workshop feedback form in browser (?)
-                Intent openFeedbackForm = new Intent(Intent.ACTION_VIEW);
-                openFeedbackForm.setData(Uri.parse("https://forms.office.com/Pages/ResponsePage.aspx?id=jEv0Heij8U2Bx4qPQXqlGauGSdS-orlEjHgp-bphYONUNkpCQlo5T0JOV0VVVDVXTDNNRFFUWjZDWS4u"));
-                startActivity(openFeedbackForm);
-            }
+        giveWorkShopFeedBackBtn.setOnClickListener(v -> {
+            // Open workshop feedback form in browser (?)
+            Intent openFeedbackForm = new Intent(Intent.ACTION_VIEW);
+            openFeedbackForm.setData(Uri.parse("https://forms.office.com/Pages/ResponsePage.aspx?id=jEv0Heij8U2Bx4qPQXqlGauGSdS-orlEjHgp-bphYONUNkpCQlo5T0JOV0VVVDVXTDNNRFFUWjZDWS4u"));
+            startActivity(openFeedbackForm);
         });
 
         // Add on click listener to addToCalendarBtn
-        addToCalendarBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                // Create new calendar intent
-                Intent calendarIntent = null;
-                try {
-                    calendarIntent = new Intent(Intent.ACTION_INSERT)
-                            .setData(CalendarContract.Events.CONTENT_URI)
-                            .putExtra(CalendarContract.Events.TITLE, currentEvent.getTitle())
-                            .putExtra(CalendarContract.Events.EVENT_LOCATION, currentEvent.getAddress())
-                            .putExtra(CalendarContract.Events.DESCRIPTION, currentEvent.getDescription())
-                            .putExtra(CalendarContract.EXTRA_EVENT_BEGIN_TIME, ProgramPointAnalysis.getDateFromString(currentEvent.getBegin()).getTime()  )
-                            .putExtra(CalendarContract.EXTRA_EVENT_END_TIME, ProgramPointAnalysis.getDateFromString(currentEvent.getEnd()).getTime());
-                } catch (ParseException e) {
-                    e.printStackTrace();
-                }
-                // Check if the intent can be resolved before acting on it
-                if (calendarIntent.resolveActivity(getPackageManager()) != null) {
-                    startActivity(calendarIntent);
-                }
+        addToCalendarBtn.setOnClickListener(view -> {
+            // Create new calendar intent
+            Intent calendarIntent = null;
+            try {
+                calendarIntent = new Intent(Intent.ACTION_INSERT)
+                        .setData(CalendarContract.Events.CONTENT_URI)
+                        .putExtra(CalendarContract.Events.TITLE, currentEvent.getTitle())
+                        .putExtra(CalendarContract.Events.EVENT_LOCATION, currentEvent.getAddress())
+                        .putExtra(CalendarContract.Events.DESCRIPTION, currentEvent.getDescription())
+                        .putExtra(CalendarContract.EXTRA_EVENT_BEGIN_TIME, ProgramPointAnalysis.getDateFromString(currentEvent.getBegin()).getTime()  )
+                        .putExtra(CalendarContract.EXTRA_EVENT_END_TIME, ProgramPointAnalysis.getDateFromString(currentEvent.getEnd()).getTime());
+            } catch (ParseException e) {
+                e.printStackTrace();
+            }
+            // Check if the intent can be resolved before acting on it
+            if (Objects.requireNonNull(calendarIntent).resolveActivity(getPackageManager()) != null) {
+                startActivity(calendarIntent);
             }
         });
 
         // Add on click listener to go arrow image view
-        goArrowImg.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                // Get location from current program
-                String address = currentEvent.getAddress();
-                // Check if information was provided
-                if (!address.isEmpty()) {
-                    String searchUrl = "https://www.google.com/maps/search/?api=1&query=";
-                    Uri addressUri = Uri.parse(searchUrl + Uri.encode(address));
-                    // Make new intent to open Google Maps and pass in the address as destination
-                    Intent mapIntent = new Intent(Intent.ACTION_VIEW, addressUri);
-                    // Set to google maps to ensure this app (if available) is used for the intent
-                    mapIntent.setPackage("com.google.android.apps.maps");
-                    // Start intent if possible
-                    if (mapIntent.resolveActivity(view.getContext().getPackageManager()) != null) {
-                        view.getContext().startActivity(mapIntent);
-                    }
+        goArrowImg.setOnClickListener(view -> {
+            // Get location from current program
+            String address = currentEvent.getAddress();
+            // Check if information was provided
+            if (!address.isEmpty()) {
+                String searchUrl = "https://www.google.com/maps/search/?api=1&query=";
+                Uri addressUri = Uri.parse(searchUrl + Uri.encode(address));
+                // Make new intent to open Google Maps and pass in the address as destination
+                Intent mapIntent = new Intent(Intent.ACTION_VIEW, addressUri);
+                // Set to google maps to ensure this app (if available) is used for the intent
+                mapIntent.setPackage("com.google.android.apps.maps");
+                // Start intent if possible
+                if (mapIntent.resolveActivity(view.getContext().getPackageManager()) != null) {
+                    view.getContext().startActivity(mapIntent);
                 }
             }
         });
@@ -170,7 +140,7 @@ public class DetailActivity extends AppCompatActivity {
             // return mv img
             imgV.setImageResource(R.mipmap.mv_donnerstag_w);
         }
-        if (imageString.contains("Plenen")) { //TODO WATCH OUT FOR SPELLING MISTAKES not plenum!
+        if (imageString.contains("Plenen")) {
             // return plenum img
             imgV.setImageResource(R.mipmap.plenum_w);
         }
