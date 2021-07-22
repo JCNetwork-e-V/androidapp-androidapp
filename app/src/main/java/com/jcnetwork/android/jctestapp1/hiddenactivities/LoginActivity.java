@@ -77,61 +77,46 @@ public class LoginActivity extends AppCompatActivity {
         registerBtn.setVisibility(View.VISIBLE);
         mWebView.setVisibility(View.GONE);
         // Set on click listener for login
-        loginBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                // Change text color to white of button
-                loginBtn.setTextColor(getColor(R.color.white));
-                // Show webview and hide others
-                mLogoImg.setVisibility(View.GONE);
-                loginBtn.setVisibility(View.GONE);
-                registerBtn.setVisibility(View.GONE);
-                mWebView.setVisibility(View.VISIBLE);
-                // Set up login
-                setUpLogin();
-            }
+        loginBtn.setOnClickListener(v -> {
+            // Change text color to white of button
+            loginBtn.setTextColor(getColor(R.color.white));
+            // Show webview and hide others
+            mLogoImg.setVisibility(View.GONE);
+            loginBtn.setVisibility(View.GONE);
+            registerBtn.setVisibility(View.GONE);
+            mWebView.setVisibility(View.VISIBLE);
+            // Set up login
+            setUpLogin();
         });
 
         // Set on click listener for register
-        registerBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                // Change text color to white of button
-                registerBtn.setTextColor(getColor(R.color.white));
-                // Show webview and hide others
-                mLogoImg.setVisibility(View.GONE);
-                loginBtn.setVisibility(View.GONE);
-                registerBtn.setVisibility(View.GONE);
-                mWebView.setVisibility(View.VISIBLE);
-                // Set up register
-                setUpRegister();
-            }
+        registerBtn.setOnClickListener(v -> {
+            // Change text color to white of button
+            registerBtn.setTextColor(getColor(R.color.white));
+            // Show webview and hide others
+            mLogoImg.setVisibility(View.GONE);
+            loginBtn.setVisibility(View.GONE);
+            registerBtn.setVisibility(View.GONE);
+            mWebView.setVisibility(View.VISIBLE);
+            // Set up register
+            setUpRegister();
         });
     }
 
     /**
      * Method to set up Register for first time users of the JCNetwork
      */
-    // TODO Fully set up functionality
     private void setUpRegister() {
-        // Adjust settings
-//        WebSettings webSettings = mWebView.getSettings();
-//        webSettings.setJavaScriptEnabled(true);
-//
-//        // Create client
-//        MyWebViewClient webViewClient = new MyWebViewClient(LoginActivity.this, Constants.LOGIN);
-//        mWebView.setWebViewClient(webViewClient);
-
-        // Set content view to webview
-        //setContentView(mWebView);
-
-        // Load page to login
-        mWebView.loadUrl("https://intern.jcnetwork.de/register/");
+        // Open register link in browser
+        Intent openRegisterInBrowser = new Intent(Intent.ACTION_VIEW);
+        openRegisterInBrowser.setData(Uri.parse("https://intern.jcnetwork.de/register/"));
+        startActivity(openRegisterInBrowser);
     }
 
     /**
      * Method to set up login for first time users of the app (direct webview to microsoft login page)
       */
+    @SuppressLint("SetJavaScriptEnabled")
     private void setUpLogin() {
         // Adjust settings
         WebSettings webSettings = mWebView.getSettings();
@@ -142,9 +127,6 @@ public class LoginActivity extends AppCompatActivity {
         mWebView.setWebViewClient(webViewClient);
         mWebView.setWebChromeClient(new MyWebCromeClient());
 
-        // Set content view to webview
-        //setContentView(mWebView);
-
         // Load page to login
         mWebView.loadUrl("https://intern.jcnetwork.de/oauth.php");
     }
@@ -152,23 +134,21 @@ public class LoginActivity extends AppCompatActivity {
     /**
      * Method to configure signing out
      */
+    @SuppressLint("SetJavaScriptEnabled")
     private void signUserOut() {
-        //mWebView.removeAllViews();
         // Show webview and hide others
         mLogoImg.setVisibility(View.GONE);
         loginBtn.setVisibility(View.GONE);
+        registerBtn.setVisibility(View.GONE);
         mWebView.setVisibility(View.VISIBLE);
 
         // Adjust settings
         WebSettings webSettings = mWebView.getSettings();
         webSettings.setJavaScriptEnabled(true);
 
-        // Create client // TODO Decide on one
+        // Create client
         MyWebViewClient webViewClient = new MyWebViewClient(LoginActivity.this, Constants.LOGOUT);
         mWebView.setWebViewClient(webViewClient);
-
-        // Set content view to webview
-        //setContentView(mWebView);
 
         // Load page to login
         mWebView.loadUrl("https://intern.jcnetwork.de/logout.php");
@@ -180,7 +160,7 @@ public class LoginActivity extends AppCompatActivity {
      */
     private class MyWebViewClient extends WebViewClient {
 
-        private Activity activity = null;
+        private Activity activity;
         private String intention;
 
         public MyWebViewClient(Activity activity, String intention) {
@@ -218,7 +198,7 @@ public class LoginActivity extends AppCompatActivity {
         }
     }
 
-    /** Try 2 **/
+    /** Reading out the relevant credentials from the console logs **/
     final class MyWebCromeClient extends WebChromeClient {
         @Override
         public boolean onJsAlert(WebView view, String url, String message, JsResult result) {
@@ -312,16 +292,9 @@ public class LoginActivity extends AppCompatActivity {
                         true);
                 editor.apply();
 
-
                 // Start Main Activity
                 Intent returnToMain = new Intent(LoginActivity.this, MainActivity.class);
                 startActivity(returnToMain);
-
-                // Better to give user control i.e. via dialog: OK -> go to main; STAY -> able to log out
-                // Otherwise we'd have the issue that user is always logged in...
-                // Show Dialog
-//                LoginSuccessFragment dialog = new LoginSuccessFragment();
-//                dialog.show(getSupportFragmentManager(), "success");
             }
             return super.onConsoleMessage(consoleMessage);
         }

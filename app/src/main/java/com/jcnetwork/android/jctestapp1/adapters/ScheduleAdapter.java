@@ -18,7 +18,7 @@ import java.util.List;
 
 public class ScheduleAdapter extends FragmentStateAdapter {
 
-    //TODO Default to one
+    // Default to one
     private int DAYS = 1;
     private List<ProgramPoint> mProgram; // Cached copy of programpoints
 
