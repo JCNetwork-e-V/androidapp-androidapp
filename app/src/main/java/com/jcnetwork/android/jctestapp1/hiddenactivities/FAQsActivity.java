@@ -62,6 +62,7 @@ public class FAQsActivity extends AppCompatActivity {
         qandAList.add(qand3);
         QandA qand4 = new QandA("Welche Programmpunkte sind verpflichtend für den Teilnehmer?", "Das ist von Veranstaltung zu Veranstaltung unterschiedlich. Generell jedoch alle Workshops, bei denen du dich angemeldet hast. Plenen, außerhalb der Vorstandsrunde, sind Pflicht für mind. einen Vorstand aus jedem Verein. Außerdem sind die Firmenkontaktmesse und die MV verpflichtend.");
         qandAList.add(qand4);
+        qandAList.add(new QandA("Wo finde ich meine Teilnehmer-ID?", "Per E-Mail erhält jeder seine Teilnehmer-ID. Bitte überprüfe zuerst dein Postfach bevor Du dich an Support wendest."));
         // Workshops
         QandA qand5 = new QandA("Wie bewerbe ich mich auf externe Workshops?", "Mit einem ausgefüllten Lebenslauf kannst du dich bei Anmeldestart auf externe Workshops bewerben. Pro Tipp: auf gleich mehrere bewerben, um größere Chancen zu haben, einen der begehrten Plätze zu ergattern.");
         qandAList.add(qand5);
@@ -69,10 +70,14 @@ public class FAQsActivity extends AppCompatActivity {
         qandAList.add(qand6);
         QandA qand7 = new QandA("Ich kann mich nicht auf externe Workshops bewerben. Woran kann das liegen?", "Entweder ist der Lebenslauf noch nicht ausgefüllt oder die Bewerbungsphase ist bereits abgelaufen.");
         qandAList.add(qand7);
+        qandAList.add(new QandA("Wo sehe ich, zu welchem Workshop ich zugelassen wurde?", "Auf der Event-Webseite unter deinem Profil."));
         QandA qand8 = new QandA("Wie erhalte ich Credit-Points für meine Teilnahme an Schulungen?", "Unbedingt die Umfrage ausfüllen am Ende der Schulung. Um den Rest kümmert sich der JCNetwork Vorstand. Konkrete Fragen können direkt an den Vorstand für Weiterbildung gestellt werden.");
         qandAList.add(qand8);
         QandA qand9 = new QandA("Ich bin Referent und habe eine Frage bzgl. meines Workshops.", "Fragen direkt an Vorstand Weiterbildung.");
         qandAList.add(qand9);
+        qandAList.add(new QandA("Wie verläuft die Zuteilung von externen Workshops?",
+                "Die Unternehmen bekommen Einblick in die eingereichten Lebensläufe der Bewerber und suchen sich Ihre Teilnehmer entsprechend aus. Achte daher darauf einen vollständigen und überzeugenden Lebenslauf einzureichen."));
+        qandAList.add(new QandA("Ich wurde zu einem externen Workshop zugelassen, kann jedoch nicht teilnehmen. Was nun?", "Unbedingt eine E-Mail mit entsprechender Begründung an support@jcnetwork.de bis spätestens 18 Uhr des Vortages schicken, sodass noch reagiert werden kann."));
         // Anmelden und Abmelden
         QandA qand19 = new QandA("Ich war noch nie bei einer Veranstaltung. Wie kann ich mich anmelden?", "Falls du noch nicht registriert bist, registriere dich bitte zuerst unter https://intern.jcnetwork.de/register. Danach kannst du dich auf der Eventseite anmelden mit dem erstellten Konto.");
         qandAList.add(qand19);
@@ -98,7 +103,8 @@ public class FAQsActivity extends AppCompatActivity {
         qandAList.add(qand18);
         QandA fr_4 = new QandA("Ich habe die Mitteilung bekommen, dass ich eine Mahngebühr zahlen muss, da ich zu spät überwiesen habe. Ich habe jedoch meinen Beitrag innerhalb der Frist beglichen. Warum bzw. was mache ich jetzt?", "Relevant für die Feststellung des Zahlungseingangs ist das Valutadatum auf dem Konto des JCNetwork. Eine verspätete Zahlung liegt demnach auch dann vor, wenn der Teilnahmebeitrag fristgerecht in Auftrag gegeben wurde, jedoch erst nach dem Stichtag auf dem Konto des JCNetwork verbucht wurde. In solchen Fällen wird gibt es jedoch eine Kulanzregelung. Weis mittels Screenshots oder Buchungsbestätigung der Bank nach, dass der Betrag fristgemäß in Auftrag gegeben wurde. Andernfalls bist du verpflichtet, einen Verspätungszuschlag zu entrichten. Der Überweisungszweck (ID.Vorname.Nachname) ist dabei einzuhalten und um den Baustein \"Verspätungszuschlag\" zu ergänzen (ID.Vorname.Nachname.Verspaetungszuschlag). Die ID findest du in der Anmeldebestätigung. Sofern keine Zahlung des Verspätungszuschlages vor Beginn der Veranstaltung erfolgt, kann dir die Teilnahme verwehrt werden.");
         qandAList.add(fr_4);
-
+        qandAList.add(new QandA("Welche Strafen gibt es für eine Nicht Teilnahme jeglicher Art?", "Die Strafen sind in dem Verhaltenskodex beschrieben, der Teil der AGB darstellt. Bitte lies diesen aufmerksam durch, um Strafen zu vermeiden und eine schöne Zeit auf unseren Veranstaltungen zu verbringen."));
+        qandAList.add(new QandA("Ich reise erst nach der möglichen Check-In Zeit an. Kann ein Mitglied meines Vereins mich einchecken?", "Ja, wenn der Name des Mitglieds rechtzeitig bei uns (support@jcnetwork.de) eingegangen ist und fall noch ausstehende Beträge vorhanden sind, diese von der Person bezahlt werden."));
 
         // Set up adapter
         adapter = new FAQExpandableCardViewAdapter(qandAList);
