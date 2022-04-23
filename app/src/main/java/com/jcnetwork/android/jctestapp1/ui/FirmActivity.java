@@ -128,7 +128,20 @@ public class FirmActivity extends AppCompatActivity {
                 "https://www.jcnetwork.de/media/jcnetwork/m_5e08ee0d6c5d55_zeb-neu-links-535x200.png",
                 "https://www.xing.com/pages/zeb",
                 "https://www.linkedin.com/company/zebconsulting/"));
+        firmAdapter.addFirm(new Firm("Roland Berger",
+                "Roland Berger ist die einzige Strategieberatung europäischer Herkunft mit einer starken internationalen Präsenz. Als unabhängige Firma, im alleinigen Besitz unserer Partnerinnen und Partner, sind wir mit 50 Büros in allen wichtigen Märkten präsent. Unsere 2400 Mitarbeiterinnen und Mitarbeiter zeichnet eine einzigartige Kombination aus analytischem Denken und empathischer Einstellung aus. Angetrieben von unseren Werten Unternehmergeist, Exzellenz und Empathie sind wir überzeugt davon, dass Wirtschaft und Gesellschaft ein neues, nachhaltiges Paradigma benötigen, das den gesamten Wertschöpfungskreislauf im Blick hat. Durch die Arbeit in kompetenzübergreifenden Teams über alle relevanten Branchen und Geschäftsfunktionen hinweg bietet Roland Berger weltweit die beste Expertise, um die tiefgreifenden Herausforderungen unserer Zeit heute und morgen erfolgreich zu meistern.",
+                "https://www.rolandberger.com/de/",
+                "https://www.jcnetwork.de/media/jcnetwork/m_61041be526a295_roland-berger-535x200.png",
+                "https://www.xing.com/pages/rolandberger",
+                "https://www.linkedin.com/company/rolandberger/"));
+
         // Silver partners from here
+        firmAdapter.addFirm(new Firm("Accenture",
+                "Accenture ist ein weltweit tätiges Beratungsunternehmen, führend in Digitalisierung, Cloud und Security. Wir bringen unsere umfassende Erfahrung und spezialisierten Fähigkeiten in mehr als 40 Branchen ein und bieten Dienstleistungen aus den Bereichen Strategy & Consulting, Interactive, Technology und Operations – gestützt auf das weltweit größte Netzwerk aus Centern für Advanced Technology und Intelligent Operations. Unsere 674.000 Mitarbeitenden arbeiten jeden Tag für Kunden in über 120 Ländern daran, Technologie und menschliche Kreativität zu vereinen. Wir setzen auf Veränderung, um Mehrwert und gemeinsamen Erfolg zu schaffen – für Kunden, Mitarbeitende, Aktionäre, Partner und für die Gemeinschaft. Besuchen Sie uns unter accenture.de",
+                "https://www.accenture.com/de-de",
+                "https://www.jcnetwork.de/media/jcnetwork/m_61e16f80119635_accenture-535x200.png",
+                "",
+                "https://www.linkedin.com/company/accenture-dach/"));
         firmAdapter.addFirm(new Firm("BwConsulting",
                 "Die BwConsulting ist ein Beratungsunternehmen mit einem sehr speziellen Fokus. Als Inhouse-Gesellschaft beraten wir die strategischen Projekte des Bundesministeriums der Verteidigung (BMVg) und der Bundeswehr. Im Auftrag der ministeriellen Leitung sind wir damit treibende Kraft für die kontinuierliche Weiterentwicklung des gesamten Ressorts. Unsere Beraterinnen und Berater bringen ihre methodische und fachliche Expertise dabei unmittelbar in Projekte mit besonderer gesellschafts- und sicherheitspolitischer Relevanz ein. Unser Fokus liegt hierbei auf den drei Beratungsfeldern Strategie & Steuerung, Prozesse & Organisation und Projektmanagementberatung.\u200B\u200B",
                 "https://www.bwconsulting.de/",
@@ -166,6 +179,18 @@ public class FirmActivity extends AppCompatActivity {
                 "https://www.xing.com/pages/detecon",
                 "https://www.linkedin.com/company/detecon/?originalSubdomain=de"));
         // Bronze from here
+        firmAdapter.addFirm(new Firm("Nexgen",
+                "Nexgen Business Consultants" +
+                        "\n" +
+                        "Als NEXGEN Business Consultants beraten wir Banken, Asset Manager, Börsen und Wertpapierdienstleister mit fachlicher Kompetenz und technischem Know-how.\n" +
+                        "\n" +
+                        "Ob Operations, Prozessdesign oder IT-Architektur, gemeinsam werden innovative Geschäftsmodelle entwickelt und bis zur Umsetzung gesteuert. Mit unseren Partnern und Mitarbeiter unterstützen wir weltweit soziale Projekte und übernehmen Verantwortung für die nächste Generation.\n" +
+                        "\n" +
+                        "Wir stellen unsere Kunden durch unser effizientes, schnelles und lösungsorientiertes Handeln in den Mittelpunkt unserer Tätigkeit. Hierbei achten wir besonders auf Professionalität und Beständigkeit bei der Realisierung.",
+                "https://www.nexgenbc.com/",
+                "https://www.jcnetwork.de/media/jcnetwork/m_6166a7231b19b5_nexgen-535x200.png",
+                "",
+                "https://www.linkedin.com/company/nexgen-business-consultants/"));
         firmAdapter.addFirm(new Firm("DB Management Consulting",
                 "DB Management Consulting ist die interne Topmanagement-Beratung der Deutschen Bahn. Zusammen mit unseren Kunden entwickeln wir konzernweit wegweisende Konzepte für den DB-Erfolg und gestalten so die Zukunft der DB wesentlich mit.\n" +
                         "\n" +
@@ -208,6 +233,12 @@ public class FirmActivity extends AppCompatActivity {
                 "https://www.jcnetwork.de/media/jcnetwork/m_5d4d6f6d5750ca_nttdata-links-535x200.png",
                 "https://www.xing.com/pages/nttdatadeutschland",
                 "https://www.linkedin.com/company/ntt-data-deutschland-gmbh/"));
+        firmAdapter.addFirm(new Firm("Amplifon",
+                "Amplifon ist der Weltmarktführer für Hörlösungen. Als internationales Unternehmen sind wir auf allen fünf Kontinenten in 28 Ländern vertreten und leben täglich das Ziel, Menschen die Emotionen der Klänge neu entdecken zu lassen - denn unsere Kunden stehen bei uns im Mittelpunkt. Seit 2005 ist die Amplifon Deutschland GmbH mit Sitz in Hamburg auf dem deutschen Markt tätig und betreibt mit mehr als 1.900 Mitarbeitern bundesweit über 550 eigene Fachgeschäfte. In unserer deutschen Zentrale in Hamburg leben wir eine leistungsfördernde und dynamische Unternehmenskultur, in der der persönliche Beitrag im Vordergrund steht. Flache Hierarchien und motivierte Teams bestimmen den Arbeitsalltag und bieten Raum für eine individuelle Karriere.",
+                "https://www.amplifon.com/de/",
+                "https://www.jcnetwork.de/media/jcnetwork/m_61487cc836ffee_logo-amplifon-535x200.png",
+                "https://www.xing.com/pages/amplifondeutschlandgmbh",
+                "https://www.linkedin.com/company/amplifon/posts/?feedView=all"));
 
         // Add cube out page transformer to view pager
         firmViewPager.setPageTransformer(new CubeOutTransformer());
