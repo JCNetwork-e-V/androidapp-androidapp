@@ -58,6 +58,8 @@ import java.util.concurrent.TimeUnit;
 
 public class MainActivity extends AppCompatActivity {
 
+    // Testing phase beginning!
+
     // Log in boolean check
     public Boolean isLoggedIn;
 
