@@ -135,7 +135,7 @@
             <TextView
                 android:id="@+id/insights_title"
                 style="@style/PortaleTitleTheme"
-                android:text="Insights"
+                android:text="Blog"
                 app:layout_constraintStart_toEndOf="@id/insights"
                 app:layout_constraintTop_toTopOf="@id/insights"
                 app:layout_constraintBottom_toBottomOf="@id/insights"/>
@@ -143,7 +143,7 @@
             <TextView
                 android:id="@+id/insights_description"
                 style="@style/PortaleDescriptionTheme"
-                android:text="Das gebündelte Wissen der JCNetwork Junior Consultants auf einem Platz."
+                android:text="Das neuste Wissen der JCNetwork Junior Consultants auf einem Platz."
                 app:layout_constraintTop_toBottomOf="@id/insights_title"
                 app:layout_constraintStart_toEndOf="@id/insights"
                 app:layout_constraintEnd_toEndOf="parent"/>

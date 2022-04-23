@@ -75,7 +75,7 @@ public class PortaleActivity extends AppCompatActivity {
                 openUrl("https://certification.jcnetwork.de/");
                 break;
             case R.id.insights:
-                openUrl("https://jcnetwork.sharepoint.com/sites/insight/SitePages/Home.aspx");
+                openUrl("https://blog.jcnetwork.de/");
                 break;
             default:
                 break;
