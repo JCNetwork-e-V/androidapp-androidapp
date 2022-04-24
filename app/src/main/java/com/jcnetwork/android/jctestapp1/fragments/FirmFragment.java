@@ -10,11 +10,9 @@ import android.view.ViewGroup;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
-
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
-
 import com.bumptech.glide.Glide;
 import com.jcnetwork.android.jctestapp1.R;
 import com.jcnetwork.android.jctestapp1.models.Firm;
@@ -76,8 +74,8 @@ public class FirmFragment extends Fragment {
         this.linkedinBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                // Open link in browser
-                openUrl(currentFirm.getLinkedInLink());
+                    // Open link in browser
+                    openUrl(currentFirm.getLinkedInLink());
             }
         });
         this.xingBtn.setOnClickListener(new View.OnClickListener() {
@@ -93,8 +91,11 @@ public class FirmFragment extends Fragment {
      * Helper method to open link in browser via intent
      */
     public void openUrl(String url) {
-        Intent i = new Intent(Intent.ACTION_VIEW);
-        i.setData(Uri.parse(url));
-        startActivity(i);
+        // Only open link in web browser if url string is not empty
+        if (!url.isEmpty()) {
+            Intent i = new Intent(Intent.ACTION_VIEW);
+            i.setData(Uri.parse(url));
+            startActivity(i);
+        }
     }
 }
