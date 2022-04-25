@@ -5,13 +5,13 @@ apply plugin: 'com.google.firebase.crashlytics' // for firebase crash analytics
 
 
 android {
-    compileSdkVersion 30
-    buildToolsVersion "30.0.3"
+    compileSdkVersion 31
+    buildToolsVersion '30.0.3'
 
     defaultConfig {
         applicationId "com.jcnetwork.android.jctestapp1"
         minSdkVersion 24
-        targetSdkVersion 30
+        targetSdkVersion 31
         versionCode 1
         versionName "1.0"
 
@@ -32,19 +32,19 @@ android {
 
 dependencies {
     implementation fileTree(dir: "libs", include: ["*.jar"])
-    implementation 'androidx.appcompat:appcompat:1.3.0'
-    implementation 'com.google.android.material:material:1.3.0'
-    implementation 'androidx.annotation:annotation:1.2.0'
-    implementation 'androidx.constraintlayout:constraintlayout:2.0.4'
+    implementation 'androidx.appcompat:appcompat:1.4.1'
+    implementation 'com.google.android.material:material:1.5.0'
+    implementation 'androidx.annotation:annotation:1.3.0'
+    implementation 'androidx.constraintlayout:constraintlayout:2.1.3'
     implementation 'androidx.lifecycle:lifecycle-extensions:2.2.0'
-    implementation 'androidx.preference:preference:1.1.1'
+    implementation 'androidx.preference:preference:1.2.0'
     testImplementation 'junit:junit:4.12'
-    androidTestImplementation 'androidx.test.ext:junit:1.1.2'
-    androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'
+    androidTestImplementation 'androidx.test.ext:junit:1.1.3'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.4.0'
 
     // Add cardview
     implementation 'androidx.cardview:cardview:1.0.0'
-    implementation 'com.google.android.material:material:1.3.0'
+    implementation 'com.google.android.material:material:1.5.0'
 
     // Recycleview
     implementation 'androidx.recyclerview:recyclerview:1.2.1'
@@ -68,15 +68,15 @@ dependencies {
     implementation 'androidx.webkit:webkit:1.4.0'
 
     // Add for work manager to schedule notifications
-    implementation "androidx.work:work-runtime:2.5.0"
+    implementation "androidx.work:work-runtime:2.7.1"
 
     // Add for transitions
     implementation "androidx.transition:transition:1.4.1"
 
     // Add for room database
-    implementation "androidx.room:room-runtime:2.3.0"
-    annotationProcessor "androidx.room:room-compiler:2.3.0"
-    androidTestImplementation "androidx.room:room-testing:2.3.0"
+    implementation "androidx.room:room-runtime:2.4.2"
+    annotationProcessor "androidx.room:room-compiler:2.4.2"
+    androidTestImplementation "androidx.room:room-testing:2.4.2"
 
     // Add for lifecycle components
     implementation "androidx.lifecycle:lifecycle-extensions:2.2.0"
