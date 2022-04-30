@@ -14,10 +14,10 @@
                 android:icon="@drawable/ic_baseline_home_24"/>
 
             <!-- Go to Settings e.g. to turn off notifications -->
-            <item android:id="@+id/settings"
+<!--            <item android:id="@+id/settings"
                 android:orderInCategory="2"
                 android:title="Einstellungen"
-                android:icon="@drawable/ic_baseline_settings_24"/>
+                android:icon="@drawable/ic_baseline_settings_24"/>-->
 
             <!-- Go to FAQ Section where you can contact support -->
             <item android:id="@+id/faq"
