@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.jcnetwork.android.jctestapp1">
+    package="com.jcnetwork.android.app1">
     <!-- Adding internet permissions to perform network operations -->
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" /> <!-- Persission to use coarse location for guiding to next event via google maps -->
@@ -29,7 +29,8 @@
             android:value="@string/default_notification_channel_id"/>
 
         <!-- Widget to display the current program point -->
-        <receiver android:name="com.jcnetwork.android.jctestapp1.widget.CurrentProgramPointWidget">
+        <receiver android:name="com.jcnetwork.android.app1.widget.CurrentProgramPointWidget"
+            android:exported="false">
             <intent-filter>
                 <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
                 <action android:name="android.appwidget.action.ACTION_NEW_EVENT" />
@@ -40,15 +41,16 @@
                 android:resource="@xml/current_program_point_widget_info" />
         </receiver> <!-- Updating widget service -->
         <service
-            android:name="com.jcnetwork.android.jctestapp1.widget.WidgetService"
+            android:name="com.jcnetwork.android.app1.widget.WidgetService"
             android:permission="android:permission.BIND_REMOTEVIEWS" /> <!-- To fix an issue 'NoClassFedFoundError:failed resolution -->
         <uses-library
             android:name="org.apache.http.legacy"
             android:required="false" />
 
         <!-- Main Activity -->
-        <activity android:name="com.jcnetwork.android.jctestapp1.ui.MainActivity"
-            android:theme="@style/MainTheme">
+        <activity android:name="com.jcnetwork.android.app1.ui.MainActivity"
+            android:theme="@style/MainTheme"
+            android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -57,103 +59,104 @@
         </activity>
         <!-- Login Activity -->
         <activity
-            android:name="com.jcnetwork.android.jctestapp1.hiddenactivities.LoginActivity"
+            android:name="com.jcnetwork.android.app1.hiddenactivities.LoginActivity"
             android:label="Login"
-            android:parentActivityName="com.jcnetwork.android.jctestapp1.ui.MainActivity"
+            android:parentActivityName="com.jcnetwork.android.app1.ui.MainActivity"
             android:theme="@style/Login">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.jcnetwork.android.jctestapp1.ui.MainActivity" />
+                android:value="com.jcnetwork.android.app1.ui.MainActivity" />
         </activity>
 
         <!-- Registration Activity -->
         <activity
-            android:name="com.jcnetwork.android.jctestapp1.ui.RegistrationActivity"
+            android:name="com.jcnetwork.android.app1.ui.RegistrationActivity"
             android:label="Anmeldung"
-            android:parentActivityName="com.jcnetwork.android.jctestapp1.ui.MainActivity">
+            android:parentActivityName="com.jcnetwork.android.app1.ui.MainActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.jcnetwork.android.jctestapp1.ui.MainActivity" />
+                android:value="com.jcnetwork.android.app1.ui.MainActivity" />
         </activity>
 
         <!-- Settings Activity -->
         <activity
-            android:name="com.jcnetwork.android.jctestapp1.hiddenactivities.SettingsActivity"
+            android:name="com.jcnetwork.android.app1.hiddenactivities.SettingsActivity"
             android:label="@string/title_activity_settings"
             android:theme="@style/SettingsTheme"
-            android:parentActivityName="com.jcnetwork.android.jctestapp1.ui.MainActivity">
+            android:parentActivityName="com.jcnetwork.android.app1.ui.MainActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.jcnetwork.android.jctestapp1.ui.MainActivity" />
+                android:value="com.jcnetwork.android.app1.ui.MainActivity" />
         </activity>
 
         <!-- FAQ Activity -->
         <activity
-            android:name="com.jcnetwork.android.jctestapp1.hiddenactivities.FAQsActivity"
+            android:name="com.jcnetwork.android.app1.hiddenactivities.FAQsActivity"
             android:label="FAQs"
             android:theme="@style/SettingsTheme"
-            android:parentActivityName="com.jcnetwork.android.jctestapp1.ui.MainActivity">
+            android:parentActivityName="com.jcnetwork.android.app1.ui.MainActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.jcnetwork.android.jctestapp1.ui.MainActivity" />
+                android:value="com.jcnetwork.android.app1.ui.MainActivity" />
         </activity>
 
         <!-- Impressum Activity -->
         <activity
-            android:name="com.jcnetwork.android.jctestapp1.hiddenactivities.ImpressumActivity"
+            android:name="com.jcnetwork.android.app1.hiddenactivities.ImpressumActivity"
             android:label="Impressum"
             android:theme="@style/SettingsTheme"
-            android:parentActivityName="com.jcnetwork.android.jctestapp1.ui.MainActivity">
+            android:parentActivityName="com.jcnetwork.android.app1.ui.MainActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.jcnetwork.android.jctestapp1.ui.MainActivity" />
+                android:value="com.jcnetwork.android.app1.ui.MainActivity" />
         </activity>
 
         <!-- Jobwall Activity -->
         <activity
-            android:name="com.jcnetwork.android.jctestapp1.ui.PortaleActivity"
+            android:name="com.jcnetwork.android.app1.ui.PortaleActivity"
             android:label="Portale"
-            android:parentActivityName="com.jcnetwork.android.jctestapp1.ui.MainActivity">
+            android:parentActivityName="com.jcnetwork.android.app1.ui.MainActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.jcnetwork.android.jctestapp1.ui.MainActivity" />
+                android:value="com.jcnetwork.android.app1.ui.MainActivity" />
         </activity>
 
         <!-- Point Activity -->
         <activity
-            android:name="com.jcnetwork.android.jctestapp1.ui.PointsActivity"
+            android:name="com.jcnetwork.android.app1.ui.PointsActivity"
             android:label="Points"
-            android:parentActivityName="com.jcnetwork.android.jctestapp1.ui.MainActivity">
+            android:parentActivityName="com.jcnetwork.android.app1.ui.MainActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.jcnetwork.android.jctestapp1.ui.MainActivity" />
+                android:value="com.jcnetwork.android.app1.ui.MainActivity" />
         </activity>
 
         <!-- CV Activity -->
         <activity
-            android:name="com.jcnetwork.android.jctestapp1.ui.CVActivity"
+            android:name="com.jcnetwork.android.app1.ui.CVActivity"
             android:label="CV"
-            android:parentActivityName="com.jcnetwork.android.jctestapp1.ui.MainActivity">
+            android:parentActivityName="com.jcnetwork.android.app1.ui.MainActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.jcnetwork.android.jctestapp1.ui.MainActivity" />
+                android:value="com.jcnetwork.android.app1.ui.MainActivity" />
         </activity>
 
         <!-- QR Code or Checkin Activity -->
         <activity
-            android:name="com.jcnetwork.android.jctestapp1.ui.CheckInActivity"
+            android:name="com.jcnetwork.android.app1.ui.CheckInActivity"
             android:label="QR"
-            android:parentActivityName="com.jcnetwork.android.jctestapp1.ui.MainActivity">
+            android:parentActivityName="com.jcnetwork.android.app1.ui.MainActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.jcnetwork.android.jctestapp1.ui.MainActivity" />
+                android:value="com.jcnetwork.android.app1.ui.MainActivity" />
         </activity>
 
         <!-- Schedule Activity -->
         <activity
-            android:name="com.jcnetwork.android.jctestapp1.ui.PlanActivity"
+            android:name="com.jcnetwork.android.app1.ui.PlanActivity"
             android:label="@string/ablaufsplan"
-            android:parentActivityName="com.jcnetwork.android.jctestapp1.ui.MainActivity">
+            android:parentActivityName="com.jcnetwork.android.app1.ui.MainActivity"
+            android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.VIEW" />
 
@@ -164,47 +167,47 @@
 
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.jcnetwork.android.jctestapp1.ui.MainActivity" />
+                android:value="com.jcnetwork.android.app1.ui.MainActivity" />
         </activity>
 
         <!-- Detail Activity -->
         <activity
-            android:name="com.jcnetwork.android.jctestapp1.ui.DetailActivity"
+            android:name="com.jcnetwork.android.app1.ui.DetailActivity"
             android:label="Details"
-            android:parentActivityName="com.jcnetwork.android.jctestapp1.ui.PlanActivity" >
+            android:parentActivityName="com.jcnetwork.android.app1.ui.PlanActivity" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.jcnetwork.android.jctestapp1.ui.PlanActivity" />
+                android:value="com.jcnetwork.android.app1.ui.PlanActivity" />
         </activity>
 
         <!-- Brainteaser Activity -->
         <activity
-            android:name="com.jcnetwork.android.jctestapp1.ui.BrainteaserActivity"
+            android:name="com.jcnetwork.android.app1.ui.BrainteaserActivity"
             android:label="Brainteasers"
-            android:parentActivityName="com.jcnetwork.android.jctestapp1.ui.MainActivity">
+            android:parentActivityName="com.jcnetwork.android.app1.ui.MainActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.jcnetwork.android.jctestapp1.ui.MainActivity" />
+                android:value="com.jcnetwork.android.app1.ui.MainActivity" />
         </activity>
 
         <!-- Engage Activity -->
         <activity
-            android:name="com.jcnetwork.android.jctestapp1.ui.EngageActivity"
+            android:name="com.jcnetwork.android.app1.ui.EngageActivity"
             android:label="Mitmachen"
-            android:parentActivityName="com.jcnetwork.android.jctestapp1.ui.MainActivity">
+            android:parentActivityName="com.jcnetwork.android.app1.ui.MainActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.jcnetwork.android.jctestapp1.ui.MainActivity" />
+                android:value="com.jcnetwork.android.app1.ui.MainActivity" />
         </activity>
 
         <!-- Firm Activity -->
         <activity
-            android:name="com.jcnetwork.android.jctestapp1.ui.FirmActivity"
+            android:name="com.jcnetwork.android.app1.ui.FirmActivity"
             android:label="Kooperationspartner"
-            android:parentActivityName="com.jcnetwork.android.jctestapp1.ui.MainActivity">
+            android:parentActivityName="com.jcnetwork.android.app1.ui.MainActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.jcnetwork.android.jctestapp1.ui.MainActivity" />
+                android:value="com.jcnetwork.android.app1.ui.MainActivity" />
         </activity>
 
         <meta-data
