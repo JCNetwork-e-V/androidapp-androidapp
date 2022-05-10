@@ -93,5 +93,7 @@
     <string name="portalverlinkungsknopf">Portalverlinkungsknopf</string>
     <string name="neu">Neu</string>
     <string name="mischen">Mischen</string>
+    <string name="locked_icon_for_no_data_found">Locked icon for no data found</string>
+    <string name="fix_no_data_instructions_for_plan_activity">Keine Daten wurden gefunden. Eventuell wurden die Daten auf einem anderen Account (Verein vs. JCNetwork Account) abgespeichert. Sollte das so sein, bitte logge dich aus und danach erneut mit deinem anderen Account wieder ein. Sollte das Problem nicht behoben sein, setze uns bitte davon in Kenntnis per Mail.</string>
 
 </resources>

@@ -27,7 +27,7 @@ public class CVActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.club_intro);
+        setContentView(R.layout.fragment_no_data);
         setTitle(getString(R.string.dein_lebenslauf));
 
         // Set up support bar
@@ -97,7 +97,7 @@ public class CVActivity extends AppCompatActivity {
             setContentView(R.layout.fragment_no_internet);
 
             // Find refresh button
-            Button retryBtn = (Button) findViewById(R.id.retry_button);
+            Button retryBtn = findViewById(R.id.retry_button);
 
             // Set on click listener on that button
             retryBtn.setOnClickListener(v -> {

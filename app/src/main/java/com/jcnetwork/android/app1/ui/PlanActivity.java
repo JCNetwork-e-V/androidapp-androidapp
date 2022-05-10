@@ -60,18 +60,21 @@ public class PlanActivity extends AppCompatActivity {
 
         // Get how many days we need
         assert mProgram != null;
-        if (mProgram.size()>0) {
-            try {
-                DurationInDays = (int) getNumberOfDays(mProgram);
-            } catch (ParseException e) {
-                e.printStackTrace();
+
+        // Check that mProgram is not null or empty; if so, make default empty layout
+        try {
+            if (mProgram.size() > 0) {
+                try {
+                    DurationInDays = (int) getNumberOfDays(mProgram);
+                } catch (ParseException e) {
+                    e.printStackTrace();
+                }
+                Log.i(LOG_TAG, "Number of days" + DurationInDays);
             }
-            Log.i(LOG_TAG, "Number of days" + DurationInDays);
-        }
 
             // Find views
-            mViewPager2 = (ViewPager2) findViewById(R.id.view_pager);
-            mTabLayout = (TabLayout) findViewById(R.id.tab_layout);
+            mViewPager2 = findViewById(R.id.view_pager);
+            mTabLayout = findViewById(R.id.tab_layout);
 
             // Set up viewpager
             mViewAdapter = new ScheduleAdapter(this, mProgram, DurationInDays);
@@ -90,8 +93,9 @@ public class PlanActivity extends AppCompatActivity {
                         }
                         tab.setText(dayOfWeek);
                     }).attach();
-
-
-
+        } catch (NullPointerException e) {
+            // Set content view to emtpy
+            setContentView(R.layout.fragment_no_data);
+        }
     }
 }
