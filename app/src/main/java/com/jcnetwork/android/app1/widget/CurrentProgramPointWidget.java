@@ -28,8 +28,6 @@ import static com.jcnetwork.android.app1.R.layout.current_program_point_widget;
  */
 public class CurrentProgramPointWidget extends AppWidgetProvider {
 
-    //  Reference: https://developer.android.com/guide/topics/appwidgets#CreatingLayout
-
     static void updateAppWidget(Context context, AppWidgetManager appWidgetManager,
                                 int appWidgetId) throws ParseException {
         // Construct the RemoteViews object

@@ -319,9 +319,9 @@ public class MainActivity extends AppCompatActivity {
         Date workshopTime = null;
         Date eventTime = null;
         try {
-            // TODO Set to default times for testing, but late get it from actual events & workshop registration times
-            workshopTime = ProgramPointAnalysis.getDateFromString("2020-10-05 20:14:00");
-            eventTime = ProgramPointAnalysis.getDateFromString("2020-10-05 20:14:10");
+            // TODO Set to actual events & workshop registration times
+            workshopTime = ProgramPointAnalysis.getDateFromString("2020-05-22 20:00:00");
+            eventTime = ProgramPointAnalysis.getDateFromString("2020-06-09 10:00:00");
         } catch (ParseException e) {
             e.printStackTrace();
         }

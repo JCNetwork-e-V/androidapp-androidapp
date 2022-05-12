@@ -81,7 +81,7 @@ public class DetailActivity extends AppCompatActivity {
         giveWorkShopFeedBackBtn.setOnClickListener(v -> {
             // Open workshop feedback form in browser (?)
             Intent openFeedbackForm = new Intent(Intent.ACTION_VIEW);
-            openFeedbackForm.setData(Uri.parse("https://forms.office.com/Pages/ResponsePage.aspx?id=jEv0Heij8U2Bx4qPQXqlGauGSdS-orlEjHgp-bphYONUNkpCQlo5T0JOV0VVVDVXTDNNRFFUWjZDWS4u"));
+            openFeedbackForm.setData(Uri.parse("https://forms.office.com/Pages/ResponsePage.aspx?id=jEv0Heij8U2Bx4qPQXqlGfrQKq0_81dEmzX_r9g-R-dUOVpDTVIxV1pJU1E1SUpWV1cwMjI5OEFBQy4u"));
             startActivity(openFeedbackForm);
         });
 

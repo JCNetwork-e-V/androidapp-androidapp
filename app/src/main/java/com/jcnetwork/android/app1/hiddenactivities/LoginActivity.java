@@ -6,11 +6,13 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.net.Uri;
+import android.net.http.SslError;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.webkit.ConsoleMessage;
 import android.webkit.JsResult;
+import android.webkit.SslErrorHandler;
 import android.webkit.WebChromeClient;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
@@ -159,6 +161,11 @@ public class LoginActivity extends AppCompatActivity {
      * To make the webview show the view instead of the browser being opened (by default)
      */
     private class MyWebViewClient extends WebViewClient {
+        // To avoid blank webview (when certificate is not recognised) this proceeds to website
+        @Override
+        public void onReceivedSslError(WebView view, SslErrorHandler handler, SslError error) {
+            handler.proceed(); // Ignore SSL certificate errors
+        }
 
         private Activity activity;
         private String intention;
@@ -200,6 +207,7 @@ public class LoginActivity extends AppCompatActivity {
 
     /** Reading out the relevant credentials from the console logs **/
     final class MyWebCromeClient extends WebChromeClient {
+
         @Override
         public boolean onJsAlert(WebView view, String url, String message, JsResult result) {
             Log.i(LOG_TAG, "MyWebCromeClient with onJsAlert called");
