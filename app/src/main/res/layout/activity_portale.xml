@@ -94,7 +94,7 @@
             <TextView
                 android:id="@+id/alumni_description"
                 style="@style/PortaleDescriptionTheme"
-                android:text="Fertig mit Studium? Bleibe als Alumni Teil des JCNetworks."
+                android:text="Fertig mit dem Studium? Bleibe als Alumni Teil des JCNetwork."
                 app:layout_constraintTop_toBottomOf="@id/alumni_title"
                 app:layout_constraintStart_toEndOf="@id/alumni"
                 app:layout_constraintEnd_toEndOf="parent"/>

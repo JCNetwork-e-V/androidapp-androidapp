@@ -3,6 +3,7 @@ package com.jcnetwork.android.app1.hiddenactivities;
 import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.net.Uri;
@@ -20,7 +21,9 @@ import android.webkit.WebViewClient;
 import android.widget.Button;
 import android.widget.ImageView;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.constraintlayout.widget.ConstraintLayout;
 
 import com.jcnetwork.android.app1.ui.MainActivity;
 import com.jcnetwork.android.app1.utils.Constants;
@@ -164,7 +167,24 @@ public class LoginActivity extends AppCompatActivity {
         // To avoid blank webview (when certificate is not recognised) this proceeds to website
         @Override
         public void onReceivedSslError(WebView view, SslErrorHandler handler, SslError error) {
-            handler.proceed(); // Ignore SSL certificate errors
+            // Give user the choice to proceed or cancel
+            final AlertDialog.Builder builder = new AlertDialog.Builder(view.getContext());
+            builder.setTitle("Error");
+            builder.setMessage("Certificate is invalid. Would you like to continue to log in?");
+            builder.setPositiveButton("continue", new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialog, int which) {
+                    handler.proceed();
+                }
+            });
+            builder.setNegativeButton("cancel", new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialog, int which) {
+                    handler.cancel();
+                }
+            });
+            final AlertDialog dialog = builder.create();
+            dialog.show();
         }
 
         private Activity activity;
@@ -173,7 +193,6 @@ public class LoginActivity extends AppCompatActivity {
         public MyWebViewClient(Activity activity, String intention) {
             this.activity = activity;
             this.intention = intention;
-            Log.i(LOG_TAG, "MyWebViewClient initialised");
         }
 
         @Override
@@ -186,7 +205,6 @@ public class LoginActivity extends AppCompatActivity {
 
         @Override
         public void onPageFinished(WebView view, String url) {
-            Log.i(LOG_TAG, "onPageFinished called");
             if (intention.contains(Constants.LOGOUT)) {
                 // Check if redirected to intern
                 if (url.contains("https://intern.jcnetwork.de/")) {
@@ -200,7 +218,6 @@ public class LoginActivity extends AppCompatActivity {
 
         @Override
         public void onLoadResource(WebView view, String url) {
-            Log.i(LOG_TAG, "onLoadResource called");
             super.onLoadResource(view, url);
         }
     }
@@ -210,14 +227,12 @@ public class LoginActivity extends AppCompatActivity {
 
         @Override
         public boolean onJsAlert(WebView view, String url, String message, JsResult result) {
-            Log.i(LOG_TAG, "MyWebCromeClient with onJsAlert called");
             result.confirm();
             return true;
         }
 
         @Override
         public boolean onConsoleMessage(ConsoleMessage consoleMessage) {
-            Log.i(LOG_TAG, consoleMessage.message());
             // Get ablaufID
             if (consoleMessage.message().contains("ablaufID")) {
                 // Add the message to the email
@@ -226,8 +241,6 @@ public class LoginActivity extends AppCompatActivity {
                 String[] splits = ablaufID.split(" ");
                 // Take the second element i.e. index 1
                 String id = splits[1];
-                // Check
-                Log.i(LOG_TAG, "ablaufID is " + id); 
                 // Save user data
                 SharedPreferences sharedPreferences = getSharedPreferences(Constants.SHARED_PREFERENCE_FILE_NAME,
                         Context.MODE_PRIVATE);
@@ -235,6 +248,7 @@ public class LoginActivity extends AppCompatActivity {
                 editor.putString(Constants.ABLAUF_ID,
                         id);
                 editor.apply();
+                String sharedPrefID = sharedPreferences.getString(Constants.ABLAUF_ID, Constants.EMPTY_STRING_DEFAULT);
             }
             // Get LebenslaufID
             if (consoleMessage.message().contains("LebenslaufID")) {
@@ -244,7 +258,6 @@ public class LoginActivity extends AppCompatActivity {
                 String[] splits = LebenslaufID.split(" ");
                 // Take the second element i.e. index 1
                 String id = splits[1];
-                Log.i(LOG_TAG, "LebenslaufID is " + id);
                 // Save user data
                 SharedPreferences sharedPreferences = getSharedPreferences(Constants.SHARED_PREFERENCE_FILE_NAME,
                         Context.MODE_PRIVATE);
@@ -261,7 +274,6 @@ public class LoginActivity extends AppCompatActivity {
                 String[] splits = cert_id.split(" ");
                 // Take the second element i.e. index 1
                 String id = splits[1];
-                Log.i(LOG_TAG, "cert_id is " + id);
                 // Save user data
                 SharedPreferences sharedPreferences = getSharedPreferences(Constants.SHARED_PREFERENCE_FILE_NAME,
                         Context.MODE_PRIVATE);
@@ -278,7 +290,6 @@ public class LoginActivity extends AppCompatActivity {
                 String[] splits = email.split(" ");
                 // Take the second element i.e. index 1
                 String mail = splits[1];
-                Log.i(LOG_TAG, "email is " + mail);
                 // Save user data
                 SharedPreferences sharedPreferences = getSharedPreferences(Constants.SHARED_PREFERENCE_FILE_NAME,
                         Context.MODE_PRIVATE);
