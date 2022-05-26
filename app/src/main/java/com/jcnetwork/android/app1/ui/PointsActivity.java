@@ -23,21 +23,18 @@ import com.jcnetwork.android.app1.R;
 import com.jcnetwork.android.app1.utils.Constants;
 import com.jcnetwork.android.app1.utils.ProgressBarAnimation;
 
+import org.jetbrains.annotations.NotNull;
 import org.json.JSONObject;
 
 public class PointsActivity extends AppCompatActivity{
 
     // For logging purposes
-    private String LOG_TAG = PointsActivity.class.getSimpleName();
+    private final String LOG_TAG = PointsActivity.class.getSimpleName();
 
-    // Set up variables
-    private String getPointsStringURL = "https://intern.jcnetwork.de/app/json_cert.php?hash=";
     public int gesamtInt;
     public int caseInt;
     public int experienceInt;
-    private int gesamtMax = 60;
-    private int caseMax = 12;
-    private int experienceMax = 60;
+    private final int caseMax = 12;
     private ProgressBar gesamtProgressBar;
     private ProgressBar caseProgressBar;
     private ProgressBar experienceProgressBar;
@@ -69,8 +66,10 @@ public class PointsActivity extends AppCompatActivity{
         experienceProgressBar = (ProgressBar)findViewById(R.id.experience_points_progress_bar);
 
         // Set maximum for progress bars
+        int gesamtMax = 60;
         gesamtProgressBar.setMax(gesamtMax);
         caseProgressBar.setMax(caseMax);
+        int experienceMax = 60;
         experienceProgressBar.setMax(experienceMax);
 
         // Find text views
@@ -115,8 +114,8 @@ public class PointsActivity extends AppCompatActivity{
         gesamtInt = sharedPreferences.getInt(Constants.GESAMT_POINTS_KEY, 0);
         caseInt = sharedPreferences.getInt(Constants.CASE_POINTS_KEY, 0);
         experienceInt = sharedPreferences.getInt(Constants.EXPERIENCE_POINTS_KEY, 0);
-        Log.i(LOG_TAG, "gesamt after stored to shared preferences in animateProgressBars: "+ String.valueOf(gesamtInt));
-        Log.i(LOG_TAG, "case after stored to shared preferences in animateProgressBars: "+ String.valueOf(caseInt));
+        Log.i(LOG_TAG, "gesamt after stored to shared preferences in animateProgressBars: "+ gesamtInt);
+        Log.i(LOG_TAG, "case after stored to shared preferences in animateProgressBars: "+ caseInt);
 
         // Reset to original max
         caseProgressBar.setProgress(caseMax);
@@ -141,8 +140,8 @@ public class PointsActivity extends AppCompatActivity{
         gesamtInt = sharedPreferences.getInt(Constants.GESAMT_POINTS_KEY, 0);
         caseInt = sharedPreferences.getInt(Constants.CASE_POINTS_KEY, 0);
         experienceInt = sharedPreferences.getInt(Constants.EXPERIENCE_POINTS_KEY, 0);
-        Log.i(LOG_TAG, "gesamt after stored to shared preferences in animateProgressBars: "+ String.valueOf(gesamtInt));
-        Log.i(LOG_TAG, "case after stored to shared preferences in animateProgressBars: "+ String.valueOf(caseInt));
+        Log.i(LOG_TAG, "gesamt after stored to shared preferences in animateProgressBars: "+ gesamtInt);
+        Log.i(LOG_TAG, "case after stored to shared preferences in animateProgressBars: "+ caseInt);
 
         // Set progress to the values obtained
         gesamtProgressBar.setProgress(gesamtInt);
@@ -180,47 +179,41 @@ public class PointsActivity extends AppCompatActivity{
 
         // Make url
         String certId = sharedPreferences.getString(Constants.USER_CERTIFICATION_ID, Constants.EMPTY_STRING_DEFAULT);
+        // Set up variables
+        String getPointsStringURL = "https://intern.jcnetwork.de/app/json_cert.php?hash=";
         String constructedUrl = getPointsStringURL + certId;
 
         // Request a string response from the provided URL.
         StringRequest stringRequest = new StringRequest(Request.Method.GET, constructedUrl,
-                new Response.Listener<String>() {
-                    @Override
-                    public void onResponse(String response) {
-                        // Display the first 500 characters of the response string.
-                        Log.i(LOG_TAG, response);
-                        // Try to convert string to JSON Object and get info
-                        try {
-                            // Get shared preference editor to write to shared preferences
-                            SharedPreferences.Editor editor = sharedPreferences.edit();
+                response -> {
+                    // Display the first 500 characters of the response string.
+                    Log.i(LOG_TAG, response);
+                    // Try to convert string to JSON Object and get info
+                    try {
+                        // Get shared preference editor to write to shared preferences
+                        SharedPreferences.Editor editor = sharedPreferences.edit();
 
-                            // Get Info and store to sharedPreferences
-                            JSONObject object = new JSONObject(response);
-                            gesamtInt = object.getInt("gesamt");
-                            editor.putInt(Constants.GESAMT_POINTS_KEY, gesamtInt);
-                            Log.i(LOG_TAG, "gesamt after stored to shared preferences in sendRequest: "+ String.valueOf(sharedPreferences.getInt(Constants.GESAMT_POINTS_KEY, 0)));
-                            Log.i(LOG_TAG, String.valueOf(gesamtInt));
-                            caseInt = object.getInt("case");
-                            editor.putInt(Constants.CASE_POINTS_KEY, caseInt);
-                            Log.i(LOG_TAG, String.valueOf(caseInt));
-                            experienceInt = object.getInt("experience");
-                            editor.putInt(Constants.EXPERIENCE_POINTS_KEY, experienceInt);
-                            editor.apply();
-                            Log.i(LOG_TAG, "gesamt after stored to shared preferences in sendRequest and commit called: "+ String.valueOf(sharedPreferences.getInt(Constants.GESAMT_POINTS_KEY, 0)));
-                            Log.i(LOG_TAG, String.valueOf(experienceInt));
-                        } catch (Throwable throwable) {
-                            Log.e(LOG_TAG, "Failed to parse string to JSON Object and get info");
-                        }
-                        // Method to animate progress bars
-                        animateProgressBars();
-
+                        // Get Info and store to sharedPreferences
+                        JSONObject object = new JSONObject(response);
+                        gesamtInt = object.getInt("gesamt");
+                        editor.putInt(Constants.GESAMT_POINTS_KEY, gesamtInt);
+                        Log.i(LOG_TAG, "gesamt after stored to shared preferences in sendRequest: "+ sharedPreferences.getInt(Constants.GESAMT_POINTS_KEY, 0));
+                        Log.i(LOG_TAG, String.valueOf(gesamtInt));
+                        caseInt = object.getInt("case");
+                        editor.putInt(Constants.CASE_POINTS_KEY, caseInt);
+                        Log.i(LOG_TAG, String.valueOf(caseInt));
+                        experienceInt = object.getInt("experience");
+                        editor.putInt(Constants.EXPERIENCE_POINTS_KEY, experienceInt);
+                        editor.apply();
+                        Log.i(LOG_TAG, "gesamt after stored to shared preferences in sendRequest and commit called: "+ sharedPreferences.getInt(Constants.GESAMT_POINTS_KEY, 0));
+                        Log.i(LOG_TAG, String.valueOf(experienceInt));
+                    } catch (Throwable throwable) {
+                        Log.e(LOG_TAG, "Failed to parse string to JSON Object and get info");
                     }
-                }, new Response.ErrorListener() {
-            @Override
-            public void onErrorResponse(VolleyError error) {
-                Log.e(LOG_TAG, "VolleyError occurred");
-            }
-        });
+                    // Method to animate progress bars
+                    animateProgressBars();
+
+                }, error -> Log.e(LOG_TAG, "VolleyError occurred"));
 
         // Add the request to the RequestQueue.
         queue.add(stringRequest);
@@ -230,11 +223,11 @@ public class PointsActivity extends AppCompatActivity{
     /**
      * Methods to save and restore the state/position within the scroll view when rotating the screen
      */
-    protected void onSaveInstanceState(Bundle savedInstanceState) {
+    protected void onSaveInstanceState(@NotNull Bundle savedInstanceState) {
         super.onSaveInstanceState(savedInstanceState);
     }
 
-    protected void onRestoreInstanceState(Bundle savedInstanceState) {
+    protected void onRestoreInstanceState(@NotNull Bundle savedInstanceState) {
         super.onRestoreInstanceState(savedInstanceState);
     }
 

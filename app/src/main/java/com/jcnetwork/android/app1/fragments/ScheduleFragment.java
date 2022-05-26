@@ -31,7 +31,6 @@ public class ScheduleFragment extends Fragment {
     // Variables
     private static final String POSITION_KEY = "position";
     private int position;
-    private RecyclerView mRecyclerView;
 
     // Logging
     private final String LOG_TAG = this.getClass().getSimpleName();
@@ -57,7 +56,7 @@ public class ScheduleFragment extends Fragment {
         super.onCreate(savedInstanceState);
         if (getArguments() != null) {
             position = getArguments().getInt(POSITION_KEY);
-            Log.i(LOG_TAG, "Position" + String.valueOf(position));
+            Log.i(LOG_TAG, "Position" + position);
             List<ProgramPoint> mProgram = getArguments().getParcelableArrayList("SCHEDULE_KEY");
             if (mProgram != null) {
                 // Set default DailyProgram to full program
@@ -87,16 +86,14 @@ public class ScheduleFragment extends Fragment {
 
         // Find views
         TextView tv = view.findViewById(R.id.tv);
-        mRecyclerView = view.findViewById(R.id.recycler_view);
+        RecyclerView mRecyclerView = view.findViewById(R.id.recycler_view);
 
         // Check position and make textview only visible for first position 0; otherwise invisible
-        switch (position) {
-            case 0:
-                tv.setVisibility(View.VISIBLE);
-                tv.setText(R.string.ablaufplan_caution_text);
-                break;
-            default:
-                tv.setVisibility(View.GONE);
+        if (position == 0) {
+            tv.setVisibility(View.VISIBLE);
+            tv.setText(R.string.ablaufplan_caution_text);
+        } else {
+            tv.setVisibility(View.GONE);
         }
 
         // Set adapter to fill in data

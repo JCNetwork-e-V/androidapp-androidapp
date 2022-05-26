@@ -25,7 +25,7 @@ public class FAQExpandableCardViewAdapter extends RecyclerView.Adapter<FAQExpand
 
     /** Variables **/
     private List<QandA> qandAdata;
-    private SparseBooleanArray isExpandedArray = new SparseBooleanArray(); // to tell if a cardview at position i is expanded or not
+    private final SparseBooleanArray isExpandedArray = new SparseBooleanArray(); // to tell if a cardview at position i is expanded or not
 
     /** Constructor **/
     public FAQExpandableCardViewAdapter(List<QandA> list) {
@@ -52,28 +52,25 @@ public class FAQExpandableCardViewAdapter extends RecyclerView.Adapter<FAQExpand
         holder.answerTV.setText(qandAdata.get(position).getAnswer());
 
         // Set up on click listener
-        holder.cardView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                boolean isExpanded = isExpandedArray.get(position);
-                Log.i("FAQ Adapter", "is expanded" + String.valueOf(isExpanded));
-                if (isExpanded) {
-                    // Hide views (answer)
-                    holder.answerTV.setVisibility(View.GONE);
-                    holder.shadowView.setVisibility(View.GONE);
-                    // And rotate arrow
-                    createRotateAnimator(holder.arrowBtn, 180f, 0f).start();
-                    // Set expanded state to false
-                    isExpandedArray.put(position, false);
-                } else {
-                    // Show views (answer)
-                    holder.answerTV.setVisibility(View.VISIBLE);
-                    holder.shadowView.setVisibility(View.VISIBLE);
-                    // And rotate arrow
-                    createRotateAnimator(holder.arrowBtn, 0f, 180f).start();
-                    // Set expanded state to true
-                    isExpandedArray.put(position, true);
-                }
+        holder.cardView.setOnClickListener(v -> {
+            boolean isExpanded = isExpandedArray.get(position);
+            Log.i("FAQ Adapter", "is expanded" + isExpanded);
+            if (isExpanded) {
+                // Hide views (answer)
+                holder.answerTV.setVisibility(View.GONE);
+                holder.shadowView.setVisibility(View.GONE);
+                // And rotate arrow
+                createRotateAnimator(holder.arrowBtn, 180f, 0f).start();
+                // Set expanded state to false
+                isExpandedArray.put(position, false);
+            } else {
+                // Show views (answer)
+                holder.answerTV.setVisibility(View.VISIBLE);
+                holder.shadowView.setVisibility(View.VISIBLE);
+                // And rotate arrow
+                createRotateAnimator(holder.arrowBtn, 0f, 180f).start();
+                // Set expanded state to true
+                isExpandedArray.put(position, true);
             }
         });
     }
@@ -123,10 +120,11 @@ public class FAQExpandableCardViewAdapter extends RecyclerView.Adapter<FAQExpand
     /** Viewholder class **/
     public class ViewHolder extends RecyclerView.ViewHolder{
 
-        private TextView questionTV,answerTV;
-        private ImageButton arrowBtn;
-        private View shadowView;
-        private CardView cardView;
+        private final TextView questionTV;
+        private final TextView answerTV;
+        private final ImageButton arrowBtn;
+        private final View shadowView;
+        private final CardView cardView;
 
         public ViewHolder(View view) {
             super(view);

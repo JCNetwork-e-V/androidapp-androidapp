@@ -41,7 +41,7 @@ public class RegistrationActivity extends AppCompatActivity {
     /**
      * Creates an onClickListener which checks the id of the view and points user to correct webaddress in browser
      */
-    private View.OnClickListener myWebViewListener = view -> {
+    private final View.OnClickListener myWebViewListener = view -> {
         // React differently according to id
         switch (view.getId()) {
             case R.id.normal_days_image:

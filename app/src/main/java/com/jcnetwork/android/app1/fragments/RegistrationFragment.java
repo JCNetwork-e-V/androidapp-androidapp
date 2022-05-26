@@ -1,5 +1,6 @@
 package com.jcnetwork.android.app1.fragments;
 
+import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.Intent;
 import android.net.Uri;
@@ -17,6 +18,8 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
 import com.jcnetwork.android.app1.R;
+
+import java.util.Objects;
 
 public class RegistrationFragment extends Fragment {
 
@@ -45,7 +48,7 @@ public class RegistrationFragment extends Fragment {
         super.onCreate(savedInstanceState);
         if (getArguments() != null) {
             position = getArguments().getInt(POSITION_KEY);
-            Log.i(LOG_TAG, "Position" + String.valueOf(position));
+            Log.i(LOG_TAG, "Position" + position);
         }
     }
 
@@ -58,6 +61,7 @@ public class RegistrationFragment extends Fragment {
 
     }
 
+    @SuppressLint("SetJavaScriptEnabled")
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
@@ -96,7 +100,7 @@ public class RegistrationFragment extends Fragment {
      */
     private class MyWebViewClient extends WebViewClient {
 
-        private Activity activity = null;
+        private Activity activity;
 
         public MyWebViewClient(Activity activity) {
             this.activity = activity;

@@ -9,6 +9,8 @@ import com.jcnetwork.android.app1.models.ProgramPoint;
 import com.jcnetwork.android.app1.utils.Constants;
 import com.google.gson.Gson;
 
+import org.jetbrains.annotations.NotNull;
+
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -30,7 +32,7 @@ public class RetrofitMethods {
     //private static NetworkAPI mNetworkAPI;
     // For logging
     private final String LOG_TAG = this.getClass().getSimpleName();
-    private Context mContext;
+    private final Context mContext;
 
     // Internet
     Retrofit mRetrofit = APIClient.getmRetrofit(ABLAUF_URL);
@@ -77,7 +79,7 @@ public class RetrofitMethods {
         Call<JSONResult> call = mNetworkApi.getJSONResults(ABLAUF_ID);
         call.enqueue(new Callback<JSONResult>() {
             @Override
-            public void onResponse(Call<JSONResult> call, Response<JSONResult> response) {
+            public void onResponse(@NotNull Call<JSONResult> call, @NotNull Response<JSONResult> response) {
                 // Log
                 Log.i("LOG_TAG", "on Response called");
 
@@ -147,7 +149,7 @@ public class RetrofitMethods {
             }
 
             @Override
-            public void onFailure(Call<JSONResult> call, Throwable t) {
+            public void onFailure(@NotNull Call<JSONResult> call, @NotNull Throwable t) {
                 Log.i("LOG_TAG", "onFailure called");
                 call.cancel();
             }
@@ -158,7 +160,7 @@ public class RetrofitMethods {
     }
 
     //TODO Delete later
-    private static String getStringFromDate(Date date) throws ParseException {
+    private static String getStringFromDate(Date date) {
         SimpleDateFormat myFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
         String string = myFormat.format(date);
         Log.i("LOG_TAG", string);

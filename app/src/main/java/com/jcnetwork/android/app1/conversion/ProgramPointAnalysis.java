@@ -20,7 +20,7 @@ import java.util.concurrent.TimeUnit;
 
 public class ProgramPointAnalysis {
     // For logging
-    private static String LOG_TAG = "ProgramPointAnalysis";
+    private static final String LOG_TAG = "ProgramPointAnalysis";
 
     // To convert String to Date
     public static Date getDateFromString(String dateString) throws ParseException {
@@ -29,7 +29,7 @@ public class ProgramPointAnalysis {
     }
 
     // To convert Date to String
-    private static String getStringFromDate(Date date) throws ParseException {
+    private static String getStringFromDate(Date date) {
         SimpleDateFormat myFormat = new SimpleDateFormat("yyyy-MM-dd");
         String string = myFormat.format(date);
         Log.i(LOG_TAG, string);
@@ -150,7 +150,7 @@ public class ProgramPointAnalysis {
         Log.i(LOG_TAG, "current time" + calendar.getTime().toString()); // e.g. Mon Oct 19 23:00:49 GMT+02:00 2020
 
         // Checking list
-        Log.i(LOG_TAG, "size of full list" + String.valueOf(fullList.size()));
+        Log.i(LOG_TAG, "size of full list" + fullList.size());
         Log.i(LOG_TAG, "first time of full list " + fullList.get(0).getBegin()); // e.g. Sun Nov 24 16:30:00 GMT+01:00 2019
         Log.i(LOG_TAG, "last time of full list " + fullList.get(fullList.size() - 1).getBegin()); // e.g. Sun Nov 24 16:30:00 GMT+01:00 2019
 
@@ -180,7 +180,7 @@ public class ProgramPointAnalysis {
 
         Log.i(LOG_TAG, "Current calendar time is" + currentCalendar.getTime().toString());
 
-        Log.i(LOG_TAG, "size is" + String.valueOf(calendars.size())); //24 events OK!
+        Log.i(LOG_TAG, "size is" + calendars.size()); //24 events OK!
         // Alt: System.currentTimeMillis() > calendars.get(i).getTime()
 
         // Position default
@@ -247,7 +247,7 @@ public class ProgramPointAnalysis {
                 }
             }
         }
-        Log.i(LOG_TAG, "Returned position will be " + String.valueOf(position));
+        Log.i(LOG_TAG, "Returned position will be " + position);
         // Return position
         return position;
     }

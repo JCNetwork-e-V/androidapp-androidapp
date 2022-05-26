@@ -4,9 +4,11 @@ import android.view.View;
 
 import androidx.viewpager2.widget.ViewPager2;
 
+import org.jetbrains.annotations.NotNull;
+
 public class CubeOutTransformer implements ViewPager2.PageTransformer {
     @Override
-    public void transformPage(View page, float position) {
+    public void transformPage(@NotNull View page, float position) {
 
         if (position < -1){    // [-Infinity,-1)
             // This page is way off-screen to the left.

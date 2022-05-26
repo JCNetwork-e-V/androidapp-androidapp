@@ -16,7 +16,7 @@ import java.util.List;
 public class BrainteaserFragmentAdapter extends RecyclerView.Adapter<BrainteaserFragmentAdapter.MyViewHolder> {
 
     // Data that needs to be fed into the adapter
-    private List<Brainteaser> bt; // cached copy of the data
+    private final List<Brainteaser> bt; // cached copy of the data
 
     public BrainteaserFragmentAdapter(List<Brainteaser> brainteasers) {
         bt = brainteasers;
@@ -28,8 +28,7 @@ public class BrainteaserFragmentAdapter extends RecyclerView.Adapter<Brainteaser
         // Inflate layout with item view
         LayoutInflater inflater = LayoutInflater.from(parent.getContext());
         View itemView = inflater.inflate(R.layout.brainteaser_card, parent, false);
-        BrainteaserFragmentAdapter.MyViewHolder vh = new BrainteaserFragmentAdapter.MyViewHolder(itemView);
-        return vh;
+        return new MyViewHolder(itemView);
     }
 
     @Override
@@ -52,7 +51,7 @@ public class BrainteaserFragmentAdapter extends RecyclerView.Adapter<Brainteaser
     public class MyViewHolder extends RecyclerView.ViewHolder  {
 
         // Set up view
-        TextView task;
+        final TextView task;
 
         public MyViewHolder(@NonNull View itemView) {
             super(itemView);

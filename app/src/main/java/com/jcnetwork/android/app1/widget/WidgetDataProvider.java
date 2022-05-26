@@ -23,8 +23,8 @@ public class WidgetDataProvider implements RemoteViewsService.RemoteViewsFactory
 
     // Variables
     List<ProgramPoint> mProgram = new ArrayList<>();
-    Context mContext;
-    Intent mIntent;
+    final Context mContext;
+    final Intent mIntent;
 
     /** Constructor **/
     public WidgetDataProvider(Context context, Intent intent) {
@@ -40,6 +40,7 @@ public class WidgetDataProvider implements RemoteViewsService.RemoteViewsFactory
         SharedPreferences preferences = mContext.getSharedPreferences(Constants.SHARED_PREFERENCE_FILE_NAME, Context.MODE_PRIVATE);
         String programString = preferences.getString(Constants.ABLAUFSPLAN_JSON_RESULT_KEY, Constants.EMPTY_STRING_DEFAULT);
         Gson gson = new Gson();
+        assert programString != null;
         if (!programString.isEmpty()) {
             // Convert to program and calculate current/next point
             mProgram = gson.fromJson(programString, new TypeToken<List<ProgramPoint>>(){}.getType());

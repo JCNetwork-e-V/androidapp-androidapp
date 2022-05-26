@@ -58,22 +58,19 @@ public class BrainteaserFragment extends Fragment {
 
         this.brainBtn.setOnClickListener(view1 -> Toast.makeText(getContext(), "Wische horizontal, um andere Brainteaser zu sehen. Drücke lange auf den Knopf oben, um die Antwort zu sehen.", Toast.LENGTH_LONG).show());
 
-        this.brainBtn.setOnLongClickListener(new View.OnLongClickListener() {
-            @Override
-            public boolean onLongClick(View view) {
-                if (isRevealed) {
-                    // If resolution is revealed, go back to question if user long presses the button
-                    mainTV.setText(currentBT.getTeaser());
-                    mainTV.setTextColor(getResources().getColor((R.color.black)));
-                    isRevealed = FALSE;
-                } else {
-                    // By default the solution is not revealed, so reveal it
-                    mainTV.setText(currentBT.getResolution());
-                    mainTV.setTextColor(getResources().getColor((R.color.colorPrimary)));
-                    isRevealed = TRUE;
-                }
-                return true;
+        this.brainBtn.setOnLongClickListener(view12 -> {
+            if (isRevealed) {
+                // If resolution is revealed, go back to question if user long presses the button
+                mainTV.setText(currentBT.getTeaser());
+                mainTV.setTextColor(getResources().getColor((R.color.black)));
+                isRevealed = FALSE;
+            } else {
+                // By default the solution is not revealed, so reveal it
+                mainTV.setText(currentBT.getResolution());
+                mainTV.setTextColor(getResources().getColor((R.color.colorPrimary)));
+                isRevealed = TRUE;
             }
+            return true;
         });
     }
 }

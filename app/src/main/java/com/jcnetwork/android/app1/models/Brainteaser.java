@@ -4,8 +4,8 @@ public class Brainteaser {
 
     // Variables
     private String btTitel;
-    private String btQuestion;
-    private String btSolution;
+    private final String btQuestion;
+    private final String btSolution;
 
     /**
      * Constructor

@@ -32,7 +32,8 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@drawable/normal_days_logo" />
+            app:srcCompat="@drawable/normal_days_logo"
+            android:contentDescription="@string/logo_des_partners" />
 
         <FrameLayout
             android:id="@+id/background_banner"
@@ -106,7 +107,7 @@
                 android:paddingEnd="8dp"
                 android:paddingStart="8dp"
                 android:paddingBottom="48dp"
-                android:text="Dummy description of a company" />
+                android:text="@string/description_of_a_company" />
 
         </ScrollView>
     </LinearLayout>

@@ -23,7 +23,6 @@ import android.widget.ImageView;
 
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.constraintlayout.widget.ConstraintLayout;
 
 import com.jcnetwork.android.app1.ui.MainActivity;
 import com.jcnetwork.android.app1.utils.Constants;
@@ -171,24 +170,14 @@ public class LoginActivity extends AppCompatActivity {
             final AlertDialog.Builder builder = new AlertDialog.Builder(view.getContext());
             builder.setTitle("Error");
             builder.setMessage("Certificate is invalid. Would you like to continue to log in?");
-            builder.setPositiveButton("continue", new DialogInterface.OnClickListener() {
-                @Override
-                public void onClick(DialogInterface dialog, int which) {
-                    handler.proceed();
-                }
-            });
-            builder.setNegativeButton("cancel", new DialogInterface.OnClickListener() {
-                @Override
-                public void onClick(DialogInterface dialog, int which) {
-                    handler.cancel();
-                }
-            });
+            builder.setPositiveButton("continue", (dialog, which) -> handler.proceed());
+            builder.setNegativeButton("cancel", (dialog, which) -> handler.cancel());
             final AlertDialog dialog = builder.create();
             dialog.show();
         }
 
-        private Activity activity;
-        private String intention;
+        private final Activity activity;
+        private final String intention;
 
         public MyWebViewClient(Activity activity, String intention) {
             this.activity = activity;

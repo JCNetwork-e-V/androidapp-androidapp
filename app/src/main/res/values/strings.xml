@@ -2,19 +2,9 @@
     <string name="app_name">JCNetwork Days</string>
 
     <!-- Strings related to login -->
-    <string name="prompt_email">Email</string>
-    <string name="prompt_password">Password</string>
-    <string name="action_sign_in">Sign in or register</string>
-    <string name="action_sign_in_short">Sign in</string>
-    <string name="welcome">"Welcome !"</string>
-    <string name="invalid_username">Not a valid username</string>
-    <string name="invalid_password">Password must be >5 characters</string>
-    <string name="login_failed">"Login failed"</string>
 
 
     <!-- Hardcoded Strings for city and club-->
-    <string name="city_description">"Die historische Universitätsstadt Würzburg liegt im schönen Bayern. Mit ihren 130.000 Einwohner, davon 35.000 Studenten, zählt Würzburg zwar als Großstadt, ist jedoch im Kern sehr übersichtlich. \nDie Julius-Maximilian-Universität Würzburg wurde 1402 gegründet und ist damit die älteste Universität Bayerns. Heute hat sie zehn Fakultäten im Bereich der Geisteswissenschaften, Recht und Wirtschaft, Lebenswissenschaften, Naturwissenschaften und Technik. Neben Wilhelm Conrad Röntgen hat die Universität Würzburg sieben weitere Nobelpreisträger hervorgebracht.\nZum fantastischen Stadtbild tragen zahlreiche Sehenswürdigkeiten, wie die Würzburger Residenz (UNESCO-Weltkulturerbe), die Festung Marienberg oder die alte Mainbrücke bei. Mehrmals im Jahr finden, vor allem bei Studenten höchst beliebt, Weinfeste in der Würzburger Innenstadt statt. Ob im Residenzgarten, der alten Mainbrücke oder auf dem Marktplatz. Da Würzburg über eine riesige Fläche an Weinbergen verfügt und zahlreiche namenhafte Weingüter anliegend sind, spielt das Genussmittel hier eine große Rolle. Auch sportlich ist Würzburg recht gut aufgestellt. Neben Dirk Nowitzki haben wir auch noch viele andere individuelle Leistungssportler auch höchsten Niveau. Im Mannschaftsport gibt es die FC Würzburger Kickers (3. Fußball Bundesliga), die s.Oliver Würzburg (1. Basketball Bundesliga), die Rimparer Wölfe (2. Handball Bundesliga) und die SV Würzburg 05 Wasserball (1. Bundesliga Wasserball). Leider hat die Geschichte Würzburgs auch eine dunkle Schattenseite. Im zweiten Weltkrieg wurde die Stadt am 16. März 1945 von der british Royal Air Force bombardiert, wobei 90% der Altstadt zerstört wurden und ca. 5000 Menschen ihr Leben verloren. In dieser Nacht fielen ca. 980 Tonnen Bomben auf Würzburg nieder und die Stadt wurde in Floge als „Grab am Main“ bezeichnet. Zum Gedenken läuten jedes Jahr am 16. März um 21:20 Uhr alle Kirchglocken der Stadt für 20 Minuten."</string>
-    <string name="club_description">"Contact \u0026 Cooperation Würzburg e.V. ist seit über 25 Jahren als studentische Unternehmensberatung an der Universität Würzburg tätig.\nDer Großteil unserer ca. 80 aktiven Mitglieder setzt sich aus Studenten der Wirtschaftswissenschaft zusammen, jedoch sind auch zahlreiche Studenten anderen Fakultäten vertreten. Durch unsere weitreichende Kompetenz sind wir jederzeit bereit, verschiedenste interne und externe Projekte anzugehen. Mindestens einmal im Semester veranstalten wir die C\u0026C Academy, bei der wir erfahrene Beratungsunternehmen nach Würzburg einladen, um unsere Junior Consultants optimal auf die Beratungsbranche und Projektarbeit vorzubereiten.\nNach der Ausrichtung der JCNetwork Executive Days im Sommer 2016, freuen wir uns sehr, die High Potentials des JCNetwork zu uns nach Würzburg einzuladen und gemeinsam ein unvergessliches Wochenende zu erleben!\n#vorwärtskommen"</string>
 
     <!-- Default strings-->
     <string name="dein_lebenslauf">Dein Lebenslauf</string>
@@ -42,8 +32,6 @@
     <string name="ablaufplan_caution_text">Der hier angezeigte Ablaufplan ist vorläufig und unterliegt Änderungen. Sobald der finale Ablaufplan feststeht, kannst du ihn hier einsehen.</string>
 
     <!-- Companion Widget Strings -->
-    <string name="appwidget_text">EVENT</string>
-    <string name="add_widget">Add widget</string>
     <string name="title_activity_settings">Einstellungen</string>
 
     <!-- Setting Activity Strings -->
@@ -76,17 +64,14 @@
     <string name="ablaufsplan">Ablaufsplan</string>
     <string name="default_notification_channel_id">GENERAL_FIREBASE_NOTIFICATION_ID</string>
     <string name="default_notification_channel_name">FCM Notification Channel</string>
-    <string name="fcm_message">Hallo Junior Consultant!</string>
     <string name="qr_instructions">Bitte zeigen diesen QR-Code beim Check-In vor.</string>
     <string name="portale">Portale</string>
     <string name="credits">© Layla Rohkohl</string>
     <string name="login">Login</string>
     <string name="registrieren">Registrieren</string>
-    <string name="request_to_add_own_brainteaser">Request to add own brainteaser</string>
     <string name="brainteaser">Brainteaser</string>
     <string name="unternehmen">Partner</string>
     <string name="mitmachen">Mitmachen</string>
-    <string name="antwort_anzeigen">Antwort anzeigen</string>
     <string name="sample_brainteaser_question">Sample brainteaser question</string>
     <string name="just_decoration_for_brainteaser_question">Just decoration for brainteaser question</string>
     <string name="frage">Frage</string>
@@ -95,5 +80,55 @@
     <string name="mischen">Mischen</string>
     <string name="locked_icon_for_no_data_found">Locked icon for no data found</string>
     <string name="fix_no_data_instructions_for_plan_activity">Keine Daten wurden gefunden. Eventuell wurden die Daten auf einem anderen Account (Verein vs. JCNetwork Account) abgespeichert. Sollte das so sein, bitte logge dich aus und danach erneut mit deinem anderen Account wieder ein. Sollte das Problem nicht behoben sein, setze uns bitte davon in Kenntnis per Mail.</string>
+    <string name="junior_consultants_discussing_around_a_table">Junior Consultants discussing around a table</string>
+    <string name="icon_for_vorstandsvorsitz">Icon for Vorstandsvorsitz</string>
+    <string name="icon_for_customer_relations">Icon for customer relations</string>
+    <string name="icon_for_finanzen_und_recht">Icon for Finanzen und Recht</string>
+    <string name="icon_for_informationsmanagement">Icon for Informationsmanagement</string>
+    <string name="icon_for_marketing">Icon for Marketing</string>
+    <string name="icon_for_eventmanagement">Icon for Eventmanagement</string>
+    <string name="icon_for_human_resources">Icon for Human Resources</string>
+    <string name="icon_for_weiterbildung">Icon for Weiterbildung</string>
+    <string name="icon">Icon</string>
+    <string name="jcnetwork_days_logo">JCNetwork Days Logo</string>
+    <string name="jcnetwork_executive_days_logo">JCNetwork Executive Days Logo</string>
+    <string name="jcnetwork_development_days_logo">JCNetwork Development Days Logo</string>
+    <string name="days_register_instruction_tv">Für welches Event möchtest Du dich anmelden? Einfach draufklicken und schon kommst du zur Anmeldeseite.</string>
+    <string name="trainer_academy">Trainer Academy</string>
+    <string name="alumni">Alumni</string>
+    <string name="alumni_description">Fertig mit dem Studium? Bleibe als Alumni Teil des JCNetwork.</string>
+    <string name="portale_description">Lasse dich zu einem JCNetwork Trainer ausbilden in diesem Semester!</string>
+    <string name="jobwall_description">Finde die aktuellen Stellenausschreibungen unserer Partnerunternehmen auf einem Blick.</string>
+    <string name="zertifizierungsportal">Zertifizierungsportal</string>
+    <string name="zertifizierungsportal_description">Fahrplan zur JCNetwork Junior Zertifizierung vergessen? Kein Problem. Hier kannst du es nachlesen.</string>
+    <string name="blog">Blog</string>
+    <string name="blog_description">Das neuste Wissen der JCNetwork Junior Consultants auf einem Platz.</string>
+    <string name="jcnetwork_projektmanagement_ug">JCNetwork Projektmanagement UG</string>
+    <string name="projektmgmt_ug_description">Etwas Praxis gefällig? Zeit, Projekte gemeinsam und rechtlich abgesichert anzupacken.</string>
+    <string name="dummy_programmpunkt_titel">Programmpunkt</string>
+    <string name="icon_for_ort">Icon for Ort</string>
+    <string name="ort">Ort</string>
+    <string name="zeit">Zeit</string>
+    <string name="description_of_the_event">Description of the event</string>
+    <string name="weiterbildung">Weiterbildung</string>
+    <string name="human_resources">Human Resources</string>
+    <string name="eventmanagement">Eventmanagement</string>
+    <string name="marketing">Marketing</string>
+    <string name="informations_nmanagement">Informations-\nmanagement</string>
+    <string name="finanzen_amp_recht"><![CDATA[Finanzen & Recht]]></string>
+    <string name="customer_relations">Customer Relations</string>
+    <string name="vorstandsvorsitz">Vorstandsvorsitz</string>
+    <string name="sample_question_n_super_long_n_question">Sample question \n super long \n question</string>
+    <string name="sample_answer">Sample answer</string>
+    <string name="logo_des_partners">Logo des Partners</string>
+    <string name="description_of_a_company">Description of a company</string>
+    <string name="close">Close</string>
+    <string name="jcnetwork_logo">JCNetwork Logo</string>
+    <string name="no_internet_text">Keine Internetverbindung gefunden. Bitte überprüfe deine Verbindung und probiere es erneut.</string>
+    <string name="erneut_versuchen">Erneut Versuchen</string>
+    <string name="dummy_title">Dummy title</string>
+    <string name="dummy_place">Dummy Place</string>
+    <string name="dummy_time">Dummy Time</string>
+    <string name="send_email_to_ask_new_question">Send email to ask new question</string>
 
 </resources>

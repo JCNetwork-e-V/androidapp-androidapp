@@ -11,9 +11,9 @@ public class JSONResult implements Parcelable {
 
     // Variables
     @SerializedName("uname")
-    private String mUserName;
+    private final String mUserName;
     @SerializedName("programm")
-    private List<ProgramPoint> mProgram;
+    private final List<ProgramPoint> mProgram;
 
     /**
      */

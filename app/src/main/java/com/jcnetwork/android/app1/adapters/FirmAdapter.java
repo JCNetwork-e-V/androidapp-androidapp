@@ -16,8 +16,8 @@ import java.util.List;
 public class FirmAdapter extends FragmentStateAdapter {
 
     // Variables
-    private List<Firm> firms;
-    private Context mContext;
+    private final List<Firm> firms;
+    private final Context mContext;
 
     /**
      * Constructor

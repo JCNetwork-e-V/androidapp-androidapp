@@ -49,7 +49,7 @@ public abstract class ProgramDatabase extends RoomDatabase {
     }
 
     /** Method to populate db **/
-    private static RoomDatabase.Callback mRoomDatabaseCallback = new RoomDatabase.Callback() {
+    private static final RoomDatabase.Callback mRoomDatabaseCallback = new RoomDatabase.Callback() {
         @Override
         public void onOpen(@NonNull SupportSQLiteDatabase db) {
             super.onOpen(db);

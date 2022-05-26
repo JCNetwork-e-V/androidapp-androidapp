@@ -5,7 +5,6 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <ImageView
-        android:id="@+id/left_banner"
         android:layout_width="60dp"
         android:layout_height="match_parent"
         android:background="@drawable/gray_to_white_gradient"
@@ -33,12 +32,13 @@
                 android:foreground="@drawable/ic_baseline_work_24"
                 style="@style/PortaleImageButtonTheme"
                 app:layout_constraintLeft_toLeftOf="parent"
-                app:layout_constraintTop_toTopOf="parent"/>
+                app:layout_constraintTop_toTopOf="parent"
+                android:contentDescription="@string/icon" />
 
             <TextView
                 android:id="@+id/jobwall_title"
                 style="@style/PortaleTitleTheme"
-                android:text="Jobwall"
+                android:text="@string/jobwall"
                 app:layout_constraintStart_toEndOf="@id/jobwall"
                 app:layout_constraintTop_toTopOf="@id/jobwall"
                 app:layout_constraintBottom_toBottomOf="@id/jobwall"/>
@@ -46,7 +46,7 @@
             <TextView
                 android:id="@+id/jobwall_description"
                 style="@style/PortaleDescriptionTheme"
-                android:text="Finde die aktuellen Stellenausschreibungen unserer Partnerunternehmen auf einem Blick."
+                android:text="@string/jobwall_description"
                 app:layout_constraintTop_toBottomOf="@id/jobwall_title"
                 app:layout_constraintStart_toEndOf="@id/jobwall"
                 app:layout_constraintEnd_toEndOf="parent"/>
@@ -57,12 +57,13 @@
                 android:foreground="@drawable/weiterbildung"
                 style="@style/PortaleImageButtonTheme"
                 app:layout_constraintLeft_toLeftOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/jobwall_description"/>
+                app:layout_constraintTop_toBottomOf="@id/jobwall_description"
+                android:contentDescription="@string/icon" />
 
             <TextView
                 android:id="@+id/trainer_academy_title"
                 style="@style/PortaleTitleTheme"
-                android:text="Trainer Academy"
+                android:text="@string/trainer_academy"
                 app:layout_constraintStart_toEndOf="@id/trainer_academy"
                 app:layout_constraintTop_toTopOf="@id/trainer_academy"
                 app:layout_constraintBottom_toBottomOf="@id/trainer_academy"/>
@@ -70,7 +71,7 @@
             <TextView
                 android:id="@+id/trainer_academy_description"
                 style="@style/PortaleDescriptionTheme"
-                android:text="Lasse dich zu einem JCNetwork Trainer ausbilden in diesem Semester!"
+                android:text="@string/portale_description"
                 app:layout_constraintTop_toBottomOf="@id/trainer_academy_title"
                 app:layout_constraintStart_toEndOf="@id/trainer_academy"
                 app:layout_constraintEnd_toEndOf="parent"/>
@@ -81,12 +82,13 @@
                 android:foreground="@drawable/ic_baseline_person_24"
                 style="@style/PortaleImageButtonTheme"
                 app:layout_constraintLeft_toLeftOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/trainer_academy_description"/>
+                app:layout_constraintTop_toBottomOf="@id/trainer_academy_description"
+                android:contentDescription="@string/icon" />
 
             <TextView
                 android:id="@+id/alumni_title"
                 style="@style/PortaleTitleTheme"
-                android:text="Alumni"
+                android:text="@string/alumni"
                 app:layout_constraintStart_toEndOf="@id/alumni"
                 app:layout_constraintTop_toTopOf="@id/alumni"
                 app:layout_constraintBottom_toBottomOf="@id/alumni"/>
@@ -94,7 +96,7 @@
             <TextView
                 android:id="@+id/alumni_description"
                 style="@style/PortaleDescriptionTheme"
-                android:text="Fertig mit dem Studium? Bleibe als Alumni Teil des JCNetwork."
+                android:text="@string/alumni_description"
                 app:layout_constraintTop_toBottomOf="@id/alumni_title"
                 app:layout_constraintStart_toEndOf="@id/alumni"
                 app:layout_constraintEnd_toEndOf="parent"/>
@@ -106,12 +108,13 @@
                 android:foregroundTint="@color/white"
                 style="@style/PortaleImageButtonTheme"
                 app:layout_constraintLeft_toLeftOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/alumni_description"/>
+                app:layout_constraintTop_toBottomOf="@id/alumni_description"
+                android:contentDescription="@string/icon" />
 
             <TextView
                 android:id="@+id/certification_title"
                 style="@style/PortaleTitleTheme"
-                android:text="Zertifizierungsportal"
+                android:text="@string/zertifizierungsportal"
                 app:layout_constraintStart_toEndOf="@id/certification"
                 app:layout_constraintTop_toTopOf="@id/certification"
                 app:layout_constraintBottom_toBottomOf="@id/certification"/>
@@ -119,7 +122,7 @@
             <TextView
                 android:id="@+id/certification_description"
                 style="@style/PortaleDescriptionTheme"
-                android:text="Fahrplan zur JCNetwork Junior Zertifizierung vergessen? Kein Problem. Hier kannst du es nachlesen."
+                android:text="@string/zertifizierungsportal_description"
                 app:layout_constraintTop_toBottomOf="@id/certification_title"
                 app:layout_constraintStart_toEndOf="@id/certification"
                 app:layout_constraintEnd_toEndOf="parent"/>
@@ -130,12 +133,13 @@
                 android:foreground="@drawable/ic_baseline_bright"
                 style="@style/PortaleImageButtonTheme"
                 app:layout_constraintLeft_toLeftOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/certification_description"/>
+                app:layout_constraintTop_toBottomOf="@id/certification_description"
+                android:contentDescription="@string/icon" />
 
             <TextView
                 android:id="@+id/insights_title"
                 style="@style/PortaleTitleTheme"
-                android:text="Blog"
+                android:text="@string/blog"
                 app:layout_constraintStart_toEndOf="@id/insights"
                 app:layout_constraintTop_toTopOf="@id/insights"
                 app:layout_constraintBottom_toBottomOf="@id/insights"/>
@@ -143,7 +147,7 @@
             <TextView
                 android:id="@+id/insights_description"
                 style="@style/PortaleDescriptionTheme"
-                android:text="Das neuste Wissen der JCNetwork Junior Consultants auf einem Platz."
+                android:text="@string/blog_description"
                 app:layout_constraintTop_toBottomOf="@id/insights_title"
                 app:layout_constraintStart_toEndOf="@id/insights"
                 app:layout_constraintEnd_toEndOf="parent"/>
@@ -154,12 +158,13 @@
                 android:foreground="@drawable/ic_baseline_building_24"
                 style="@style/PortaleImageButtonTheme"
                 app:layout_constraintLeft_toLeftOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/insights_description"/>
+                app:layout_constraintTop_toBottomOf="@id/insights_description"
+                android:contentDescription="@string/icon" />
 
             <TextView
                 android:id="@+id/projekt_mgt_title"
                 style="@style/PortaleTitleTheme"
-                android:text="JCNetwork Projektmanagement UG"
+                android:text="@string/jcnetwork_projektmanagement_ug"
                 app:layout_constraintStart_toEndOf="@id/projekt_mgt"
                 app:layout_constraintTop_toTopOf="@id/projekt_mgt"
                 app:layout_constraintBottom_toBottomOf="@id/projekt_mgt"/>
@@ -167,7 +172,7 @@
             <TextView
                 android:id="@+id/projekt_mgt_description"
                 style="@style/PortaleDescriptionTheme"
-                android:text="Etwas Praxis gefällig? Zeit, Projekte gemeinsam und rechtlich abgesichert anzupacken."
+                android:text="@string/projektmgmt_ug_description"
                 app:layout_constraintTop_toBottomOf="@id/projekt_mgt_title"
                 app:layout_constraintStart_toEndOf="@id/projekt_mgt"
                 app:layout_constraintEnd_toEndOf="parent"/>

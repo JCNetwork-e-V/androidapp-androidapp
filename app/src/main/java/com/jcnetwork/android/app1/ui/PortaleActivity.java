@@ -56,7 +56,7 @@ public class PortaleActivity extends AppCompatActivity {
     /**
      * Private Click Listener
      */
-    private View.OnClickListener myPortaleClickListener = view -> {
+    private final View.OnClickListener myPortaleClickListener = view -> {
         // React differently according to id
         switch (view.getId()) {
             case R.id.jobwall:

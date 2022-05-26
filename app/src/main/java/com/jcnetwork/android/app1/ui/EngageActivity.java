@@ -146,7 +146,7 @@ public class EngageActivity extends AppCompatActivity {
     /**
      * Private Click Listener
      */
-    private View.OnClickListener myCardClickListener = view -> {
+    private final View.OnClickListener myCardClickListener = view -> {
         // Set boolean to true
         isLargeView = TRUE;
 

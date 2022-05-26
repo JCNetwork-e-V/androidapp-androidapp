@@ -22,18 +22,14 @@ public class NotificationWorker extends Worker {
     @NonNull
     @Override
     public Result doWork() {
-        /** Here we can define the work to do **/
+        /* Here we can define the work to do **/
         // Get context
         Context context = getApplicationContext();
         // Retrieve data
         int kind = getInputData().getInt("kind", 0);
         // Schedule a notification through the Notifications class by passing in the kind
         Notifications notifications = new Notifications(context);
-        try {
-            notifications.setNotificationAtDate(kind);
-        } catch (ParseException e) {
-            e.printStackTrace();
-        }
+        notifications.setNotificationAtDate(kind);
 
         // Return the success and be done with it (use Retry to do again; failure not to)
         return Result.success();

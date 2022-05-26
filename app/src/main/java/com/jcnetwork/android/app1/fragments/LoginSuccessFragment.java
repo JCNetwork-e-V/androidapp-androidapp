@@ -27,17 +27,13 @@ public class LoginSuccessFragment extends DialogFragment {
 
         Context context = getContext();
         builder.setMessage("Login Success!")
-                .setPositiveButton("Go to app", new DialogInterface.OnClickListener() {
-                    public void onClick(DialogInterface dialog, int id) {
-                        // Go to main screen
-                        Intent openHome = new Intent(context, MainActivity.class);
-                        startActivity(openHome);
-                    }
+                .setPositiveButton("Go to app", (dialog, id) -> {
+                    // Go to main screen
+                    Intent openHome = new Intent(context, MainActivity.class);
+                    startActivity(openHome);
                 })
-                .setNegativeButton("Stay here", new DialogInterface.OnClickListener() {
-                    public void onClick(DialogInterface dialog, int id) {
-                        // Do nothing
-                    }
+                .setNegativeButton("Stay here", (dialog, id) -> {
+                    // Do nothing
                 });
         // Create the AlertDialog object and return it
         return builder.create();

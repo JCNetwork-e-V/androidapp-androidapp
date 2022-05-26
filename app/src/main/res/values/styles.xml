@@ -51,12 +51,6 @@
     </style>
 
     <!-- Transition theme to animate transitions-->
-    <style name="CustomSlidingAnimation" parent="@android:style/Animation.Activity">
-        <item name="android:activityOpenEnterAnimation">@anim/slide_up</item>
-        <item name="android:activityOpenExitAnimation">@anim/slide_down</item>
-        <item name="android:activityCloseEnterAnimation">@anim/slide_down</item>
-        <item name="android:activityCloseExitAnimation">@anim/slide_up</item>
-    </style>
 
     <!--  Progress Bar theme  -->
     <style name="PointProgressBarTheme" parent="@style/Widget.AppCompat.ProgressBar.Horizontal">
@@ -101,19 +95,6 @@
     </style>
 
     <!-- Plan/Schedule Activity transition theme -->
-    <style name="TransitionTheme" parent="android:Theme.Material.NoActionBar">
-        <item name="android:windowActivityTransitions">true</item>
-        <!-- specify enter and exit transitions -->
-        <item name="android:windowEnterTransition">@transition/explode</item>
-        <item name="android:windowExitTransition">@transition/explode</item>
-
-        <!-- specify shared element transitions -->
-        <item name="android:windowSharedElementEnterTransition">
-            @transition/change_image_transform</item>
-        <item name="android:windowSharedElementExitTransition">
-            @transition/change_image_transform</item>
-
-    </style>
 
     <!-- Portale Styles -->
     <style name="PortaleImageButtonTheme">

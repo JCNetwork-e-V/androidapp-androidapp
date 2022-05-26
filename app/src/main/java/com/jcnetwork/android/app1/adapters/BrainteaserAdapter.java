@@ -14,7 +14,7 @@ import java.util.List;
 public class BrainteaserAdapter extends FragmentStateAdapter {
 
     // Variables
-    private List<Brainteaser> bt;
+    private final List<Brainteaser> bt;
 
     /**
      * Constructor

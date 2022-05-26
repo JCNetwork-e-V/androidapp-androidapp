@@ -19,11 +19,8 @@ import java.util.List;
 public class ScheduleAdapter extends FragmentStateAdapter {
 
     // Default to one
-    private int DAYS = 1;
-    private List<ProgramPoint> mProgram; // Cached copy of programpoints
-
-    // For logging
-    private final String LOG_TAG = this.getClass().getSimpleName();
+    private int DAYS;
+    private final List<ProgramPoint> mProgram; // Cached copy of programpoints
 
     public ScheduleAdapter(@NonNull FragmentActivity fragmentActivity, List<ProgramPoint> program, int numDays) {
         super(fragmentActivity);
@@ -32,6 +29,8 @@ public class ScheduleAdapter extends FragmentStateAdapter {
         // Set number of days i.e. pages to display
         DAYS = numDays + 1;
         if (mProgram != null) {
+            // For logging
+            String LOG_TAG = this.getClass().getSimpleName();
             Log.i(LOG_TAG, "mProgram not null");
             Log.i(LOG_TAG, "first title of event" + mProgram.get(0).getTitle()); }
     }

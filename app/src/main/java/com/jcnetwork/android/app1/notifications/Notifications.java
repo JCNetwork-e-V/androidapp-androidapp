@@ -28,7 +28,7 @@ public class Notifications {
     public static final int WORKSHOP_NOTIFICATION = 1;
     public static final int DAYS_NOTIFICATION = 2;
     private static final String CHANNEL_ID = "70373083";
-    private Context mContext;
+    private final Context mContext;
 
     // Work Manager tags in order to cancel scheduled ones if needed
     public static final String scheduledOneTimeTag = "oneTimeTag";
@@ -98,7 +98,7 @@ public class Notifications {
      */
     public void buildNotification(int kindOfNotification) {
         // Setup pendingIntent and Notification builder
-        PendingIntent pendingIntent = null;
+        PendingIntent pendingIntent;
 //        NotificationCompat.Builder builder = new NotificationCompat.Builder(null);
 
         // Get what notification it is and fill up the two above based on it
@@ -172,7 +172,7 @@ public class Notifications {
     /**
      * More flexible method to provide a notification based on the kind of notification and the deadline provided
      */
-    public void setNotificationAtDate(int kind) throws ParseException {
+    public void setNotificationAtDate(int kind) {
         // Initialize title, text and pending intent
         String title = "";
         String text = "";

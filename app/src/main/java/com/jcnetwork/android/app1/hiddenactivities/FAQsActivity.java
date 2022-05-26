@@ -22,11 +22,8 @@ import java.util.List;
 
 public class FAQsActivity extends AppCompatActivity {
 
-    /** Variables **/
-    private ImageButton mSupportBtn; // button to write email to jcnetwork support
     private RecyclerView mList;
-    private List<QandA> qandAList = new ArrayList<>();
-    private androidx.appcompat.widget.SearchView mSearchBar;
+    private final List<QandA> qandAList = new ArrayList<>();
     private FAQExpandableCardViewAdapter adapter;
 
 
@@ -43,12 +40,14 @@ public class FAQsActivity extends AppCompatActivity {
         }
 
         // Find views
-        mSupportBtn = (ImageButton) findViewById(R.id.support_button);
+        /** Variables **/
+        // button to write email to jcnetwork support
+        ImageButton mSupportBtn = (ImageButton) findViewById(R.id.support_button);
         mList = (RecyclerView) findViewById(R.id.list);
         //mList.setHasFixedSize(true);
         RecyclerView.LayoutManager manager = new LinearLayoutManager(getApplicationContext());
         mList.setLayoutManager(manager);
-        mSearchBar = (androidx.appcompat.widget.SearchView) findViewById(R.id.search_bar);
+        SearchView mSearchBar = (SearchView) findViewById(R.id.search_bar);
 
 
         // General
@@ -115,17 +114,14 @@ public class FAQsActivity extends AppCompatActivity {
         // Set on click listener to image button to contact support
         String[] recipients = {"support@jcnetwork.de"};
 
-        mSupportBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent emailIntent = new Intent(Intent.ACTION_SENDTO); // Only email apps should handle this intent (otherwise SEND ok)
-                emailIntent.setData(Uri.parse("mailto:")); // Only email apps no social media stuff
-                emailIntent.putExtra(Intent.EXTRA_EMAIL, recipients); // string array
-                emailIntent.putExtra(Intent.EXTRA_SUBJECT, "Generelle Frage"); // subject -> easy search later
-                emailIntent.putExtra(Intent.EXTRA_TEXT, "Was ist deine Frage?"); // text
-                if (emailIntent.resolveActivity(getPackageManager()) != null) {
-                    startActivity(emailIntent);
-                }
+        mSupportBtn.setOnClickListener(v -> {
+            Intent emailIntent = new Intent(Intent.ACTION_SENDTO); // Only email apps should handle this intent (otherwise SEND ok)
+            emailIntent.setData(Uri.parse("mailto:")); // Only email apps no social media stuff
+            emailIntent.putExtra(Intent.EXTRA_EMAIL, recipients); // string array
+            emailIntent.putExtra(Intent.EXTRA_SUBJECT, "Generelle Frage"); // subject -> easy search later
+            emailIntent.putExtra(Intent.EXTRA_TEXT, "Was ist deine Frage?"); // text
+            if (emailIntent.resolveActivity(getPackageManager()) != null) {
+                startActivity(emailIntent);
             }
         });
 
@@ -150,17 +146,14 @@ public class FAQsActivity extends AppCompatActivity {
                 return false;
             }
         });
-        mSearchBar.setOnCloseListener(new SearchView.OnCloseListener() {
-            @Override
-            public boolean onClose() {
-                // Restore original data
-                // Set up adapter
-                adapter = new FAQExpandableCardViewAdapter(qandAList);
+        mSearchBar.setOnCloseListener(() -> {
+            // Restore original data
+            // Set up adapter
+            adapter = new FAQExpandableCardViewAdapter(qandAList);
 
-                // Set to list
-                mList.setAdapter(adapter);
-                return false;
-            }
+            // Set to list
+            mList.setAdapter(adapter);
+            return false;
         });
 
     }

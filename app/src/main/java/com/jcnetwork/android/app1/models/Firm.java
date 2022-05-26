@@ -3,8 +3,8 @@ package com.jcnetwork.android.app1.models;
 public class Firm {
 
     // Variables with some empty string defaults
-    private String name;
-    private String description;
+    private final String name;
+    private final String description;
     private String logoImg;
     // Homepage
     private String homePageLink = "";

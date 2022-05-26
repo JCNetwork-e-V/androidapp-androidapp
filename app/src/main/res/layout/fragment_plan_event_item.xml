@@ -66,7 +66,7 @@
                     android:layout_marginStart="8dp"
                     android:id="@+id/title"
                     android:transitionName="title"
-                    android:text="Dummy title"
+                    android:text="@string/dummy_title"
                     android:textStyle="bold"
                     android:textColor="@color/black"
                     android:layout_width="wrap_content"
@@ -82,12 +82,13 @@
                     app:layout_constraintStart_toEndOf="@id/dividing_line"
                     android:src="@drawable/ic_baseline_place_24"
                     android:layout_width="24dp"
-                    android:layout_height="24dp"/>
+                    android:layout_height="24dp"
+                    android:contentDescription="@string/icon" />
 
                 <TextView
                     android:transitionName="place"
                     android:id="@+id/place"
-                    android:text="Dummy Place"
+                    android:text="@string/dummy_place"
                     android:paddingStart="8dp"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -104,12 +105,13 @@
                     app:layout_constraintStart_toEndOf="@id/dividing_line"
                     android:src="@drawable/ic_baseline_access_time_24"
                     android:layout_width="24dp"
-                    android:layout_height="24dp"/>
+                    android:layout_height="24dp"
+                    android:contentDescription="@string/icon" />
 
                 <TextView
                     android:transitionName="time"
                     android:id="@+id/time"
-                    android:text="Dummy Time"
+                    android:text="@string/dummy_time"
                     android:paddingStart="8dp"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -134,7 +136,8 @@
                     android:layout_height="24dp"
                     app:layout_constraintTop_toTopOf="parent"
                     app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"/>
+                    app:layout_constraintEnd_toEndOf="parent"
+                    android:contentDescription="@string/icon" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>
 

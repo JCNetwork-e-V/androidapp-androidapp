@@ -250,7 +250,6 @@
             app:layout_constraintTop_toBottomOf="@id/city_tv" />
 
         <TextView
-            android:id="@+id/brain_tv"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
@@ -276,7 +275,6 @@
             app:layout_constraintTop_toBottomOf="@id/profile_tv" />
 
         <TextView
-            android:id="@+id/engage_tv"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
@@ -313,7 +311,6 @@
 
         <!--    End Credits-->
         <TextView
-            android:id="@+id/credits_tv"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:paddingTop="50dp"

@@ -122,7 +122,7 @@ public class BrainteaserActivity extends AppCompatActivity {
      */
     public class MyWebViewClient extends WebViewClient {
 
-        private Activity activity;
+        private final Activity activity;
 
         public MyWebViewClient(Activity activity) {
             this.activity = activity;

@@ -54,17 +54,17 @@ public class ProgramPoint implements Parcelable {
 
     /**
      * Constructor
-     * @param mIndex
-     * @param mEventId
-     * @param mDaysId
-     * @param mTitle
-     * @param mAddress
-     * @param mPlace
-     * @param mColor
-     * @param mDescription
-     * @param mBegin
-     * @param mEnd
-     * @param mImage
+     * @param mIndex index
+     * @param mEventId event number
+     * @param mDaysId days identification number
+     * @param mTitle name of the program
+     * @param mAddress address of the program
+     * @param mPlace place of the program
+     * @param mColor color coding of the program
+     * @param mDescription description of the program
+     * @param mBegin start time of the program
+     * @param mEnd end time of the program
+     * @param mImage image for the program
      */
     public ProgramPoint(int mIndex,
                  String mEventId,

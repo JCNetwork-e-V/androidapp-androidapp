@@ -11,7 +11,7 @@
 
     <TextView
         android:id="@+id/instruction_tv"
-        android:text="Für welches Event möchtest Du dich anmelden? Einfach draufklicken und schon kommst du zur Anmeldeseite."
+        android:text="@string/days_register_instruction_tv"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="16dp"
@@ -33,7 +33,8 @@
         android:paddingEnd="16dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/instruction_tv"/>
+        app:layout_constraintTop_toBottomOf="@id/instruction_tv"
+        android:contentDescription="@string/jcnetwork_days_logo" />
 
     <!-- Executive days -->
     <ImageButton
@@ -49,7 +50,8 @@
         android:paddingEnd="16dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/normal_days_image" />
+        app:layout_constraintTop_toBottomOf="@id/normal_days_image"
+        android:contentDescription="@string/jcnetwork_executive_days_logo" />
 
     <!-- Development days -->
     <ImageButton
@@ -65,7 +67,8 @@
         android:paddingEnd="16dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/executive_days_image" />
+        app:layout_constraintTop_toBottomOf="@id/executive_days_image"
+        android:contentDescription="@string/jcnetwork_development_days_logo" />
 
     <Space
         android:layout_width="match_parent"

@@ -21,6 +21,8 @@ import com.jcnetwork.android.app1.ui.DetailActivity;
 import com.jcnetwork.android.app1.R;
 import com.jcnetwork.android.app1.conversion.ProgramPointAnalysis;
 
+import org.jetbrains.annotations.NotNull;
+
 import java.text.ParseException;
 import java.util.List;
 
@@ -34,19 +36,19 @@ import static com.jcnetwork.android.app1.R.*;
 public class ScheduleFragmentAdapter extends RecyclerView.Adapter<ScheduleFragmentAdapter.MyViewHolder> {
 
     // Data that needs to be fed into the adapter
-    private List<ProgramPoint> mProgram; // cached copy of the data
+    private final List<ProgramPoint> mProgram; // cached copy of the data
 
 
     public static class MyViewHolder extends RecyclerView.ViewHolder {
         // Set up views
-        public TextView titleTV;
-        public TextView placeTV;
-        public TextView timeTV;
-        public View colorBar;
-        public ImageView goArrowImg;
-        public FrameLayout frameLayout;
-        public View dividingLineView;
-        public CardView cardView;
+        public final TextView titleTV;
+        public final TextView placeTV;
+        public final TextView timeTV;
+        public final View colorBar;
+        public final ImageView goArrowImg;
+        public final FrameLayout frameLayout;
+        public final View dividingLineView;
+        public final CardView cardView;
 
         public MyViewHolder(View itemView) {
             super(itemView);
@@ -69,6 +71,7 @@ public class ScheduleFragmentAdapter extends RecyclerView.Adapter<ScheduleFragme
     }
 
     // Create new views (invoked by the layout manager)
+    @NotNull
     @Override
     public ScheduleFragmentAdapter.MyViewHolder onCreateViewHolder(ViewGroup parent,
                                                      int viewType) {
@@ -82,37 +85,33 @@ public class ScheduleFragmentAdapter extends RecyclerView.Adapter<ScheduleFragme
         // create a new view
 //        TextView v = (TextView) LayoutInflater.from(parent.getContext())
 //                .inflate(R.layout.fragment_plan_event_item, parent, false);
-        MyViewHolder vh = new MyViewHolder(itemView);
-        return vh;
+        return new MyViewHolder(itemView);
     }
 
     // Replace the contents of a view (invoked by the layout manager)
     @Override
     public void onBindViewHolder(MyViewHolder holder, int position) {
         //TODO Make card expand/collapse upon click to offer details
-        holder.cardView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Log.i("ScheduleFragmentAdapter", "clicked on card view");
-                // Open details view
-                Intent openDetails = new Intent(view.getContext(), DetailActivity.class);
-                // Add data
-                Bundle data = new Bundle();
-                data.putParcelable("EVENT_KEY", mProgram.get(position));
-                openDetails.putExtras(data);
-                // Make Options available
-                android.util.Pair[] pairs = new android.util.Pair[4];
+        holder.cardView.setOnClickListener(view -> {
+            Log.i("ScheduleFragmentAdapter", "clicked on card view");
+            // Open details view
+            Intent openDetails = new Intent(view.getContext(), DetailActivity.class);
+            // Add data
+            Bundle data = new Bundle();
+            data.putParcelable("EVENT_KEY", mProgram.get(position));
+            openDetails.putExtras(data);
+            // Make Options available
+            android.util.Pair[] pairs = new android.util.Pair[4];
 //                pairs[0] = new android.util.Pair(holder.colorBar, "bar");
-                pairs[0] = new android.util.Pair(holder.titleTV, "title");
-                pairs[1] = new android.util.Pair(holder.timeTV, "time");
-                pairs[2] = new android.util.Pair(holder.placeTV, "place");
-                pairs[3] = new android.util.Pair(holder.goArrowImg, "map");
-                ActivityOptions options = ActivityOptions.makeSceneTransitionAnimation((Activity) view.getContext(),
-                        pairs);
+            pairs[0] = new android.util.Pair(holder.titleTV, "title");
+            pairs[1] = new android.util.Pair(holder.timeTV, "time");
+            pairs[2] = new android.util.Pair(holder.placeTV, "place");
+            pairs[3] = new android.util.Pair(holder.goArrowImg, "map");
+            ActivityOptions options = ActivityOptions.makeSceneTransitionAnimation((Activity) view.getContext(),
+                    pairs);
 //                ActivityOptions optionSs = ActivityOptions.makeSceneTransitionAnimation((Activity) view.getContext(), pairs);
-                // Open detail view
-                view.getContext().startActivity(openDetails, options.toBundle());
-            }
+            // Open detail view
+            view.getContext().startActivity(openDetails, options.toBundle());
         });
 
         // Get current program point
@@ -159,25 +158,22 @@ public class ScheduleFragmentAdapter extends RecyclerView.Adapter<ScheduleFragme
             }
 
             // Set on click listener on go arrow image to provide directions via Google maps to event
-            holder.goArrowImg.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-                    // Get location from current program
-                    String address = currentProgramPoint.getAddress();
-                    // Check if information was provided
-                    if (!address.isEmpty()) {
+            holder.goArrowImg.setOnClickListener(view -> {
+                // Get location from current program
+                String address = currentProgramPoint.getAddress();
+                // Check if information was provided
+                if (!address.isEmpty()) {
 //                        String directionsUrl = "https://www.google.com/maps/dir/?api=1&query=";
-                        String searchUrl = "https://www.google.com/maps/search/?api=1&query=";
+                    String searchUrl = "https://www.google.com/maps/search/?api=1&query=";
 //                        Uri myUri = Uri.parse(directionsUrl + Uri.encode(address));
-                        Uri addressUri = Uri.parse(searchUrl + Uri.encode(address));
-                        // Make new intent to open Google Maps and pass in the address as destination
-                        Intent mapIntent = new Intent(Intent.ACTION_VIEW, addressUri);
-                        // Set to google maps to ensure this app (if available) is used for the intent
-                        mapIntent.setPackage("com.google.android.apps.maps");
-                        // Start intent if possible
-                        if (mapIntent.resolveActivity(view.getContext().getPackageManager()) != null) {
-                            view.getContext().startActivity(mapIntent);
-                        }
+                    Uri addressUri = Uri.parse(searchUrl + Uri.encode(address));
+                    // Make new intent to open Google Maps and pass in the address as destination
+                    Intent mapIntent = new Intent(Intent.ACTION_VIEW, addressUri);
+                    // Set to google maps to ensure this app (if available) is used for the intent
+                    mapIntent.setPackage("com.google.android.apps.maps");
+                    // Start intent if possible
+                    if (mapIntent.resolveActivity(view.getContext().getPackageManager()) != null) {
+                        view.getContext().startActivity(mapIntent);
                     }
                 }
             });

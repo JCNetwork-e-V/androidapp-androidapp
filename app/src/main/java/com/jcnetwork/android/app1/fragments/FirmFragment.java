@@ -24,7 +24,6 @@ public class FirmFragment extends Fragment {
     private Context mContext;
     // Views
     private TextView descriptionTV;
-    private ImageView logoImg;
     private ImageButton homeBtn, linkedinBtn, xingBtn;
 
 
@@ -44,7 +43,7 @@ public class FirmFragment extends Fragment {
 
         // Find view
         this.descriptionTV = view.findViewById(R.id.firm_description_text);
-        this.logoImg = view.findViewById(R.id.logo_img);
+        ImageView logoImg = view.findViewById(R.id.logo_img);
         this.homeBtn = view.findViewById(R.id.home_button);
         this.linkedinBtn = view.findViewById(R.id.linkedin_button);
         this.xingBtn = view.findViewById(R.id.xing_button);
@@ -53,7 +52,7 @@ public class FirmFragment extends Fragment {
         Glide
                 .with(mContext)
                 .load(currentFirm.getImageLink())
-                .into(this.logoImg);
+                .into(logoImg);
 
         return view;
     }
@@ -64,26 +63,17 @@ public class FirmFragment extends Fragment {
         this.descriptionTV.setText(currentFirm.getDescription());
 
         // Open browser link with home, xing, and linkedin
-        this.homeBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                // Open link in browser
-                openUrl(currentFirm.getHomePageLink());
-            }
+        this.homeBtn.setOnClickListener(view13 -> {
+            // Open link in browser
+            openUrl(currentFirm.getHomePageLink());
         });
-        this.linkedinBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                    // Open link in browser
-                    openUrl(currentFirm.getLinkedInLink());
-            }
-        });
-        this.xingBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
+        this.linkedinBtn.setOnClickListener(view12 -> {
                 // Open link in browser
-                openUrl(currentFirm.getXingLink());
-            }
+                openUrl(currentFirm.getLinkedInLink());
+        });
+        this.xingBtn.setOnClickListener(view1 -> {
+            // Open link in browser
+            openUrl(currentFirm.getXingLink());
         });
     }
 

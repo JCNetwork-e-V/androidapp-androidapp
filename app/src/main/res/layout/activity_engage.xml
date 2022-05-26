@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<GridLayout android:id="@+id/grid"
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<GridLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/color_gradient"
@@ -32,14 +31,15 @@
                 android:layout_height="60dp"
                 android:src="@drawable/vorstandsvorsitz"
                 app:tint="@color/colorPrimaryDark"
-                android:layout_gravity="center_horizontal"/>
+                android:layout_gravity="center_horizontal"
+                android:contentDescription="@string/icon_for_vorstandsvorsitz" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textAlignment="center"
                 android:textStyle="bold"
-                android:text="Vorstandsvorsitz"/>
+                android:text="@string/vorstandsvorsitz"/>
 
         </LinearLayout>
 
@@ -67,14 +67,15 @@
                 android:layout_height="60dp"
                 app:tint="@color/colorPrimaryDark"
                 android:src="@drawable/customer_relations"
-                android:layout_gravity="center_horizontal"/>
+                android:layout_gravity="center_horizontal"
+                android:contentDescription="@string/icon_for_customer_relations" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textAlignment="center"
                 android:textStyle="bold"
-                android:text="Customer Relations"/>
+                android:text="@string/customer_relations"/>
 
         </LinearLayout>
 
@@ -102,14 +103,15 @@
                 android:layout_height="60dp"
                 app:tint="@color/colorPrimaryDark"
                 android:src="@drawable/finanzen_recht"
-                android:layout_gravity="center_horizontal"/>
+                android:layout_gravity="center_horizontal"
+                android:contentDescription="@string/icon_for_finanzen_und_recht" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textAlignment="center"
                 android:textStyle="bold"
-                android:text="Finanzen &amp; Recht"/>
+                android:text="@string/finanzen_amp_recht"/>
 
         </LinearLayout>
 
@@ -137,14 +139,15 @@
                 android:layout_height="60dp"
                 app:tint="@color/colorPrimaryDark"
                 android:src="@drawable/informationsmanagement"
-                android:layout_gravity="center_horizontal"/>
+                android:layout_gravity="center_horizontal"
+                android:contentDescription="@string/icon_for_informationsmanagement" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textAlignment="center"
                 android:textStyle="bold"
-                android:text="Informations-\nmanagement"/>
+                android:text="@string/informations_nmanagement"/>
 
         </LinearLayout>
 
@@ -172,14 +175,15 @@
                 android:layout_height="60dp"
                 app:tint="@color/colorPrimaryDark"
                 android:src="@drawable/marketing"
-                android:layout_gravity="center_horizontal"/>
+                android:layout_gravity="center_horizontal"
+                android:contentDescription="@string/icon_for_marketing" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textAlignment="center"
                 android:textStyle="bold"
-                android:text="Marketing"/>
+                android:text="@string/marketing"/>
 
         </LinearLayout>
 
@@ -207,14 +211,15 @@
                 android:layout_height="60dp"
                 app:tint="@color/colorPrimaryDark"
                 android:src="@drawable/event_management"
-                android:layout_gravity="center_horizontal"/>
+                android:layout_gravity="center_horizontal"
+                android:contentDescription="@string/icon_for_eventmanagement" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textAlignment="center"
                 android:textStyle="bold"
-                android:text="Eventmanagement"/>
+                android:text="@string/eventmanagement"/>
 
         </LinearLayout>
 
@@ -242,14 +247,15 @@
                 android:layout_height="60dp"
                 app:tint="@color/colorPrimaryDark"
                 android:src="@drawable/human_resources"
-                android:layout_gravity="center_horizontal"/>
+                android:layout_gravity="center_horizontal"
+                android:contentDescription="@string/icon_for_human_resources" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textAlignment="center"
                 android:textStyle="bold"
-                android:text="Human Resources"/>
+                android:text="@string/human_resources"/>
 
         </LinearLayout>
 
@@ -277,14 +283,15 @@
                 android:layout_height="60dp"
                 app:tint="@color/colorPrimaryDark"
                 android:src="@drawable/weiterbildung"
-                android:layout_gravity="center_horizontal"/>
+                android:layout_gravity="center_horizontal"
+                android:contentDescription="@string/icon_for_weiterbildung" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textAlignment="center"
                 android:textStyle="bold"
-                android:text="Weiterbildung"/>
+                android:text="@string/weiterbildung"/>
 
         </LinearLayout>
 

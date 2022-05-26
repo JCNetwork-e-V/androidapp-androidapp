@@ -382,10 +382,10 @@ public class MainActivity extends AppCompatActivity {
     /**
      * Whole Segment below to animate textview for user name and let it appear one character at a time
      */
-    private Handler mHandler = new Handler();
+    private final Handler mHandler = new Handler();
     private int mIndex;
     private CharSequence mText;
-    private Runnable characterAdder = new Runnable() {
+    private final Runnable characterAdder = new Runnable() {
         @Override
         public void run() {
             nameTV.setText(mText.subSequence(0, mIndex++));
@@ -399,7 +399,7 @@ public class MainActivity extends AppCompatActivity {
     /**
      * Creates an onClickListener which checks the id of the view and reacts accorodingly
      */
-    private View.OnClickListener myCardClickListener = view -> {
+    private final View.OnClickListener myCardClickListener = view -> {
         // React differently according to id
         switch (view.getId()) {
             case R.id.firm_button:
