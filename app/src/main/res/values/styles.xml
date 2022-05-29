@@ -7,7 +7,7 @@
         <item name="colorAccent">@color/colorAccent</item>
         <!-- Set standard text here -->
         <item name="android:text">@font/roboto_light</item>
-        <item name="android:textColor">@color/lightGray</item>
+        <item name="android:textColor">@color/textColorLight</item>
         <!-- To set bottom navigation bar to primary color -->
         <item name="android:navigationBarColor">@color/colorPrimary</item>
         <item name="android:statusBarColor">@color/black</item>
@@ -31,7 +31,7 @@
         <item name="colorAccent">@color/colorAccent</item>
         <!-- Set standard text here -->
         <item name="android:text">@font/roboto_light</item>
-        <item name="android:textColor">@color/lightGray</item>
+        <item name="android:textColor">@color/textColorLight</item>
         <!-- To set bottom navigation bar to primary color -->
         <item name="android:navigationBarColor">@color/colorPrimary</item>
         <item name="android:statusBarColor">@color/black</item>
@@ -45,7 +45,7 @@
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
         <!-- Set standard text here -->
-        <item name="android:textColor">@color/lightGray</item>
+        <item name="android:textColor">@color/textColorLight</item>
         <item name="android:navigationBarColor">@color/colorPrimary</item>
         <item name="android:statusBarColor">@color/black</item>
     </style>
@@ -74,7 +74,7 @@
 
     <!-- Point Categories Text theme -->
     <style name="PointTextTheme" parent="@style/PointLabelTheme">
-        <item name="android:textColor">@color/colorPrimaryDark</item>
+        <item name="android:textColor">@color/textColorLight</item>
         <item name="android:textSize">18sp</item>
         <item name="android:textAlignment">center</item>
         <item name="layout_goneMarginBottom">8dp</item>
@@ -82,7 +82,7 @@
 
     <!-- Point Divider theme -->
     <style name="PointDividerTheme">
-        <item name="android:background">@color/colorPrimaryDark</item>
+        <item name="android:background">@color/textColorLight</item>
         <item name="android:layout_height">1dp</item>
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_margin">8dp</item>

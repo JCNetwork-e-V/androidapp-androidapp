@@ -7,6 +7,9 @@
     <color name="white">#ffffff</color>
     <color name="black">#090a0b</color>
 
+<!--    Text colors-->
+    <color name="textColorLight">#374049</color>
+
     <!--        Official colors taken from CI Handbook and converted to Hex values-->
 <!--    Blau: RGB: 51-102-153-->
 <!--    Hellgrau: 127-127-127-->
