@@ -7,6 +7,7 @@ import android.view.View;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
@@ -15,6 +16,7 @@ import androidx.core.content.ContextCompat;
 import com.bumptech.glide.Glide;
 import com.google.android.material.card.MaterialCardView;
 import com.jcnetwork.android.app1.R;
+import com.jcnetwork.android.app1.hiddenactivities.FAQsActivity;
 
 import static java.lang.Boolean.FALSE;
 import static java.lang.Boolean.TRUE;
@@ -25,7 +27,7 @@ public class EngageActivity extends AppCompatActivity {
     MaterialCardView vVCard, crCard, fuRCard, iMCard, mCard, eMCard, hrCard, wBCard;
     TextView headingTV, subheadingTV, descriptionTV;
     ImageButton emailBtn, close_btn;
-    ImageView iconImg;
+    ImageView iconImg, v_img, cr_img, fur_img, im_img, m_img, em_img, hr_img, wb_img;
     Boolean isLargeView = FALSE;
 
     @Override
@@ -53,6 +55,26 @@ public class EngageActivity extends AppCompatActivity {
         eMCard = findViewById(R.id.eventmanagement);
         hrCard = findViewById(R.id.human_resources);
         wBCard = findViewById(R.id.weiterbildung);
+
+        // Find images
+        v_img = findViewById(R.id.vorstandsvorsitz_img);
+        cr_img = findViewById(R.id.customer_relations_img);
+        fur_img = findViewById(R.id.finanzen_und_recht_img);
+        im_img = findViewById(R.id.informationsmanagement_img);
+        m_img = findViewById(R.id.marketing_img);
+        em_img = findViewById(R.id.eventmanagement_img);
+        hr_img = findViewById(R.id.human_resources_img);
+        wb_img = findViewById(R.id.weiterbildung_img);
+
+        // Fill images with online images and keep if unavailable the default icons
+        loadBlueImageIn(v_img, "https://www.jcnetwork.de/media/jcnetwork/s_573b34f7695453_icon-network.png", R.drawable.vorstandsvorsitz);
+        loadBlueImageIn(cr_img, "https://www.jcnetwork.de/media/jcnetwork/s_573b34f769544d_icon-handshake.png", R.drawable.customer_relations);
+        loadBlueImageIn(fur_img, "https://www.jcnetwork.de/media/jcnetwork/s_573b34f4695441_icon-banknotes.png", R.drawable.finanzen_recht);
+        loadBlueImageIn(im_img, "https://www.jcnetwork.de/media/jcnetwork/s_573b393b695447_icon-workstation.png", R.drawable.informationsmanagement);
+        loadBlueImageIn(m_img, "https://www.jcnetwork.de/media/jcnetwork/s_573b34f8695459_icon-like.png", R.drawable.marketing);
+        loadBlueImageIn(em_img, "https://www.jcnetwork.de/media/jcnetwork/s_573b34f5695447_icon-calendar.png", R.drawable.event_management);
+        loadBlueImageIn(hr_img, "https://www.jcnetwork.de/media/jcnetwork/s_573b34f5695447_icon-conference.png", R.drawable.human_resources);
+        loadBlueImageIn(wb_img, "https://www.jcnetwork.de/media/jcnetwork/s_5d0973a91a45b2_jcnetwork-thought.png", R.drawable.weiterbildung);
 
         // Set up support bar
         ActionBar actionBar = getSupportActionBar();
@@ -102,6 +124,8 @@ public class EngageActivity extends AppCompatActivity {
             emailIntent.putExtra(Intent.EXTRA_SUBJECT, "Mitmachen beim JCNetwork"); // subject -> easy search later
             if (emailIntent.resolveActivity(getPackageManager()) != null) {
                 startActivity(emailIntent);
+            } else {
+                Toast.makeText(EngageActivity.this, "Keine E-Mail App gefunden. Wenn du als Fellow oder Vorstand aktiv werden möchtest, melde dich gerne jederzeit bei mitmachen@JCNetwork.de", Toast.LENGTH_LONG).show();
             }
         });
 
@@ -127,6 +151,17 @@ public class EngageActivity extends AppCompatActivity {
                 .load(imageLink)
                 .placeholder(defaultImg)
                 .into(iconImg);
+    }
+
+    /**
+    * Method to load online image into view directly
+     */
+    private void loadBlueImageIn(ImageView img, String imageLink, int defaultImg) {
+        Glide
+                .with(this)
+                .load(imageLink)
+                .placeholder(defaultImg)
+                .into(img);
     }
 
     /**

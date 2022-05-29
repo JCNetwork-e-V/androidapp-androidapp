@@ -19,6 +19,7 @@ import android.view.animation.AlphaAnimation;
 import android.view.animation.Animation;
 import android.widget.ImageButton;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.ActionBarDrawerToggle;
@@ -226,6 +227,8 @@ public class MainActivity extends AppCompatActivity {
                     emailIntent.putExtra(Intent.EXTRA_TEXT, "Was können wir für dich tun?\n Feedback? \n Fehler? \n Wünsche? \n Nur her damit!"); // text
                     if (emailIntent.resolveActivity(getPackageManager()) != null) {
                         startActivity(emailIntent);
+                    } else {
+                        Toast.makeText(MainActivity.this, "Keine E-Mail App gefunden. Falls du noch Fragen hast, melde dich gerne bei support@jcnetwork.de", Toast.LENGTH_LONG).show();
                     }
                     break;
                 case R.id.share:

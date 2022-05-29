@@ -3,6 +3,7 @@ package com.jcnetwork.android.app1.adapters;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageButton;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -39,8 +40,6 @@ public class BrainteaserFragmentAdapter extends RecyclerView.Adapter<Brainteaser
         // Fill item views with current program point data
         holder.task.setText(currentBT.getTeaser());
 
-        // TODO ON Click animation and resolution reveal
-
     }
 
     @Override
@@ -58,6 +57,7 @@ public class BrainteaserFragmentAdapter extends RecyclerView.Adapter<Brainteaser
 
             // Find views
             task = (TextView) itemView.findViewById(R.id.brainteaser_question_tv);
+
         }
     }
 }

@@ -27,10 +27,11 @@
             android:orientation="vertical">
 
             <ImageView
+                android:id="@+id/vorstandsvorsitz_img"
                 android:layout_width="60dp"
                 android:layout_height="60dp"
                 android:src="@drawable/vorstandsvorsitz"
-                app:tint="@color/colorPrimaryDark"
+                app:tint="@color/colorPrimary"
                 android:layout_gravity="center_horizontal"
                 android:contentDescription="@string/icon_for_vorstandsvorsitz" />
 
@@ -63,9 +64,10 @@
             android:orientation="vertical">
 
             <ImageView
+                android:id="@+id/customer_relations_img"
                 android:layout_width="60dp"
                 android:layout_height="60dp"
-                app:tint="@color/colorPrimaryDark"
+                app:tint="@color/colorPrimary"
                 android:src="@drawable/customer_relations"
                 android:layout_gravity="center_horizontal"
                 android:contentDescription="@string/icon_for_customer_relations" />
@@ -99,9 +101,10 @@
             android:orientation="vertical">
 
             <ImageView
+                android:id="@+id/finanzen_und_recht_img"
                 android:layout_width="60dp"
                 android:layout_height="60dp"
-                app:tint="@color/colorPrimaryDark"
+                app:tint="@color/colorPrimary"
                 android:src="@drawable/finanzen_recht"
                 android:layout_gravity="center_horizontal"
                 android:contentDescription="@string/icon_for_finanzen_und_recht" />
@@ -135,9 +138,10 @@
             android:orientation="vertical">
 
             <ImageView
+                android:id="@+id/informationsmanagement_img"
                 android:layout_width="60dp"
                 android:layout_height="60dp"
-                app:tint="@color/colorPrimaryDark"
+                app:tint="@color/colorPrimary"
                 android:src="@drawable/informationsmanagement"
                 android:layout_gravity="center_horizontal"
                 android:contentDescription="@string/icon_for_informationsmanagement" />
@@ -171,9 +175,10 @@
             android:orientation="vertical">
 
             <ImageView
+                android:id="@+id/marketing_img"
                 android:layout_width="60dp"
                 android:layout_height="60dp"
-                app:tint="@color/colorPrimaryDark"
+                app:tint="@color/colorPrimary"
                 android:src="@drawable/marketing"
                 android:layout_gravity="center_horizontal"
                 android:contentDescription="@string/icon_for_marketing" />
@@ -207,9 +212,10 @@
             android:orientation="vertical">
 
             <ImageView
+                android:id="@+id/eventmanagement_img"
                 android:layout_width="60dp"
                 android:layout_height="60dp"
-                app:tint="@color/colorPrimaryDark"
+                app:tint="@color/colorPrimary"
                 android:src="@drawable/event_management"
                 android:layout_gravity="center_horizontal"
                 android:contentDescription="@string/icon_for_eventmanagement" />
@@ -243,9 +249,10 @@
             android:orientation="vertical">
 
             <ImageView
+                android:id="@+id/human_resources_img"
                 android:layout_width="60dp"
                 android:layout_height="60dp"
-                app:tint="@color/colorPrimaryDark"
+                app:tint="@color/colorPrimary"
                 android:src="@drawable/human_resources"
                 android:layout_gravity="center_horizontal"
                 android:contentDescription="@string/icon_for_human_resources" />
@@ -279,9 +286,10 @@
             android:orientation="vertical" >
 
             <ImageView
+                android:id="@+id/weiterbildung_img"
                 android:layout_width="60dp"
                 android:layout_height="60dp"
-                app:tint="@color/colorPrimaryDark"
+                app:tint="@color/colorPrimary"
                 android:src="@drawable/weiterbildung"
                 android:layout_gravity="center_horizontal"
                 android:contentDescription="@string/icon_for_weiterbildung" />

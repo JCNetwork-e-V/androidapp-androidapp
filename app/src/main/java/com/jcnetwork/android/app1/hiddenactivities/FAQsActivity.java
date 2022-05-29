@@ -3,8 +3,11 @@ package com.jcnetwork.android.app1.hiddenactivities;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageButton;
+import android.widget.Toast;
 
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
@@ -20,6 +23,9 @@ import com.jcnetwork.android.app1.R;
 import java.util.ArrayList;
 import java.util.List;
 
+import static com.jcnetwork.android.app1.R.*;
+import static com.jcnetwork.android.app1.R.menu.*;
+
 public class FAQsActivity extends AppCompatActivity {
 
     private RecyclerView mList;
@@ -30,25 +36,22 @@ public class FAQsActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.hidden_activity_faq);
+        setContentView(layout.hidden_activity_faq);
 
         // Set up support bar
         ActionBar actionBar = getSupportActionBar();
         if (actionBar != null) {
             actionBar.setDisplayHomeAsUpEnabled(true);
-            actionBar.setBackgroundDrawable(ContextCompat.getDrawable(this, R.drawable.color_gradient));
+            actionBar.setBackgroundDrawable(ContextCompat.getDrawable(this, drawable.color_gradient));
         }
 
         // Find views
-        /** Variables **/
         // button to write email to jcnetwork support
-        ImageButton mSupportBtn = (ImageButton) findViewById(R.id.support_button);
-        mList = (RecyclerView) findViewById(R.id.list);
+        ImageButton mSupportBtn = (ImageButton) findViewById(id.support_button);
+        mList = (RecyclerView) findViewById(id.list);
         //mList.setHasFixedSize(true);
         RecyclerView.LayoutManager manager = new LinearLayoutManager(getApplicationContext());
         mList.setLayoutManager(manager);
-        SearchView mSearchBar = (SearchView) findViewById(R.id.search_bar);
-
 
         // General
         //        QandA qandA = new QandA("Question 1", "Answer 1"); TEMPLATE
@@ -114,24 +117,40 @@ public class FAQsActivity extends AppCompatActivity {
         // Set on click listener to image button to contact support
         String[] recipients = {"support@jcnetwork.de"};
 
-        mSupportBtn.setOnClickListener(v -> {
-            Intent emailIntent = new Intent(Intent.ACTION_SENDTO); // Only email apps should handle this intent (otherwise SEND ok)
-            emailIntent.setData(Uri.parse("mailto:")); // Only email apps no social media stuff
-            emailIntent.putExtra(Intent.EXTRA_EMAIL, recipients); // string array
-            emailIntent.putExtra(Intent.EXTRA_SUBJECT, "Generelle Frage"); // subject -> easy search later
-            emailIntent.putExtra(Intent.EXTRA_TEXT, "Was ist deine Frage?"); // text
-            if (emailIntent.resolveActivity(getPackageManager()) != null) {
-                startActivity(emailIntent);
-            }
-        });
+        mSupportBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
 
-        mSearchBar.setOnQueryTextListener(new androidx.appcompat.widget.SearchView.OnQueryTextListener() {
+                    Intent emailIntent = new Intent(Intent.ACTION_SENDTO); // Only email apps should handle this intent (otherwise SEND ok)
+                    emailIntent.setData(Uri.parse("mailto:")); // Only email apps no social media stuff
+                    emailIntent.putExtra(Intent.EXTRA_EMAIL, recipients); // string array
+                    emailIntent.putExtra(Intent.EXTRA_SUBJECT, "Generelle Frage"); // subject -> easy search later
+                    emailIntent.putExtra(Intent.EXTRA_TEXT, "Was ist deine Frage?"); // text
+                    if (emailIntent.resolveActivity(getPackageManager()) != null) {
+                        startActivity(emailIntent);
+                    } else {
+                        Toast.makeText(FAQsActivity.this, "Keine E-Mail App gefunden. Falls du noch Fragen hast, melde dich gerne bei support@jcnetwork.de", Toast.LENGTH_SHORT).show();
+                    }
+                }});
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+
+        // Inflate with search menu
+        getMenuInflater().inflate(R.menu.search_faq_menu, menu);
+
+        // Set up search action
+        MenuItem menuItem = menu.findItem(id.action_search);
+        SearchView searchView = (SearchView) menuItem.getActionView();
+        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+            // Called when user presses enter
             @Override
             public boolean onQueryTextSubmit(String query) {
                 adapter.filter(query);
                 return false;
             }
-
+            // Called while user is typing
             @Override
             public boolean onQueryTextChange(String newText) {
                 adapter.filter(newText);
@@ -146,16 +165,7 @@ public class FAQsActivity extends AppCompatActivity {
                 return false;
             }
         });
-        mSearchBar.setOnCloseListener(() -> {
-            // Restore original data
-            // Set up adapter
-            adapter = new FAQExpandableCardViewAdapter(qandAList);
 
-            // Set to list
-            mList.setAdapter(adapter);
-            return false;
-        });
-
+        return super.onCreateOptionsMenu(menu);
     }
-
 }

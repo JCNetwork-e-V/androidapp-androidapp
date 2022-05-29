@@ -95,6 +95,11 @@
             android:label="FAQs"
             android:theme="@style/SettingsTheme"
             android:parentActivityName="com.jcnetwork.android.app1.ui.MainActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.SENDTO" />
+                <data android:scheme="mailto" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.jcnetwork.android.app1.ui.MainActivity" />
@@ -158,10 +163,13 @@
             android:parentActivityName="com.jcnetwork.android.app1.ui.MainActivity"
             android:exported="true">
             <intent-filter>
+                <action android:name="android.intent.action.INSERT" />
+                <data android:mimeType="vnd.android.cursor.dir/event" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+            <intent-filter>
                 <action android:name="android.intent.action.VIEW" />
-
                 <data android:scheme="geo" />
-
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
 
@@ -175,6 +183,23 @@
             android:name="com.jcnetwork.android.app1.ui.DetailActivity"
             android:label="Details"
             android:parentActivityName="com.jcnetwork.android.app1.ui.PlanActivity" >
+            <intent-filter>
+                <action android:name="android.intent.action.INSERT" />
+                <data android:mimeType="vnd.android.cursor.dir/event" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+                <data android:scheme="geo" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+                <data android:scheme="http" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <!-- The BROWSABLE category is required to get links from web pages. -->
+                <category android:name="android.intent.category.BROWSABLE" />
+            </intent-filter>
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.jcnetwork.android.app1.ui.PlanActivity" />
@@ -195,6 +220,11 @@
             android:name="com.jcnetwork.android.app1.ui.EngageActivity"
             android:label="Mitmachen"
             android:parentActivityName="com.jcnetwork.android.app1.ui.MainActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.SENDTO" />
+                <data android:scheme="mailto" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.jcnetwork.android.app1.ui.MainActivity" />

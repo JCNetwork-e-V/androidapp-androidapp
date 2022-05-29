@@ -22,6 +22,7 @@
 
     <TextView
         android:id="@+id/gesamt_points_tv"
+        android:text="@string/punktestand"
         style="@style/PointTextTheme"/>
 
     <FrameLayout
@@ -38,6 +39,7 @@
 
     <TextView
         android:id="@+id/case_points_tv"
+        android:text="@string/punktestand"
         style="@style/PointTextTheme"/>
 
     <FrameLayout
@@ -54,6 +56,7 @@
 
     <TextView
         android:id="@+id/experience_points_tv"
+        android:text="@string/punktestand"
         style="@style/PointTextTheme"/>
 
 </LinearLayout>

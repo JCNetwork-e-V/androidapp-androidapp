@@ -69,9 +69,9 @@ public class DetailActivity extends AppCompatActivity {
         }
         descriptionTV.setText(currentEvent.getDescription());
         // Check if this currentProgram is a Workshop by checking if "undertitle" is "Workshopslot"
-        if (currentEvent.getPlace().contains("Workshopslot")){
+//        if (currentEvent.getPlace().contains("Workshopslot")){
             giveWorkShopFeedBackBtn.setVisibility(View.VISIBLE);
-        }
+//        }
 
         // Set image based on event
         setImage(currentEvent.getImage());
