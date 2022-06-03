@@ -42,6 +42,7 @@
         </receiver> <!-- Updating widget service -->
         <service
             android:name="com.jcnetwork.android.app1.widget.WidgetService"
+            android:exported="false"
             android:permission="android:permission.BIND_REMOTEVIEWS" /> <!-- To fix an issue 'NoClassFedFoundError:failed resolution -->
         <uses-library
             android:name="org.apache.http.legacy"
@@ -94,6 +95,7 @@
             android:name="com.jcnetwork.android.app1.hiddenactivities.FAQsActivity"
             android:label="FAQs"
             android:theme="@style/SettingsTheme"
+            android:exported="false"
             android:parentActivityName="com.jcnetwork.android.app1.ui.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.SENDTO" />
@@ -146,10 +148,20 @@
                 android:value="com.jcnetwork.android.app1.ui.MainActivity" />
         </activity>
 
-        <!-- QR Code or Checkin Activity -->
+        <!-- Checkin Activity -->
         <activity
             android:name="com.jcnetwork.android.app1.ui.CheckInActivity"
             android:label="QR"
+            android:parentActivityName="com.jcnetwork.android.app1.ui.MainActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.jcnetwork.android.app1.ui.MainActivity" />
+        </activity>
+
+        <!-- Mein QR Code Activity -->
+        <activity
+            android:name="com.jcnetwork.android.app1.ui.MyQRCode"
+            android:label="Mein QR Code"
             android:parentActivityName="com.jcnetwork.android.app1.ui.MainActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
@@ -182,6 +194,7 @@
         <activity
             android:name="com.jcnetwork.android.app1.ui.DetailActivity"
             android:label="Details"
+            android:exported="false"
             android:parentActivityName="com.jcnetwork.android.app1.ui.PlanActivity" >
             <intent-filter>
                 <action android:name="android.intent.action.INSERT" />
@@ -219,6 +232,7 @@
         <activity
             android:name="com.jcnetwork.android.app1.ui.EngageActivity"
             android:label="Mitmachen"
+            android:exported="false"
             android:parentActivityName="com.jcnetwork.android.app1.ui.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.SENDTO" />
@@ -233,7 +247,7 @@
         <!-- Firm Activity -->
         <activity
             android:name="com.jcnetwork.android.app1.ui.FirmActivity"
-            android:label="Kooperationspartner"
+            android:label="Unternehmen"
             android:parentActivityName="com.jcnetwork.android.app1.ui.MainActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"

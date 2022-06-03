@@ -9,12 +9,13 @@ public class Constants {
     /** For shared preferences **/
     // Filename for shared preferences to hold ALL USER DATA!!!
     public final static String SHARED_PREFERENCE_FILE_NAME = "userDataStorageFile";
-    // Keys for storing userdata in shared preferences
-    public final static String USER_NAME_KEY = "UserNameKey";
 
     // Keys for ids incl. ablauf_id, cert_id, lebenslauf_id
+    public final static String USER_NAME_KEY = "UserNameKey";
     public static final String ABLAUF_ID = "UserProgramKey";
     public final static String USER_EMAIL = "UserEmailKey";
+    public final static String USER_PHONE = "UserPhoneKey";
+    public final static String USER_NOTE = "UserNoteKey";
     public final static String USER_CERTIFICATION_ID = "UserCertificationKey";
     public final static String LEBENSLAUF_ID_KEY = "LebenslaufKey";
 

@@ -232,7 +232,6 @@ public class MainActivity extends AppCompatActivity {
                     }
                     break;
                 case R.id.share:
-                    // TODO Add link after publishing app on Google Play Store
                     Intent shareIntent = new Intent();
                     shareIntent.setAction(Intent.ACTION_SEND);
                     shareIntent.putExtra(Intent.EXTRA_TEXT,
@@ -432,8 +431,8 @@ public class MainActivity extends AppCompatActivity {
                 break;
             case R.id.profile_button:
                 // Create intent to open new activity to show lebenslauf/cv with webview
-                Intent openCV = new Intent(MainActivity.this, CVActivity.class);
-                MainActivity.this.startActivity(openCV);
+                Intent openMyQR = new Intent(MainActivity.this, MyQRCode.class);
+                MainActivity.this.startActivity(openMyQR);
                 break;
             case R.id.check_in_button:
                 // Create intent to open new activity to show qr code for check in

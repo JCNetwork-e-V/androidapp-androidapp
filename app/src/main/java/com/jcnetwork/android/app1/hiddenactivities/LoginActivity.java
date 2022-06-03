@@ -30,6 +30,19 @@ import com.jcnetwork.android.app1.R;
 
 import java.util.Objects;
 
+import static com.jcnetwork.android.app1.utils.Constants.ABLAUFSPLAN_JSON_RESULT_KEY;
+import static com.jcnetwork.android.app1.utils.Constants.ABLAUF_ID;
+import static com.jcnetwork.android.app1.utils.Constants.CASE_POINTS_KEY;
+import static com.jcnetwork.android.app1.utils.Constants.EMPTY_STRING_DEFAULT;
+import static com.jcnetwork.android.app1.utils.Constants.EXPERIENCE_POINTS_KEY;
+import static com.jcnetwork.android.app1.utils.Constants.GESAMT_POINTS_KEY;
+import static com.jcnetwork.android.app1.utils.Constants.LEBENSLAUF_ID_KEY;
+import static com.jcnetwork.android.app1.utils.Constants.USER_CERTIFICATION_ID;
+import static com.jcnetwork.android.app1.utils.Constants.USER_EMAIL;
+import static com.jcnetwork.android.app1.utils.Constants.USER_NAME_KEY;
+import static com.jcnetwork.android.app1.utils.Constants.USER_NOTE;
+import static com.jcnetwork.android.app1.utils.Constants.USER_PHONE;
+
 public class LoginActivity extends AppCompatActivity {
 
     // Views
@@ -37,6 +50,7 @@ public class LoginActivity extends AppCompatActivity {
     private Button loginBtn;
     private Button registerBtn;
     private WebView mWebView;
+    SharedPreferences sharedPreferences;
 
     // For Logging
     private final String LOG_TAG = this.getClass().getSimpleName();
@@ -46,6 +60,10 @@ public class LoginActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.fragment_login);
+
+        // Setup shared preferences privately
+        sharedPreferences = getSharedPreferences(Constants.SHARED_PREFERENCE_FILE_NAME,
+                Context.MODE_PRIVATE);
 
         // Find view
         mLogoImg = (ImageView) findViewById(R.id.logo);
@@ -156,8 +174,34 @@ public class LoginActivity extends AppCompatActivity {
 
         // Load page to login
         mWebView.loadUrl("https://intern.jcnetwork.de/logout.php");
+
+        // Return to empty default values in shared preferences
+        deleteContactInfo();
+
+        // Log user intention
+        SharedPreferences loggedPref = getSharedPreferences(Constants.LOGGED_IN_KEY,
+                Context.MODE_PRIVATE);
+        loggedPref.edit().putBoolean(Constants.LOGGED_IN_KEY,
+                false).apply();
     }
 
+    /**
+     * Method to delete stored information when the user chooses to log out
+     */
+    private void deleteContactInfo(){
+        // Save empty strings to preferences to get rid of old values
+        sharedPreferences.edit().putString(USER_NAME_KEY, EMPTY_STRING_DEFAULT).apply();
+        sharedPreferences.edit().putString(USER_PHONE, EMPTY_STRING_DEFAULT).apply();
+        sharedPreferences.edit().putString(USER_EMAIL, EMPTY_STRING_DEFAULT).apply();
+        sharedPreferences.edit().putString(USER_NOTE, EMPTY_STRING_DEFAULT).apply();
+        sharedPreferences.edit().putString(ABLAUF_ID, EMPTY_STRING_DEFAULT).apply();
+        sharedPreferences.edit().putString(USER_CERTIFICATION_ID, EMPTY_STRING_DEFAULT).apply();
+        sharedPreferences.edit().putString(LEBENSLAUF_ID_KEY, EMPTY_STRING_DEFAULT).apply();
+        sharedPreferences.edit().putString(GESAMT_POINTS_KEY, EMPTY_STRING_DEFAULT).apply();
+        sharedPreferences.edit().putString(CASE_POINTS_KEY, EMPTY_STRING_DEFAULT).apply();
+        sharedPreferences.edit().putString(EXPERIENCE_POINTS_KEY, EMPTY_STRING_DEFAULT).apply();
+        sharedPreferences.edit().putString(ABLAUFSPLAN_JSON_RESULT_KEY, EMPTY_STRING_DEFAULT).apply();
+    }
 
     /**
      * To make the webview show the view instead of the browser being opened (by default)
@@ -231,13 +275,8 @@ public class LoginActivity extends AppCompatActivity {
                 // Take the second element i.e. index 1
                 String id = splits[1];
                 // Save user data
-                SharedPreferences sharedPreferences = getSharedPreferences(Constants.SHARED_PREFERENCE_FILE_NAME,
-                        Context.MODE_PRIVATE);
-                SharedPreferences.Editor editor = sharedPreferences.edit();
-                editor.putString(Constants.ABLAUF_ID,
-                        id);
-                editor.apply();
-                String sharedPrefID = sharedPreferences.getString(Constants.ABLAUF_ID, Constants.EMPTY_STRING_DEFAULT);
+                sharedPreferences.edit().putString(ABLAUF_ID,
+                        id).apply();
             }
             // Get LebenslaufID
             if (consoleMessage.message().contains("LebenslaufID")) {
@@ -248,12 +287,8 @@ public class LoginActivity extends AppCompatActivity {
                 // Take the second element i.e. index 1
                 String id = splits[1];
                 // Save user data
-                SharedPreferences sharedPreferences = getSharedPreferences(Constants.SHARED_PREFERENCE_FILE_NAME,
-                        Context.MODE_PRIVATE);
-                SharedPreferences.Editor editor = sharedPreferences.edit();
-                editor.putString(Constants.LEBENSLAUF_ID_KEY,
-                        id);
-                editor.apply();
+                sharedPreferences.edit().putString(LEBENSLAUF_ID_KEY,
+                        id).apply();
             }
             // Get cert_id
             if (consoleMessage.message().contains("cert_id")) {
@@ -264,12 +299,8 @@ public class LoginActivity extends AppCompatActivity {
                 // Take the second element i.e. index 1
                 String id = splits[1];
                 // Save user data
-                SharedPreferences sharedPreferences = getSharedPreferences(Constants.SHARED_PREFERENCE_FILE_NAME,
-                        Context.MODE_PRIVATE);
-                SharedPreferences.Editor editor = sharedPreferences.edit();
-                editor.putString(Constants.USER_CERTIFICATION_ID,
-                        id);
-                editor.apply();
+                sharedPreferences.edit().putString(USER_CERTIFICATION_ID,
+                        id).apply();
             }
             // Get email
             if (consoleMessage.message().contains("email")) {
@@ -280,12 +311,8 @@ public class LoginActivity extends AppCompatActivity {
                 // Take the second element i.e. index 1
                 String mail = splits[1];
                 // Save user data
-                SharedPreferences sharedPreferences = getSharedPreferences(Constants.SHARED_PREFERENCE_FILE_NAME,
-                        Context.MODE_PRIVATE);
-                SharedPreferences.Editor editor = sharedPreferences.edit();
-                editor.putString(Constants.USER_EMAIL,
-                        mail);
-                editor.apply();
+                sharedPreferences.edit().putString(Constants.USER_EMAIL,
+                        mail).apply();
             }
             // Log user in upon init done
             if (consoleMessage.message().contains("inti done")) {

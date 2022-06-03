@@ -132,5 +132,6 @@
     <string name="send_email_to_ask_new_question">Send email to ask new question</string>
     <string name="search">Suchen</string>
     <string name="punktestand">Punktestand</string>
+    <string name="mein_qr">Mein QR</string>
 
 </resources>

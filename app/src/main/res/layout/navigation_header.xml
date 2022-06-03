@@ -7,8 +7,9 @@
 
     <TextView
         android:id="@+id/nav_name_tv"
-        android:text="Name goes here"
+        android:text=""
         android:paddingStart="16dp"
+        android:paddingEnd="8dp"
         android:textSize="20sp"
         android:textColor="@color/white"
         android:layout_width="match_parent"
@@ -18,9 +19,11 @@
 
     <TextView
         android:id="@+id/nav_email_tv"
-        android:text="Email goes here"
         android:paddingStart="16dp"
+        android:paddingEnd="8dp"
+        android:text=""
         android:paddingBottom="30dp"
+        android:textColor="@color/lightGrey"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:layout_constraintStart_toStartOf="parent"
