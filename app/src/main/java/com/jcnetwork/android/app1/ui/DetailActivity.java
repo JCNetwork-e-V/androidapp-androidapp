@@ -111,20 +111,22 @@ public class DetailActivity extends AppCompatActivity {
             // Get location from current program
             String address = currentEvent.getAddress();
             // Check if information was provided
-            if (!address.isEmpty()) {
-                String searchUrl = "https://www.google.com/maps/search/?api=1&query=";
-                Uri addressUri = Uri.parse(searchUrl + Uri.encode(address));
-                // Make new intent to open Google Maps and pass in the address as destination
-                Intent mapIntent = new Intent(Intent.ACTION_VIEW, addressUri);
-                // Set to google maps to ensure this app (if available) is used for the intent
-                mapIntent.setPackage("com.google.android.apps.maps");
-                // Start intent if possible
-                if (mapIntent.resolveActivity(view.getContext().getPackageManager()) != null) {
-                    view.getContext().startActivity(mapIntent);
-                }
-            }
+            startGoogleMapsForAddress(address);
         });
 
+    }
+
+    /**
+     * Method to launch google maps to search for address
+     */
+    public void startGoogleMapsForAddress(String address) {
+        // Check if information was provided
+        if (!address.isEmpty()) {
+            Uri gmmIntentUri = Uri.parse("geo:0,0?q=" + address);
+            Intent mapIntent = new Intent(Intent.ACTION_VIEW, gmmIntentUri);
+            mapIntent.setPackage("com.google.android.apps.maps");
+            startActivity(mapIntent);
+        }
     }
 
     /**

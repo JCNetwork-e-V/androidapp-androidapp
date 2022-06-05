@@ -1,5 +1,8 @@
 package com.jcnetwork.android.app1.adapters;
 
+import static com.jcnetwork.android.app1.R.id;
+import static com.jcnetwork.android.app1.R.layout;
+
 import android.app.Activity;
 import android.app.ActivityOptions;
 import android.content.Intent;
@@ -16,17 +19,15 @@ import android.widget.TextView;
 import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.jcnetwork.android.app1.models.ProgramPoint;
-import com.jcnetwork.android.app1.ui.DetailActivity;
 import com.jcnetwork.android.app1.R;
 import com.jcnetwork.android.app1.conversion.ProgramPointAnalysis;
+import com.jcnetwork.android.app1.models.ProgramPoint;
+import com.jcnetwork.android.app1.ui.DetailActivity;
 
 import org.jetbrains.annotations.NotNull;
 
 import java.text.ParseException;
 import java.util.List;
-
-import static com.jcnetwork.android.app1.R.*;
 
 /**
  * This adapter (not to be confused with schedule adapter) is to populate the list (recycleview)
@@ -75,23 +76,20 @@ public class ScheduleFragmentAdapter extends RecyclerView.Adapter<ScheduleFragme
     @Override
     public ScheduleFragmentAdapter.MyViewHolder onCreateViewHolder(ViewGroup parent,
                                                      int viewType) {
+
         // Set up
         LayoutInflater inflater = LayoutInflater.from(parent.getContext());
 
         // Inflate layout with itemView
         View itemView = inflater.inflate(layout.fragment_plan_event_item, parent, false);
 
-
         // create a new view
-//        TextView v = (TextView) LayoutInflater.from(parent.getContext())
-//                .inflate(R.layout.fragment_plan_event_item, parent, false);
         return new MyViewHolder(itemView);
     }
 
     // Replace the contents of a view (invoked by the layout manager)
     @Override
     public void onBindViewHolder(MyViewHolder holder, int position) {
-        //TODO Make card expand/collapse upon click to offer details
         holder.cardView.setOnClickListener(view -> {
             Log.i("ScheduleFragmentAdapter", "clicked on card view");
             // Open details view
@@ -163,18 +161,10 @@ public class ScheduleFragmentAdapter extends RecyclerView.Adapter<ScheduleFragme
                 String address = currentProgramPoint.getAddress();
                 // Check if information was provided
                 if (!address.isEmpty()) {
-//                        String directionsUrl = "https://www.google.com/maps/dir/?api=1&query=";
-                    String searchUrl = "https://www.google.com/maps/search/?api=1&query=";
-//                        Uri myUri = Uri.parse(directionsUrl + Uri.encode(address));
-                    Uri addressUri = Uri.parse(searchUrl + Uri.encode(address));
-                    // Make new intent to open Google Maps and pass in the address as destination
-                    Intent mapIntent = new Intent(Intent.ACTION_VIEW, addressUri);
-                    // Set to google maps to ensure this app (if available) is used for the intent
+                    Uri gmmIntentUri = Uri.parse("geo:0,0?q=" + address);
+                    Intent mapIntent = new Intent(Intent.ACTION_VIEW, gmmIntentUri);
                     mapIntent.setPackage("com.google.android.apps.maps");
-                    // Start intent if possible
-                    if (mapIntent.resolveActivity(view.getContext().getPackageManager()) != null) {
-                        view.getContext().startActivity(mapIntent);
-                    }
+                    view.getContext().startActivity(mapIntent);
                 }
             });
         }

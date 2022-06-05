@@ -1,81 +1,266 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/white"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+    android:background="@drawable/color_gradient"
+    style="@style/Theme.MaterialComponents.DayNight.DarkActionBar"
+    tools:context=".ui.RegistrationActivity">
 
-<androidx.constraintlayout.widget.ConstraintLayout
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content">
-
-    <TextView
-        android:id="@+id/instruction_tv"
-        android:text="@string/days_register_instruction_tv"
+    <ScrollView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="16dp"
-        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent"/>
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
 
-    <!-- Normal days -->
-    <ImageButton
-        android:id="@+id/normal_days_image"
-        android:src="@drawable/normal_days_logo"
-        android:layout_width="0dp"
-        android:layout_height="150dp"
-        android:scaleType="centerInside"
-        android:background="@color/white"
-        android:elevation="8dp"
-        android:layout_margin="8dp"
-        android:paddingStart="16dp"
-        android:paddingEnd="16dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/instruction_tv"
-        android:contentDescription="@string/jcnetwork_days_logo" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
 
-    <!-- Executive days -->
-    <ImageButton
-        android:id="@+id/executive_days_image"
-        android:src="@drawable/executive_days_logo"
-        android:layout_width="0dp"
-        android:layout_height="150dp"
-        android:scaleType="centerInside"
-        android:background="@color/white"
-        android:elevation="8dp"
-        android:layout_margin="8dp"
-        android:paddingStart="16dp"
-        android:paddingEnd="16dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/normal_days_image"
-        android:contentDescription="@string/jcnetwork_executive_days_logo" />
+            <com.google.android.material.card.MaterialCardView
+                android:theme="@style/Theme.MaterialComponents.Light.DarkActionBar"
+                android:layout_margin="16dp"
+                android:padding="8dp"
+                app:cardCornerRadius="16dp"
+                android:background="@color/white"
+                android:elevation="16dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
 
-    <!-- Development days -->
-    <ImageButton
-        android:id="@+id/development_days_image"
-        android:src="@drawable/development_days_logo"
-        android:layout_width="0dp"
-        android:layout_height="150dp"
-        android:scaleType="centerInside"
-        android:background="@color/white"
-        android:elevation="8dp"
-        android:layout_margin="8dp"
-        android:paddingStart="16dp"
-        android:paddingEnd="16dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/executive_days_image"
-        android:contentDescription="@string/jcnetwork_development_days_logo" />
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
 
-    <Space
-        android:layout_width="match_parent"
-        android:layout_height="16dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/development_days_image"/>
+                    <CheckBox
+                        android:id="@+id/check_anmelden"
+                        style="@style/CheckBoxStyle"
+                        android:text="Anmelden beim Event"
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
 
+                    <TextView
+                        android:id="@+id/normal_tv"
+                        style="@style/LinkedTextStyle"
+                        android:text="@string/link_zur_jcnetwork_days_anmeldung"
+                        app:layout_constraintTop_toBottomOf="@id/check_anmelden"
+                        app:layout_constraintStart_toStartOf="parent"/>
+
+                    <TextView
+                        android:id="@+id/development_tv"
+                        style="@style/LinkedTextStyle"
+                        android:text="@string/link_zur_jcnetwork_development_days_anmeldung"
+                        app:layout_constraintTop_toBottomOf="@id/normal_tv"
+                        app:layout_constraintStart_toStartOf="parent"/>
+
+                    <TextView
+                        android:id="@+id/executive_tv"
+                        style="@style/LinkedTextStyle"
+                        android:paddingBottom="16dp"
+                        android:text="@string/link_zur_jcnetwork_executive_days_anmeldung"
+                        app:layout_constraintTop_toBottomOf="@id/development_tv"
+                        app:layout_constraintStart_toStartOf="parent"/>
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+            </com.google.android.material.card.MaterialCardView>
+
+            <com.google.android.material.card.MaterialCardView
+                android:theme="@style/Theme.MaterialComponents.Light.DarkActionBar"
+                android:layout_margin="16dp"
+                android:padding="8dp"
+                app:cardCornerRadius="16dp"
+                android:background="@android:color/white"
+                android:elevation="16dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <CheckBox
+                        android:id="@+id/check_cv"
+                        style="@style/CheckBoxStyle"
+                        android:text="Lebenslauf absenden"
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <TextView
+                        android:id="@+id/start_cv_tv"
+                        style="@style/LinkedTextStyle"
+                        android:paddingBottom="16dp"
+                        android:text="@string/lebenslauf_bearbeiten"
+                        app:layout_constraintTop_toBottomOf="@id/check_cv"
+                        app:layout_constraintStart_toStartOf="parent"/>
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+            </com.google.android.material.card.MaterialCardView>
+
+            <com.google.android.material.card.MaterialCardView
+                android:theme="@style/Theme.MaterialComponents.Light.DarkActionBar"
+                android:layout_margin="16dp"
+                android:padding="8dp"
+                app:cardCornerRadius="16dp"
+                android:background="@android:color/white"
+                android:elevation="16dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <CheckBox
+                        android:id="@+id/check_workshops"
+                        style="@style/CheckBoxStyle"
+                        android:text="Bei Workshops bewerben"
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <TextView
+                        android:id="@+id/intern_workshop_tv"
+                        style="@style/LinkedTextStyle"
+                        android:text="@string/link_zu_internen_workshops"
+                        app:layout_constraintTop_toBottomOf="@id/check_workshops"
+                        app:layout_constraintStart_toStartOf="parent"/>
+
+                    <TextView
+                        android:id="@+id/extern_workshop_tv"
+                        style="@style/LinkedTextStyle"
+                        android:paddingBottom="16dp"
+                        android:text="@string/link_zu_externen_workshops"
+                        app:layout_constraintTop_toBottomOf="@id/intern_workshop_tv"
+                        app:layout_constraintStart_toStartOf="parent"/>
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+            </com.google.android.material.card.MaterialCardView>
+
+            <com.google.android.material.card.MaterialCardView
+                android:theme="@style/Theme.MaterialComponents.Light.DarkActionBar"
+                android:layout_margin="16dp"
+                android:padding="8dp"
+                app:cardCornerRadius="16dp"
+                android:background="@android:color/white"
+                android:elevation="16dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <CheckBox
+                        android:id="@+id/check_reise"
+                        style="@style/CheckBoxStyle"
+                        android:text="Reise planen"
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <TextView
+                        android:id="@+id/reise_tv"
+                        style="@style/LinkedTextStyle"
+                        android:paddingBottom="16dp"
+                        android:text="@string/google_maps_zu_magdeburg"
+                        app:layout_constraintTop_toBottomOf="@id/check_reise"
+                        app:layout_constraintStart_toStartOf="parent"/>
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+            </com.google.android.material.card.MaterialCardView>
+
+            <com.google.android.material.card.MaterialCardView
+                android:theme="@style/Theme.MaterialComponents.Light.DarkActionBar"
+                android:layout_margin="16dp"
+                android:padding="8dp"
+                app:cardCornerRadius="16dp"
+                android:background="@android:color/white"
+                android:elevation="16dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <CheckBox
+                        android:id="@+id/check_workshop_feedback"
+                        style="@style/CheckBoxStyle"
+                        android:text="Workshop Feedbackbogen ausfüllen"
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <TextView
+                        android:id="@+id/workshop_feedback_tv"
+                        style="@style/LinkedTextStyle"
+                        android:paddingBottom="16dp"
+                        android:text="@string/link_zum_workshop_feedback_formular"
+                        app:layout_constraintTop_toBottomOf="@id/check_workshop_feedback"
+                        app:layout_constraintStart_toStartOf="parent"/>
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+            </com.google.android.material.card.MaterialCardView>
+
+            <com.google.android.material.card.MaterialCardView
+                android:theme="@style/Theme.MaterialComponents.Light.DarkActionBar"
+                android:layout_margin="16dp"
+                android:padding="8dp"
+                app:cardCornerRadius="16dp"
+                android:background="@android:color/white"
+                android:elevation="16dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <CheckBox
+                        android:id="@+id/check_enjoy"
+                        style="@style/CheckBoxStyle"
+                        android:text="Event genießen!"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <TextView
+                        android:id="@+id/wettbewerbs_tv"
+                        style="@style/LinkedTextStyle"
+                        android:text="@string/link_zum_vereinswettbewerb"
+                        app:layout_constraintTop_toBottomOf="@id/check_enjoy"
+                        app:layout_constraintStart_toStartOf="parent"/>
+
+                    <TextView
+                        android:id="@+id/ablauf_tv"
+                        style="@style/LinkedTextStyle"
+                        android:text="@string/link_ablaufsplan"
+                        app:layout_constraintTop_toBottomOf="@id/wettbewerbs_tv"
+                        app:layout_constraintStart_toStartOf="parent"/>
+
+                    <TextView
+                        android:id="@+id/club_tv"
+                        style="@style/LinkedTextStyle"
+                        android:text="@string/ber_den_verein"
+                        app:layout_constraintTop_toBottomOf="@id/ablauf_tv"
+                        app:layout_constraintStart_toStartOf="parent"/>
+
+                    <TextView
+                        android:id="@+id/city_tv"
+                        style="@style/LinkedTextStyle"
+                        android:paddingBottom="16dp"
+                        android:text="@string/ber_magdeburg"
+                        app:layout_constraintTop_toBottomOf="@id/club_tv"
+                        app:layout_constraintStart_toStartOf="parent"/>
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+        </LinearLayout>
+
+    </ScrollView>
 </androidx.constraintlayout.widget.ConstraintLayout>
-</ScrollView>

@@ -134,4 +134,41 @@
     <string name="punktestand">Punktestand</string>
     <string name="mein_qr">Mein QR</string>
 
+    <!--    Registration activity strings-->
+    <string name="lebenslauf_bearbeiten"><u>Lebenslauf bearbeiten</u></string>
+    <string name="link_zu_internen_workshops"><u>Link zu internen Workshops</u></string>
+    <string name="link_zu_externen_workshops"><u>Link zu externen Workshops</u></string>
+    <string name="google_maps_zu_magdeburg"><u>Google Maps zu Magdeburg</u></string>
+    <string name="link_zum_workshop_feedback_formular"><u>Link zum Workshop Feedback Formular</u></string>
+    <string name="link_ablaufsplan"><u>Ablaufsplan</u></string>
+    <string name="ber_den_verein"><u>Über den Verein</u></string>
+    <string name="ber_magdeburg"><u>Über Magdeburg</u></string>
+    <string name="link_zur_jcnetwork_executive_days_anmeldung"><u>Link zur JCNetwork Executive Days Anmeldung</u></string>
+    <string name="link_zur_jcnetwork_development_days_anmeldung"><u>Link zur JCNetwork Development Days Anmeldung</u></string>
+    <string name="link_zur_jcnetwork_days_anmeldung"><u>Link zur JCNetwork Days Anmeldung</u></string>
+    <string name="link_zum_vereinswettbewerb"><u>Link zum Vereinswettbewerb</u></string>
+
+    <!--    Dialog strings within registration-->
+    <string name="city_image_link">https://days.jcnetwork.de/wp-content/uploads/2022/01/Bild4.jpg</string>
+    <string name="city_name">Magdeburg</string>
+    <string name="city_description">„Von so weit her bis hier hin – von hier aus noch viel weiter“\n\n
+
+Dieses Motto prägt nicht nur eine besondere Brücke, sondern unsere gesamte, facettenreiche Stadt an der Elbe. Weg von Vergangenem hin zum Hier und Jetzt – dieser Wandel lässt sich in Magdeburg an vielen Ecken entdecken. Man lässt los von alten Mustern, aus Alt macht Neu. Mit der Förderung der Start-Up Szene und Niederlassungen großer internationaler Technologiekonzerne bietet sich Studierenden und Besuchenden ein attraktives Stadtbild.\n\n
+
+Die Otto-von-Guericke Universität und die Hochschule Magdeburg-Stendal bieten mehr als 18.000 Studierenden und Forschenden aus aller Welt die Möglichkeit in einem internationalen Umfeld zu aktuellen wissenschaftlichen und gesellschaftlichen Themen zu forschen. Mit den diversen Fachrichtungen, angegliederten Wissenschaftseinrichtungen und zahlreichen studentischen Initiativen verleiht der Campus unserer Stadt einen ganz besonderen, innovativen Flair. Unsere Vereinsarbeit bei SIDUM e.V. profitiert von dieser Entwicklung ganz besonders und wir sind stolz, ein Teil dieses Umfelds zu sein.\n\n
+
+Die Geschichte der Stadt ist abwechslungsreich und führt von Kaiser Otto I bis hin zu dem bekannten Wissenschaftler und Namensgeber der Universität– Otto von Guericke. Die Straßenfassaden sind allgegenwärtige Zeitzeugen einer bewegten 1200 jährigen Geschichte, welche bis in unsere heutige Zeit hineinreicht. Der 500 Jahre alte Dom, Straßenzüge mit Gründerzeitbauten, preisgekrönten DDR-Fassaden bis hin zum bunten Hundertwasserhaus – hier gibt es an jeder Ecke etwas zu entdecken. Die Attraktivität der Stadt wird durch die Nähe zur Elbe und den städtischen Parks untermauert. So verfügt Magdeburg über zahlreiche Parkanlagen, welche sich quer über die Stadt verteilen. Diese sind das ganze Jahr über Treffpunkt für Jung und Alt, Sportler:innen und Sonnenanbetende sowie Lerngruppen und Tagträumer.\n\n
+
+Gerne bringen wir euch den Charme unserer lebendigen Stadt ein bisschen näher und freuen uns ganz besonders in diesem Sommer Gastgeber für die JCNetwork Days in Magdeburg zu sein.\n\n
+
+Wir freuen uns auf euch!\n</string>
+    <string name="club_image_link">https://days.jcnetwork.de/wp-content/uploads/2016/05/Vereinsbild--768x432.jpg</string>
+    <string name="club_name">SIDUM</string>
+    <string name="club_description">SIDUM e.V. überzeugt bereits seit mehr als 20 Jahren mit der Arbeit unserer studentischen Unternehmensberatung in der Region Magdeburg. Studierende aus diversen Fachbereichen und Studienniveaus erarbeiten mit viel Engagement und Motivation, innovative und individuelle Lösungen für unsere Kunden – vom Startup bis zum Großkonzern.\n\n
+
+Der Verein besteht aktuell aus über 50 Studierenden diverser Fachrichtungen der Otto-von-Guericke-Universität Magdeburg sowie der Hochschule Magdeburg-Stendal. Unsere Stadt ist geprägt von einem stetigen Wandel, welcher unseren Studierenden die optimalen Möglichkeiten bietet, sich parallel zum Studium weitere Kompetenzen anzueignen und gemeinsam mit lokalen Unternehmen, sich, den Verein und die gesamte Region weiterzuentwickeln.\n\n
+
+Der rege Austausch mit anderen Vereinen aus der Region und in der gesamten Bundesrepublik bereichert das Vereinsleben maßgeblich, weshalb wir stets eine enge Verbindung zum JCNetwork pflegen. Umso mehr freuen wir uns drauf im Sommer 2022 Gastgeber für die JCNetwork Days in Magdeburg zu sein und euch in unserer schönen Stadt an der Elbe zu begrüßen zu dürfen.\n\n</string>
+    <string name="bild_des_ausrichters_bzw_der_stadt">Bild des Ausrichters bzw. der Stadt</string>
+    <string name="to_do">To Do</string>
 </resources>

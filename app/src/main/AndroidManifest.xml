@@ -72,8 +72,21 @@
         <!-- Registration Activity -->
         <activity
             android:name="com.jcnetwork.android.app1.ui.RegistrationActivity"
-            android:label="Anmeldung"
-            android:parentActivityName="com.jcnetwork.android.app1.ui.MainActivity">
+            android:label="To Do"
+            android:parentActivityName="com.jcnetwork.android.app1.ui.MainActivity"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+                <data android:scheme="geo" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+                <data android:scheme="http" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <!-- The BROWSABLE category is required to get links from web pages. -->
+                <category android:name="android.intent.category.BROWSABLE" />
+            </intent-filter>
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.jcnetwork.android.app1.ui.MainActivity" />

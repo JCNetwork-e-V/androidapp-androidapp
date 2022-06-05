@@ -1,5 +1,6 @@
 package com.jcnetwork.android.app1.ui;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.net.ConnectivityManager;
@@ -15,8 +16,6 @@ import androidx.core.content.ContextCompat;
 
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
-import com.android.volley.Response;
-import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.jcnetwork.android.app1.R;
@@ -109,6 +108,7 @@ public class PointsActivity extends AppCompatActivity{
     /**
      * Method to set progress bars without animation
      */
+    @SuppressLint("SetTextI18n")
     private void setProgressBars() {
         // Read from shared preferences to get stored data and set 0 as default
         gesamtInt = sharedPreferences.getInt(Constants.GESAMT_POINTS_KEY, 0);
@@ -135,6 +135,7 @@ public class PointsActivity extends AppCompatActivity{
     /**
      * Method to animate progress bars
      */
+    @SuppressLint("SetTextI18n")
     private void animateProgressBars() {
         // Read from shared preferences to get stored data and set 0 as default
         gesamtInt = sharedPreferences.getInt(Constants.GESAMT_POINTS_KEY, 0);
@@ -196,15 +197,14 @@ public class PointsActivity extends AppCompatActivity{
                         // Get Info and store to sharedPreferences
                         JSONObject object = new JSONObject(response);
                         gesamtInt = object.getInt("gesamt");
-                        editor.putInt(Constants.GESAMT_POINTS_KEY, gesamtInt);
+                        editor.putInt(Constants.GESAMT_POINTS_KEY, gesamtInt).apply();
                         Log.i(LOG_TAG, "gesamt after stored to shared preferences in sendRequest: "+ sharedPreferences.getInt(Constants.GESAMT_POINTS_KEY, 0));
                         Log.i(LOG_TAG, String.valueOf(gesamtInt));
                         caseInt = object.getInt("case");
-                        editor.putInt(Constants.CASE_POINTS_KEY, caseInt);
+                        editor.putInt(Constants.CASE_POINTS_KEY, caseInt).apply();
                         Log.i(LOG_TAG, String.valueOf(caseInt));
                         experienceInt = object.getInt("experience");
-                        editor.putInt(Constants.EXPERIENCE_POINTS_KEY, experienceInt);
-                        editor.apply();
+                        editor.putInt(Constants.EXPERIENCE_POINTS_KEY, experienceInt).apply();
                         Log.i(LOG_TAG, "gesamt after stored to shared preferences in sendRequest and commit called: "+ sharedPreferences.getInt(Constants.GESAMT_POINTS_KEY, 0));
                         Log.i(LOG_TAG, String.valueOf(experienceInt));
                     } catch (Throwable throwable) {

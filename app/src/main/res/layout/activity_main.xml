@@ -157,7 +157,7 @@
             app:layout_constraintStart_toStartOf="@id/certification_points_button"
             app:layout_constraintTop_toBottomOf="@id/certification_points_button" />
 
-        <!--    City-->
+        <!--    To Do-->
         <ImageButton
             android:id="@+id/register_button"
             android:layout_width="60dp"
@@ -178,7 +178,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
             android:gravity="center_horizontal"
-            android:text="@string/anmelden"
+            android:text="@string/to_do"
             app:layout_constraintEnd_toEndOf="@id/register_button"
             app:layout_constraintStart_toStartOf="@id/register_button"
             app:layout_constraintTop_toBottomOf="@id/register_button" />
