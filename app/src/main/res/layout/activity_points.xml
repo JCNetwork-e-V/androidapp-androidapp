@@ -1,64 +1,88 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/white"
-    tools:context="com.jcnetwork.android.app1.ui.PointsActivity">
+    android:background="@drawable/color_gradient"
+    android:focusableInTouchMode="true"
+    tools:context="com.jcnetwork.android.app1.ui.PointsActivity"
+    style="@style/Theme.MaterialComponents.DayNight.DarkActionBar">
 
-<LinearLayout
-    android:orientation="vertical"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content">
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/personalDetailsCard"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="16dp"
+        app:cardCornerRadius="16dp"
+        app:cardElevation="10dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
 
-<!--    Schulungen und Workshops-->
-    <TextView
-        style="@style/PointLabelTheme"
-        android:text="Schulungen und Workshops:" />
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
 
-    <ProgressBar
-        android:id="@+id/gesamt_points_progress_bar"
-        style="@style/PointProgressBarTheme" />
+            <LinearLayout
+                android:orientation="vertical"
+                android:padding="8dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
 
-    <TextView
-        android:id="@+id/gesamt_points_tv"
-        android:text="@string/punktestand"
-        style="@style/PointTextTheme"/>
+            <!--    Schulungen und Workshops-->
+                <TextView
+                    android:paddingTop="30dp"
+                    style="@style/PointLabelTheme"
+                    android:text="Schulungen und Workshops:" />
 
-    <FrameLayout
-        style="@style/PointDividerTheme"/>
+                <ProgressBar
+                    android:id="@+id/gesamt_points_progress_bar"
+                    style="@style/PointProgressBarTheme" />
 
-<!--    Case Studies-->
-    <TextView
-        android:text="Case Studies:"
-        style="@style/PointLabelTheme"/>
+                <TextView
+                    android:id="@+id/gesamt_points_tv"
+                    android:text="@string/punktestand"
+                    style="@style/PointTextTheme"/>
 
-    <ProgressBar
-        android:id="@+id/case_points_progress_bar"
-        style="@style/PointProgressBarTheme" />
+                <FrameLayout
+                    style="@style/PointDividerTheme"/>
 
-    <TextView
-        android:id="@+id/case_points_tv"
-        android:text="@string/punktestand"
-        style="@style/PointTextTheme"/>
+            <!--    Case Studies-->
+                <TextView
+                    android:text="Case Studies:"
+                    style="@style/PointLabelTheme"/>
 
-    <FrameLayout
-        style="@style/PointDividerTheme"/>
+                <ProgressBar
+                    android:id="@+id/case_points_progress_bar"
+                    style="@style/PointProgressBarTheme" />
 
-<!--    Praxiserfahrung-->
-    <TextView
-        android:text="Praxiserfahrung:"
-        style="@style/PointLabelTheme"/>
+                <TextView
+                    android:id="@+id/case_points_tv"
+                    android:text="@string/punktestand"
+                    style="@style/PointTextTheme"/>
 
-    <ProgressBar
-        android:id="@+id/experience_points_progress_bar"
-        style="@style/PointProgressBarTheme"/>
+                <FrameLayout
+                    style="@style/PointDividerTheme"/>
 
-    <TextView
-        android:id="@+id/experience_points_tv"
-        android:text="@string/punktestand"
-        style="@style/PointTextTheme"/>
+            <!--    Praxiserfahrung-->
+                <TextView
+                    android:text="Praxiserfahrung:"
+                    style="@style/PointLabelTheme"/>
 
-</LinearLayout>
+                <ProgressBar
+                    android:id="@+id/experience_points_progress_bar"
+                    style="@style/PointProgressBarTheme"/>
 
-</ScrollView>
+                <TextView
+                    android:id="@+id/experience_points_tv"
+                    android:paddingBottom="30dp"
+                    android:text="@string/punktestand"
+                    style="@style/PointTextTheme"/>
+
+            </LinearLayout>
+
+        </ScrollView>
+    </com.google.android.material.card.MaterialCardView>
+</androidx.constraintlayout.widget.ConstraintLayout>

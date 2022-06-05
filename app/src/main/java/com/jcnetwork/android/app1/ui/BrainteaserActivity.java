@@ -31,7 +31,6 @@ public class BrainteaserActivity extends AppCompatActivity {
     // Set up variables
     BrainteaserAdapter btAdapter;
     ViewPager2 btViewPager;
-    ImageButton leftNav, rightNav;
     WebView webView; // form to suggest a new brainteaser to be added to the app
     List<Brainteaser> Brainteasers; // this is the list containing the brainteasers
 
@@ -43,8 +42,6 @@ public class BrainteaserActivity extends AppCompatActivity {
         // Find views
         btViewPager = findViewById(R.id.view_pager);
         webView = findViewById(R.id.webview);
-//        leftNav = findViewById(R.id.left_nav);
-//        rightNav = findViewById(R.id.right_nav);
 
         // Set up support bar
         ActionBar actionBar = getSupportActionBar();
@@ -119,30 +116,6 @@ public class BrainteaserActivity extends AppCompatActivity {
 
         // Add adapter to viewpager
         btViewPager.setAdapter(btAdapter);
-
-//        // Images left navigation
-//        leftNav.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                int tab = btViewPager.getCurrentItem();
-//                if (tab > 0) {
-//                    tab--;
-//                    btViewPager.setCurrentItem(tab);
-//                } else if (tab == 0) {
-//                    btViewPager.setCurrentItem(tab);
-//                }
-//            }
-//        });
-//
-//        // Images right navigation
-//        rightNav.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                int tab = btViewPager.getCurrentItem();
-//                tab++;
-//                btViewPager.setCurrentItem(tab);
-//            }
-//        });
     }
 
     public void moveToPrevious(){

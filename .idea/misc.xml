@@ -4,10 +4,13 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="..\:/Users/layla/Downloads/2022JCNetworkEventApp/app/src/main/res/layout/activity_main.xml" value="0.13576494427558258" />
+        <entry key="..\:/Users/layla/Downloads/2022JCNetworkEventApp/app/src/main/res/layout/activity_my_qr.xml" value="0.13576494427558258" />
+        <entry key="..\:/Users/layla/Downloads/2022JCNetworkEventApp/app/src/main/res/layout/activity_points.xml" value="0.1490036231884058" />
         <entry key="..\:/Users/layla/Downloads/2022JCNetworkEventApp/app/src/main/res/layout/activity_registraion.xml" value="0.1890625" />
         <entry key="..\:/Users/layla/Downloads/2022JCNetworkEventApp/app/src/main/res/layout/dialog_popup.xml" value="0.1890625" />
         <entry key="..\:/Users/layla/Downloads/2022JCNetworkEventApp/app/src/main/res/layout/fragment_engage_card_large.xml" value="0.19610507246376813" />
         <entry key="..\:/Users/layla/Downloads/2022JCNetworkEventApp/app/src/main/res/layout/fragment_plan_event_item.xml" value="0.19610507246376813" />
+        <entry key="..\:/Users/layla/Downloads/2022JCNetworkEventApp/app/src/main/res/layout/qr_code.xml" value="0.1490036231884058" />
       </map>
     </option>
   </component>

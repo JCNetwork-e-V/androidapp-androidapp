@@ -54,7 +54,7 @@ public class PointsActivity extends AppCompatActivity{
         ActionBar actionBar = getSupportActionBar();
         if (actionBar != null) {
             actionBar.setDisplayHomeAsUpEnabled(true);
-            actionBar.setBackgroundDrawable(ContextCompat.getDrawable(this, R.drawable.color_gradient));
+            actionBar.setBackgroundDrawable(ContextCompat.getDrawable(this, R.drawable.black_to_dark_gradient));
         }
         // Initialize Shared Preferences
         sharedPreferences = getSharedPreferences(Constants.SHARED_PREFERENCE_FILE_NAME, Context.MODE_PRIVATE);
@@ -80,17 +80,14 @@ public class PointsActivity extends AppCompatActivity{
         if (savedInstanceState != null) {
             // If it was don't send a network request or animate the views, just set the views
             setProgressBars();
-            Log.i(LOG_TAG, "savedInstanceState not null");
         } else {
             // Check if we have internet connection or not
             if (isOnline()) {
                 // Send request and get data
                 sendRequestResponse();
-                Log.i(LOG_TAG, "sendRequestResponse called");
             } else {
                 // Call method to animate progress bars and put text which will display data if stored in SharedPreferences otherwise zero
                 animateProgressBars();
-                Log.i(LOG_TAG, "animateProgressBars in OnCreate called i.e. no internet");
             }
         }
     }
@@ -114,8 +111,6 @@ public class PointsActivity extends AppCompatActivity{
         gesamtInt = sharedPreferences.getInt(Constants.GESAMT_POINTS_KEY, 0);
         caseInt = sharedPreferences.getInt(Constants.CASE_POINTS_KEY, 0);
         experienceInt = sharedPreferences.getInt(Constants.EXPERIENCE_POINTS_KEY, 0);
-        Log.i(LOG_TAG, "gesamt after stored to shared preferences in animateProgressBars: "+ gesamtInt);
-        Log.i(LOG_TAG, "case after stored to shared preferences in animateProgressBars: "+ caseInt);
 
         // Reset to original max
         caseProgressBar.setProgress(caseMax);
@@ -141,8 +136,6 @@ public class PointsActivity extends AppCompatActivity{
         gesamtInt = sharedPreferences.getInt(Constants.GESAMT_POINTS_KEY, 0);
         caseInt = sharedPreferences.getInt(Constants.CASE_POINTS_KEY, 0);
         experienceInt = sharedPreferences.getInt(Constants.EXPERIENCE_POINTS_KEY, 0);
-        Log.i(LOG_TAG, "gesamt after stored to shared preferences in animateProgressBars: "+ gesamtInt);
-        Log.i(LOG_TAG, "case after stored to shared preferences in animateProgressBars: "+ caseInt);
 
         // Set progress to the values obtained
         gesamtProgressBar.setProgress(gesamtInt);
@@ -176,7 +169,6 @@ public class PointsActivity extends AppCompatActivity{
     private void sendRequestResponse() {
         // Instantiate the RequestQueue.
         RequestQueue queue = Volley.newRequestQueue(this);
-        Log.i(LOG_TAG, "Send request Response Called");
 
         // Make url
         String certId = sharedPreferences.getString(Constants.USER_CERTIFICATION_ID, Constants.EMPTY_STRING_DEFAULT);
@@ -198,15 +190,10 @@ public class PointsActivity extends AppCompatActivity{
                         JSONObject object = new JSONObject(response);
                         gesamtInt = object.getInt("gesamt");
                         editor.putInt(Constants.GESAMT_POINTS_KEY, gesamtInt).apply();
-                        Log.i(LOG_TAG, "gesamt after stored to shared preferences in sendRequest: "+ sharedPreferences.getInt(Constants.GESAMT_POINTS_KEY, 0));
-                        Log.i(LOG_TAG, String.valueOf(gesamtInt));
                         caseInt = object.getInt("case");
                         editor.putInt(Constants.CASE_POINTS_KEY, caseInt).apply();
-                        Log.i(LOG_TAG, String.valueOf(caseInt));
                         experienceInt = object.getInt("experience");
                         editor.putInt(Constants.EXPERIENCE_POINTS_KEY, experienceInt).apply();
-                        Log.i(LOG_TAG, "gesamt after stored to shared preferences in sendRequest and commit called: "+ sharedPreferences.getInt(Constants.GESAMT_POINTS_KEY, 0));
-                        Log.i(LOG_TAG, String.valueOf(experienceInt));
                     } catch (Throwable throwable) {
                         Log.e(LOG_TAG, "Failed to parse string to JSON Object and get info");
                     }
