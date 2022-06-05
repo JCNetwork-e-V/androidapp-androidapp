@@ -155,7 +155,7 @@
         <activity
             android:name="com.jcnetwork.android.app1.ui.CVActivity"
             android:label="CV"
-            android:parentActivityName="com.jcnetwork.android.app1.ui.MainActivity">
+            android:parentActivityName="com.jcnetwork.android.app1.ui.RegistrationActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.jcnetwork.android.app1.ui.MainActivity" />

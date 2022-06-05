@@ -62,14 +62,11 @@ public class CurrentProgramPointWidget extends AppWidgetProvider {
 
         // Create intent to launch Google maps with address data
         if (!address.isEmpty()) {
-            Uri addressUri = Uri.parse( "https://www.google.com/maps/search/?api=1&query=" + Uri.encode(address));
-            Intent intent = new Intent(Intent.ACTION_VIEW, addressUri);
-            //intent.setPackage("com.google.android.apps.maps");
-            if (intent.resolveActivity(context.getPackageManager()) != null) {
-                context.startActivity(intent);
-                PendingIntent pendingIntent = PendingIntent.getActivity(context, 0, intent, 0);
-                views.setOnClickPendingIntent(R.id.go_arrow, pendingIntent);
-            }
+            Uri addressUri = Uri.parse("geo:0,0?q=" + address);
+            Intent mapIntent = new Intent(Intent.ACTION_VIEW, addressUri);
+            mapIntent.setPackage("com.google.android.apps.maps");
+            PendingIntent pendingIntent = PendingIntent.getActivity(context, 0, mapIntent, 0);
+            views.setOnClickPendingIntent(R.id.go_arrow, pendingIntent);
         }
 
         // Instruct the widget manager to update the widget
