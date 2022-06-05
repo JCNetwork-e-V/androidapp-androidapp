@@ -73,15 +73,11 @@ public class RetrofitMethods {
         // Get Ablauf_ID from preferences
         SharedPreferences userSharedPreferences = this.mContext.getSharedPreferences(Constants.SHARED_PREFERENCE_FILE_NAME, Context.MODE_PRIVATE);
         String ABLAUF_ID = userSharedPreferences.getString(Constants.ABLAUF_ID, ""); //TODO Add logic to alert user that no data as found because no ablaufid present
-//        SharedPreferences.Editor editor = userSharedPreferences.edit();
-
 
         Call<JSONResult> call = mNetworkApi.getJSONResults(ABLAUF_ID);
         call.enqueue(new Callback<JSONResult>() {
             @Override
             public void onResponse(@NotNull Call<JSONResult> call, @NotNull Response<JSONResult> response) {
-                // Log
-                Log.i("LOG_TAG", "on Response called");
 
                 // Get data
                 JSONResult jsonResult = response.body();
@@ -89,50 +85,9 @@ public class RetrofitMethods {
                     // Get program
                     list.addAll(jsonResult.getmProgram());
 
-                    //TODO Delete later this is just for testing widget
-//                    //Loop through list and add certain number of days
-//                    for (int i = 0; i < list.size(); i++) {
-//                        // Get Strings
-//                        String beginString = list.get(i).getBegin();
-//                        String endString = list.get(i).getEnd();
-//
-//                        // Convert to Date
-//                        String beginNew, endNew;
-//                        try {
-//                             Date beginDate = ProgramPointAnalysis.getDateFromString(beginString);
-//                             Date endDate = ProgramPointAnalysis.getDateFromString(endString);
-//
-//                            // Add days in difference
-//                            Calendar beginCal = Calendar.getInstance();
-//                            beginCal.setTime(beginDate);
-//                            beginCal.add(Calendar.DAY_OF_MONTH, 337);
-//
-//                            Calendar endCal = Calendar.getInstance();
-//                            endCal.setTime(endDate);
-//                            endCal.add(Calendar.DAY_OF_MONTH, 337);
-//
-//                            // Convert back to Strings
-//                            beginNew = getStringFromDate(beginCal.getTime());
-//                            endNew = getStringFromDate(endCal.getTime());
-//
-//                            // Set to new time
-//                            list.get(i).setBegin(beginNew);
-//                            list.get(i).setEnd(endNew);
-//                        } catch (ParseException e) {
-//                            e.printStackTrace();
-//                        }
-//                    }
-
-
-                    // Logs
-                    Log.i("LOG_TAG", "time of first element" + list.get(0).getBegin());
-                    Log.i("LOG_TAG", "first element" + list.get(0).getTitle());
-                    Log.i("LOG_TAG", "name " + jsonResult.getmUserName());
-
                     // Use GSON to convert JSON POJO objects in program into JSON strings
                     Gson gson = new Gson();
                     String program_json = gson.toJson(list);
-                    Log.i("LOG_TAG", "gson json" + program_json);
 
                     // Get user name
                     String name = jsonResult.getmUserName();
@@ -150,7 +105,6 @@ public class RetrofitMethods {
 
             @Override
             public void onFailure(@NotNull Call<JSONResult> call, @NotNull Throwable t) {
-                Log.i("LOG_TAG", "onFailure called");
                 call.cancel();
             }
         });
@@ -163,7 +117,6 @@ public class RetrofitMethods {
     private static String getStringFromDate(Date date) {
         SimpleDateFormat myFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
         String string = myFormat.format(date);
-        Log.i("LOG_TAG", string);
         return string;
     }
 }

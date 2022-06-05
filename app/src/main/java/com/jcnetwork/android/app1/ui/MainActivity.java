@@ -1,5 +1,6 @@
 package com.jcnetwork.android.app1.ui;
 
+import android.annotation.SuppressLint;
 import android.app.NotificationChannel;
 import android.app.NotificationManager;
 import android.content.Context;
@@ -184,7 +185,6 @@ public class MainActivity extends AppCompatActivity {
             navNameTV.setText(userSharedPreferences.getString(Constants.USER_NAME_KEY, Constants.EMPTY_STRING_DEFAULT));
             nameTV.setText(userSharedPreferences.getString(Constants.USER_NAME_KEY, Constants.EMPTY_STRING_DEFAULT));
             nameTV.startAnimation(in);
-            Log.i(LOG_TAG, "onSharedPreferenceChanged called");
         });
 
         // Set onClickListeners to views
@@ -203,6 +203,7 @@ public class MainActivity extends AppCompatActivity {
     /**
      * Method to set up navigation drawer
      */
+    @SuppressLint("NonConstantResourceId")
     private void setUpNavigationDrawer() {
 
         // Set default checked item to home
@@ -401,6 +402,7 @@ public class MainActivity extends AppCompatActivity {
     /**
      * Creates an onClickListener which checks the id of the view and reacts accorodingly
      */
+    @SuppressLint("NonConstantResourceId")
     private final View.OnClickListener myCardClickListener = view -> {
         // React differently according to id
         switch (view.getId()) {
